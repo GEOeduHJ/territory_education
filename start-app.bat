@@ -1,0 +1,6 @@
+@echo off
+echo Starting Territory Education Web Application...
+echo.
+echo Opening development server...
+npm run dev
+pause
