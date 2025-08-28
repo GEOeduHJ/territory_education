@@ -1,7 +1,56 @@
 import React from 'react';
 import { StepContentProps } from '../types';
+import { KeywordInputForm } from './KeywordInputForm';
+import { TemplateContentRenderer } from './TemplateContentRenderer';
 
-const StepContent: React.FC<StepContentProps> = ({ step, onExternalLinkClick }) => {
+const StepContent: React.FC<StepContentProps> = ({ 
+  step, 
+  onExternalLinkClick, 
+  moduleId,
+  keywords,
+  onKeywordSubmit 
+}) => {
+  // Module 1의 키워드 입력 단계인지 확인
+  const isKeywordInputStep = step.isKeywordInput && moduleId === "1";
+  
+  // Module 1의 템플릿 사용 단계인지 확인
+  const isTemplateStep = step.useKeywordTemplate && moduleId === "1";
+
+  // 키워드 입력 폼 렌더링 (Module 1, Step 1)
+  if (isKeywordInputStep && onKeywordSubmit) {
+    return (
+      <div 
+        className="bg-white p-6 lg:p-8"
+        role="tabpanel"
+        id={`tabpanel-${step.id}`}
+        aria-labelledby={`tab-${step.id}`}
+      >
+        <KeywordInputForm
+          onSubmit={onKeywordSubmit}
+          initialKeywords={keywords}
+        />
+      </div>
+    );
+  }
+
+  // 템플릿 콘텐츠 렌더링 (Module 1, Steps 2-5)
+  if (isTemplateStep && keywords) {
+    return (
+      <div 
+        className="bg-white p-6 lg:p-8"
+        role="tabpanel"
+        id={`tabpanel-${step.id}`}
+        aria-labelledby={`tab-${step.id}`}
+      >
+        <TemplateContentRenderer
+          step={step}
+          keywords={keywords}
+          onExternalLinkClick={onExternalLinkClick}
+        />
+      </div>
+    );
+  }
+  // 기존 표준 콘텐츠 렌더링 (다른 모듈들 또는 키워드 기능이 없는 경우)
   const handleLinkClick = () => {
     if (step.externalLink) {
       onExternalLinkClick(step.externalLink.url);

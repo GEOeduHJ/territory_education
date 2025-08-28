@@ -7,6 +7,43 @@ export interface ModuleInfo {
   stepCount: number;
 }
 
+// 키워드 관련 인터페이스
+export interface KeywordData {
+  keyword1: string;  // 갈등 주체
+  keyword2: string;  // 분쟁 배경
+  keyword3: string;  // 해결 방안
+  keyword4: string;  // 추가 내용
+}
+
+export interface KeywordTemplate {
+  template: string;
+  placeholders: string[];
+}
+
+export interface ModuleKeywordConfig {
+  moduleId: string;
+  hasKeywordFeature: boolean;
+  keywordInputStepId: string;
+  templateSteps: string[];
+  template: KeywordTemplate;
+}
+
+export interface StoredKeywordData {
+  moduleId: string;
+  keywords: KeywordData;
+  timestamp: number;
+  expiresAt?: number;
+}
+
+export interface ValidationState {
+  keyword1Error?: string;
+  keyword2Error?: string;
+  keyword3Error?: string;
+  keyword4Error?: string;
+  generalError?: string;
+  isValid: boolean;
+}
+
 // 모듈 스텝 인터페이스
 export interface ModuleStep {
   id: string;
@@ -19,6 +56,10 @@ export interface ModuleStep {
     openInNewTab: boolean;
   };
   editableContent?: boolean;
+  // 새로운 키워드 기능 속성들
+  isKeywordInput?: boolean;
+  useKeywordTemplate?: boolean;
+  templateContent?: string;
 }
 
 // 모듈 데이터 인터페이스
@@ -54,6 +95,22 @@ export interface TabNavigationProps {
 
 export interface StepContentProps {
   step: ModuleStep;
+  onExternalLinkClick: (url: string) => void;
+  moduleId?: string;
+  keywords?: KeywordData;
+  onKeywordSubmit?: (keywords: KeywordData) => void;
+}
+
+// 키워드 관련 컴포넌트 Props
+export interface KeywordInputFormProps {
+  onSubmit: (keywords: KeywordData) => void;
+  initialKeywords?: KeywordData;
+  isLoading?: boolean;
+}
+
+export interface TemplateContentRendererProps {
+  step: ModuleStep;
+  keywords: KeywordData;
   onExternalLinkClick: (url: string) => void;
 }
 

@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import TabNavigation from './TabNavigation';
 import StepContent from './StepContent';
-import { ModuleData } from '../types';
+import { ModuleData, KeywordData } from '../types';
 import { contentLoader, linkService } from '../services/linkService';
+import { KeywordController } from '../services/keywordController';
 
 const ModulePage: React.FC = () => {
   const { moduleId } = useParams<{ moduleId: string }>();
@@ -12,6 +13,12 @@ const ModulePage: React.FC = () => {
   const [activeStepId, setActiveStepId] = useState<string>('');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  
+  // 키워드 상태 관리 (Module 1용)
+  const [keywords, setKeywords] = useState<KeywordData | null>(null);
+
+  // Module 1인지 확인
+  const isModule1 = moduleId === "1";
 
   useEffect(() => {
     const loadModuleData = async () => {
@@ -30,6 +37,14 @@ const ModulePage: React.FC = () => {
         if (data.steps.length > 0) {
           setActiveStepId(data.steps[0].id);
         }
+
+        // Module 1인 경우 저장된 키워드 로드
+        if (isModule1) {
+          const savedKeywords = KeywordController.getKeywords(moduleId);
+          if (savedKeywords) {
+            setKeywords(savedKeywords);
+          }
+        }
       } catch (err) {
         setError(err instanceof Error ? err.message : '모듈을 불러오는 중 오류가 발생했습니다.');
       } finally {
@@ -38,7 +53,44 @@ const ModulePage: React.FC = () => {
     };
 
     loadModuleData();
-  }, [moduleId]);
+  }, [moduleId, isModule1]);
+
+  // 키워드 내비게이션 이벤트 리스너 (1단계로 돌아가기)
+  useEffect(() => {
+    const handleNavigateToKeywordInput = () => {
+      if (isModule1 && moduleData && moduleData.steps.length > 0) {
+        setActiveStepId(moduleData.steps[0].id);
+      }
+    };
+
+    window.addEventListener('navigateToKeywordInput', handleNavigateToKeywordInput);
+    return () => {
+      window.removeEventListener('navigateToKeywordInput', handleNavigateToKeywordInput);
+    };
+  }, [isModule1, moduleData]);
+
+  /**
+   * 키워드 제출 핸들러 (Module 1 Step 1에서 호출)
+   */
+  const handleKeywordSubmit = async (submittedKeywords: KeywordData) => {
+    if (!moduleId || !isModule1) return;
+    
+    try {
+      // 키워드 저장
+      KeywordController.storeKeywords(moduleId, submittedKeywords);
+      setKeywords(submittedKeywords);
+      
+      // 2단계로 자동 이동
+      if (moduleData && moduleData.steps.length > 1) {
+        setTimeout(() => {
+          setActiveStepId(moduleData.steps[1].id);
+        }, 500); // 짧은 딴레이로 사용자 피드백 향상
+      }
+    } catch (error) {
+      console.error('키워드 저장 실패:', error);
+      // 에러는 KeywordInputForm에서 처리됨
+    }
+  };
 
   const handleStepChange = (stepId: string) => {
     setActiveStepId(stepId);
@@ -133,6 +185,9 @@ const ModulePage: React.FC = () => {
         <StepContent
           step={activeStep}
           onExternalLinkClick={handleExternalLinkClick}
+          moduleId={moduleId}
+          keywords={keywords || undefined}
+          onKeywordSubmit={isModule1 ? handleKeywordSubmit : undefined}
         />
       )}
 
