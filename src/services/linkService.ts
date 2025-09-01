@@ -43,25 +43,13 @@ export const linkService = new LinkService();
 // 여기를 수정하세요 - 콘텐츠 로더 서비스
 export class StaticContentLoader {
   async loadModuleData(moduleId: string) {
-    const { MODULES_DATA } = await import('../data/modules');
-    const moduleData = MODULES_DATA.modules[moduleId];
-    
-    if (!moduleData) {
-      throw new Error(`Module ${moduleId} not found`);
-    }
-    
-    return moduleData;
+    const { loadModule } = await import('../data/modules/index');
+    return await loadModule(moduleId);
   }
 
   async loadAllModules() {
-    const { MODULES_DATA } = await import('../data/modules');
-    
-    return Object.values(MODULES_DATA.modules).map(module => ({
-      id: module.id,
-      title: module.title,
-      description: module.description,
-      stepCount: module.steps.length
-    }));
+    const { loadAllModules } = await import('../data/modules/index');
+    return await loadAllModules();
   }
 }
 
