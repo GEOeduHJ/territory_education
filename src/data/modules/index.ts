@@ -39,7 +39,7 @@ const loadAllModules = async (): Promise<ModuleInfo[]> => {
     import('./module6')
   ]);
 
-  return modules.map((module, index) => {
+  return modules.map((module) => {
     const moduleData = Object.values(module)[0] as ModuleData;
     return {
       id: moduleData.id,
