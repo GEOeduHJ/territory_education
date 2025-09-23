@@ -65,6 +65,9 @@ export interface ModuleStep {
   isKeywordInput?: boolean;
   useKeywordTemplate?: boolean;
   templateContent?: string;
+  // 고정 템플릿 기능 (Module 3용)
+  useFixedTemplate?: boolean;
+  fixedTemplateContent?: string;
   // Padlet 임베드 기능
   showEmbeddedPadlet?: boolean;
   padletUrl?: string;

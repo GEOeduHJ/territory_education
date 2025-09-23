@@ -2,6 +2,7 @@ import React from 'react';
 import { StepContentProps } from '../types';
 import { KeywordInputForm } from './KeywordInputForm';
 import { TemplateContentRenderer } from './TemplateContentRenderer';
+import { FixedTemplateRenderer } from './FixedTemplateRenderer';
 
 const StepContent: React.FC<StepContentProps> = ({ 
   step, 
@@ -15,6 +16,9 @@ const StepContent: React.FC<StepContentProps> = ({
   
   // Module 1의 템플릿 사용 단계인지 확인
   const isTemplateStep = step.useKeywordTemplate && moduleId === "1";
+
+  // Module 3의 고정 템플릿 사용 단계인지 확인
+  const isFixedTemplateStep = step.useFixedTemplate && moduleId === "3";
 
   // 키워드 입력 폼 렌더링 (Module 1, Step 1)
   if (isKeywordInputStep && onKeywordSubmit) {
@@ -45,6 +49,23 @@ const StepContent: React.FC<StepContentProps> = ({
         <TemplateContentRenderer
           step={step}
           keywords={keywords}
+          onExternalLinkClick={onExternalLinkClick}
+        />
+      </div>
+    );
+  }
+
+  // 고정 템플릿 콘텐츠 렌더링 (Module 3, Step 2)
+  if (isFixedTemplateStep) {
+    return (
+      <div 
+        className="bg-white p-6 lg:p-8"
+        role="tabpanel"
+        id={`tabpanel-${step.id}`}
+        aria-labelledby={`tab-${step.id}`}
+      >
+        <FixedTemplateRenderer
+          step={step}
           onExternalLinkClick={onExternalLinkClick}
         />
       </div>
@@ -180,7 +201,7 @@ const StepContent: React.FC<StepContentProps> = ({
         </div>
 
         {/* External Link Section */}
-        {step.externalLink && (
+        {(step.externalLink || step.externalLinks) && (
           <div className="bg-blue-50 rounded-lg p-6 border border-blue-200">
             <h3 className="text-lg font-medium text-gray-900 mb-3">
               외부 자료 링크
@@ -188,25 +209,62 @@ const StepContent: React.FC<StepContentProps> = ({
             <p className="text-gray-600 mb-4">
               아래 버튼을 클릭하여 관련 자료를 확인하고 학습을 진행하세요.
             </p>
-            <button
-              onClick={handleLinkClick}
-              className="external-link-button"
-            >
-              <svg 
-                className="w-4 h-4" 
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24"
+            
+            {/* 복수 외부 링크 처리 */}
+            {step.externalLinks && step.externalLinks.length > 0 && (
+              <div className="space-y-3">
+                {step.externalLinks.map((link, index) => (
+                  <button
+                    key={index}
+                    onClick={() => onExternalLinkClick(link.url)}
+                    className={`w-full external-link-button ${
+                      link.url.includes('placeholder')
+                        ? 'bg-gray-300 text-gray-500 cursor-not-allowed hover:bg-gray-300'
+                        : ''
+                    }`}
+                    disabled={link.url.includes('placeholder')}
+                  >
+                    <svg 
+                      className="w-4 h-4" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24"
+                    >
+                      <path 
+                        strokeLinecap="round" 
+                        strokeLinejoin="round" 
+                        strokeWidth={2} 
+                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" 
+                      />
+                    </svg>
+                    <span>{link.label}</span>
+                  </button>
+                ))}
+              </div>
+            )}
+
+            {/* 단일 외부 링크 처리 (externalLinks가 없는 경우만) */}
+            {step.externalLink && !step.externalLinks && (
+              <button
+                onClick={handleLinkClick}
+                className="external-link-button"
               >
-                <path 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  strokeWidth={2} 
-                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" 
-                />
-              </svg>
-              <span>{step.externalLink.label}</span>
-            </button>
+                <svg 
+                  className="w-4 h-4" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    strokeWidth={2} 
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" 
+                  />
+                </svg>
+                <span>{step.externalLink.label}</span>
+              </button>
+            )}
           </div>
         )}
 
