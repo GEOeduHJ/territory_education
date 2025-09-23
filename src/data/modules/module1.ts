@@ -15,7 +15,7 @@ export const MODULE_1_KEYWORD_CONFIG: ModuleKeywordConfig = {
 // Module 1 데이터
 export const MODULE_1_DATA: ModuleData = {
   id: "1",
-  title: "영토교육 캠페인 노래 만들기",
+  title: "🎵 영토교육 캠페인 노래 만들기",
   description: "영토 분쟁 사례를 바탕으로 캠페인 노래를 제작하는 모듈입니다",
   steps: [
     {

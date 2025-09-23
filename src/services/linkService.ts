@@ -11,10 +11,10 @@ class LinkService implements ExternalLinkService {
   }
 
   trackLinkClick(moduleId: string, stepId: string, url: string): void {
-    // 여기를 수정하세요 - 링크 클릭 추적 로직
+    // 링크 클릭 추적 및 로깅
     console.log(`Link clicked: Module ${moduleId}, Step ${stepId} -> ${url}`);
     
-    // 여기를 수정하세요 - 분석 도구 연동 (예: Google Analytics)
+    // 분석 도구 연동 가능 (예: Google Analytics)
     // analytics.track('external_link_click', {
     //   moduleId,
     //   stepId,
@@ -25,7 +25,7 @@ class LinkService implements ExternalLinkService {
   openExternalLink(url: string, newTab: boolean = true): void {
     if (!this.validateUrl(url)) {
       console.error('Invalid URL:', url);
-      alert('여기를 수정하세요 - 잘못된 링크입니다.');
+      alert('⚠️ 올바르지 않은 링크 주소입니다. 다시 확인해주세요.');
       return;
     }
 
@@ -40,7 +40,7 @@ class LinkService implements ExternalLinkService {
 // 싱글톤 인스턴스 생성
 export const linkService = new LinkService();
 
-// 여기를 수정하세요 - 콘텐츠 로더 서비스
+// 콘텐츠 로더 서비스 - 모듈 데이터 동적 로딩
 export class StaticContentLoader {
   async loadModuleData(moduleId: string) {
     const { loadModule } = await import('../data/modules/index');

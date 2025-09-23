@@ -59,11 +59,11 @@ const HomePage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="text-center">
             <h1 className="text-3xl font-bold text-gray-900 mb-2">
-              여기를 수정하세요 - 영토교육 학습 플랫폼
+              🤖 AI와 함께하는 스마트 영토교육 ✨
             </h1>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              여기를 수정하세요 - 체계적인 영토교육을 통해 우리나라의 영토에 대한 올바른 이해를 높여보세요. 
-              각 모듈은 단계별 학습 과정으로 구성되어 있습니다.
+            <p className="text-lg text-gray-600 max-w-4xl mx-auto">
+              인공지능 기술을 활용한 창의적이고 재미있는 영토교육 플랫폼입니다! <br />
+              AI 챗봇과의 대화, 창작 활동, 시뮬레이션을 통해 우리나라의 소중한 영토를 더 깊이 이해해보세요. 🌍
             </p>
           </div>
         </div>
@@ -73,10 +73,10 @@ const HomePage: React.FC = () => {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="mb-8">
           <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-            학습 모듈 선택
+            🎯 AI 기반 학습 모듈 선택
           </h2>
           <p className="text-gray-600">
-            여기를 수정하세요 - 아래 모듈 중 하나를 선택하여 학습을 시작하세요.
+            AI 기술을 활용한 다양한 학습 모듈로 영토교육의 새로운 경험을 만나보세요! 🚀✨
           </p>
         </div>
 
@@ -95,11 +95,12 @@ const HomePage: React.FC = () => {
         <div className="mt-16 text-center">
           <div className="bg-white rounded-lg shadow-sm p-6 max-w-2xl mx-auto">
             <h3 className="text-lg font-medium text-gray-900 mb-2">
-              여기를 수정하세요 - 학습 방법 안내
+              💡 학습 방법 안내
             </h3>
             <p className="text-gray-600 text-sm">
-              여기를 수정하세요 - 각 모듈을 클릭하면 단계별 탭 구조로 이동합니다. 
-              각 단계에서 제공되는 외부 링크를 통해 관련 자료를 확인하고 학습을 진행하세요.
+              각 모듈을 클릭하면 단계별 탭 구조로 이동합니다. 
+              각 단계에서 제공되는 외부 링크와 다양한 활동을 통해 관련 자료를 확인하고 재미있게 학습을 진행하세요! 
+              AI 챗봇과의 대화, 창작 활동, 토론 등 다양한 방식으로 영토교육을 체험할 수 있습니다. ✨
             </p>
           </div>
         </div>

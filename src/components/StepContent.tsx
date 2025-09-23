@@ -3,6 +3,7 @@ import { StepContentProps } from '../types';
 import { KeywordInputForm } from './KeywordInputForm';
 import { TemplateContentRenderer } from './TemplateContentRenderer';
 import { FixedTemplateRenderer } from './FixedTemplateRenderer';
+import { ChatbotCardRenderer } from './ChatbotCardRenderer';
 
 const StepContent: React.FC<StepContentProps> = ({ 
   step, 
@@ -19,6 +20,9 @@ const StepContent: React.FC<StepContentProps> = ({
 
   // Module 3의 고정 템플릿 사용 단계인지 확인
   const isFixedTemplateStep = step.useFixedTemplate && moduleId === "3";
+
+  // Module 5의 챗봇 카드 사용 단계인지 확인
+  const isChatbotCardStep = step.useChatbotCards && moduleId === "5";
 
   // 키워드 입력 폼 렌더링 (Module 1, Step 1)
   if (isKeywordInputStep && onKeywordSubmit) {
@@ -65,6 +69,23 @@ const StepContent: React.FC<StepContentProps> = ({
         aria-labelledby={`tab-${step.id}`}
       >
         <FixedTemplateRenderer
+          step={step}
+          onExternalLinkClick={onExternalLinkClick}
+        />
+      </div>
+    );
+  }
+
+  // 챗봇 카드 콘텐츠 렌더링 (Module 5, Step 2)
+  if (isChatbotCardStep) {
+    return (
+      <div 
+        className="bg-white p-6 lg:p-8"
+        role="tabpanel"
+        id={`tabpanel-${step.id}`}
+        aria-labelledby={`tab-${step.id}`}
+      >
+        <ChatbotCardRenderer
           step={step}
           onExternalLinkClick={onExternalLinkClick}
         />
