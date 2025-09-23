@@ -111,13 +111,12 @@ export class KeywordController {
   }
 
   /**
-   * 콘텐츠 입력 정제
+   * 콘텐츠 입력 정제 (공백 유지)
    */
   static sanitizeKeyword(input: string): string {
     if (!input) return '';
     
     return input
-      .trim()
       .replace(/<[^>]*>/g, '') // HTML 태그 제거
       .replace(/[<>&"']/g, match => { // 특수 문자 이스케이프
         const escapeMap: {[key: string]: string} = {

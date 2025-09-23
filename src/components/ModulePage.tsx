@@ -78,13 +78,15 @@ const ModulePage: React.FC = () => {
     try {
       // 키워드 저장
       KeywordController.storeKeywords(moduleId, submittedKeywords);
+      
+      // 즉시 키워드 상태 업데이트
       setKeywords(submittedKeywords);
       
       // 2단계로 자동 이동
       if (moduleData && moduleData.steps.length > 1) {
         setTimeout(() => {
           setActiveStepId(moduleData.steps[1].id);
-        }, 500); // 짧은 딴레이로 사용자 피드백 향상
+        }, 500); // 짧은 딜레이로 사용자 피드백 향상
       }
     } catch (error) {
       console.error('키워드 저장 실패:', error);

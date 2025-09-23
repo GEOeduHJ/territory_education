@@ -55,11 +55,19 @@ export interface ModuleStep {
     label: string;
     openInNewTab: boolean;
   };
+  externalLinks?: Array<{
+    url: string;
+    label: string;
+    openInNewTab: boolean;
+  }>;
   editableContent?: boolean;
   // 새로운 키워드 기능 속성들
   isKeywordInput?: boolean;
   useKeywordTemplate?: boolean;
   templateContent?: string;
+  // Padlet 임베드 기능
+  showEmbeddedPadlet?: boolean;
+  padletUrl?: string;
 }
 
 // 모듈 데이터 인터페이스

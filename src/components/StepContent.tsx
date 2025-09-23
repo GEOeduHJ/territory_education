@@ -33,7 +33,7 @@ const StepContent: React.FC<StepContentProps> = ({
     );
   }
 
-  // 템플릿 콘텐츠 렌더링 (Module 1, Steps 2-5)
+  // 템플릿 콘텐츠 렌더링 (Module 1, Steps 2-6)
   if (isTemplateStep && keywords) {
     return (
       <div 
@@ -47,6 +47,96 @@ const StepContent: React.FC<StepContentProps> = ({
           keywords={keywords}
           onExternalLinkClick={onExternalLinkClick}
         />
+      </div>
+    );
+  }
+
+  // Step 6 (최종 결과물 제출) - Padlet 임베드 포함
+  if (step.showEmbeddedPadlet && step.padletUrl) {
+    return (
+      <div 
+        className="bg-white p-6 lg:p-8"
+        role="tabpanel"
+        id={`tabpanel-${step.id}`}
+        aria-labelledby={`tab-${step.id}`}
+      >
+        <div className="max-w-6xl mx-auto">
+          {/* Step Header */}
+          <div className="mb-6">
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">
+              {step.title}
+            </h2>
+            {step.description && (
+              <p className="text-lg text-gray-600">
+                {step.description}
+              </p>
+            )}
+          </div>
+
+          {/* Step Content */}
+          <div className="mb-6">
+            <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
+              <h3 className="text-lg font-medium text-gray-900 mb-3">
+                학습 내용
+              </h3>
+              <div className="text-gray-700 whitespace-pre-line leading-relaxed">
+                {step.content}
+              </div>
+            </div>
+          </div>
+
+          {/* External Link Section */}
+          {step.externalLink && (
+            <div className="bg-blue-50 rounded-lg p-6 border border-blue-200 mb-6">
+              <h3 className="text-lg font-medium text-gray-900 mb-3">
+                작품 제출하기
+              </h3>
+              <p className="text-gray-600 mb-4">
+                완성된 뮤직비디오를 업로드하고 다른 학습자들의 작품도 감상해보세요.
+              </p>
+              <button
+                onClick={() => onExternalLinkClick(step.externalLink!.url)}
+                className="external-link-button"
+              >
+                <svg 
+                  className="w-4 h-4" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    strokeWidth={2} 
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" 
+                  />
+                </svg>
+                <span>{step.externalLink.label}</span>
+              </button>
+            </div>
+          )}
+
+          {/* Embedded Padlet */}
+          <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+            <div className="bg-gray-50 px-6 py-4 border-b border-gray-200">
+              <h3 className="text-lg font-medium text-gray-900">
+                제출된 작품들 보기
+              </h3>
+              <p className="text-sm text-gray-600 mt-1">
+                다른 학습자들이 제작한 뮤직비디오를 확인하고 영감을 얻어보세요.
+              </p>
+            </div>
+            <div className="relative" style={{ height: '600px' }}>
+              <iframe
+                src={step.padletUrl}
+                title="뮤직비디오 작품 갤러리"
+                className="w-full h-full border-0"
+                allow="camera; microphone; geolocation"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
