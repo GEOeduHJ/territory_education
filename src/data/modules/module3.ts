@@ -46,7 +46,7 @@ export const MODULE_3_DATA: ModuleData = {
       content: "📋 2단계에서 디자인한 굿즈의 매력적인 상품 설명서를 제작해보세요! Canva 템플릿을 활용하여 전문적이고 눈에 띄는 상품 기획서를 만들어보세요. 타겟 고객, 가격, 특징 등을 포함해주세요. ✨",
       externalLinks: [
         {
-          url: "https://canva.com/design/DAGzyZHdHJY/ItxPwXDqsM9q8WCtBV9BXg/edit?utm_content=DAGzyZHdHJY&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton",
+          url: "https://www.canva.com/design/DAGz8lNujXM/ZJvBjNrSA15P519Pt0zcBw/edit?utm_content=DAGz8lNujXM&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton",
           label: "📝 Canva 템플릿으로 상품 설명서 제작하기",
           openInNewTab: true
         },
@@ -62,7 +62,7 @@ export const MODULE_3_DATA: ModuleData = {
       id: "step-4",
       title: "🏆 최종 작품 제출",
       description: "🎊 완성된 굿즈 디자인과 상품 설명서를 제출해보세요",
-      content: "🎉 축하합니다! 독도 굿즈 디자인과 상품 설명서가 완성되었습니다! 아래 Padlet에 작품을 업로드하고 다른 학습자들의 창의적인 작품도 감상해보세요. 서로의 아이디어에서 영감을 얻어보세요! 🌟",
+      content: "🎉 축하합니다! 독도 굿즈 디자인과 상품 설명서가 완성되었습니다! 아래 Padlet에 완성된 굿즈 디자인과 상품 기획서를 업로드하고 다른 학습자들의 창의적인 디자인 작품도 감상해보세요. 서로의 아이디어에서 영감을 얻어보세요! 🌟",
       externalLink: {
         url: "https://padlet.com/ghdwns00610/padlet-tzs4uog4dr84u5gi",
         label: "🎊 Padlet에 굿즈 디자인 제출하기",

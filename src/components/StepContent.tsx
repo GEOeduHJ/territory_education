@@ -134,7 +134,11 @@ const StepContent: React.FC<StepContentProps> = ({
                 작품 제출하기
               </h3>
               <p className="text-gray-600 mb-4">
-                완성된 뮤직비디오를 업로드하고 다른 학습자들의 작품도 감상해보세요.
+                {moduleId === "1" && "완성된 뮤직비디오를 업로드하고 다른 학습자들의 작품도 감상해보세요."}
+                {moduleId === "3" && "완성된 굿즈 디자인과 상품 기획서를 업로드하고 다른 학습자들의 창의적인 작품도 감상해보세요."}
+                {moduleId === "5" && "준비한 국제회의 자료를 업로드하고 다른 학습자들의 발표 자료도 확인해보세요."}
+                {moduleId && !["1", "3", "5"].includes(moduleId) && "완성된 작품을 업로드하고 다른 학습자들의 작품도 감상해보세요."}
+                {!moduleId && "완성된 작품을 업로드하고 다른 학습자들의 작품도 감상해보세요."}
               </p>
               <button
                 onClick={() => onExternalLinkClick(step.externalLink!.url)}
@@ -165,13 +169,22 @@ const StepContent: React.FC<StepContentProps> = ({
                 제출된 작품들 보기
               </h3>
               <p className="text-sm text-gray-600 mt-1">
-                다른 학습자들이 제작한 뮤직비디오를 확인하고 영감을 얻어보세요.
+                {moduleId === "1" && "다른 학습자들이 제작한 뮤직비디오를 확인하고 영감을 얻어보세요."}
+                {moduleId === "3" && "다른 학습자들이 디자인한 독도 굿즈를 확인하고 새로운 아이디어를 얻어보세요."}
+                {moduleId === "5" && "다른 학습자들이 준비한 국제회의 자료를 확인하고 참고해보세요."}
+                {moduleId && !["1", "3", "5"].includes(moduleId) && "다른 학습자들의 작품을 확인하고 영감을 얻어보세요."}
+                {!moduleId && "다른 학습자들의 작품을 확인하고 영감을 얻어보세요."}
               </p>
             </div>
             <div className="relative" style={{ height: '600px' }}>
               <iframe
                 src={step.padletUrl}
-                title="뮤직비디오 작품 갤러리"
+                title={
+                  moduleId === "1" ? "뮤직비디오 작품 갤러리" :
+                  moduleId === "3" ? "독도 굿즈 디자인 갤러리" :
+                  moduleId === "5" ? "국제회의 준비 자료 갤러리" :
+                  "학습 작품 갤러리"
+                }
                 className="w-full h-full border-0"
                 allow="camera; microphone; geolocation"
                 loading="lazy"
