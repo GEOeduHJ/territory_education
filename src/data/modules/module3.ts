@@ -8,14 +8,32 @@ export const MODULE_3_DATA: ModuleData = {
   steps: [
     {
       id: "step-1",
-      title: "📚 독도 자율 학습",
-      description: "🏝️ 독도에 대한 다양한 내용과 주제를 자율적으로 학습해보세요",
-      content: "🌟 독도에 대한 역사, 지리, 문화적 의미 등 다양한 주제를 학습해보세요! 아래 링크를 통해 독도에 대한 풍부한 자료를 탐색하고, 굿즈 디자인에 활용할 수 있는 아이디어를 수집해보세요. 📖",
-      externalLink: {
-        url: "http://contents.nahf.or.kr/eddokViewer/contens.do?viewType=High&levelId=eddok.d_0004",
-        label: "📚 독도 학습 자료 사이트 바로가기",
-        openInNewTab: true
-      },
+      title: "📚 독도 주제 학습",
+      description: "🏝️ 학년에 맞게 독도에 대한 다양한 내용과 주제를 학습해봅시다",
+      content: "🌟 독도에 대한 역사, 지리, 문화적 의미 등 다양한 주제를 학습해보세요! 아래 드롭다운에서 원하는 자료를 선택하면 페이지 내에서 바로 확인할 수 있습니다. 굿즈 디자인에 활용할 수 있는 아이디어를 수집해보세요. 📖",
+      showResourceDropdown: true,
+      dropdownResources: [
+        {
+          id: "resource-1",
+          label: "📚 초등 3-4학년용",
+          url: "http://contents.nahf.or.kr/eddokViewer/contens.do?viewType=Elementary34&levelId=eddok.d_0001"
+        },
+        {
+          id: "resource-2",
+          label: "📚 초등학생",
+          url: "http://contents.nahf.or.kr/eddokViewer/contens.do?viewType=Elementary&levelId=eddok.d_0002"
+        },
+        {
+          id: "resource-3",
+          label: "📚 중학생",
+          url: "http://contents.nahf.or.kr/eddokViewer/contens.do?viewType=Elementary&levelId=eddok.d_0003"
+        },
+        {
+          id: "resource-4",
+          label: "📚 고등학생",
+          url: "http://contents.nahf.or.kr/eddokViewer/contens.do?viewType=Elementary&levelId=eddok.d_0004"
+        }
+      ],
       editableContent: false
     },
     {

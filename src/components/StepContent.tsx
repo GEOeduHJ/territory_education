@@ -5,6 +5,7 @@ import { TemplateContentRenderer } from './TemplateContentRenderer';
 import { FixedTemplateRenderer } from './FixedTemplateRenderer';
 import { ChatbotCardRenderer } from './ChatbotCardRenderer';
 import DisputeMap from './DisputeMap';
+import ResourceDropdown from './ResourceDropdown';
 
 const StepContent: React.FC<StepContentProps> = ({ 
   step, 
@@ -27,6 +28,9 @@ const StepContent: React.FC<StepContentProps> = ({
 
   // Module 1의 지도 표시 단계인지 확인
   const isMapStep = step.showMap && moduleId === "1";
+
+  // Module 3의 드롭다운 자료 표시 단계인지 확인
+  const isResourceDropdownStep = step.showResourceDropdown && moduleId === "3";
 
   // 지도 렌더링 (Module 1, Step 0 - 분쟁 지역 자료 조사)
   if (isMapStep && step.regionResources) {
@@ -59,6 +63,42 @@ const StepContent: React.FC<StepContentProps> = ({
 
           {/* Dispute Map */}
           <DisputeMap regions={step.regionResources} />
+        </div>
+      </div>
+    );
+  }
+
+  // 드롭다운 자료 렌더링 (Module 3, Step 1 - 독도 자율 학습)
+  if (isResourceDropdownStep && step.dropdownResources) {
+    return (
+      <div 
+        className="bg-white p-6 lg:p-8"
+        role="tabpanel"
+        id={`tabpanel-${step.id}`}
+        aria-labelledby={`tab-${step.id}`}
+      >
+        <div className="max-w-7xl mx-auto">
+          {/* Step Header */}
+          <div className="mb-6">
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">
+              {step.title}
+            </h2>
+            <p className="text-gray-600">
+              {step.description}
+            </p>
+          </div>
+
+          {/* Content */}
+          <div className="mb-8">
+            <div className="prose max-w-none">
+              <p className="text-gray-700 whitespace-pre-wrap">
+                {step.content}
+              </p>
+            </div>
+          </div>
+
+          {/* Resource Dropdown with iFrame */}
+          <ResourceDropdown resources={step.dropdownResources} />
         </div>
       </div>
     );

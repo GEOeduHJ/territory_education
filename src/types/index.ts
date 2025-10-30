@@ -84,6 +84,9 @@ export interface ModuleStep {
   // 지도 기능 (Module 1 step-0용)
   showMap?: boolean;
   regionResources?: RegionResource[];
+  // 드롭다운 자료 iframe 기능 (Module 3 step-1용)
+  showResourceDropdown?: boolean;
+  dropdownResources?: DropdownResource[];
 }
 
 // 분쟁 지역 자료 인터페이스
@@ -93,6 +96,13 @@ export interface RegionResource {
   coordinates: [number, number]; // [latitude, longitude]
   pdfUrl: string;
   description: string;
+}
+
+// 드롭다운 자료 인터페이스
+export interface DropdownResource {
+  id: string;
+  label: string;
+  url: string;
 }
 
 // 모듈 데이터 인터페이스
