@@ -81,13 +81,6 @@ export const MODULE_1_DATA: ModuleData = {
     "coordinates": [22.2, 36.6],
     "pdfUrl": "https://drive.google.com/file/d/1m7SHMyptobTmfYvgJuf3F5DZaEpXKJ6C/view?usp=drive_link",
     "description": "이집트와 수단 간 홍해 연안 할라이브 삼각지대 영유권 분쟁"
-  },
-  {
-    "id": "region-9",
-    "name": "흑해함대(크림)",
-    "coordinates": [44.62, 33.52],
-    "pdfUrl": "https://drive.google.com/file/d/1nnM_PWgQKbXhVsIp6i_o2bzayAqOPBtz/view?usp=drive_link",
-    "description": "러시아와 우크라이나 간 크림반도 및 흑해함대 소유권 분쟁"
   }
       ],
       editableContent: false
