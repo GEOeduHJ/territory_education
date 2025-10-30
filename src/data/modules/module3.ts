@@ -13,7 +13,7 @@ export const MODULE_3_DATA: ModuleData = {
       content: "🤖 AI 챗봇과 대화하며 독도에 대한 역사, 지리, 문화적 의미 등을 학습해보세요! 아래 버튼을 클릭하여 AI 챗봇과 대화를 시작하거나, 드롭다운에서 학년별 학습 자료를 선택하여 새 창에서 확인할 수 있습니다. 굿즈 디자인에 활용할 수 있는 아이디어를 수집해보세요. 📖",
       externalLinks: [
         {
-          url: "https://gemini.google.com/gem/cd753540688f",
+          url: "https://gemini.google.com/gem/1X21Of9Ls1y00m5wv9qavlZ9HpPGMKOlo?usp=sharing",
           label: "🤖 AI 챗봇과 독도 학습하기",
           openInNewTab: true
         }
