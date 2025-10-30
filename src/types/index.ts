@@ -81,6 +81,18 @@ export interface ModuleStep {
   // Padlet 임베드 기능
   showEmbeddedPadlet?: boolean;
   padletUrl?: string;
+  // 지도 기능 (Module 1 step-0용)
+  showMap?: boolean;
+  regionResources?: RegionResource[];
+}
+
+// 분쟁 지역 자료 인터페이스
+export interface RegionResource {
+  id: string;
+  name: string;
+  coordinates: [number, number]; // [latitude, longitude]
+  pdfUrl: string;
+  description: string;
 }
 
 // 모듈 데이터 인터페이스

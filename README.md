@@ -232,6 +232,4 @@ npm run build
   
 **🏛️ 대한민국 영토교육을 더 재미있고 효과적으로! 🇰🇷**
 
-[🚀 데모 보기](https://territory-education.vercel.app) | [📚 문서](https://github.com/GEOeduHJ/territory_education/wiki) | [🐛 버그 신고](https://github.com/GEOeduHJ/territory_education/issues)
-
 </div>

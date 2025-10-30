@@ -4,6 +4,7 @@ import { KeywordInputForm } from './KeywordInputForm';
 import { TemplateContentRenderer } from './TemplateContentRenderer';
 import { FixedTemplateRenderer } from './FixedTemplateRenderer';
 import { ChatbotCardRenderer } from './ChatbotCardRenderer';
+import DisputeMap from './DisputeMap';
 
 const StepContent: React.FC<StepContentProps> = ({ 
   step, 
@@ -24,7 +25,46 @@ const StepContent: React.FC<StepContentProps> = ({
   // Module 5의 챗봇 카드 사용 단계인지 확인
   const isChatbotCardStep = step.useChatbotCards && moduleId === "5";
 
-  // 키워드 입력 폼 렌더링 (Module 1, Step 1)
+  // Module 1의 지도 표시 단계인지 확인
+  const isMapStep = step.showMap && moduleId === "1";
+
+  // 지도 렌더링 (Module 1, Step 0 - 분쟁 지역 자료 조사)
+  if (isMapStep && step.regionResources) {
+    return (
+      <div 
+        className="bg-white p-6 lg:p-8"
+        role="tabpanel"
+        id={`tabpanel-${step.id}`}
+        aria-labelledby={`tab-${step.id}`}
+      >
+        <div className="max-w-7xl mx-auto">
+          {/* Step Header */}
+          <div className="mb-6">
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">
+              {step.title}
+            </h2>
+            <p className="text-gray-600">
+              {step.description}
+            </p>
+          </div>
+
+          {/* Content */}
+          <div className="mb-8">
+            <div className="prose max-w-none">
+              <p className="text-gray-700 whitespace-pre-wrap">
+                {step.content}
+              </p>
+            </div>
+          </div>
+
+          {/* Dispute Map */}
+          <DisputeMap regions={step.regionResources} />
+        </div>
+      </div>
+    );
+  }
+
+  // 키워드 입력 폼 렌더링 (Module 1, Step 2)
   if (isKeywordInputStep && onKeywordSubmit) {
     return (
       <div 
