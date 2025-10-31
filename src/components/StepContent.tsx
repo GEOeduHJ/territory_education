@@ -77,7 +77,7 @@ const StepContent: React.FC<StepContentProps> = ({
         id={`tabpanel-${step.id}`}
         aria-labelledby={`tab-${step.id}`}
       >
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           {/* Step Header */}
           <div className="mb-6">
             <h2 className="text-2xl font-bold text-gray-900 mb-2">
@@ -100,7 +100,7 @@ const StepContent: React.FC<StepContentProps> = ({
           {/* AI Chatbot Links */}
           {step.externalLinks && step.externalLinks.length > 0 && (
             <div className="mb-8">
-              <div className="grid grid-cols-1 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl">
                 {step.externalLinks.map((link, index) => (
                   <button
                     key={index}
