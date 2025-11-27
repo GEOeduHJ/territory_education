@@ -81,6 +81,9 @@ export interface ModuleStep {
   // Padlet 임베드 기능
   showEmbeddedPadlet?: boolean;
   padletUrl?: string;
+  // Scenario iframe for generated future-sea scenarios
+  showScenarioIframe?: boolean;
+  scenarioIframeUrl?: string;
   // 지도 기능 (Module 1 step-0용)
   showMap?: boolean;
   regionResources?: RegionResource[];

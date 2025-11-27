@@ -32,6 +32,16 @@ const StepContent: React.FC<StepContentProps> = ({
   // Module 3의 드롭다운 자료 표시 단계인지 확인
   const isResourceDropdownStep = step.showResourceDropdown && moduleId === "3";
 
+  // Embedded iframe preview for external links (all modules)
+  const [embeddedUrl, setEmbeddedUrl] = React.useState<string | null>(
+    step.externalLink?.url ?? (step.externalLinks && step.externalLinks.length > 0 ? step.externalLinks[0].url : null)
+  );
+
+  React.useEffect(() => {
+    // Update embeddedUrl when step changes
+    setEmbeddedUrl(step.externalLink?.url ?? (step.externalLinks && step.externalLinks.length > 0 ? step.externalLinks[0].url : null));
+  }, [step.externalLink, step.externalLinks]);
+
   // 지도 렌더링 (Module 1, Step 0 - 분쟁 지역 자료 조사)
   if (isMapStep && step.regionResources) {
     return (
@@ -305,6 +315,71 @@ const StepContent: React.FC<StepContentProps> = ({
       </div>
     );
   }
+
+  // 시나리오 생성용 빈 iframe 렌더링 (Module 2, Step 5 용)
+  if (step.showScenarioIframe) {
+    return (
+      <div 
+        className="bg-white p-6 lg:p-8"
+        role="tabpanel"
+        id={`tabpanel-${step.id}`}
+        aria-labelledby={`tab-${step.id}`}
+      >
+        <div className="max-w-4xl mx-auto">
+          {/* Step Header */}
+          <div className="mb-6">
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">
+              {step.title}
+            </h2>
+            {step.description && (
+              <p className="text-lg text-gray-600">
+                {step.description}
+              </p>
+            )}
+          </div>
+
+          {/* Content */}
+          <div className="prose prose-lg max-w-none mb-6">
+            <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
+              <h3 className="text-lg font-medium text-gray-900 mb-3">
+                학습 내용
+              </h3>
+              <div className="text-gray-700 whitespace-pre-line leading-relaxed">
+                {step.content}
+              </div>
+            </div>
+          </div>
+
+          {/* 빈 iframe 박스 (생성형 AI 시나리오 출력용 자리) */}
+          <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+            <div className="bg-gray-50 px-6 py-4 border-b border-gray-200">
+              <h3 className="text-lg font-medium text-gray-900">
+                미래 해양 시나리오 생성 화면
+              </h3>
+              <p className="text-sm text-gray-600 mt-1">생성형 AI 기반 시나리오가 표시될 영역입니다. 현재는 임시 빈 프레임을 표시합니다.</p>
+            </div>
+            <div className="relative" style={{ height: '520px' }}>
+              {step.scenarioIframeUrl ? (
+                <iframe
+                  src={step.scenarioIframeUrl}
+                  title="미래 해양 시나리오"
+                  className="w-full h-full border-0"
+                  loading="lazy"
+                />
+              ) : (
+                <div className="w-full h-full flex items-center justify-center text-gray-500">
+                  <div className="text-center">
+                    <div className="mb-2">[ 빈 시나리오 프레임 ]</div>
+                    <div className="text-sm">생성형 AI 시나리오를 연결하면 이 영역에 결과가 표시됩니다.</div>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
   // 기존 표준 콘텐츠 렌더링 (다른 모듈들 또는 키워드 기능이 없는 경우)
   const handleLinkClick = () => {
     if (step.externalLink) {
@@ -409,6 +484,44 @@ const StepContent: React.FC<StepContentProps> = ({
                 <span>{step.externalLink.label}</span>
               </button>
             )}
+          </div>
+        )}
+
+        {/* Embedded iframe preview for external links (bottom of step) */}
+        {(step.externalLink || (step.externalLinks && step.externalLinks.length > 0)) && (
+          <div className="mt-6 bg-white rounded-lg border border-gray-200 p-4">
+            <h3 className="text-lg font-medium text-gray-900 mb-2">임베디드 미리보기</h3>
+            <p className="text-sm text-gray-600 mb-3">아래 프레임에서 외부 링크가 iframe으로 열리는지 확인할 수 있습니다. 일부 사이트는 보안 정책(X-Frame-Options)으로 인해 iframe 로드가 차단될 수 있습니다.</p>
+
+            {/* 선택기: 외부 링크가 여러 개인 경우 */}
+            {step.externalLinks && step.externalLinks.length > 1 && (
+              <div className="mb-3">
+                <label className="sr-only">임베디드 링크 선택</label>
+                <select
+                  className="border rounded px-3 py-2 w-full"
+                  value={embeddedUrl ?? ''}
+                  onChange={(e) => setEmbeddedUrl(e.target.value)}
+                >
+                  {step.externalLinks.map((l, idx) => (
+                    <option key={idx} value={l.url}>{l.label}</option>
+                  ))}
+                </select>
+              </div>
+            )}
+
+            <div className="relative" style={{ height: '420px' }}>
+              {embeddedUrl ? (
+                <iframe
+                  src={embeddedUrl}
+                  title="외부 자료 미리보기"
+                  className="w-full h-full border-0"
+                  allow="camera; microphone; geolocation; fullscreen"
+                  loading="lazy"
+                />
+              ) : (
+                <div className="w-full h-full flex items-center justify-center text-gray-500">선택된 링크가 없습니다.</div>
+              )}
+            </div>
           </div>
         )}
 
