@@ -3,7 +3,7 @@ import { ModuleData } from '../../types';
 // Module 2 데이터
 export const MODULE_2_DATA: ModuleData = {
   id: "2",
-  title: "🌏 대한민국 영토의 이해",
+  title: "🌏 대한민국 해양 영토의 이해",
   description: "육지 영토와 해양 영토를 효율적으로 관리하는 방법을 학습하는 모듈입니다",
   steps: [
     {
@@ -15,12 +15,14 @@ export const MODULE_2_DATA: ModuleData = {
         {
           url: "https://kosis.kr/visual/koreaInWorld/korInWorldCountryIndex.do?itmId=1005&tabIdx=0&statJipyoId=7493&lang=ko",
           label: "📊 KOSIS 그래프 보기",
-          openInNewTab: true
+          openInNewTab: true,
+          showIframe: false
         },
         {
           url: "https://www.eum.go.kr/web/mp/mpMapDet.jsp#none",
           label: "🗺️ 토지e음 지도 확인",
-          openInNewTab: true
+          openInNewTab: true,
+          showIframe: false
         }
       ],
       editableContent: false
@@ -34,12 +36,14 @@ export const MODULE_2_DATA: ModuleData = {
         {
           url: "https://www.google.com/maps/d/u/0/edit?mid=1TThuATbsbX8aTEtVyY_38AAaiWBpl-o&usp=sharing",
           label: "📍 구글마이맵스 보기",
-          openInNewTab: true
+          openInNewTab: true,
+          showIframe: false
         },
         {
           url: "https://earth.google.com/web/@37.83192301,126.99258326,135.86552554a,1318240.48426017d,35y,-0h,0t,0r/data=CgRCAggBMigKJgokCiAxVFRodUFUYnNiWDhhVEV0VnlZXzM4QUFhaVdCcGwtbyACOgMKATBCAggASggIzKiLxQcQAQ?hl=ko&authuser=0",
           label: "🌍 구글어스 보기",
-          openInNewTab: true
+          openInNewTab: true,
+          showIframe: false
         }
       ],
       editableContent: false
@@ -53,12 +57,14 @@ export const MODULE_2_DATA: ModuleData = {
         {
           url: "https://globalfishingwatch.org/map/",
           label: "🐟 Global Fishing Watch (세계어업활동관측 시스템)",
-          openInNewTab: true
+          openInNewTab: true,
+          showIframe: false
         },
         {
           url: "https://www.emodnet-humanactivities.eu",
           label: "🌐 EMODnet Human Activities",
-          openInNewTab: true
+          openInNewTab: true,
+          showIframe: false
         }
       ],
       editableContent: false
@@ -72,17 +78,20 @@ export const MODULE_2_DATA: ModuleData = {
         {
           url: "https://www.youtube.com/watch?v=mQhqHQs4g7s",
           label: "▶ 영상시청: '바다라고 다 같은 바다가 아니다?'",
-          openInNewTab: true
+          openInNewTab: true,
+          showIframe: false
         },
         {
           url: "https://www.vadahub.go.kr/imap/index.do",
           label: "🗺️ 해양공간지도 (VADA Hub)",
-          openInNewTab: true
+          openInNewTab: true,
+          showIframe: false
         },
         {
           url: "https://drive.google.com/file/d/1JDv7omxUfbj3fgmYAxE41hx8apCZlYGo/view?usp=drive_link",
           label: "📥 활동지 다운로드 (Google Drive)",
-          openInNewTab: true
+          openInNewTab: true,
+          showIframe: false
         }
       ],
       // 활동지 파일은 아직 워크스페이스에서 발견되지 않음 — 필요 시 public/resources에 업로드해주세요

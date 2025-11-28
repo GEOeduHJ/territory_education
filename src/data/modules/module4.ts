@@ -15,12 +15,14 @@ export const MODULE_4_DATA: ModuleData = {
         {
           url: "https://www.youtube.com/watch?v=8jK9K41tCvA",
           label: "▶ DMZ의 탄생 배경과 생태적 가치",
-          openInNewTab: true
+          openInNewTab: true,
+          showIframe: false
         },
         {
           url: "https://www.youtube.com/watch?v=qqPTMvKhNFM",
           label: "▶ DMZ 미래의 유산",
-          openInNewTab: true
+          openInNewTab: true,
+          showIframe: false
         }
       ],
       editableContent: false
@@ -34,7 +36,8 @@ export const MODULE_4_DATA: ModuleData = {
         {
           url: "https://universe.go.kr/main",
           label: "🕊️ 통일부 DMZ 메타버스 (사라진 마을 견학)",
-          openInNewTab: true
+          openInNewTab: true,
+          showIframe: false
         }
       ],
       editableContent: false
@@ -48,7 +51,8 @@ export const MODULE_4_DATA: ModuleData = {
         {
           url: "https://universe.go.kr/main",
           label: "🕊️ 통일부 DMZ 메타버스 (판문점 견학)",
-          openInNewTab: true
+          openInNewTab: true,
+          showIframe: false
         }
       ],
       editableContent: false
@@ -62,7 +66,8 @@ export const MODULE_4_DATA: ModuleData = {
         {
           url: "https://artsandculture.google.com/search/exhibit?q=비무장지대",
           label: "🔎 Google Arts & Culture - DMZ 전시 검색",
-          openInNewTab: true
+          openInNewTab: true,
+          showIframe: false
         }
       ],
       editableContent: false
@@ -76,12 +81,14 @@ export const MODULE_4_DATA: ModuleData = {
         {
           url: "https://gemini.google.com/gem/1eRAWkMTkInJrzBdngQgEuHXzBcq3e4pE?usp=sharing",
           label: "🖼️ Gemini - 이미지 생성 링크",
-          openInNewTab: true
+          openInNewTab: true,
+          showIframe: false
         },
         {
           url: "https://tooning.io/editor-information",
           label: "✏️ 투닝 에디터 (Tooning Editor) - 생성형 AI 편집기",
-          openInNewTab: true
+          openInNewTab: true,
+          showIframe: false
         }
       ],
       editableContent: false

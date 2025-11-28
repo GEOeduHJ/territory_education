@@ -54,11 +54,13 @@ export interface ModuleStep {
     url: string;
     label: string;
     openInNewTab: boolean;
+    showIframe?: boolean;
   };
   externalLinks?: Array<{
     url: string;
     label: string;
     openInNewTab: boolean;
+    showIframe?: boolean;
   }>;
   editableContent?: boolean;
   // 새로운 키워드 기능 속성들

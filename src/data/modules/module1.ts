@@ -104,12 +104,14 @@ export const MODULE_1_DATA: ModuleData = {
         {
           url: "https://suno.com/",
           label: "🎵 Suno에서 노래 생성하기",
-          openInNewTab: true
+          openInNewTab: true,
+          showIframe: false
         },
         {
           url: "https://drive.google.com/file/d/1wL7Z6FzH8PJXA0FWi-0-A3S_FkZFCgl_/view?usp=sharing",
           label: "📚 노래 생성 가이드 보기",
-          openInNewTab: true
+          openInNewTab: true,
+          showIframe: false
         }
       ],
       editableContent: false
@@ -124,7 +126,8 @@ export const MODULE_1_DATA: ModuleData = {
       externalLink: {
         url: "https://gemini.google.com/app?hl=ko",
         label: "🎨 Gemini에서 앨범 커버 이미지 생성하기",
-        openInNewTab: true
+        openInNewTab: true,
+        showIframe: false
       },
       editableContent: false
     },
@@ -138,7 +141,8 @@ export const MODULE_1_DATA: ModuleData = {
       externalLink: {
         url: "https://aistudio.google.com/prompts/new_video",
         label: "🎬 Google AI Studio에서 뮤직비디오 영상 생성하기",
-        openInNewTab: true
+        openInNewTab: true,
+        showIframe: false
       },
       editableContent: false
     },
@@ -152,7 +156,8 @@ export const MODULE_1_DATA: ModuleData = {
       externalLink: {
         url: "https://www.capcut.com/my-edit?start_tab=video",
         label: "✂️ CapCut에서 뮤직비디오 편집하기",
-        openInNewTab: true
+        openInNewTab: true,
+        showIframe: false
       },
       editableContent: false
     },
@@ -165,7 +170,8 @@ export const MODULE_1_DATA: ModuleData = {
       externalLink: {
         url: "https://padlet.com/ghdwns00610/_-f575dgwgyfccfr0v",
         label: "🎊 Padlet에 뮤직비디오 제출하기",
-        openInNewTab: true
+        openInNewTab: true,
+        showIframe: false
       },
       showEmbeddedPadlet: true,
       padletUrl: "https://padlet.com/ghdwns00610/_-f575dgwgyfccfr0v",
