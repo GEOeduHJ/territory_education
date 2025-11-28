@@ -32,7 +32,7 @@ export const MODULE_4_DATA: ModuleData = {
       content: "DMZ는 6.25 전쟁 발발 이전에는 사람들의 삶의 터전이었습니다. 통일부에서 제공하는 DMZ 메타버스에 접속하여 '사라진 마을'을 견학하고, 70여 년 전 이곳에 살았던 사람들의 삶을 돌아보세요.\n\n<견학 중 탐구 내용>\n1. OO지역의 마을은 원래 어떤 곳이었나요?\n2. 이곳의 실향민들이 고향으로 돌아간다면, 무엇을 하고 싶어할까요?\n3. 만약 전쟁이 없었다면 이곳은 지금 어떤 모습일까요?",
       externalLinks: [
         {
-          url: "https://peacemap.universe.go.kr/",
+          url: "https://universe.go.kr/main",
           label: "🕊️ 통일부 DMZ 메타버스 (사라진 마을 견학)",
           openInNewTab: true
         }
