@@ -14,8 +14,7 @@ export const MODULE_5_DATA: ModuleData = {
       externalLink: {
         url: "#ai-news-placeholder",
         label: "📺 AI 뉴스 영상 시청하기 (추후 업데이트 예정)",
-        openInNewTab: true,
-        showIframe: false
+        openInNewTab: true
       },
       editableContent: false
     },
@@ -63,8 +62,7 @@ export const MODULE_5_DATA: ModuleData = {
         {
           url: "https://toolkit.i-scream.co.kr/",
           label: "🔀 랜덤 편성/투표 툴킷 (예시)",
-          openInNewTab: true,
-          showIframe: false
+          openInNewTab: true
         }
       ],
       editableContent: false
@@ -77,8 +75,7 @@ export const MODULE_5_DATA: ModuleData = {
       externalLink: {
         url: "https://share.crack.wrtn.ai/2scw5q",
         label: "🤖 국제회의 준비 코치봇과 상담하기",
-        openInNewTab: true,
-        showIframe: false
+        openInNewTab: true
       },
       editableContent: false
     },
@@ -91,20 +88,17 @@ export const MODULE_5_DATA: ModuleData = {
         {
           url: "#debate-procedure-placeholder",
           label: "📋 토론 절차 및 시간 가이드 (추후 업데이트 예정)",
-          openInNewTab: true,
-          showIframe: false
+          openInNewTab: true
         },
         {
           url: "#debate-guide-placeholder",
           label: "📚 국제회의 토론 가이드 자료 (추후 업데이트 예정)",
-          openInNewTab: true,
-          showIframe: false
+          openInNewTab: true
         },
         {
           url: "https://padlet.com/jde1211/global_forum",
           label: "📎 국제회의장 Padlet (입장문 공유)",
-          openInNewTab: true,
-          showIframe: false
+          openInNewTab: true
         }
       ],
       // 패들렛 임베드로 참가자 작품을 바로 확인할 수 있도록 설정
@@ -122,8 +116,7 @@ export const MODULE_5_DATA: ModuleData = {
         {
           url: "https://toolkit.i-scream.co.kr/",
           label: "📊 투표 점수판 툴킷 (예시)",
-          openInNewTab: true,
-          showIframe: false
+          openInNewTab: true
         }
       ],
       editableContent: false

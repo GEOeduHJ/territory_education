@@ -33,14 +33,7 @@ const StepContent: React.FC<StepContentProps> = ({
   const isResourceDropdownStep = step.showResourceDropdown && moduleId === "3";
 
   // Embedded iframe preview for external links (all modules)
-  const [embeddedUrl, setEmbeddedUrl] = React.useState<string | null>(
-    step.externalLink?.url ?? (step.externalLinks && step.externalLinks.length > 0 ? step.externalLinks[0].url : null)
-  );
-
-  React.useEffect(() => {
-    // Update embeddedUrl when step changes
-    setEmbeddedUrl(step.externalLink?.url ?? (step.externalLinks && step.externalLinks.length > 0 ? step.externalLinks[0].url : null));
-  }, [step.externalLink, step.externalLinks]);
+ 
 
   // 지도 렌더링 (Module 1, Step 0 - 분쟁 지역 자료 조사)
   if (isMapStep && step.regionResources) {
@@ -487,43 +480,7 @@ const StepContent: React.FC<StepContentProps> = ({
           </div>
         )}
 
-        {/* Embedded iframe preview for external links (bottom of step) */}
-        {(step.externalLink || (step.externalLinks && step.externalLinks.length > 0)) && (
-          <div className="mt-6 bg-white rounded-lg border border-gray-200 p-4">
-            <h3 className="text-lg font-medium text-gray-900 mb-2">임베디드 미리보기</h3>
-            <p className="text-sm text-gray-600 mb-3">아래 프레임에서 외부 링크가 iframe으로 열리는지 확인할 수 있습니다. 일부 사이트는 보안 정책(X-Frame-Options)으로 인해 iframe 로드가 차단될 수 있습니다.</p>
-
-            {/* 선택기: 외부 링크가 여러 개인 경우 */}
-            {step.externalLinks && step.externalLinks.length > 1 && (
-              <div className="mb-3">
-                <label className="sr-only">임베디드 링크 선택</label>
-                <select
-                  className="border rounded px-3 py-2 w-full"
-                  value={embeddedUrl ?? ''}
-                  onChange={(e) => setEmbeddedUrl(e.target.value)}
-                >
-                  {step.externalLinks.map((l, idx) => (
-                    <option key={idx} value={l.url}>{l.label}</option>
-                  ))}
-                </select>
-              </div>
-            )}
-
-            <div className="relative" style={{ height: '420px' }}>
-              {embeddedUrl ? (
-                <iframe
-                  src={embeddedUrl}
-                  title="외부 자료 미리보기"
-                  className="w-full h-full border-0"
-                  allow="camera; microphone; geolocation; fullscreen"
-                  loading="lazy"
-                />
-              ) : (
-                <div className="w-full h-full flex items-center justify-center text-gray-500">선택된 링크가 없습니다.</div>
-              )}
-            </div>
-          </div>
-        )}
+        
 
         {/* Editable Content Notice */}
         {step.editableContent && (

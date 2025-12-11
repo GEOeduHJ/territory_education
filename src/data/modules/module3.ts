@@ -15,8 +15,7 @@ export const MODULE_3_DATA: ModuleData = {
         {
           url: "https://gemini.google.com/gem/1X21Of9Ls1y00m5wv9qavlZ9HpPGMKOlo?usp=sharing",
           label: "🤖 AI 챗봇과 독도 학습하기",
-          openInNewTab: true,
-          showIframe: false
+          openInNewTab: true
         }
       ],
       showResourceDropdown: true,
@@ -55,14 +54,12 @@ export const MODULE_3_DATA: ModuleData = {
         {
           url: "https://gemini.google.com/",
           label: "🎨 Gemini에서 굿즈 디자인 생성하기",
-          openInNewTab: true,
-          showIframe: false
+          openInNewTab: true
         },
         {
           url: "#design-guide-placeholder",
           label: "📋 상품 디자인 가이드 (추후 업로드 예정)",
-          openInNewTab: true,
-          showIframe: false
+          openInNewTab: true
         }
       ],
       editableContent: false
@@ -76,14 +73,12 @@ export const MODULE_3_DATA: ModuleData = {
         {
           url: "https://www.canva.com/design/DAGz8lNujXM/ZJvBjNrSA15P519Pt0zcBw/edit?utm_content=DAGz8lNujXM&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton",
           label: "📝 Canva 템플릿으로 상품 설명서 제작하기",
-          openInNewTab: true,
-          showIframe: false
+          openInNewTab: true
         },
         {
           url: "#description-guide-placeholder",
           label: "📚 상품 설명서 제작 가이드 (추후 업로드 예정)",
-          openInNewTab: true,
-          showIframe: false
+          openInNewTab: true
         }
       ],
       editableContent: false
@@ -96,8 +91,7 @@ export const MODULE_3_DATA: ModuleData = {
       externalLink: {
         url: "https://padlet.com/ghdwns00610/padlet-tzs4uog4dr84u5gi",
         label: "🎊 Padlet에 굿즈 디자인 제출하기",
-        openInNewTab: true,
-        showIframe: false
+        openInNewTab: true
       },
       showEmbeddedPadlet: true,
       padletUrl: "https://padlet.com/ghdwns00610/padlet-tzs4uog4dr84u5gi",
