@@ -3,6 +3,7 @@ import { ModuleData } from '../../types';
 // Module 5 데이터
 export const MODULE_5_DATA: ModuleData = {
   id: "5",
+  topic: "제주",
   title: "🌐 국제회의 시뮬레이션",
   description: "AI 뉴스 학습부터 페르소나 챗봇 대화, 국제회의 준비 및 참여까지 체험하는 종합 모듈입니다",
   steps: [

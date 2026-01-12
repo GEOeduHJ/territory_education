@@ -3,6 +3,7 @@ import { ModuleData } from '../../types';
 // Module 3 데이터
 export const MODULE_3_DATA: ModuleData = {
   id: "3",
+  topic: "독도",
   title: "🛍️ 독도 굿즈 디자인 및 상품 기획",
   description: "독도에 대한 학습을 바탕으로 창의적인 굿즈를 디자인하고 상품 기획서를 제작하는 모듈입니다",
   steps: [

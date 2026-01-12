@@ -100,10 +100,10 @@ export const KeywordInputForm: React.FC<KeywordInputFormProps> = ({
     <div className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-lg">
       <div className="mb-6">
         <h3 className="text-xl font-semibold text-gray-800 mb-2">
-          🎤 캠페인 노래 만들기를 위한 핵심 정보를 입력하세요
+          🎤 캠페인 노래 만들기를 위해 조사한 내용을 정리해보세요!
         </h3>
         <p className="text-gray-600 text-sm">
-          ✨ 각 항목에 적절한 키워드를 넣어주시면 다음 단계에서 자동으로 활용됩니다.
+          ✨ 각 항목에 적절한 내용을 입력해 이후 다음 단계에서 AI를 활용할 수 있도록 준비하세요.
         </p>
       </div>
 

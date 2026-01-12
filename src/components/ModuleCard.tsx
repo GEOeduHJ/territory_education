@@ -15,10 +15,20 @@ const ModuleCard: React.FC<ModuleCardProps> = ({ module, onClick }) => {
       }}
       data-testid={`module-card-${module.id}`}
     >
-      {/* 여기를 수정하세요 - 모듈 이미지 영역 */}
-      <div className="w-full h-32 bg-gradient-to-r from-territory-primary to-territory-secondary rounded-lg mb-4 flex items-center justify-center">
-        <div className="text-white text-2xl font-bold">
-          모듈 {module.id}
+      {/* 상단 이미지/타이틀 영역 (이미지 우선, 없으면 그라데이션) */}
+      <div className="w-full h-32 rounded-lg mb-4 overflow-hidden relative">
+        {module.imageUrl ? (
+          <img src={module.imageUrl} alt={module.title} className="w-full h-full object-cover" />
+        ) : (
+          <div className="w-full h-full bg-gradient-to-r from-territory-primary to-territory-secondary" />
+        )}
+
+        {/* 중앙 오버레이: 모듈 번호 및 토픽을 항상 표시 */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div className="text-white text-center">
+            <div className="text-sm">모듈 {module.id} </div>
+            <div className="text-2xl font-bold">{module.topic ?? ''}</div>
+          </div>
         </div>
       </div>
 

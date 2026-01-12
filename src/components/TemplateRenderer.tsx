@@ -1,31 +1,54 @@
 import React, { useState } from 'react';
-import { TemplateContentRendererProps } from '../types';
+import { ModuleStep, KeywordData } from '../types';
 import { KeywordController } from '../services/keywordController';
 
 /**
- * TemplateContentRenderer - 템플릿 콘텐츠 렌더러 컴포넌트
+ * TemplateRenderer - 통합 템플릿 렌더러 컴포넌트
  * 
- * Module 1의 Step 2-6에서 키워드가 적용된 템플릿 콘텐츠를 표시합니다.
+ * 두 가지 모드를 지원:
+ * - 'dynamic': 키워드 기반 동적 템플릿 (Module 1, Steps 2-6)
+ * - 'fixed': 고정 프롬프트 템플릿 (Module 3, Step 2)
  */
-export const TemplateContentRenderer: React.FC<TemplateContentRendererProps> = ({
+
+interface TemplateRendererProps {
+  step: ModuleStep;
+  onExternalLinkClick: (url: string) => void;
+  mode: 'dynamic' | 'fixed';
+  keywords?: KeywordData;
+}
+
+export const TemplateRenderer: React.FC<TemplateRendererProps> = ({
   step,
-  keywords,
-  onExternalLinkClick
+  onExternalLinkClick,
+  mode,
+  keywords
 }) => {
   const [copySuccess, setCopySuccess] = useState<string>('');
 
-  // 템플릿 콘텐츠에 키워드 적용
-  const processedContent = step.templateContent 
-    ? KeywordController.replaceTemplatePlaceholders(step.templateContent, keywords)
-    : step.content;
+  // 템플릿 콘텐츠 처리
+  const getTemplateContent = (): string => {
+    if (mode === 'fixed') {
+      return step.fixedTemplateContent || step.content;
+    }
+    
+    // dynamic mode
+    if (step.templateContent && keywords) {
+      return KeywordController.replaceTemplatePlaceholders(step.templateContent, keywords);
+    }
+    return step.content;
+  };
 
-  // 키워드 누락 체크
-  const hasAllKeywords = KeywordController.hasAllKeywords(keywords);
+  const templateContent = getTemplateContent();
+  
+  // 키워드 누락 체크 (dynamic 모드에서만)
+  const hasAllKeywords = mode === 'dynamic' && keywords 
+    ? KeywordController.hasAllKeywords(keywords)
+    : true;
 
   // 클립보드 복사 함수
   const copyToClipboard = async () => {
     try {
-      await navigator.clipboard.writeText(processedContent);
+      await navigator.clipboard.writeText(templateContent);
       setCopySuccess('복사되었습니다!');
       setTimeout(() => setCopySuccess(''), 2000);
     } catch (err) {
@@ -36,8 +59,8 @@ export const TemplateContentRenderer: React.FC<TemplateContentRendererProps> = (
 
   return (
     <div className="max-w-4xl mx-auto">
-      {/* 키워드 누락 경고 */}
-      {!hasAllKeywords && (
+      {/* 키워드 누락 경고 (dynamic 모드 전용) */}
+      {mode === 'dynamic' && !hasAllKeywords && (
         <div className="mb-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
           <div className="flex items-start">
             <svg className="w-5 h-5 text-yellow-600 mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
@@ -60,10 +83,12 @@ export const TemplateContentRenderer: React.FC<TemplateContentRendererProps> = (
           <p className="text-gray-600">{step.description}</p>
         </div>
 
-        {/* 학습 내용 섹션 */}
+        {/* 학습 내용 섹션 - 모드별 차별화 */}
         <div className="mb-6">
           <div className="flex items-center justify-between mb-3">
-            <h3 className="text-lg font-semibold text-gray-800">생성된 프롬프트</h3>
+            <h3 className="text-lg font-semibold text-gray-800">
+              {mode === 'dynamic' ? '생성된 프롬프트' : '🎯 프롬프트 템플릿'}
+            </h3>
             <button
               onClick={copyToClipboard}
               className="inline-flex items-center px-3 py-1.5 bg-green-600 text-white text-sm rounded-lg hover:bg-green-700 transition-colors focus:ring-4 focus:ring-green-200"
@@ -79,17 +104,35 @@ export const TemplateContentRenderer: React.FC<TemplateContentRendererProps> = (
               {copySuccess}
             </div>
           )}
-          <div className="bg-gray-50 border-l-4 border-blue-500 p-4 rounded-r-lg">
+          
+          {/* fixed 모드 - 활동 안내 먼저 표시 */}
+          {mode === 'fixed' && (
+            <div className="bg-gray-50 border-l-4 border-blue-500 p-4 rounded-r-lg mb-4">
+              <div className="prose prose-sm max-w-none">
+                <p className="text-gray-700 leading-relaxed whitespace-pre-wrap">
+                  {step.content}
+                </p>
+              </div>
+            </div>
+          )}
+          
+          {/* 템플릿 콘텐츠 박스 - 모드별 스타일 */}
+          <div className={mode === 'fixed' 
+            ? 'bg-blue-50 border border-blue-200 p-4 rounded-lg'
+            : 'bg-gray-50 border-l-4 border-blue-500 p-4 rounded-r-lg'
+          }>
             <div className="prose prose-sm max-w-none">
-              <p className="text-gray-700 leading-relaxed whitespace-pre-wrap">
-                {processedContent}
+              <p className={`leading-relaxed whitespace-pre-wrap ${
+                mode === 'fixed' ? 'text-blue-800 font-medium' : 'text-gray-700'
+              }`}>
+                {templateContent}
               </p>
             </div>
           </div>
         </div>
 
-        {/* 키워드 정보 (키워드가 있는 경우만) */}
-        {hasAllKeywords && (
+        {/* 키워드 정보 (dynamic 모드에서 키워드가 있는 경우만) */}
+        {mode === 'dynamic' && hasAllKeywords && keywords && (
           <div className="mb-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
             <h4 className="text-sm font-medium text-blue-800 mb-3">🎯 적용된 키워드</h4>
             <div className="grid grid-cols-2 gap-3">
@@ -124,7 +167,9 @@ export const TemplateContentRenderer: React.FC<TemplateContentRendererProps> = (
         {/* 외부 링크들 */}
         {(step.externalLinks || step.externalLink) && (
           <div className="border-t pt-6">
-            <h4 className="text-sm font-medium text-gray-800 mb-4">다음 단계 진행하기</h4>
+            <h4 className="text-sm font-medium text-gray-800 mb-4">
+              {mode === 'fixed' ? '🔗 다음 단계 진행하기' : '다음 단계 진행하기'}
+            </h4>
             
             {/* 복수 외부 링크 (step.externalLinks가 있는 경우) */}
             {step.externalLinks && step.externalLinks.length > 0 && (
@@ -136,14 +181,17 @@ export const TemplateContentRenderer: React.FC<TemplateContentRendererProps> = (
                     className={`w-full inline-flex items-center justify-center px-4 py-3 rounded-lg transition-colors focus:ring-4 ${
                       index === 0 
                         ? 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-200' 
-                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200 focus:ring-gray-200 border border-gray-300'
+                        : link.url.includes('placeholder')
+                          ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                          : 'bg-gray-100 text-gray-700 hover:bg-gray-200 focus:ring-gray-200 border border-gray-300'
                     }`}
+                    disabled={link.url.includes('placeholder')}
                   >
                     <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                     </svg>
                     {link.label}
-                    {link.openInNewTab && (
+                    {link.openInNewTab && !link.url.includes('placeholder') && (
                       <svg className="w-3 h-3 ml-2" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
                         <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
@@ -176,27 +224,43 @@ export const TemplateContentRenderer: React.FC<TemplateContentRendererProps> = (
         )}
       </div>
 
-      {/* 키워드 수정 안내 */}
-      <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
-        <div className="flex items-center justify-between">
-          <div>
-            <h4 className="text-sm font-medium text-gray-800">🔧 키워드 수정이 필요하신가요?</h4>
-            <p className="text-xs text-gray-600 mt-1">
-              1단계로 돌아가서 키워드를 수정할 수 있습니다.
-            </p>
+      {/* 하단 안내 - 모드별 차별화 */}
+      {mode === 'dynamic' ? (
+        <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
+          <div className="flex items-center justify-between">
+            <div>
+              <h4 className="text-sm font-medium text-gray-800">🔧 키워드 수정이 필요하신가요?</h4>
+              <p className="text-xs text-gray-600 mt-1">
+                1단계로 돌아가서 키워드를 수정할 수 있습니다.
+              </p>
+            </div>
+            <button
+              onClick={() => {
+                // 1단계로 이동하는 로직은 부모 컴포넌트에서 처리
+                const event = new CustomEvent('navigateToKeywordInput');
+                window.dispatchEvent(event);
+              }}
+              className="px-3 py-1.5 text-sm border border-gray-300 rounded-lg text-gray-700 hover:bg-white transition-colors focus:ring-2 focus:ring-gray-200"
+            >
+              ✏️ 키워드 수정하기
+            </button>
           </div>
-          <button
-            onClick={() => {
-              // 1단계로 이동하는 로직은 부모 컴포넌트에서 처리
-              const event = new CustomEvent('navigateToKeywordInput');
-              window.dispatchEvent(event);
-            }}
-            className="px-3 py-1.5 text-sm border border-gray-300 rounded-lg text-gray-700 hover:bg-white transition-colors focus:ring-2 focus:ring-gray-200"
-          >
-            ✏️ 키워드 수정하기
-          </button>
         </div>
-      </div>
+      ) : (
+        <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+          <div className="flex items-start">
+            <svg className="w-5 h-5 text-yellow-600 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+            </svg>
+            <div>
+              <h4 className="text-sm font-medium text-yellow-800">💡 사용 팁</h4>
+              <p className="mt-1 text-sm text-yellow-700">
+                프롬프트를 복사한 후 외부 사이트에 붙여넣기하여 사용하세요. 독도 관련 이미지를 함께 업로드하면 더 좋은 결과를 얻을 수 있습니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

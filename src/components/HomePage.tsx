@@ -15,6 +15,7 @@ const HomePage: React.FC = () => {
       try {
         setLoading(true);
         const moduleList = await contentLoader.loadAllModules();
+        console.log('Loaded modules for HomePage:', moduleList);
         setModules(moduleList);
       } catch (err) {
         setError(err instanceof Error ? err.message : '모듈을 불러오는 중 오류가 발생했습니다.');

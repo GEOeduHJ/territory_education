@@ -3,6 +3,7 @@ import { ModuleData } from '../../types';
 // Module 2 데이터
 export const MODULE_2_DATA: ModuleData = {
   id: "2",
+  topic: "해양 영토",
   title: "🌏 대한민국 해양 영토의 이해",
   description: "육지 영토와 해양 영토를 효율적으로 관리하는 방법을 학습하는 모듈입니다",
   steps: [

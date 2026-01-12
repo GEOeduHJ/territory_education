@@ -2,9 +2,10 @@ import { ModuleData } from '../../types';
 
 // Module 6 데이터
 export const MODULE_6_DATA: ModuleData = {
-  id: "6",
-  title: "여기를 수정하세요 - 영토교육 모듈 6",
-  description: "여기를 수정하세요 - 여섯 번째 영토교육 모듈 설명",
+  id: "0",
+  topic: "모듈 설명",
+  title: "설명",
+  description: "모듈 설명",
   steps: [
     {
       id: "step-1",

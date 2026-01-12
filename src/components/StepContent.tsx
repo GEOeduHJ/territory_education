@@ -1,8 +1,7 @@
 import React from 'react';
 import { StepContentProps } from '../types';
 import { KeywordInputForm } from './KeywordInputForm';
-import { TemplateContentRenderer } from './TemplateContentRenderer';
-import { FixedTemplateRenderer } from './FixedTemplateRenderer';
+import { TemplateRenderer } from './TemplateRenderer';
 import { ChatbotCardRenderer } from './ChatbotCardRenderer';
 import DisputeMap from './DisputeMap';
 import ResourceDropdown from './ResourceDropdown';
@@ -163,10 +162,11 @@ const StepContent: React.FC<StepContentProps> = ({
         id={`tabpanel-${step.id}`}
         aria-labelledby={`tab-${step.id}`}
       >
-        <TemplateContentRenderer
+        <TemplateRenderer
           step={step}
           keywords={keywords}
           onExternalLinkClick={onExternalLinkClick}
+          mode="dynamic"
         />
       </div>
     );
@@ -181,9 +181,10 @@ const StepContent: React.FC<StepContentProps> = ({
         id={`tabpanel-${step.id}`}
         aria-labelledby={`tab-${step.id}`}
       >
-        <FixedTemplateRenderer
+        <TemplateRenderer
           step={step}
           onExternalLinkClick={onExternalLinkClick}
+          mode="fixed"
         />
       </div>
     );

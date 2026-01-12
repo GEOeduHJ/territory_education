@@ -3,6 +3,7 @@ import { ModuleData } from '../../types';
 // Module 4 데이터
 export const MODULE_4_DATA: ModuleData = {
   id: "4",
+  topic: "DMZ",
   title: "DMZ 미래 디자인 챌린지",
   description: "DMZ의 역사적·생태적 가치를 탐구하고, AI 도구를 활용해 미래 DMZ의 모습을 디자인하는 모듈입니다",
   steps: [

@@ -1,6 +1,7 @@
 // 모듈 정보 인터페이스
 export interface ModuleInfo {
   id: string;
+  topic: string;
   title: string;
   description: string;
   imageUrl?: string;
@@ -113,6 +114,7 @@ export interface DropdownResource {
 // 모듈 데이터 인터페이스
 export interface ModuleData {
   id: string;
+  topic: string;
   title: string;
   description: string;
   steps: ModuleStep[];

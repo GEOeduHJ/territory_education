@@ -28,8 +28,6 @@ const loadModule = async (moduleId: string): Promise<ModuleData> => {
 
 // Load all modules for homepage display
 const loadAllModules = async (): Promise<ModuleInfo[]> => {
-  // For now, we'll still import all modules to get metadata
-  // In the future, we could optimize this to only load metadata
   const modules = await Promise.all([
     import('./module1'),
     import('./module2'),
@@ -39,15 +37,33 @@ const loadAllModules = async (): Promise<ModuleInfo[]> => {
     import('./module6')
   ]);
 
-  return modules.map((module) => {
-    const moduleData = Object.values(module)[0] as ModuleData;
-    return {
-      id: moduleData.id,
-      title: moduleData.title,
-      description: moduleData.description,
-      stepCount: moduleData.steps.length
-    };
+  const moduleDataList: ModuleData[] = modules.map((module, idx) => {
+    const exportName = `MODULE_${idx + 1}_DATA` as const;
+    const moduleData = module[exportName as keyof typeof module] as ModuleData | undefined;
+    if (moduleData) {
+      return moduleData;
+    }
+
+    const fallback = Object.values(module).find(
+      (value) => value && typeof (value as ModuleData).id === 'string' && Array.isArray((value as ModuleData).steps)
+    ) as ModuleData | undefined;
+
+    if (fallback) {
+      return fallback;
+    }
+
+    throw new Error(`Unable to extract ModuleData from module namespace ${idx}`);
   });
+
+  return moduleDataList.map((moduleData) => ({
+    id: moduleData.id,
+    // If topic is missing, fall back to title so UI shows something meaningful
+    topic: (moduleData as any).topic ?? moduleData.title,
+    title: moduleData.title,
+    description: moduleData.description,
+    imageUrl: (moduleData as any).imageUrl,
+    stepCount: moduleData.steps.length
+  }));
 };
 
 // Export keyword config for module 1
