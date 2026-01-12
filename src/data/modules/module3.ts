@@ -4,8 +4,8 @@ import { ModuleData } from '../../types';
 export const MODULE_3_DATA: ModuleData = {
   id: "3",
   topic: "독도",
-  title: "🛍️ 독도 굿즈 디자인 및 상품 기획",
-  description: "독도에 대한 학습을 바탕으로 창의적인 굿즈를 디자인하고 상품 기획서를 제작하는 모듈입니다",
+  title: "🛍️ 외로운 섬의 기억을 넘어, 우리 땅의 숨결을 입히다",
+  description: "독도의 역사적·지리적 가치를 심층적으로 탐구하고, 생성형 AI와 디지털 디자인 도구를 활용하여 독도 수호의 의미를 담은 상품을 기획·제작하여 가상 바자회를 개최하는 모듈",
   steps: [
     {
       id: "step-1",

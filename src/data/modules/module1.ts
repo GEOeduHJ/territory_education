@@ -16,8 +16,8 @@ export const MODULE_1_KEYWORD_CONFIG: ModuleKeywordConfig = {
 export const MODULE_1_DATA: ModuleData = {
   id: "1",
   topic: "세계분쟁",
-  title: "🎵 영토교육 캠페인 노래 만들기",
-  description: "영토 분쟁 사례를 바탕으로 캠페인 노래를 제작하는 모듈입니다",
+  title: "🎵 영토의 불협화음을 넘어, 평화의 하모니를 부르다",
+  description: "전 세계의 다양한 영토 분쟁 사례를 탐구하고, 생성형 AI를 활용하여 평화를 위한 메시지를 뮤직비디오 형식으로 제작하는 모듈",
   steps: [
     {
       id: "step-1",

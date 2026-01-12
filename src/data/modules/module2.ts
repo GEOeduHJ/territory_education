@@ -4,8 +4,8 @@ import { ModuleData } from '../../types';
 export const MODULE_2_DATA: ModuleData = {
   id: "2",
   topic: "해양 영토",
-  title: "🌏 대한민국 해양 영토의 이해",
-  description: "육지 영토와 해양 영토를 효율적으로 관리하는 방법을 학습하는 모듈입니다",
+  title: "🌏 데이터의 파도를 타고, 해양 강국의 내일을 열다",
+  description: "해양영토의 기본 개념과 해양공간관리의 필요성을 이해하고, 다양한 지리공간기술 플랫폼으로 해양 공간 빅데이터를 분석하여 지속 가능한 미래 해양을 만들기 위한 실천 의지를 강화하는 모듈",
   steps: [
     {
       id: "step-1",

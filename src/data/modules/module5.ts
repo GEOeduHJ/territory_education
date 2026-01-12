@@ -4,8 +4,8 @@ import { ModuleData } from '../../types';
 export const MODULE_5_DATA: ModuleData = {
   id: "5",
   topic: "제주",
-  title: "🌐 국제회의 시뮬레이션",
-  description: "AI 뉴스 학습부터 페르소나 챗봇 대화, 국제회의 준비 및 참여까지 체험하는 종합 모듈입니다",
+  title: "🌐 세계시민의 눈으로 경계 속 관계를 잇고 해법을 찾다",
+  description: "실제 발생했던 제주 예멘 난민 사례를 중심으로, 다양한 이해관계자의 페르소나 챗봇과 대화하며 경계 문제의 복잡성을 이해하고, 세계시민의 관점에서 갈등을 중재하고 의사결정을 내리는 모듈",
   steps: [
     {
       id: "step-1",
