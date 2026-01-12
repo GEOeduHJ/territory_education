@@ -70,11 +70,11 @@ export const MODULE_3_DATA: ModuleData = {
       id: "step-3",
       title: "📄 상품 설명서 제작",
       description: "📝 디자인한 굿즈의 상품 설명서를 제작해보세요",
-      content: "📋 2단계에서 디자인한 굿즈의 매력적인 상품 설명서를 제작해보세요! Canva 템플릿을 활용하여 전문적이고 눈에 띄는 상품 기획서를 만들어보세요. 타겟 고객, 가격, 특징 등을 포함해주세요. ✨",
+      content: "📋 2단계에서 디자인한 굿즈의 매력적인 상품 설명서를 제작해보세요! 아래 템플릿을 활용하여 전문적이고 눈에 띄는 상품 기획서를 만들어보세요. 타겟 고객, 가격, 특징 등을 포함해주세요. ✨",
       externalLinks: [
         {
-          url: "https://www.canva.com/design/DAGz8lNujXM/ZJvBjNrSA15P519Pt0zcBw/edit?utm_content=DAGz8lNujXM&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton",
-          label: "📝 Canva 템플릿으로 상품 설명서 제작하기",
+          url: "https://docs.google.com/presentation/d/1GRUi29ADKSgtvLatn6yV-0fiygg4PRpS/edit?usp=drive_link&ouid=109701651086925137185&rtpof=true&sd=true",
+          label: "📝 템플릿으로 상품 설명서 제작하기",
           openInNewTab: true
         }
         // {
