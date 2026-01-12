@@ -22,8 +22,13 @@ export const MODULE_1_DATA: ModuleData = {
     {
       id: "step-1",
       title: "🗺️ 분쟁 지역 자료 조사",
-      description: "🌍 세계 각지의 영토 분쟁 지역을 탐색하고 자료를 조사하세요",
-      content: "📚 지도에서 분쟁 지역을 탐색하고 해당 분쟁과 관련된 자료를 확인해보세요! 마커를 클릭하면 자료를 열람할 수 있습니다. 관심 있는 지역의 자료를 읽고 정리하면서 다음 단계를 준비하세요. 🔍",
+      description: "세계 각지의 영토 분쟁 지역을 탐색하고 자료를 조사하세요",
+      content: "📚 지도에서 분쟁 지역을 탐색하고 해당 분쟁과 관련된 자료를 확인해보세요! 마커를 클릭하면 자료를 열람할 수 있습니다. \n관심 있는 지역의 자료를 읽고 정리하면서 AI 챗봇과 함께 다음 단계를 준비하세요.",
+      externalLink: {
+        url: "https://gemini.google.com/gem/1H87D2QncaI9DQX_uz0DYgnCQs2wyXzJp?usp=sharing",
+        label: "🤖 AI와 함께 분쟁 지역 탐색하기",
+        openInNewTab: true
+      },
       showMap: true,
       regionResources: [
         
@@ -84,7 +89,7 @@ export const MODULE_1_DATA: ModuleData = {
     "description": "이집트와 수단 간 홍해 연안 할라이브 삼각지대 영유권 분쟁"
   }
       ],
-      editableContent: false
+      editableContent: true
     },
     {
       id: "step-2",
@@ -121,7 +126,7 @@ export const MODULE_1_DATA: ModuleData = {
       description: "🖼️ 프롬프트를 복사하고 앨범 커버 이미지를 생성해보세요",
       content: "🌟 동일한 프롬프트를 사용하여 앨범 커버 이미지를 생성해보세요! Gemini를 사용하여 창의적이고 멋진 앨범 커버를 만들어보세요. 🎭",
       useKeywordTemplate: true,
-      templateContent: "영토 분쟁을 사례로 캠페인 노래를 만들거야. 이 사례는 [keyword1]이/가 갈등을 겪고 있고, [keyword2]이/가 핵심적인 분쟁 배경이야. 해결 방안으로는 [keyword3]이/가 필요해. [keyword4]\n\n🎨 위 프롬프트 내용이 잘 반영된 뮤직비디오 앨범 커버 이미지를 생성해주세요. 평화적이고 희망적인 느낌의 아름다운 디자인으로, 영토 분쟁의 해결과 화해를 상징하는 시각적 요소를 포함해주세요.",
+      templateContent: "영토 분쟁을 사례로 캠페인 노래를 만들거야. 이 사례는 [keyword1]이/가 갈등을 겪고 있고, [keyword2]이/가 핵심적인 분쟁 배경이야. 해결 방안으로는 [keyword3]이/가 필요해. [keyword4]\n\n🎨 위 프롬프트 내용이 잘 반영된 뮤직비디오 앨범 커버 이미지를 생성해주세요. 평화적이고 희망적인 느낌의 아름다운 디자인으로, 영토 분쟁의 해결과 화해를 상징하는 시각적 요소를 포함해주세요. 이미지에 문자는 포함하지 마세요.",
       externalLink: {
         url: "https://gemini.google.com/app?hl=ko",
         label: "🎨 Gemini에서 앨범 커버 이미지 생성하기",
@@ -163,11 +168,11 @@ export const MODULE_1_DATA: ModuleData = {
       description: "🎊 완성된 뮤직비디오를 제출하고 다른 작품들을 확인해보세요",
       content: "🎉 축하합니다! 뮤직비디오가 완성되었습니다! 아래 Padlet에 작품을 업로드하고 다른 학습자들의 멋진 작품도 감상해보세요. 🌟",
       useKeywordTemplate: false,
-      externalLink: {
-        url: "https://padlet.com/ghdwns00610/_-f575dgwgyfccfr0v",
-        label: "🎊 Padlet에 뮤직비디오 제출하기",
-        openInNewTab: true
-      },
+      // externalLink: {
+      //   url: "https://padlet.com/ghdwns00610/_-f575dgwgyfccfr0v",
+      //   label: "🎊 Padlet에 뮤직비디오 제출하기",
+      //   openInNewTab: true
+      // },
       showEmbeddedPadlet: true,
       padletUrl: "https://padlet.com/ghdwns00610/_-f575dgwgyfccfr0v",
       editableContent: false

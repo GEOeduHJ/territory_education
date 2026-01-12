@@ -56,12 +56,13 @@ export const MODULE_3_DATA: ModuleData = {
           url: "https://gemini.google.com/",
           label: "🎨 Gemini에서 굿즈 디자인 생성하기",
           openInNewTab: true
-        },
-        {
-          url: "#design-guide-placeholder",
-          label: "📋 상품 디자인 가이드 (추후 업로드 예정)",
-          openInNewTab: true
         }
+        // ,
+        // {
+        //   url: "#design-guide-placeholder",
+        //   label: "📋 상품 디자인 가이드 (추후 업로드 예정)",
+        //   openInNewTab: true
+        // }
       ],
       editableContent: false
     },
@@ -75,12 +76,12 @@ export const MODULE_3_DATA: ModuleData = {
           url: "https://www.canva.com/design/DAGz8lNujXM/ZJvBjNrSA15P519Pt0zcBw/edit?utm_content=DAGz8lNujXM&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton",
           label: "📝 Canva 템플릿으로 상품 설명서 제작하기",
           openInNewTab: true
-        },
-        {
-          url: "#description-guide-placeholder",
-          label: "📚 상품 설명서 제작 가이드 (추후 업로드 예정)",
-          openInNewTab: true
         }
+        // {
+        //   url: "#description-guide-placeholder",
+        //   label: "📚 상품 설명서 제작 가이드 (추후 업로드 예정)",
+        //   openInNewTab: true
+        // }
       ],
       editableContent: false
     },
@@ -89,11 +90,11 @@ export const MODULE_3_DATA: ModuleData = {
       title: "🏆 최종 작품 제출",
       description: "🎊 완성된 굿즈 디자인과 상품 설명서를 제출해보세요",
       content: "🎉 축하합니다! 독도 굿즈 디자인과 상품 설명서가 완성되었습니다! 아래 Padlet에 완성된 굿즈 디자인과 상품 기획서를 업로드하고 다른 학습자들의 창의적인 디자인 작품도 감상해보세요. 서로의 아이디어에서 영감을 얻어보세요! 🌟",
-      externalLink: {
-        url: "https://padlet.com/ghdwns00610/padlet-tzs4uog4dr84u5gi",
-        label: "🎊 Padlet에 굿즈 디자인 제출하기",
-        openInNewTab: true
-      },
+      // externalLink: {
+      //   url: "https://padlet.com/ghdwns00610/padlet-tzs4uog4dr84u5gi",
+      //   label: "🎊 Padlet에 굿즈 디자인 제출하기",
+      //   openInNewTab: true
+      // },
       showEmbeddedPadlet: true,
       padletUrl: "https://padlet.com/ghdwns00610/padlet-tzs4uog4dr84u5gi",
       editableContent: false

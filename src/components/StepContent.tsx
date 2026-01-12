@@ -80,6 +80,72 @@ const StepContent: React.FC<StepContentProps> = ({
 
           {/* Dispute Map */}
           <DisputeMap regions={step.regionResources} />
+
+          {/* External Link Section (show links alongside the map) */}
+          {(step.externalLink || step.externalLinks) && (
+            <div className="bg-blue-50 rounded-lg p-6 border border-blue-200 mt-6">
+              <h3 className="text-lg font-medium text-gray-900 mb-3">
+                외부 자료 링크
+              </h3>
+              <p className="text-gray-600 mb-4">
+                아래 버튼을 클릭하여 관련 자료를 확인하고 학습을 진행하세요.
+              </p>
+
+              {step.externalLinks && step.externalLinks.length > 0 && (
+                <div className="space-y-3">
+                  {step.externalLinks.map((link, index) => (
+                    <button
+                      key={index}
+                      onClick={() => onExternalLinkClick(link.url)}
+                      className={`w-full external-link-button ${
+                        link.url.includes('placeholder')
+                          ? 'bg-gray-300 text-gray-500 cursor-not-allowed hover:bg-gray-300'
+                          : ''
+                      }`}
+                      disabled={link.url.includes('placeholder')}
+                    >
+                      <svg 
+                        className="w-4 h-4" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"
+                      >
+                        <path 
+                          strokeLinecap="round" 
+                          strokeLinejoin="round" 
+                          strokeWidth={2} 
+                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" 
+                        />
+                      </svg>
+                      <span>{link.label}</span>
+                    </button>
+                  ))}
+                </div>
+              )}
+
+              {step.externalLink && !step.externalLinks && (
+                <button
+                  onClick={() => onExternalLinkClick(step.externalLink!.url)}
+                  className="external-link-button"
+                >
+                  <svg 
+                    className="w-4 h-4" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round" 
+                      strokeWidth={2} 
+                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" 
+                    />
+                  </svg>
+                  <span>{step.externalLink.label}</span>
+                </button>
+              )}
+            </div>
+          )}
         </div>
       </div>
     );
