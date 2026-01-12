@@ -5,6 +5,7 @@ import { TemplateRenderer } from './TemplateRenderer';
 import { ChatbotCardRenderer } from './ChatbotCardRenderer';
 import DisputeMap from './DisputeMap';
 import ResourceDropdown from './ResourceDropdown';
+import ThemedExhibitDropdown from './ThemedExhibitDropdown';
 
 const StepContent: React.FC<StepContentProps> = ({ 
   step, 
@@ -13,6 +14,10 @@ const StepContent: React.FC<StepContentProps> = ({
   keywords,
   onKeywordSubmit 
 }) => {
+  // DEBUG: log step to verify externalLinks presence at runtime
+  // Remove this after debugging
+  // eslint-disable-next-line no-console
+  console.log('StepContent render - step.id=', step.id, 'moduleId=', moduleId, 'externalLinks=', step.externalLinks);
   // Module 1의 키워드 입력 단계인지 확인
   const isKeywordInputStep = step.isKeywordInput && moduleId === "1";
   
@@ -32,6 +37,16 @@ const StepContent: React.FC<StepContentProps> = ({
   const isResourceDropdownStep = step.showResourceDropdown && moduleId === "3";
 
   // Embedded iframe preview for external links (all modules)
+
+  // Themed exhibits state (for theme selector + resources dropdown)
+  const [selectedThemeId, setSelectedThemeId] = React.useState<string | null>(
+    step.themedExhibits && step.themedExhibits.length > 0 ? step.themedExhibits[0].id : null
+  );
+
+  React.useEffect(() => {
+    // reset selected theme when step changes
+    setSelectedThemeId(step.themedExhibits && step.themedExhibits.length > 0 ? step.themedExhibits[0].id : null);
+  }, [step.id]);
  
 
   // 지도 렌더링 (Module 1, Step 0 - 분쟁 지역 자료 조사)
@@ -344,19 +359,110 @@ const StepContent: React.FC<StepContentProps> = ({
             </div>
           </div>
 
-          {/* 빈 iframe 박스 (생성형 AI 시나리오 출력용 자리) */}
+            {/* 외부 자료 링크 (시나리오 iframe 분기에서도 표시) */}
+            {(step.externalLink || step.externalLinks) && (
+              <div className="bg-blue-50 rounded-lg p-6 border border-blue-200 mb-6">
+                <h3 className="text-lg font-medium text-gray-900 mb-3">
+                  외부 자료 링크
+                </h3>
+                <p className="text-gray-600 mb-4">
+                  아래 버튼을 클릭하여 관련 자료를 확인하고 학습을 진행하세요.
+                </p>
+
+                {step.externalLinks && step.externalLinks.length > 0 && (
+                  <div className="space-y-3">
+                    {step.externalLinks.map((link, index) => (
+                      <button
+                        key={index}
+                        onClick={() => onExternalLinkClick(link.url)}
+                        className={`w-full external-link-button ${
+                          link.url.includes('placeholder')
+                            ? 'bg-gray-300 text-gray-500 cursor-not-allowed hover:bg-gray-300'
+                            : ''
+                        }`}
+                        disabled={link.url.includes('placeholder')}
+                      >
+                        <svg 
+                          className="w-4 h-4" 
+                          fill="none" 
+                          stroke="currentColor" 
+                          viewBox="0 0 24 24"
+                        >
+                          <path 
+                            strokeLinecap="round" 
+                            strokeLinejoin="round" 
+                            strokeWidth={2} 
+                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" 
+                          />
+                        </svg>
+                        <span>{link.label}</span>
+                      </button>
+                    ))}
+                  </div>
+                )}
+
+                {step.externalLink && !step.externalLinks && (
+                  <button
+                    onClick={() => onExternalLinkClick(step.externalLink!.url)}
+                    className="external-link-button"
+                  >
+                    <svg 
+                      className="w-4 h-4" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24"
+                    >
+                      <path 
+                        strokeLinecap="round" 
+                        strokeLinejoin="round" 
+                        strokeWidth={2} 
+                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" 
+                      />
+                    </svg>
+                    <span>{step.externalLink.label}</span>
+                  </button>
+                )}
+              </div>
+            )}
+
+            {/* Themed exhibits selector (if provided) */}
+            {step.themedExhibits && step.themedExhibits.length > 0 && (
+              <div className="bg-white rounded-lg border border-gray-200 overflow-hidden p-6 mt-6">
+                <h3 className="text-lg font-medium text-gray-900 mb-3">전시 테마별 작품 선택</h3>
+                <p className="text-sm text-gray-600 mb-3">테마를 선택하면 해당 테마의 전시 작품 목록이 드롭다운으로 표시됩니다.</p>
+                <div className="flex gap-3 items-center">
+                  <select
+                    className="p-3 border border-gray-300 rounded-lg bg-white text-gray-900 font-medium focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    value={selectedThemeId || ''}
+                    onChange={(e) => setSelectedThemeId(e.target.value)}
+                  >
+                    {step.themedExhibits.map((t) => (
+                      <option key={t.id} value={t.id}>{t.theme}</option>
+                    ))}
+                  </select>
+                </div>
+                <div className="mt-4">
+                  {(() => {
+                    const theme = step.themedExhibits!.find(t => t.id === selectedThemeId) || step.themedExhibits![0];
+                    return <ThemedExhibitDropdown resources={theme.resources} />;
+                  })()}
+                </div>
+              </div>
+            )}
+
+            {/* 빈 iframe 박스 (생성형 AI 시나리오 출력용 자리) */}
           <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
             <div className="bg-gray-50 px-6 py-4 border-b border-gray-200">
               <h3 className="text-lg font-medium text-gray-900">
-                미래 해양 시나리오 생성 화면
+                활동 결과 공유 예시
               </h3>
-              <p className="text-sm text-gray-600 mt-1">생성형 AI 기반 시나리오가 표시될 영역입니다. 현재는 임시 빈 프레임을 표시합니다.</p>
+              <p className="text-sm text-gray-600 mt-1"></p>
             </div>
             <div className="relative" style={{ height: '520px' }}>
               {step.scenarioIframeUrl ? (
                 <iframe
                   src={step.scenarioIframeUrl}
-                  title="미래 해양 시나리오"
+                  title="활동 결과 공유 예시"
                   className="w-full h-full border-0"
                   loading="lazy"
                 />
@@ -412,6 +518,31 @@ const StepContent: React.FC<StepContentProps> = ({
             </div>
           </div>
         </div>
+
+        {/* Themed exhibits selector (if provided) */}
+        {step.themedExhibits && step.themedExhibits.length > 0 && (
+          <div className="bg-white rounded-lg border border-gray-200 overflow-hidden p-6 mb-6">
+            <h3 className="text-lg font-medium text-gray-900 mb-3">전시 테마별 작품 선택</h3>
+            <p className="text-sm text-gray-600 mb-3">테마를 선택하면 해당 테마의 전시 작품 목록이 드롭다운으로 표시됩니다.</p>
+            <div className="flex gap-3 items-center">
+              <select
+                className="p-3 border border-gray-300 rounded-lg bg-white text-gray-900 font-medium focus:outline-none focus:ring-2 focus:ring-blue-500"
+                value={selectedThemeId || ''}
+                onChange={(e) => setSelectedThemeId(e.target.value)}
+              >
+                {step.themedExhibits.map((t) => (
+                  <option key={t.id} value={t.id}>{t.theme}</option>
+                ))}
+              </select>
+            </div>
+            <div className="mt-4">
+              {(() => {
+                const theme = step.themedExhibits!.find(t => t.id === selectedThemeId) || step.themedExhibits![0];
+                return <ThemedExhibitDropdown resources={theme.resources} />;
+              })()}
+            </div>
+          </div>
+        )}
 
         {/* External Link Section */}
         {(step.externalLink || step.externalLinks) && (

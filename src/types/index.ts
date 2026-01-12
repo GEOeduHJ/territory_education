@@ -93,6 +93,12 @@ export interface ModuleStep {
   // 드롭다운 자료 iframe 기능 (Module 3 step-1용)
   showResourceDropdown?: boolean;
   dropdownResources?: DropdownResource[];
+  // 테마별 전시(드롭다운) 기능
+  themedExhibits?: Array<{
+    id: string;
+    theme: string;
+    resources: DropdownResource[];
+  }>;
 }
 
 // 분쟁 지역 자료 인터페이스
