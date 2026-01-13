@@ -61,9 +61,9 @@ const StepContent: React.FC<StepContentProps> = ({
           return (
             <div
               key={container.id}
-              className={`bg-gray-50 rounded-lg p-6 border border-gray-200 transition-transform duration-150 ease-out ${
-                isNavigable ? 'transform hover:scale-[1.01] focus-within:scale-[1.01] active:scale-[0.995] cursor-pointer' : ''
-              }`}
+              className={`bg-gray-50 rounded-lg p-6 border border-gray-200 transition-transform transition-colors duration-150 ease-out ${
+                isNavigable ? 'transform hover:scale-[1.03] focus-within:scale-[1.03] active:scale-[0.995] cursor-pointer' : ''
+              } hover:bg-territory-accent/25`}
               role={isNavigable ? 'button' : undefined}
               tabIndex={isNavigable ? 0 : undefined}
               onClick={() => handleDetailNavigate(container.targetModuleId, container.targetStepId)}
