@@ -7,7 +7,7 @@ import { MODULE_2_DATA } from './modules/module2';
 import { MODULE_3_DATA } from './modules/module3';
 import { MODULE_4_DATA } from './modules/module4';
 import { MODULE_5_DATA } from './modules/module5';
-import { MODULE_6_DATA } from './modules/module6';
+import { MODULE_0_DATA } from './modules/module6';
 
 // Re-export the modules data for backward compatibility
 export const MODULES_DATA = {
@@ -17,6 +17,7 @@ export const MODULES_DATA = {
     "3": MODULE_3_DATA,
     "4": MODULE_4_DATA,
     "5": MODULE_5_DATA,
-    "6": MODULE_6_DATA
+    "6": MODULE_0_DATA,
+    "0": MODULE_0_DATA
   }
 };

@@ -3,6 +3,9 @@ import { ModuleData, ModuleInfo } from '../../types';
 // Dynamically import modules to reduce initial bundle size
 const loadModule = async (moduleId: string): Promise<ModuleData> => {
   switch (moduleId) {
+    case '0':
+      const { MODULE_0_DATA } = await import('./module6');
+      return MODULE_0_DATA;
     case '1':
       const { MODULE_1_DATA } = await import('./module1');
       return MODULE_1_DATA;
@@ -18,9 +21,7 @@ const loadModule = async (moduleId: string): Promise<ModuleData> => {
     case '5':
       const { MODULE_5_DATA } = await import('./module5');
       return MODULE_5_DATA;
-    case '6':
-      const { MODULE_6_DATA } = await import('./module6');
-      return MODULE_6_DATA;
+    
     default:
       throw new Error(`Module ${moduleId} not found`);
   }
@@ -29,28 +30,20 @@ const loadModule = async (moduleId: string): Promise<ModuleData> => {
 // Load all modules for homepage display
 const loadAllModules = async (): Promise<ModuleInfo[]> => {
   const modules = await Promise.all([
+    import('./module6'),
     import('./module1'),
     import('./module2'),
     import('./module3'),
     import('./module4'),
-    import('./module5'),
-    import('./module6')
+    import('./module5')
   ]);
 
   const moduleDataList: ModuleData[] = modules.map((module, idx) => {
-    const exportName = `MODULE_${idx + 1}_DATA` as const;
-    const moduleData = module[exportName as keyof typeof module] as ModuleData | undefined;
-    if (moduleData) {
-      return moduleData;
-    }
-
-    const fallback = Object.values(module).find(
+    const found = Object.values(module).find(
       (value) => value && typeof (value as ModuleData).id === 'string' && Array.isArray((value as ModuleData).steps)
     ) as ModuleData | undefined;
 
-    if (fallback) {
-      return fallback;
-    }
+    if (found) return found;
 
     throw new Error(`Unable to extract ModuleData from module namespace ${idx}`);
   });

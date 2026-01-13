@@ -1,11 +1,11 @@
 import { ModuleData } from '../../types';
 
 // Module 6 데이터
-export const MODULE_6_DATA: ModuleData = {
-  id: "6",
+export const MODULE_0_DATA: ModuleData = {
+  id: "0",
   topic: "모듈 소개",
   title: "📘 모듈 한눈에 보기",
-  description: "전체 모듈 한눈에 알아보기",
+  description: "전체 모듈 한눈에 살펴보기",
   steps: [
     {
       id: "step-1",
