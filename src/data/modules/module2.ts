@@ -5,7 +5,7 @@ export const MODULE_2_DATA: ModuleData = {
   id: "2",
   topic: "해양 영토",
   title: "🌏 데이터의 파도를 타고, 해양 강국의 내일을 열다",
-  description: "해양영토의 기본 개념과 해양공간관리의 필요성을 이해하고, 다양한 지리공간기술 플랫폼으로 해양 공간 빅데이터를 분석하여 지속 가능한 미래 해양을 만들기 위한 실천 의지를 강화하는 모듈",
+  description: "해양영토의 기본 개념과 해양공간관리의 필요성을 이해하고, 다양한 지리공간기술 플랫폼으로 해양 공간 빅데이터를 분석하는 모듈",
   steps: [
     {
       id: "step-1",
@@ -69,7 +69,7 @@ export const MODULE_2_DATA: ModuleData = {
       id: "step-4",
       title: "🧭 해양 공간의 계획과 분석",
       description: "해양공간관리계획의 목적과 방법을 영상으로 보고, 해양공간지도를 이용해 탐구활동을 진행합니다",
-      content: "1) [영상시청] '바다라고 다 같은 바다가 아니다?' 영상을 시청하여 '해양공간관리계획'의 시행 목적과 방법을 이해합니다.\n\n2) [탐구활동] '해양공간지도'에 접속하여 탐구지역 주변 해역이 어떻게 활용되고 있는지 조사해보세요.\n\n※ 활동지: 아래 첨부된 활동지를 이용하여 탐구 결과를 정리하세요. (활동지 파일은 프로젝트에 업로드되어 있으면 링크로 연결됩니다)",
+      content: "1) [영상시청] '바다라고 다 같은 바다가 아니다?' 영상을 시청하여 '해양공간관리계획'의 시행 목적과 방법을 이해합니다.\n\n2) [탐구활동] '해양공간지도'에 접속하여 탐구지역 주변 해역이 어떻게 활용되고 있는지 조사해보세요.\n\n※ 활동지: 아래 첨부된 활동지를 이용하여 탐구 결과를 정리하세요. \n(활동지 파일은 프로젝트에 업로드되어 있으면 링크로 연결됩니다)",
       externalLinks: [
         {
           url: "https://www.youtube.com/watch?v=mQhqHQs4g7s",
@@ -82,8 +82,13 @@ export const MODULE_2_DATA: ModuleData = {
           openInNewTab: true
         },
         {
-          url: "https://drive.google.com/file/d/1JqvzcAHjg1IMKnUD2GggCyoJNKQet3e8/view?usp=sharing",
-          label: "📥 활동지 다운로드 (Google Drive)",
+          url: "https://www.notion.so/2b2939539a87806e9e64cac3578bec0f#2e6939539a878004a69ff51f02b78823",
+          label: "📥 활동지 다운로드 (notion)",
+          openInNewTab: true
+        },
+        {
+          url: "https://msp.go.kr/service/system.do",
+          label: "🖥️ 해양공간관리계획 웹사이트 (참고용)",
           openInNewTab: true
         }
       ],
@@ -95,6 +100,13 @@ export const MODULE_2_DATA: ModuleData = {
       title: "🌅 해양영토의 가치와 미래",
       description: "지속 가능한 해양 영토를 위한 역할과 자세를 고민해봅시다",
       content: "🏫 해양 공간 분석 활동 결과를 공유 및 업로드하고, 우리나라의 해양 영토를 지키고 지속 가능하게 이용하기 위해 우리에게 필요한 역할과 자세를 토의해봅시다.",
+      externalLinks: [
+        {
+          url: "https://padlet.com/jde0609/padlet-mqabb6bxpiy512ec",
+          label: "예시 보기",
+          openInNewTab: true
+        }
+      ],
       showScenarioIframe: true,
       scenarioIframeUrl: "https://padlet.com/jde0609/padlet-mqabb6bxpiy512ec",
       editableContent: false

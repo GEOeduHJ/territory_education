@@ -12,7 +12,8 @@ const StepContent: React.FC<StepContentProps> = ({
   onExternalLinkClick, 
   moduleId,
   keywords,
-  onKeywordSubmit 
+  onKeywordSubmit,
+  onNavigateToStep
 }) => {
   // DEBUG: log step to verify externalLinks presence at runtime
   // Remove this after debugging
@@ -42,6 +43,55 @@ const StepContent: React.FC<StepContentProps> = ({
   const [selectedThemeId, setSelectedThemeId] = React.useState<string | null>(
     step.themedExhibits && step.themedExhibits.length > 0 ? step.themedExhibits[0].id : null
   );
+
+  const hasDetailContainers = !!(step.detailContainers && step.detailContainers.length > 0);
+  const shouldShowDefaultContent = !step.hideDefaultContentContainer;
+
+  const handleDetailNavigate = (targetModuleId?: string, targetStepId?: string) => {
+    if (!targetModuleId || !onNavigateToStep) return;
+    onNavigateToStep(targetModuleId, targetStepId);
+  };
+
+  const renderDetailContainers = () => {
+    if (!hasDetailContainers) return null;
+    return (
+      <div className="space-y-4 mb-8">
+        {step.detailContainers!.map((container) => {
+          const isNavigable = !!container.targetModuleId;
+          return (
+            <div
+              key={container.id}
+              className={`bg-gray-50 rounded-lg p-6 border border-gray-200 transition-transform duration-150 ease-out ${
+                isNavigable ? 'transform hover:scale-[1.01] focus-within:scale-[1.01] active:scale-[0.995] cursor-pointer' : ''
+              }`}
+              role={isNavigable ? 'button' : undefined}
+              tabIndex={isNavigable ? 0 : undefined}
+              onClick={() => handleDetailNavigate(container.targetModuleId, container.targetStepId)}
+              onKeyDown={(e) => {
+                if (!isNavigable) return;
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  handleDetailNavigate(container.targetModuleId, container.targetStepId);
+                }
+              }}
+            >
+              <h3 className="text-lg font-medium text-gray-900 mb-2">
+                {container.title}
+              </h3>
+              {container.description && (
+                <p className="text-sm text-gray-600 mb-3">
+                  {container.description}
+                </p>
+              )}
+              <div className="text-gray-700 whitespace-pre-line leading-relaxed">
+                {container.content}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    );
+  };
 
   React.useEffect(() => {
     // reset selected theme when step changes
@@ -311,16 +361,20 @@ const StepContent: React.FC<StepContentProps> = ({
           </div>
 
           {/* Step Content */}
-          <div className="mb-6">
-            <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
-              <h3 className="text-lg font-medium text-gray-900 mb-3">
-                학습 내용
-              </h3>
-              <div className="text-gray-700 whitespace-pre-line leading-relaxed">
-                {step.content}
+          {hasDetailContainers && renderDetailContainers()}
+
+          {shouldShowDefaultContent && (
+            <div className="mb-6">
+              <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
+                <h3 className="text-lg font-medium text-gray-900 mb-3">
+                  학습 내용
+                </h3>
+                <div className="text-gray-700 whitespace-pre-line leading-relaxed">
+                  {step.content}
+                </div>
               </div>
             </div>
-          </div>
+          )}
 
           {/* External Link Section */}
           {step.externalLink && (
@@ -414,16 +468,20 @@ const StepContent: React.FC<StepContentProps> = ({
           </div>
 
           {/* Content */}
-          <div className="prose prose-lg max-w-none mb-6">
-            <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
-              <h3 className="text-lg font-medium text-gray-900 mb-3">
-                학습 내용
-              </h3>
-              <div className="text-gray-700 whitespace-pre-line leading-relaxed">
-                {step.content}
+          {hasDetailContainers && renderDetailContainers()}
+
+          {shouldShowDefaultContent && (
+            <div className="prose prose-lg max-w-none mb-6">
+              <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
+                <h3 className="text-lg font-medium text-gray-900 mb-3">
+                  학습 내용
+                </h3>
+                <div className="text-gray-700 whitespace-pre-line leading-relaxed">
+                  {step.content}
+                </div>
               </div>
             </div>
-          </div>
+          )}
 
             {/* 외부 자료 링크 (시나리오 iframe 분기에서도 표시) */}
             {(step.externalLink || step.externalLinks) && (
@@ -574,16 +632,20 @@ const StepContent: React.FC<StepContentProps> = ({
         </div>
 
         {/* Step Content */}
-        <div className="prose prose-lg max-w-none mb-8">
-          <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
-            <h3 className="text-lg font-medium text-gray-900 mb-3">
-              학습 내용
-            </h3>
-            <div className="text-gray-700 whitespace-pre-line leading-relaxed">
-              {step.content}
+        {hasDetailContainers && renderDetailContainers()}
+
+        {shouldShowDefaultContent && (
+          <div className="prose prose-lg max-w-none mb-8">
+            <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
+              <h3 className="text-lg font-medium text-gray-900 mb-3">
+                학습 내용
+              </h3>
+              <div className="text-gray-700 whitespace-pre-line leading-relaxed">
+                {step.content}
+              </div>
             </div>
           </div>
-        </div>
+        )}
 
         {/* Themed exhibits selector (if provided) */}
         {step.themedExhibits && step.themedExhibits.length > 0 && (

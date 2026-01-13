@@ -51,6 +51,15 @@ export interface ModuleStep {
   title: string;
   description: string;
   content: string;
+  detailContainers?: Array<{
+    id: string;
+    title: string;
+    description?: string;
+    content: string;
+    targetModuleId?: string;
+    targetStepId?: string;
+  }>;
+  hideDefaultContentContainer?: boolean;
   externalLink?: {
     url: string;
     label: string;
@@ -155,6 +164,7 @@ export interface StepContentProps {
   moduleId?: string;
   keywords?: KeywordData;
   onKeywordSubmit?: (keywords: KeywordData) => void;
+  onNavigateToStep?: (targetModuleId: string, targetStepId?: string) => void;
 }
 
 // 키워드 관련 컴포넌트 Props

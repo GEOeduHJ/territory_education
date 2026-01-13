@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import TabNavigation from './TabNavigation';
 import StepContent from './StepContent';
 import { ModuleData, KeywordData } from '../types';
@@ -9,6 +9,7 @@ import { KeywordController } from '../services/keywordController';
 const ModulePage: React.FC = () => {
   const { moduleId } = useParams<{ moduleId: string }>();
   const navigate = useNavigate();
+  const location = useLocation();
   const [moduleData, setModuleData] = useState<ModuleData | null>(null);
   const [activeStepId, setActiveStepId] = useState<string>('');
   const [loading, setLoading] = useState(true);
@@ -32,10 +33,12 @@ const ModulePage: React.FC = () => {
         setLoading(true);
         const data = await contentLoader.loadModuleData(moduleId);
         setModuleData(data);
-        
-        // Set first step as active by default
+
+        // Set initial step (hash 우선, 없으면 첫 번째)
         if (data.steps.length > 0) {
-          setActiveStepId(data.steps[0].id);
+          const hash = window.location.hash?.replace('#', '');
+          const targetFromHash = hash ? data.steps.find((s) => s.id === hash) : null;
+          setActiveStepId(targetFromHash ? targetFromHash.id : data.steps[0].id);
         }
 
         // Module 1인 경우 저장된 키워드 로드
@@ -54,6 +57,17 @@ const ModulePage: React.FC = () => {
 
     loadModuleData();
   }, [moduleId, isModule1]);
+
+  // 해시 변화에 따라 스텝 동기화
+  useEffect(() => {
+    if (!moduleData) return;
+    const hash = location.hash?.replace('#', '');
+    if (!hash) return;
+    const target = moduleData.steps.find((s) => s.id === hash);
+    if (target) {
+      setActiveStepId(target.id);
+    }
+  }, [location.hash, moduleData]);
 
   // 키워드 내비게이션 이벤트 리스너 (1단계로 돌아가기)
   useEffect(() => {
@@ -99,6 +113,22 @@ const ModulePage: React.FC = () => {
     
     // Update URL hash for step navigation
     window.location.hash = stepId;
+  };
+
+  const handleNavigateToStep = (targetModuleId: string, targetStepId?: string) => {
+    if (!targetModuleId) return;
+
+    // 동일 모듈이면 상태만 변경
+    if (targetModuleId === moduleId) {
+      if (targetStepId) {
+        setActiveStepId(targetStepId);
+        window.location.hash = targetStepId;
+      }
+      return;
+    }
+
+    const hashPart = targetStepId ? `#${targetStepId}` : '';
+    navigate(`/module/${targetModuleId}${hashPart}`);
   };
 
   const handleExternalLinkClick = (url: string) => {
@@ -190,6 +220,7 @@ const ModulePage: React.FC = () => {
           moduleId={moduleId}
           keywords={keywords || undefined}
           onKeywordSubmit={isModule1 ? handleKeywordSubmit : undefined}
+          onNavigateToStep={handleNavigateToStep}
         />
       )}
 

@@ -136,14 +136,14 @@ export const MODULE_1_DATA: ModuleData = {
     },
     {
       id: "step-5",
-      title: "🎬 뮤직비디오 영상 생성",
+      title: "🎬 뮤직비디오 영상 생성(선택 사항)",
       description: "📹 프롬프트를 복사하고 뮤직비디오 영상을 생성해보세요",
-      content: "🎥 같은 프롬프트를 활용하여 뮤직비디오용 영상을 생성해보세요! Google AI Studio를 사용하여 매력적이고 인상적인 영상을 만들어보세요. 🌈",
+      content: "🎥 같은 프롬프트를 활용하여 뮤직비디오용 영상을 생성해보세요! AI를 사용하여 매력적이고 인상적인 영상을 만들어보세요. 🌈",
       useKeywordTemplate: true,
       templateContent: "영토 분쟁을 사례로 캠페인 노래를 만들거야. 이 사례는 [keyword1]이/가 갈등을 겪고 있고, [keyword2]이/가 핵심적인 분쟁 배경이야. 해결 방안으로는 [keyword3]이/가 필요해. [keyword4]\n\n🎬 위 프롬프트 내용을 바탕으로 감동적인 뮤직비디오 영상을 생성해주세요. 영토 분쟁의 현실과 평화적 해결의 중요성을 담은 시각적 스토리텔링으로, 시청자에게 깊은 인상을 남길 수 있는 영상을 만들어주세요.",
       externalLink: {
-        url: "https://aistudio.google.com/prompts/new_video",
-        label: "🎬 Google AI Studio에서 뮤직비디오 영상 생성하기",
+        url: "https://create.wan.video/generate/video/generate?model=wan2.6",
+        label: "🎬 Wan에서 뮤직비디오 영상 생성하기",
         openInNewTab: true
       },
       editableContent: false
