@@ -18,7 +18,7 @@ export const MODULE_0_DATA: ModuleData = {
           id: "m1-step1",
           title: "🗺️ 분쟁 지역 자료 조사",
           description: "인터랙티브 지도와 자료 열람",
-          content: "- 지도 마커를 클릭해 각 분쟁 지역의 배경 자료(PDF)를 확인\n- AI와 함께 조사 내용을 정리하며 다음 단계 준비\n- 지역별 자료 예시: 남중국해, 센카쿠/댜오위다오, 나일강 연안국 등",
+          content: "지도 마커를 클릭해 각 분쟁 지역의 배경 자료(PDF)를 확인\n- AI와 함께 조사 내용을 정리하며 다음 단계 준비\n- 지역별 자료 예시: 남중국해, 센카쿠/댜오위다오, 나일강 연안국 등",
           targetModuleId: "1",
           targetStepId: "step-1"
         },
@@ -134,7 +134,7 @@ export const MODULE_0_DATA: ModuleData = {
           id: "m3-step1",
           title: "📚 독도 주제 학습",
           description: "AI 챗봇 + 학년별 자료",
-          content: "- 독도 역사·지리·문화 학습\n- 드롭다운 자료로 학년 맞춤 정보 열람 후 아이디어 수집",
+          content: "- 독도 역사·지리·문화 등 내용 학습\n- 드롭다운 자료로 학년 맞춤 정보 열람 후 아이디어 수집",
           targetModuleId: "3",
           targetStepId: "step-1"
         },
@@ -149,8 +149,8 @@ export const MODULE_0_DATA: ModuleData = {
         {
           id: "m3-step3",
           title: "📄 상품 설명서 제작",
-          description: "템플릿 기반 기획서 작성",
-          content: "- 타겟·가격·특징을 담아 상품 설명서 작성",
+          description: "템플릿 기반 설명서 작성",
+          content: "- 독도의 가치를 담은 상품 설명서 작성",
           targetModuleId: "3",
           targetStepId: "step-3"
         },
@@ -158,7 +158,7 @@ export const MODULE_0_DATA: ModuleData = {
           id: "m3-step4",
           title: "🏆 최종 작품 제출",
           description: "Padlet 업로드",
-          content: "- 굿즈 디자인과 설명서를 공유하고 피드백 확인",
+          content: "- 굿즈 디자인과 설명서를 공유하고 피드백 확인\n- 가상 바자회 활동으로 활용 가능",
           targetModuleId: "3",
           targetStepId: "step-4"
         }

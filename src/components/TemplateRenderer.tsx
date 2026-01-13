@@ -138,13 +138,13 @@ export const TemplateRenderer: React.FC<TemplateRendererProps> = ({
             <div className="grid grid-cols-2 gap-3">
               <div className="flex items-center">
                 <span className="text-xs font-medium text-blue-600 bg-blue-100 px-2 py-1 rounded mr-2">
-                  🗺️ 갈등 주체
+                  🌍 갈등 주체
                 </span>
                 <span className="text-sm text-blue-800">{keywords.keyword1}</span>
               </div>
               <div className="flex items-center">
                 <span className="text-xs font-medium text-blue-600 bg-blue-100 px-2 py-1 rounded mr-2">
-                  ⚡ 분쟁 배경
+                  📖 분쟁 배경
                 </span>
                 <span className="text-sm text-blue-800">{keywords.keyword2}</span>
               </div>
@@ -156,7 +156,7 @@ export const TemplateRenderer: React.FC<TemplateRendererProps> = ({
               </div>
               <div className="flex items-center">
                 <span className="text-xs font-medium text-blue-600 bg-blue-100 px-2 py-1 rounded mr-2">
-                  💭 추가 내용
+                  ⁉️ 추가 내용
                 </span>
                 <span className="text-sm text-blue-800">{keywords.keyword4}</span>
               </div>

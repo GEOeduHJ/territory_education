@@ -60,11 +60,11 @@ const HomePage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="text-center">
             <h1 className="text-3xl font-bold text-gray-900 mb-2">
-              🤖 AI와 함께하는 스마트 영토교육 ✨
+              🤖 AI와 함께하는 스마트 영토교육 🌍
             </h1>
             <p className="text-lg text-gray-600 max-w-4xl mx-auto">
               인공지능 기술을 활용한 창의적이고 재미있는 영토교육 플랫폼입니다! <br />
-              AI 챗봇과의 대화, 창작 활동, 시뮬레이션을 통해 우리나라의 소중한 영토를 더 깊이 이해해보세요. 🌍
+              AI 챗봇과의 대화, 창작 활동등 을 통해 우리나라의 소중한 영토를 더 깊이 이해해보세요.
             </p>
           </div>
         </div>
@@ -77,7 +77,7 @@ const HomePage: React.FC = () => {
             🎯 AI 기반 학습 모듈 선택
           </h2>
           <p className="text-gray-600">
-            AI 기술을 활용한 다양한 학습 모듈로 영토교육의 새로운 경험을 만나보세요! 🚀✨
+            AI 기술을 활용한 다양한 학습 모듈로 영토교육의 새로운 경험을 만나보세요!
           </p>
         </div>
 

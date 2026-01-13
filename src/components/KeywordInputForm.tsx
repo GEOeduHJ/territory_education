@@ -103,7 +103,7 @@ export const KeywordInputForm: React.FC<KeywordInputFormProps> = ({
           🎤 캠페인 노래 만들기를 위해 조사한 내용을 정리해보세요!
         </h3>
         <p className="text-gray-600 text-sm">
-          ✨ 각 항목에 적절한 내용을 입력해 이후 다음 단계에서 AI를 활용할 수 있도록 준비하세요.
+          각 항목에 적절한 내용을 입력해 이후 다음 단계에서 AI를 활용할 수 있도록 준비하세요.
         </p>
       </div>
 
@@ -111,7 +111,7 @@ export const KeywordInputForm: React.FC<KeywordInputFormProps> = ({
         {/* 갈등 주체 입력 */}
         <div>
           <label htmlFor="keyword1" className="block text-sm font-medium text-gray-700 mb-2">
-            🗺️ 갈등 주체 <span className="text-red-500">*</span>
+            🌍 갈등 주체 <span className="text-red-500">*</span>
           </label>
           <input
             id="keyword1"
@@ -138,7 +138,7 @@ export const KeywordInputForm: React.FC<KeywordInputFormProps> = ({
         {/* 분쟁 배경 입력 */}
         <div>
           <label htmlFor="keyword2" className="block text-sm font-medium text-gray-700 mb-2">
-            ⚡ 분쟁 배경 <span className="text-red-500">*</span>
+            📖 분쟁 배경 <span className="text-red-500">*</span>
           </label>
           <input
             id="keyword2"
@@ -192,7 +192,7 @@ export const KeywordInputForm: React.FC<KeywordInputFormProps> = ({
         {/* 추가 내용 입력 */}
         <div>
           <label htmlFor="keyword4" className="block text-sm font-medium text-gray-700 mb-2">
-            💭 추가 내용 <span className="text-red-500">*</span>
+            ⁉️ 추가 내용 <span className="text-red-500">*</span>
           </label>
           <input
             id="keyword4"
