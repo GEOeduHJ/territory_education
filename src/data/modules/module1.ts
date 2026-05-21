@@ -36,56 +36,56 @@ export const MODULE_1_DATA: ModuleData = {
     "id": "region-1",
     "name": "남중국해",
     "coordinates": [12, 115.0],
-    "pdfUrl": "https://drive.google.com/file/d/1MzJuwKxo5TweZEvtAfFHbNFRsGHIr51P/view?usp=drive_link",
+    "pdfUrl": "https://youtu.be/QmIDYcYFuzk",
     "description": "중국·대만·베트남·필리핀·말레이시아·브루나이 간 도서 주권 및 해양 관할권 분쟁"
   },
   {
     "id": "region-2",
     "name": "센카쿠/댜오위다오",
     "coordinates": [25.78, 123.5],
-    "pdfUrl": "https://drive.google.com/file/d/1OacSt4QfZgJgsj5B2qo7eTZVRabdWu2s/view?usp=drive_link",
+    "pdfUrl": "https://youtu.be/StSkJFXdFcY",
     "description": "일본·중국·대만 간 동중국해 도서 영유권 분쟁"
   },
   {
     "id": "region-3",
     "name": "남쿠릴/북방영토",
     "coordinates": [44.5, 146.5],
-    "pdfUrl": "https://drive.google.com/file/d/1dB4c9RpY9ZijO6oGbhe6eG3auUM-ILBv/view?usp=drive_link",
+    "pdfUrl": "https://youtu.be/BVjvTI_gAu4",
     "description": "러시아와 일본 간 4개 섬(이투루프·쿠나시르·시코탄·하보마이) 영유권 분쟁"
   },
   {
     "id": "region-4",
     "name": "중국-인도 국경",
     "coordinates": [28.5, 94.8],
-    "pdfUrl": "https://drive.google.com/file/d/1DHClybP2CQUYCpb-3sotrJwcqdpjyLi4/view?usp=drive_link",
+    "pdfUrl": "https://youtu.be/yUAss_21D3A",
     "description": "중국과 인도 간 악사이친·라다크·아루나찰프라데시 국경선 분쟁"
   },
   {
     "id": "region-5",
     "name": "카슈미르",
     "coordinates": [34.0, 76.5],
-    "pdfUrl": "https://drive.google.com/file/d/1TCg1QiyaO98CifgRLP_1AaTRrsgmoYV1/view?usp=drive_link",
+    "pdfUrl": "https://youtu.be/sJiWSypT7rQ",
     "description": "인도·파키스탄(중국 연계) 간 카슈미르 영토 주권 및 자치권 분쟁"
   },
   {
     "id": "region-6",
     "name": "이스라엘-팔레스타인",
     "coordinates": [31.5, 35.0],
-    "pdfUrl": "https://drive.google.com/file/d/1i69RmbV9cda4sn9WsvDCLD8d2QTmJhVr/view?usp=drive_link",
+    "pdfUrl": "https://youtu.be/28BPywj9Tbk",
     "description": "이스라엘과 팔레스타인 간 영토·국경·정착촌·예루살렘 지위 분쟁"
   },
   {
     "id": "region-7",
     "name": "나일강 연안국",
     "coordinates": [12.0, 33.0],
-    "pdfUrl": "https://drive.google.com/file/d/1gnPBJHcCmHNNnZVdRvFpPxPp-l5XsWYx/view?usp=drive_link",
+    "pdfUrl": "https://youtu.be/btKYe_wUjJA",
     "description": "이집트·수단·에티오피아 등 나일강 유역 국가 간 물 배분 및 댐 건설 분쟁"
   },
   {
     "id": "region-8",
     "name": "이집트-수단(할라이브)",
     "coordinates": [22.2, 36.6],
-    "pdfUrl": "https://drive.google.com/file/d/1m7SHMyptobTmfYvgJuf3F5DZaEpXKJ6C/view?usp=drive_link",
+    "pdfUrl": "https://youtu.be/33Cn13jnh1Y",
     "description": "이집트와 수단 간 홍해 연안 할라이브 삼각지대 영유권 분쟁"
   }
       ],

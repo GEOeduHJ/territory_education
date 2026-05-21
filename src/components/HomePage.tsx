@@ -106,6 +106,12 @@ const HomePage: React.FC = () => {
           </div>
         </div>
       </main>
+      {/* Copyright */}
+      <footer className="py-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-sm text-gray-500">© 서울대학교 지리교육과 김민성 교수 연구팀</p>
+        </div>
+      </footer>
     </div>
   );
 };
