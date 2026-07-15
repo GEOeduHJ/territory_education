@@ -64,7 +64,7 @@ const HomePage: React.FC = () => {
             </h1>
             <p className="text-lg text-gray-600 max-w-4xl mx-auto">
               인공지능 기술을 활용한 창의적이고 재미있는 영토교육 플랫폼입니다! <br />
-              AI 챗봇과의 대화, 창작 활동등 을 통해 우리나라의 소중한 영토를 더 깊이 이해해보세요.
+              AI 챗봇과의 대화, 창작 활동 등을 통해 우리나라의 소중한 영토를 더 깊이 이해해보세요.
             </p>
           </div>
         </div>

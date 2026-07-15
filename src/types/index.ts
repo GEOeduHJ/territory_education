@@ -10,10 +10,10 @@ export interface ModuleInfo {
 
 // 키워드 관련 인터페이스
 export interface KeywordData {
-  keyword1: string;  // 갈등 주체
-  keyword2: string;  // 분쟁 배경
-  keyword3: string;  // 해결 방안
-  keyword4: string;  // 추가 내용
+  keyword1: string;  // 지리적 위치 (지형·지역성으로 서술)
+  keyword2: string;  // 갈등 배경
+  keyword3: string;  // 현재 상황
+  keyword4: string;  // 해결 노력
 }
 
 export interface KeywordTemplate {
@@ -178,6 +178,7 @@ export interface TemplateContentRendererProps {
   step: ModuleStep;
   keywords: KeywordData;
   onExternalLinkClick: (url: string) => void;
+  
 }
 
 // 외부 링크 서비스 인터페이스

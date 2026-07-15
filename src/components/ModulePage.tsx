@@ -100,11 +100,10 @@ const ModulePage: React.FC = () => {
       if (moduleData && moduleData.steps.length > 1) {
         setTimeout(() => {
           setActiveStepId(moduleData.steps[1].id);
-        }, 500); // 짧은 딜레이로 사용자 피드백 향상
+        }, 500);
       }
     } catch (error) {
       console.error('키워드 저장 실패:', error);
-      // 에러는 KeywordInputForm에서 처리됨
     }
   };
 
@@ -219,6 +218,7 @@ const ModulePage: React.FC = () => {
           onExternalLinkClick={handleExternalLinkClick}
           moduleId={moduleId}
           keywords={keywords || undefined}
+          
           onKeywordSubmit={isModule1 ? handleKeywordSubmit : undefined}
           onNavigateToStep={handleNavigateToStep}
         />

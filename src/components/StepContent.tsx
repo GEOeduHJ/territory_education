@@ -277,7 +277,7 @@ const StepContent: React.FC<StepContentProps> = ({
         aria-labelledby={`tab-${step.id}`}
       >
         <KeywordInputForm
-          onSubmit={onKeywordSubmit}
+          onSubmit={onKeywordSubmit!}
           initialKeywords={keywords}
         />
       </div>
