@@ -6,6 +6,7 @@ import { ChatbotCardRenderer } from './ChatbotCardRenderer';
 import DisputeMap from './DisputeMap';
 import ResourceDropdown from './ResourceDropdown';
 import ThemedExhibitDropdown from './ThemedExhibitDropdown';
+import { PromptInputBox } from './PromptInputBox';
 
 const StepContent: React.FC<StepContentProps> = ({ 
   step, 
@@ -645,6 +646,14 @@ const StepContent: React.FC<StepContentProps> = ({
               </div>
             </div>
           </div>
+        )}
+
+        {/* Prompt Input Box (학생이 가이드를 참고해 직접 프롬프트를 작성하는 입력 칸) */}
+        {step.promptInput && (
+          <PromptInputBox
+            label={step.promptInput.label}
+            placeholder={step.promptInput.placeholder}
+          />
         )}
 
         {/* Themed exhibits selector (if provided) */}

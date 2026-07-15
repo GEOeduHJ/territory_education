@@ -82,7 +82,7 @@ export const KeywordInputForm: React.FC<KeywordInputFormProps> = ({
 
       <form onSubmit={handleSubmit} className="space-y-6">
         <div>
-          <label htmlFor="keyword1" className="block text-sm font-medium text-gray-700 mb-2">📍 지리적 위치 (국가명 대신 지형/지역성으로) <span className="text-red-500">*</span></label>
+          <label htmlFor="keyword1" className="block text-sm font-medium text-gray-700 mb-2">📍 지리적 위치 <span className="text-red-500">*</span></label>
           <input
             id="keyword1"
             type="text"
@@ -90,7 +90,7 @@ export const KeywordInputForm: React.FC<KeywordInputFormProps> = ({
             onChange={(e) => handleInputChange('keyword1', e.target.value)}
             disabled={isFormDisabled}
             className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors ${validation.keyword1Error ? 'border-red-500 bg-red-50' : 'border-gray-300'} ${isFormDisabled ? 'bg-gray-100 cursor-not-allowed' : ''}`}
-            placeholder="예: 높은 산악지대의 경계 지역, 남부 연안의 작은 섬 무리"
+            placeholder="예: 히말라야 산맥, 남중국해, 나일강 일대 등"
             maxLength={50}
             aria-describedby={validation.keyword1Error ? 'keyword1-error' : undefined}
           />

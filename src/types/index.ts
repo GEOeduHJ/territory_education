@@ -73,6 +73,11 @@ export interface ModuleStep {
     showIframe?: boolean;
   }>;
   editableContent?: boolean;
+  // 학생이 가이드를 참고해 직접 프롬프트를 작성하고 복사할 수 있는 입력 칸 (Module 1 이미지 생성 등)
+  promptInput?: {
+    label?: string;
+    placeholder?: string;
+  };
   // 새로운 키워드 기능 속성들
   isKeywordInput?: boolean;
   useKeywordTemplate?: boolean;
@@ -117,6 +122,8 @@ export interface RegionResource {
   coordinates: [number, number]; // [latitude, longitude]
   pdfUrl: string;
   description: string;
+  // 학습지 부록에 수록된 사례 분석용 대화문 (5개 사례에만 존재)
+  dialogue?: string;
 }
 
 // 드롭다운 자료 인터페이스
