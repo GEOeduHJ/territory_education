@@ -353,8 +353,8 @@ export const MODULE_1_DATA: ModuleData = {
     * 여기에 원하는 요청 사항을 입력해주세요. *
     `,
       externalLink: {
-        url: "https://create.wan.video/generate/video/generate?model=wan2.6",
-        label: "🎬 Wan에서 뮤직비디오 영상 생성하기",
+        url: "https://kling.ai/app",
+        label: "🎬 Kling에서 뮤직비디오 영상 생성하기",
         openInNewTab: true
       },
       editableContent: false
