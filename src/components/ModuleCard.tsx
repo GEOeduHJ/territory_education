@@ -1,70 +1,48 @@
 import React from 'react';
 import { ModuleCardProps } from '../types';
+import { cleanUiText } from '../utils/uiText';
+
+const moduleOutcomes: Record<string, string> = {
+  '1': '캠페인 노래·앨범 커버',
+  '2': '공간 데이터·미래 제안',
+  '3': '굿즈·상품 설명서',
+  '4': 'DMZ 미래 디자인',
+  '5': '국제회의·해결 방안'
+};
 
 const ModuleCard: React.FC<ModuleCardProps> = ({ module, onClick }) => {
+  const moduleNumber = module.id.padStart(2, '0');
+
   return (
-    <div
-      className="module-card"
+    <button
+      type="button"
+      className={`module-card module-card--learning module-card--${module.id}`}
       onClick={onClick}
-      role="button"
-      tabIndex={0}
-      onKeyDown={(e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          onClick();
-        }
-      }}
       data-testid={`module-card-${module.id}`}
+      aria-label={`${cleanUiText(module.topic)} 모듈, 학습 시작`}
     >
-      {/* 상단 이미지/타이틀 영역 (이미지 우선, 없으면 그라데이션) */}
-      <div className="w-full h-32 rounded-lg mb-4 overflow-hidden relative">
-        {module.imageUrl ? (
-          <img src={module.imageUrl} alt={module.title} className="w-full h-full object-cover" />
-        ) : (
-          <div className="w-full h-full bg-gradient-to-r from-territory-primary to-territory-secondary" />
-        )}
+      <span className="module-card__header">
+        <span className="module-card__index">모듈 {moduleNumber}</span>
+        <span className="module-card__topic">{cleanUiText(module.topic)}</span>
+      </span>
 
-        {/* 중앙 오버레이: 모듈 번호 및 토픽을 항상 표시 */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="text-white text-center">
-            <div className="text-sm">모듈 {module.id} </div>
-            <div className="text-2xl font-bold">{module.topic ?? ''}</div>
-          </div>
-        </div>
-      </div>
-
-      {/* 모듈 제목 */}
-      <h3 className="text-xl font-semibold text-gray-900 mb-2">
-        {module.title}
-      </h3>
-
-      {/* 모듈 설명 */}
-      <p className="text-gray-600 text-sm mb-4 line-clamp-3">
-        {module.description}
-      </p>
-
-      {/* 모듈 정보 */}
-      <div className="flex items-center justify-between">
-        <span className="text-xs text-gray-500">
-          {module.stepCount}개 단계
+      <span className="module-card__body">
+        <span className="module-card__label">{cleanUiText(module.topic)}를 탐구합니다</span>
+        <span className="module-card__title">{cleanUiText(module.title)}</span>
+        <span className="module-card__description">{cleanUiText(module.description)}</span>
+        <span className="module-card__output">
+          <span>AI 결과물</span>
+          {moduleOutcomes[module.id] || '탐구 결과물'}
         </span>
-        <div className="flex items-center text-territory-primary">
-          <span className="text-sm font-medium">시작하기</span>
-          <svg 
-            className="w-4 h-4 ml-1" 
-            fill="none" 
-            stroke="currentColor" 
-            viewBox="0 0 24 24"
-          >
-            <path 
-              strokeLinecap="round" 
-              strokeLinejoin="round" 
-              strokeWidth={2} 
-              d="M9 5l7 7-7 7" 
-            />
-          </svg>
-        </div>
-      </div>
-    </div>
+      </span>
+
+      <span className="module-card__footer">
+        <span><strong>{module.stepCount}</strong>개 학습 단계</span>
+        <span className="module-card__action">
+          모듈 열기 <span aria-hidden="true">→</span>
+        </span>
+      </span>
+    </button>
   );
 };
 
