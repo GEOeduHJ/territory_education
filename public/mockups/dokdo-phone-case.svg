@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="900" viewBox="0 0 900 900">
+  <rect width="900" height="900" rx="48" fill="#eef6f6"/>
+  <rect x="290" y="92" width="320" height="716" rx="52" fill="#ffffff" stroke="#173f52" stroke-width="8"/>
+  <rect x="314" y="116" width="272" height="668" rx="34" fill="#f8fbfb" stroke="#d6e8e6" stroke-width="4"/>
+  <rect x="394" y="138" width="112" height="22" rx="11" fill="#d6e8e6"/>
+  <rect x="346" y="300" width="208" height="300" rx="18" fill="none" stroke="#0f766e" stroke-width="4" stroke-dasharray="12 12"/>
+  <text x="450" y="438" text-anchor="middle" fill="#5d727d" font-family="Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="2">DESIGN</text>
+  <text x="450" y="472" text-anchor="middle" fill="#5d727d" font-family="Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="2">AREA</text>
+  <circle cx="450" cy="748" r="14" fill="#d6e8e6"/>
+</svg>

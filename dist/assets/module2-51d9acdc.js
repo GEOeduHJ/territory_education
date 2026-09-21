@@ -1,0 +1,31 @@
+const e={id:"2",topic:"해양 영토",title:"🌏 데이터의 파도를 타고, 해양 강국의 내일을 열다",description:"해양영토의 기본 개념과 해양공간관리의 필요성을 이해하고, 다양한 지리공간기술 플랫폼으로 해양 공간 빅데이터를 분석하는 모듈",steps:[{id:"step-1",title:"📍 육지 영토에서 해양 영토로",description:"대한민국 영토의 다양한 형태와 효율적인 관리 방법을 알아봅시다",content:`🌍 대한민국의 영토는 육지뿐만 아니라 해양 영토도 포함합니다. 육지 영토를 효율적으로 관리하기 위한 노력들을 살펴보세요!
+
+📌 <'육지 영토'를 효율적으로 관리하기 위한 노력들>
+
+1️⃣ 육지 면적의 확장
+   • 간척사업, 수면매립을 통해 육지면적을 확장
+   • 항만, 도로, 주거 및 산업 단지 건설
+
+2️⃣ 토지의 용도별 구분
+   • 국토의 계획 및 이용법에 따라 용도구역별로 토지 구분
+   • 장기적인 국토 발전 방향 제시
+
+❓ 생각해보기
+   국제 사회가 치열한 해양영토 확보 경쟁을 벌이는 '신 해양 시대'. 땅처럼 바다도 구역을 나누어 계획적으로 보호하고 관리하고 있을까요?`,externalLinks:[{url:"https://kosis.kr/visual/koreaInWorld/korInWorldCountryIndex.do?itmId=1005&tabIdx=0&statJipyoId=7493&lang=ko",label:"📊 KOSIS 그래프 보기",openInNewTab:!0},{url:"https://www.eum.go.kr/web/mp/mpMapDet.jsp#none",label:"🗺️ 토지e음 지도 확인",openInNewTab:!0}],editableContent:!1},{id:"step-2",title:"🌊 해양영토의 개념",description:"해양영토를 구성하는 기본 개념들을 탐구해봅시다",content:`🗺️ 구글마이맵스에 접속하여, 해양영토를 구성하는 기본 개념들을 탐구해보세요!
+
+📌 주목할 개념
+• 영해 (Territorial Sea)
+• 통상기선 (Normal Baseline)
+• 직선기선 (Straight Baseline)
+• 배타적 경제수역 (Exclusive Economic Zone, EEZ)
+• 어업협정 (Fishery Agreement)
+
+💡 아래 지도를 탐구하며 우리나라의 해양영토가 어떻게 구성되어 있는지 알아보세요!`,externalLinks:[{url:"https://www.google.com/maps/d/u/0/edit?mid=1TThuATbsbX8aTEtVyY_38AAaiWBpl-o&usp=sharing",label:"📍 구글마이맵스 보기",openInNewTab:!1}],editableContent:!1},{id:"step-3",title:"📡 해양 공간의 데이터 관리(선택 사항)",description:"해양에서 발생하는 인간 활동을 데이터로 수집하고 분석하는 시스템을 살펴봅시다",content:`🔎 세계어업활동관측 시스템(Global Fishing Watch)과 유럽해양관측및데이터넷(EMODnet)을 통해 해양에서의 인간 활동 데이터를 관찰하고 분석해봅시다.
+
+💬
+발전하는 기술과 함께 바다에서는 다양한 해양 자원을 활용한 해양 산업이 이루어지고 있습니다. 이처럼 바다에서의 여러 인간 활동은 바다를 보다 지속 가능하게 관리하기 위해 체계적으로 수집·분석·지도화될 필요가 있습니다. 아래 링크를 열어 실제 데이터를 직접 탐색해보세요.`,externalLinks:[{url:"https://globalfishingwatch.org/map/",label:"🐟 Global Fishing Watch (세계어업활동관측 시스템)",openInNewTab:!0},{url:"https://www.emodnet-humanactivities.eu",label:"🌐 EMODnet Human Activities",openInNewTab:!0}],editableContent:!1},{id:"step-4",title:"🧭 해양 공간의 계획과 분석",description:"해양공간관리계획의 목적과 방법을 영상으로 보고, 해양공간지도를 이용해 탐구활동을 진행합니다",content:`1️⃣ [영상시청] '바다라고 다 같은 바다가 아니다?' 영상을 시청하여 '해양공간관리계획'의 시행 목적과 방법을 이해합니다.
+
+2️⃣ [탐구활동] '해양공간지도'에 접속하여 탐구지역 주변 해역이 어떻게 활용되고 있는지 조사해보세요.
+
+📝 활동지: 아래 첨부된 활동지를 이용하여 탐구 결과를 정리하세요. 
+(활동지 파일은 프로젝트에 업로드되어 있으면 링크로 연결됩니다)`,externalLinks:[{url:"https://www.youtube.com/watch?v=mQhqHQs4g7s",label:"▶ 영상시청: '바다라고 다 같은 바다가 아니다?'",openInNewTab:!0},{url:"https://www.vadahub.go.kr/imap/index.do",label:"🗺️ 해양공간지도 (VADA Hub)",openInNewTab:!0},{url:"https://www.notion.so/2b2939539a87806e9e64cac3578bec0f#2e6939539a878004a69ff51f02b78823",label:"📥 활동지 다운로드 (notion)",openInNewTab:!0},{url:"https://msp.go.kr/service/system.do",label:"🖥️ 해양공간관리계획 웹사이트 (참고용)",openInNewTab:!0}],editableContent:!1},{id:"step-5",title:"🌅 해양영토의 가치와 미래",description:"지속 가능한 해양 영토를 위한 역할과 자세를 고민해봅시다",content:"🏫 해양 공간 분석 활동 결과를 공유 및 업로드하고, 우리나라의 해양 영토를 지키고 지속 가능하게 이용하기 위해 우리에게 필요한 역할과 자세를 토의해봅시다.",externalLinks:[{url:"https://padlet.com/jde0609/padlet-mqabb6bxpiy512ec",label:"예시 보기",openInNewTab:!0}],showScenarioIframe:!0,scenarioIframeUrl:"https://padlet.com/jde0609/padlet-mqabb6bxpiy512ec",editableContent:!1}]};export{e as MODULE_2_DATA};

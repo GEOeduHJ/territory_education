@@ -9,9 +9,9 @@ export const MODULE_0_DATA: ModuleData = {
   steps: [
     {
       id: "step-1",
-      title: "🎵 모듈 1: 세계 분쟁과 캠페인 뮤직비디오",
-      description: "영토 분쟁 조사부터 캠페인 노래·영상 제작까지의 여정을 요약합니다",
-      content: "모듈 1의 7단계를 컨테이너별로 정리했습니다.",
+      title: "🎵 모듈 1: 세계 분쟁과 AI 캠페인 노래",
+      description: "영토 분쟁 조사부터 생성형 AI를 활용한 캠페인 노래·앨범 커버 제작까지의 여정을 요약합니다",
+      content: "모듈 1의 6단계를 컨테이너별로 정리했습니다.",
       hideDefaultContentContainer: true,
       detailContainers: [
         {
@@ -26,49 +26,41 @@ export const MODULE_0_DATA: ModuleData = {
           id: "m1-step2",
           title: "✏️ 키워드 입력",
           description: "갈등 주체·배경·해결 키워드 수집",
-          content: "- 조사한 정보를 4개 키워드로 입력\n- 이후 노래/이미지/영상 생성 프롬프트에 자동 반영",
+          content: "- 조사한 정보를 4개 키워드로 입력\n- 이후 가사와 이미지 생성 프롬프트에 자동 반영",
           targetModuleId: "1",
           targetStepId: "step-2"
         },
         {
           id: "m1-step3",
-          title: "🎵 노래 생성",
-          description: "Suno에서 캠페인 송 만들기",
-          content: "- 생성형 프롬프트를 복사해 Suno에서 노래 제작\n- 참고 가이드 링크로 제작 팁 확인",
+          title: "📝 가사 초안 작성 및 수정",
+          description: "Gemini에서 가사 초안을 받고 평화의 메시지로 다듬기",
+          content: "- 생성형 프롬프트를 복사해 Gemini에서 가사 초안 받기\n- 자료 조사 내용과 평화의 메시지가 드러나도록 직접 수정",
           targetModuleId: "1",
           targetStepId: "step-3"
         },
         {
           id: "m1-step4",
-          title: "🎨 앨범 커버 이미지 생성",
-          description: "Gemini로 커버 아트 제작",
-          content: "- 동일한 키워드 프롬프트로 이미지 생성\n- 평화·화해 메시지가 드러나는 시각 요소 강조",
+          title: "🎵 노래 생성",
+          description: "Suno에서 캠페인 노래 만들기",
+          content: "- 완성한 가사를 Suno에 입력해 노래 제작\n- 노래의 기획 의도에 맞게 스타일을 조정",
           targetModuleId: "1",
           targetStepId: "step-4"
         },
         {
           id: "m1-step5",
-          title: "🎬 뮤직비디오 영상 생성(선택 사항)",
-          description: "AI 영상으로 스토리 확장",
-          content: "- 프롬프트를 활용해 영상 생성\n- 분쟁 현실과 평화적 해결을 담은 시각적 스토리텔링",
+          title: "🎨 앨범 커버 이미지 생성",
+          description: "Gemini로 커버 아트 제작",
+          content: "- 이미지 프롬프트를 직접 작성해 커버 아트 제작\n- 평화·화해 메시지가 드러나는 시각 요소 강조",
           targetModuleId: "1",
           targetStepId: "step-5"
         },
         {
           id: "m1-step6",
-          title: "✂️ 뮤직비디오 편집",
-          description: "CapCut에서 합성·편집",
-          content: "- 노래·커버·영상 소스를 하나로 편집\n- 메시지가 명확히 전달되도록 구성",
-          targetModuleId: "1",
-          targetStepId: "step-6"
-        },
-        {
-          id: "m1-step7",
           title: "🏆 최종 결과물 제출",
           description: "Padlet에 업로드",
-          content: "- 완성본 업로드 후 다른 작품 감상 및 피드백",
+          content: "- 완성한 노래와 앨범 커버 업로드 후 다른 작품 감상 및 피드백",
           targetModuleId: "1",
-          targetStepId: "step-7"
+          targetStepId: "step-6"
         }
       ],
       editableContent: false
@@ -133,24 +125,24 @@ export const MODULE_0_DATA: ModuleData = {
         {
           id: "m3-step1",
           title: "📚 독도 주제 학습",
-          description: "AI 챗봇 + 학년별 자료",
-          content: "- 독도 역사·지리·문화 등 내용 학습\n- 드롭다운 자료로 학년 맞춤 정보 열람 후 아이디어 수집",
+          description: "다섯 테마로 독도의 핵심 내용 학습",
+          content: "- 위치와 지형, 이름과 기록, 생태와 가치, 사람과 관리, 알리기와 표현을 홈페이지에서 직접 학습\n- 필요하면 AI 챗봇과 학년별 원자료로 더 질문하고 근거를 확인",
           targetModuleId: "3",
           targetStepId: "step-1"
         },
         {
           id: "m3-step2",
           title: "🎨 독도 굿즈 디자인 생성",
-          description: "이미지 업로드 + 프롬프트",
-          content: "- Gemini에서 티셔츠, 가방, 스티커 등 굿즈 디자인 이미지 생성",
+          description: "빈 목업 다운로드 + Gemini 프롬프트",
+          content: "- 티셔츠·에코백·핸드폰 케이스 빈 목업을 내려받기\n- 학습 내용을 입력해 Gemini용 디자인 프롬프트를 만들고 굿즈 이미지 제작",
           targetModuleId: "3",
           targetStepId: "step-2"
         },
         {
           id: "m3-step3",
           title: "📄 상품 설명서 제작",
-          description: "템플릿 기반 설명서 작성",
-          content: "- 독도의 가치를 담은 상품 설명서 작성",
+          description: "입력 내용이 반영된 이미지 템플릿",
+          content: "- 상품명·한 줄 소개·학습 메시지를 입력\n- 아래 미리보기에서 내용을 확인하고 상품 설명서를 PNG 이미지로 내려받기",
           targetModuleId: "3",
           targetStepId: "step-3"
         },

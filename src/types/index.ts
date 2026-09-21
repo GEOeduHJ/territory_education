@@ -73,6 +73,13 @@ export interface ModuleStep {
     showIframe?: boolean;
   }>;
   editableContent?: boolean;
+  // 단계의 실제 내용을 설명하는 섹션 제목 (예: 탐구 활동 안내, 제출 전 확인)
+  contentLabel?: string;
+  // 외부 도구로 이어지는 행동을 설명하는 제목 (예: Gemini에서 가사 초안 만들기)
+  actionLabel?: string;
+  // 외부 도구·자료 영역의 제목과 안내 문구
+  resourceLabel?: string;
+  resourceDescription?: string;
   // 학생이 가이드를 참고해 직접 프롬프트를 작성하고 복사할 수 있는 입력 칸 (Module 1 이미지 생성 등)
   promptInput?: {
     label?: string;
@@ -85,6 +92,9 @@ export interface ModuleStep {
   // 고정 템플릿 기능 (Module 3용)
   useFixedTemplate?: boolean;
   fixedTemplateContent?: string;
+  // 독도 굿즈·상품 설명서 작업 공간
+  useGoodsDesignWorkspace?: boolean;
+  useProductSheetWorkspace?: boolean;
   // 챗봇 카드 기능 (Module 5용)
   useChatbotCards?: boolean;
   chatbotCards?: Array<{
@@ -107,6 +117,8 @@ export interface ModuleStep {
   // 드롭다운 자료 iframe 기능 (Module 3 step-1용)
   showResourceDropdown?: boolean;
   dropdownResources?: DropdownResource[];
+  // 홈페이지 내부에서 바로 학습하는 테마형 콘텐츠 (Module 3 step-1용)
+  learningThemes?: LearningTheme[];
   // 테마별 전시(드롭다운) 기능
   themedExhibits?: Array<{
     id: string;
@@ -131,6 +143,15 @@ export interface DropdownResource {
   id: string;
   label: string;
   url: string;
+}
+
+export interface LearningTheme {
+  id: string;
+  title: string;
+  summary: string;
+  content: string;
+  points: string[];
+  sourceLabel?: string;
 }
 
 // 모듈 데이터 인터페이스
@@ -198,5 +219,7 @@ export interface ExternalLinkService {
 // 콘텐츠 로더 인터페이스
 export interface ContentLoader {
   loadModuleData: (moduleId: string) => Promise<ModuleData>;
+  loadLearningModules: () => Promise<ModuleInfo[]>;
   loadAllModules: () => Promise<ModuleInfo[]>;
+  loadModuleInfo: (moduleId: string) => Promise<ModuleInfo>;
 }

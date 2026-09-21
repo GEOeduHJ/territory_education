@@ -1,5 +1,13 @@
 import { ModuleData, ModuleInfo } from '../../types';
 
+const toModuleInfo = (moduleData: ModuleData): ModuleInfo => ({
+  id: moduleData.id,
+  topic: moduleData.topic,
+  title: moduleData.title,
+  description: moduleData.description,
+  stepCount: moduleData.steps.length
+});
+
 // Dynamically import modules to reduce initial bundle size
 const loadModule = async (moduleId: string): Promise<ModuleData> => {
   switch (moduleId) {
@@ -27,10 +35,9 @@ const loadModule = async (moduleId: string): Promise<ModuleData> => {
   }
 };
 
-// Load all modules for homepage display
-const loadAllModules = async (): Promise<ModuleInfo[]> => {
+// Load the five actual learning modules for homepage display.
+const loadLearningModules = async (): Promise<ModuleInfo[]> => {
   const modules = await Promise.all([
-    import('./module6'),
     import('./module1'),
     import('./module2'),
     import('./module3'),
@@ -48,18 +55,19 @@ const loadAllModules = async (): Promise<ModuleInfo[]> => {
     throw new Error(`Unable to extract ModuleData from module namespace ${idx}`);
   });
 
-  return moduleDataList.map((moduleData) => ({
-    id: moduleData.id,
-    // If topic is missing, fall back to title so UI shows something meaningful
-    topic: (moduleData as any).topic ?? moduleData.title,
-    title: moduleData.title,
-    description: moduleData.description,
-    imageUrl: (moduleData as any).imageUrl,
-    stepCount: moduleData.steps.length
-  }));
+  return moduleDataList.map(toModuleInfo);
+};
+
+// Backward-compatible alias for callers that still use the previous name.
+const loadAllModules = loadLearningModules;
+
+// Load the separate curriculum overview card without mixing it into the five modules.
+const loadModuleInfo = async (moduleId: string): Promise<ModuleInfo> => {
+  const moduleData = await loadModule(moduleId);
+  return toModuleInfo(moduleData);
 };
 
 // Export keyword config for module 1
 export { MODULE_1_KEYWORD_CONFIG } from './module1';
 
-export { loadModule, loadAllModules };
+export { loadModule, loadLearningModules, loadAllModules, loadModuleInfo };

@@ -11,10 +11,10 @@ class LinkService implements ExternalLinkService {
   }
 
   trackLinkClick(moduleId: string, stepId: string, url: string): void {
-    // 링크 클릭 추적 및 로깅
-    console.log(`Link clicked: Module ${moduleId}, Step ${stepId} -> ${url}`);
-    
-    // 분석 도구 연동 가능 (예: Google Analytics)
+    // 분석 도구 연동 지점 (예: Google Analytics)
+    void moduleId;
+    void stepId;
+    void url;
     // analytics.track('external_link_click', {
     //   moduleId,
     //   stepId,
@@ -25,7 +25,7 @@ class LinkService implements ExternalLinkService {
   openExternalLink(url: string, newTab: boolean = true): void {
     if (!this.validateUrl(url)) {
       console.error('Invalid URL:', url);
-      alert('⚠️ 올바르지 않은 링크 주소입니다. 다시 확인해주세요.');
+      alert('올바르지 않은 링크 주소입니다. 다시 확인해주세요.');
       return;
     }
 
@@ -47,9 +47,18 @@ export class StaticContentLoader {
     return await loadModule(moduleId);
   }
 
+  async loadLearningModules() {
+    const { loadLearningModules } = await import('../data/modules/index');
+    return await loadLearningModules();
+  }
+
   async loadAllModules() {
-    const { loadAllModules } = await import('../data/modules/index');
-    return await loadAllModules();
+    return await this.loadLearningModules();
+  }
+
+  async loadModuleInfo(moduleId: string) {
+    const { loadModuleInfo } = await import('../data/modules/index');
+    return await loadModuleInfo(moduleId);
   }
 }
 

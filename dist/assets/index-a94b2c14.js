@@ -1,50 +1,11 @@
-import { ModuleData, ModuleKeywordConfig } from '../../types';
-
-// Module 1 키워드 설정
-export const MODULE_1_KEYWORD_CONFIG: ModuleKeywordConfig = {
-  moduleId: "1",
-  hasKeywordFeature: true,
-  keywordInputStepId: "step-2",  // step-1에서 step-2로 변경
-  templateSteps: ["step-3"],  // 가사 프롬프트만 키워드를 연결해 사용합니다.
-  template: {
-    template: `아래 네 개 항목을 입력하세요.
+import{_ as t}from"./index-1395b7fa.js";import"./vendor-90ac8551.js";const p={moduleId:"1",hasKeywordFeature:!0,keywordInputStepId:"step-2",templateSteps:["step-3"],template:{template:`아래 네 개 항목을 입력하세요.
 - [keyword1] (지리적 위치): 특정 국가명 대신 지형·지역성으로 서술하세요. 예: '해안의 작은 섬 무리', '고원지대의 경계 산맥'
 - [keyword2] (갈등 배경): 분쟁의 원인/역사적 맥락을 한 문장으로.
 - [keyword3] (현재 상황): 지금 벌어지고 있는 상황을 간단히 요약.
 - [keyword4] (해결 노력): 제안되는 평화적 조치나 노력(한 문장).
 
-이 입력값들은 step-3(가사) 프롬프트의 기본 자료로 사용되며, 학생은 프롬프트를 편집하여 최종 표현을 만드세요.`,
-    placeholders: ["[keyword1]", "[keyword2]", "[keyword3]", "[keyword4]"]
-  }
-};
-
-// Module 1 데이터
-export const MODULE_1_DATA: ModuleData = {
-  id: "1",
-  topic: "세계분쟁",
-  title: "영토 분쟁을 이해하고, 평화의 노래로 표현하다",
-  description: "세계의 영토 분쟁을 자료로 탐구하고, 생성형 AI로 평화의 메시지를 담은 캠페인 노래와 앨범 커버를 제작하는 모듈",
-  steps: [
-    {
-      id: "step-1",
-      title: "🗺️ 분쟁 지역 자료 조사",
-      description: "세계 각지의 영토 분쟁 지역을 탐색하고 자료를 조사하세요 🔎 ",
-      content: "지도에서 분쟁 지역을 탐색하고 해당 분쟁과 관련된 자료를 확인해보세요! 마커를 클릭하면 자료를 열람할 수 있습니다. 👆\n관심 있는 지역의 자료를 읽고 정리하면서 AI 챗봇과 함께 다음 단계를 준비하세요.",
-      externalLink: {
-        url: "https://gemini.google.com/gem/1H87D2QncaI9DQX_uz0DYgnCQs2wyXzJp?usp=sharing",
-        label: "🤖 AI와 함께 분쟁 지역 탐색하기 (Gemini Gems)",
-        openInNewTab: true
-      },
-      showMap: true,
-      regionResources: [
-        
-  {
-    "id": "region-1",
-    "name": "남중국해",
-    "coordinates": [12, 115.0],
-    "pdfUrl": "https://youtu.be/QmIDYcYFuzk",
-    "description": "중국·대만·베트남·필리핀·말레이시아·브루나이 간 도서 주권 및 해양 관할권 분쟁",
-    "dialogue": `[사례] 남중국해 분쟁
+이 입력값들은 step-3(가사) 프롬프트의 기본 자료로 사용되며, 학생은 프롬프트를 편집하여 최종 표현을 만드세요.`,placeholders:["[keyword1]","[keyword2]","[keyword3]","[keyword4]"]}},u={id:"1",topic:"세계분쟁",title:"영토 분쟁을 이해하고, 평화의 노래로 표현하다",description:"세계의 영토 분쟁을 자료로 탐구하고, 생성형 AI로 평화의 메시지를 담은 캠페인 노래와 앨범 커버를 제작하는 모듈",steps:[{id:"step-1",title:"🗺️ 분쟁 지역 자료 조사",description:"세계 각지의 영토 분쟁 지역을 탐색하고 자료를 조사하세요 🔎 ",content:`지도에서 분쟁 지역을 탐색하고 해당 분쟁과 관련된 자료를 확인해보세요! 마커를 클릭하면 자료를 열람할 수 있습니다. 👆
+관심 있는 지역의 자료를 읽고 정리하면서 AI 챗봇과 함께 다음 단계를 준비하세요.`,externalLink:{url:"https://gemini.google.com/gem/1H87D2QncaI9DQX_uz0DYgnCQs2wyXzJp?usp=sharing",label:"🤖 AI와 함께 분쟁 지역 탐색하기 (Gemini Gems)",openInNewTab:!0},showMap:!0,regionResources:[{id:"region-1",name:"남중국해",coordinates:[12,115],pdfUrl:"https://youtu.be/QmIDYcYFuzk",description:"중국·대만·베트남·필리핀·말레이시아·브루나이 간 도서 주권 및 해양 관할권 분쟁",dialogue:`[사례] 남중국해 분쟁
 
 대화 참여자
 웨이(중국 측): 역사적 권리와 해양 영토 확장을 강조합니다.
@@ -68,15 +29,7 @@ export const MODULE_1_DATA: ModuleData = {
 
 웨이: 그래도 갈등이 계속 커지는 것은 모두에게 부담이야. 그래서 중국과 동남아시아 국가들은 남중국해에서 지켜야 할 행동 강령을 논의하며 충돌을 줄이려고 하고 있어.
 
-리나: 맞아. 말뿐인 약속보다 중요한 것은 실제로 규칙을 지키는 거야. 어민과 선박이 안전하게 다니고, 이 바다가 갈등의 바다가 아니라 협력의 통로가 되면 좋겠어. ASEAN도 중국과 남중국해 행동 강령 논의를 계속하고 있어.`
-  },
-  {
-    "id": "region-2",
-    "name": "센카쿠/댜오위다오",
-    "coordinates": [25.78, 123.5],
-    "pdfUrl": "https://youtu.be/StSkJFXdFcY",
-    "description": "일본·중국·대만 간 동중국해 도서 영유권 분쟁",
-    "dialogue": `[사례] 센카쿠/댜오위다오 열도 분쟁
+리나: 맞아. 말뿐인 약속보다 중요한 것은 실제로 규칙을 지키는 거야. 어민과 선박이 안전하게 다니고, 이 바다가 갈등의 바다가 아니라 협력의 통로가 되면 좋겠어. ASEAN도 중국과 남중국해 행동 강령 논의를 계속하고 있어.`},{id:"region-2",name:"센카쿠/댜오위다오",coordinates:[25.78,123.5],pdfUrl:"https://youtu.be/StSkJFXdFcY",description:"일본·중국·대만 간 동중국해 도서 영유권 분쟁",dialogue:`[사례] 센카쿠/댜오위다오 열도 분쟁
 
 대화 참여자
 켄지(일본 측): 현재의 실효 지배 상태와 영토 편입 과정을 강조합니다.
@@ -100,15 +53,7 @@ export const MODULE_1_DATA: ModuleData = {
 
 켄지: 이런 상황에서는 작은 오해도 큰 충돌로 번질 수 있어. 그래서 일본과 중국은 바다와 하늘에서 우발적인 충돌을 피하기 위한 연락 장치를 만들었어.
 
-잉: 맞아. 양국 국방 당국 사이의 핫라인은 서로의 의도를 빠르게 확인하고 위험한 상황을 줄이기 위한 장치야. 영유권 주장은 다르지만, 무력 충돌을 피하고 바다를 평화롭게 이용하는 길을 찾아야 해.`
-  },
-  {
-    "id": "region-3",
-    "name": "남쿠릴/북방영토",
-    "coordinates": [44.5, 146.5],
-    "pdfUrl": "https://youtu.be/BVjvTI_gAu4",
-    "description": "러시아와 일본 간 4개 섬(이투루프·쿠나시르·시코탄·하보마이) 영유권 분쟁",
-    "dialogue": `[사례] 남쿠릴 열도/북방 영토 분쟁
+잉: 맞아. 양국 국방 당국 사이의 핫라인은 서로의 의도를 빠르게 확인하고 위험한 상황을 줄이기 위한 장치야. 영유권 주장은 다르지만, 무력 충돌을 피하고 바다를 평화롭게 이용하는 길을 찾아야 해.`},{id:"region-3",name:"남쿠릴/북방영토",coordinates:[44.5,146.5],pdfUrl:"https://youtu.be/BVjvTI_gAu4",description:"러시아와 일본 간 4개 섬(이투루프·쿠나시르·시코탄·하보마이) 영유권 분쟁",dialogue:`[사례] 남쿠릴 열도/북방 영토 분쟁
 
 대화 참여자
 드미트리(러시아 측): 제2차 세계대전 이후의 영토 변화와 안보 가치를 강조합니다.
@@ -130,22 +75,7 @@ export const MODULE_1_DATA: ModuleData = {
 
 드미트리: 그래도 대화의 시도가 전혀 없었던 것은 아니야. 1956년 일본과 소련은 공동선언을 통해 전쟁 상태를 끝내고 외교 관계를 회복했어. 다만 영토 문제는 완전히 해결되지 않았고, 지금까지 평화조약도 체결되지 못했지.
 
-유키: 그래서 더더욱 서로의 역사와 지금 살고 있는 사람들의 삶을 함께 생각해야 해. 영토 문제만이 아니라 안전, 어업, 교류 문제도 함께 풀어야 하니까.`
-  },
-  // {
-  //   "id": "region-4",
-  //   "name": "중국-인도 국경",
-  //   "coordinates": [28.5, 94.8],
-  //   "pdfUrl": "https://youtu.be/yUAss_21D3A",
-  //   "description": "중국과 인도 간 악사이친·라다크·아루나찰프라데시 국경선 분쟁"
-  // },
-  {
-    "id": "region-5",
-    "name": "카슈미르",
-    "coordinates": [34.0, 76.5],
-    "pdfUrl": "https://youtu.be/sJiWSypT7rQ",
-    "description": "인도·파키스탄(중국 연계) 간 카슈미르 영토 주권 및 자치권 분쟁",
-    "dialogue": `[사례] 카슈미르 분쟁
+유키: 그래서 더더욱 서로의 역사와 지금 살고 있는 사람들의 삶을 함께 생각해야 해. 영토 문제만이 아니라 안전, 어업, 교류 문제도 함께 풀어야 하니까.`},{id:"region-5",name:"카슈미르",coordinates:[34,76.5],pdfUrl:"https://youtu.be/sJiWSypT7rQ",description:"인도·파키스탄(중국 연계) 간 카슈미르 영토 주권 및 자치권 분쟁",dialogue:`[사례] 카슈미르 분쟁
 
 대화 참여자
 아르준(인도 측): 국경의 안전과 법적 합병 절차를 강조합니다.
@@ -165,22 +95,7 @@ export const MODULE_1_DATA: ModuleData = {
 
 아르준: 그래서 인도와 파키스탄은 1960년에 인더스 수계 조약을 맺어 강물을 어떻게 나누고 이용할지 정했어. 또 유엔 군사감시단이 정전 상황을 살피는 역할도 해 왔지.
 
-아이샤: 앞으로는 서로를 위협하기보다 주민의 안전, 물의 평화로운 이용, 대화를 통한 해결이 더 중요해져야 해. 카슈미르가 싸움의 상징이 아니라 공존의 길목이 되면 좋겠어.`
-  },
-  // {
-  //   "id": "region-6",
-  //   "name": "이스라엘-팔레스타인",
-  //   "coordinates": [31.5, 35.0],
-  //   "pdfUrl": "https://youtu.be/28BPywj9Tbk",
-  //   "description": "이스라엘과 팔레스타인 간 영토·국경·정착촌·예루살렘 지위 분쟁"
-  // },
-  {
-    "id": "region-7",
-    "name": "나일강 연안국",
-    "coordinates": [12.0, 33.0],
-    "pdfUrl": "https://youtu.be/btKYe_wUjJA",
-    "description": "이집트·수단·에티오피아 등 나일강 유역 국가 간 물 배분 및 댐 건설 분쟁",
-    "dialogue": `[사례] 나일강 분쟁
+아이샤: 앞으로는 서로를 위협하기보다 주민의 안전, 물의 평화로운 이용, 대화를 통한 해결이 더 중요해져야 해. 카슈미르가 싸움의 상징이 아니라 공존의 길목이 되면 좋겠어.`},{id:"region-7",name:"나일강 연안국",coordinates:[12,33],pdfUrl:"https://youtu.be/btKYe_wUjJA",description:"이집트·수단·에티오피아 등 나일강 유역 국가 간 물 배분 및 댐 건설 분쟁",dialogue:`[사례] 나일강 분쟁
 
 대화 참여자
 아만(에티오피아 측): 상류 국가의 개발 권리와 전기 생산을 강조합니다.
@@ -204,38 +119,7 @@ export const MODULE_1_DATA: ModuleData = {
 
 파라: 강물은 국경을 모르고 흐르니까, 자료를 투명하게 공유하고 가뭄 때 어떻게 협력할지 미리 약속하는 일이 중요해.
 
-다윗: 맞아. 나일강이 어느 한 나라만의 강이 아니라 함께 살아가는 강이라는 점에 주목해보자.`
-  }
-  // {
-  //   "id": "region-8",
-  //   "name": "이집트-수단(할라이브)",
-  //   "coordinates": [22.2, 36.6],
-  //   "pdfUrl": "https://youtu.be/33Cn13jnh1Y",
-  //   "description": "이집트와 수단 간 홍해 연안 할라이브 삼각지대 영유권 분쟁"
-  // }
-      ],
-      editableContent: true,
-      contentLabel: "탐구 활동 안내"
-    },
-    {
-      id: "step-2",
-      title: "✏️ 키워드 입력",
-      description: "🎵 캠페인 노래 제작을 위한 핵심 키워드를 입력하세요",
-      content: "🎤 캠페인 노래 만들기를 위한 핵심 정보를 입력하세요! 1단계에서 조사한 내용을 바탕으로 각 항목에 적절한 키워드를 넣어주시면 다음 단계에서 자동으로 활용됩니다. ✨",
-      isKeywordInput: true,
-      editableContent: false
-    },
-    {
-      id: "step-3",
-      title: "📝 가사 초안 작성 및 수정",
-      description: "✍️ 생성된 프롬프트로 Gemini에게 가사 초안을 받고 직접 다듬어보세요",
-      content: "🎼 2단계에서 입력한 키워드가 가사 생성 프롬프트에 반영됩니다. 프롬프트를 복사해 Gemini에서 가사 초안을 받은 뒤, ① 분석한 내용이 정확히 담겼는지 확인하고 ② 특정 국가나 집단을 비난하지 않는지 살펴보고 ③ 평화·공존·협력의 메시지가 드러나도록 직접 수정해 최종 가사를 완성하세요.",
-      useKeywordTemplate: true,
-      contentLabel: "가사 작성 안내",
-      actionLabel: "Gemini에서 가사 초안 만들기",
-      resourceLabel: "가사 초안 제작 도구",
-      resourceDescription: "프롬프트를 복사해 Gemini에서 초안을 만들고, 모둠의 판단으로 가사를 수정하세요.",
-      templateContent: `
+다윗: 맞아. 나일강이 어느 한 나라만의 강이 아니라 함께 살아가는 강이라는 점에 주목해보자.`}],editableContent:!0,contentLabel:"탐구 활동 안내"},{id:"step-2",title:"✏️ 키워드 입력",description:"🎵 캠페인 노래 제작을 위한 핵심 키워드를 입력하세요",content:"🎤 캠페인 노래 만들기를 위한 핵심 정보를 입력하세요! 1단계에서 조사한 내용을 바탕으로 각 항목에 적절한 키워드를 넣어주시면 다음 단계에서 자동으로 활용됩니다. ✨",isKeywordInput:!0,editableContent:!1},{id:"step-3",title:"📝 가사 초안 작성 및 수정",description:"✍️ 생성된 프롬프트로 Gemini에게 가사 초안을 받고 직접 다듬어보세요",content:"🎼 2단계에서 입력한 키워드가 가사 생성 프롬프트에 반영됩니다. 프롬프트를 복사해 Gemini에서 가사 초안을 받은 뒤, ① 분석한 내용이 정확히 담겼는지 확인하고 ② 특정 국가나 집단을 비난하지 않는지 살펴보고 ③ 평화·공존·협력의 메시지가 드러나도록 직접 수정해 최종 가사를 완성하세요.",useKeywordTemplate:!0,contentLabel:"가사 작성 안내",actionLabel:"Gemini에서 가사 초안 만들기",resourceLabel:"가사 초안 제작 도구",resourceDescription:"프롬프트를 복사해 Gemini에서 초안을 만들고, 모둠의 판단으로 가사를 수정하세요.",templateContent:`
     상황: 중학교 수업에서 세계 영토 분쟁을 주제로 평화 캠페인 노래 가사 제작
     사례: ( *분석한 사례를 입력해주세요* )
     요청 사항:
@@ -265,44 +149,7 @@ export const MODULE_1_DATA: ModuleData = {
     기타 추가 사항:
     교사용 메모: 가사를 출력 한 후 학습 포인트 2개(각 한 문장) + 수업용 토론 질문 2개를 작성.
     * 여기에 원하는 요청 사항을 입력해주세요. *
-    `,
-      externalLinks: [
-        {
-          url: "https://gemini.google.com/app?hl=ko",
-          label: "🤖 Gemini에서 가사 초안 받기",
-          openInNewTab: true,
-        }
-      ],
-      editableContent: false
-    },
-    {
-      id: "step-4",
-      title: "🎵 노래 제작",
-      description: "🎶 완성한 가사를 Suno에 입력하고 노래 스타일을 지정해 노래를 만들어보세요",
-      content: "🎸 3단계에서 완성한 가사를 Suno에 입력하고, 노래 제목과 장르·분위기를 정해 캠페인 노래를 생성하세요. 1차 결과를 들으며 가사가 잘 들리는지, 선택한 사례와 평화의 메시지가 음악 분위기와 어울리는지 확인한 뒤 필요하면 가사나 스타일 설명을 수정해 다시 만들어보세요.",
-      useKeywordTemplate: false,
-      contentLabel: "노래 제작 안내",
-      resourceLabel: "노래 제작 도구 및 가이드",
-      resourceDescription: "Suno에서 노래를 만들고, 제작 가이드를 참고해 결과를 다듬어보세요.",
-      externalLinks: [
-        {
-          url: "https://suno.com/",
-          label: "🎵 Suno에서 노래 생성하기",
-          openInNewTab: true,
-        },
-        {
-          url: "https://drive.google.com/file/d/1B0qPzoOnMYnHt3oeqou_N84JAYeZ3a2g/view?usp=sharing",
-          label: "📚 노래 생성 가이드 보기",
-          openInNewTab: true
-        }
-      ],
-      editableContent: false
-    },
-    {
-      id: "step-5",
-      title: "🎨 앨범 커버 이미지 생성",
-      description: "🖼️ 가이드를 참고해 이미지 프롬프트를 직접 작성하고 앨범 커버를 생성해보세요",
-      content: `🌟 아래 가이드를 참고하여 노래 가사와 어울리는 커버 이미지 프롬프트를 직접 작성해보세요! Gemini를 사용하여 창의적이고 멋진 앨범 커버를 만들어보세요.
+    `,externalLinks:[{url:"https://gemini.google.com/app?hl=ko",label:"🤖 Gemini에서 가사 초안 받기",openInNewTab:!0}],editableContent:!1},{id:"step-4",title:"🎵 노래 제작",description:"🎶 완성한 가사를 Suno에 입력하고 노래 스타일을 지정해 노래를 만들어보세요",content:"🎸 3단계에서 완성한 가사를 Suno에 입력하고, 노래 제목과 장르·분위기를 정해 캠페인 노래를 생성하세요. 1차 결과를 들으며 가사가 잘 들리는지, 선택한 사례와 평화의 메시지가 음악 분위기와 어울리는지 확인한 뒤 필요하면 가사나 스타일 설명을 수정해 다시 만들어보세요.",useKeywordTemplate:!1,contentLabel:"노래 제작 안내",resourceLabel:"노래 제작 도구 및 가이드",resourceDescription:"Suno에서 노래를 만들고, 제작 가이드를 참고해 결과를 다듬어보세요.",externalLinks:[{url:"https://suno.com/",label:"🎵 Suno에서 노래 생성하기",openInNewTab:!0},{url:"https://drive.google.com/file/d/1B0qPzoOnMYnHt3oeqou_N84JAYeZ3a2g/view?usp=sharing",label:"📚 노래 생성 가이드 보기",openInNewTab:!0}],editableContent:!1},{id:"step-5",title:"🎨 앨범 커버 이미지 생성",description:"🖼️ 가이드를 참고해 이미지 프롬프트를 직접 작성하고 앨범 커버를 생성해보세요",content:`🌟 아래 가이드를 참고하여 노래 가사와 어울리는 커버 이미지 프롬프트를 직접 작성해보세요! Gemini를 사용하여 창의적이고 멋진 앨범 커버를 만들어보세요.
 
 ❌ 절대 지켜야 할 금지 규칙 (AI가 이미지를 안 만들어줘요!) ❌
 - 구체적인 지명/국가명 금지: 중국, 일본, 러시아, 센카쿠, 쿠릴 등 사용 불가
@@ -318,90 +165,9 @@ export const MODULE_1_DATA: ModuleData = {
 💡 최종 프롬프트 예시 (사례: 독도)
 "반짝이는 푸른 바다 한가운데 우뚝 서 있는 두 개의 웅장한 바위섬을 그린 따뜻한 3D 애니메이션 스타일 일러스트를 그려주세요. 섬 사이에는 귀여운 강치들이 평화롭게 수영하고, 갈매기가 날아다닙니다. 섬 꼭대기에 있는 밝은 등대가 수평선을 향해 따뜻한 금빛 줄기를 보냅니다. 부드러운 햇살, 잔잔한 파도, 영원한 평화와 조화의 느낌이에요."
 
-✏️ 위 4가지 요소(스타일·핵심 주제·배경·색감/분위기)를 분석한 사례에 맞게 직접 정한 뒤, 하나의 문단으로 이어서 최종 프롬프트를 완성하고 Gemini에 입력해 앨범 커버 이미지를 생성해보세요.`,
-      useKeywordTemplate: false,
-      contentLabel: "앨범 커버 제작 안내",
-      resourceLabel: "앨범 커버 제작 도구",
-      resourceDescription: "직접 작성한 프롬프트를 Gemini에서 실행해 노래의 메시지를 시각적으로 표현해보세요.",
-      promptInput: {
-        label: "✏️ 우리 모둠 이미지 프롬프트 작성하기",
-        placeholder: `[스타일] 예: 수채화, 사진, 만화, 3D 애니메이션
+✏️ 위 4가지 요소(스타일·핵심 주제·배경·색감/분위기)를 분석한 사례에 맞게 직접 정한 뒤, 하나의 문단으로 이어서 최종 프롬프트를 완성하고 Gemini에 입력해 앨범 커버 이미지를 생성해보세요.`,useKeywordTemplate:!1,contentLabel:"앨범 커버 제작 안내",resourceLabel:"앨범 커버 제작 도구",resourceDescription:"직접 작성한 프롬프트를 Gemini에서 실행해 노래의 메시지를 시각적으로 표현해보세요.",promptInput:{label:"✏️ 우리 모둠 이미지 프롬프트 작성하기",placeholder:`[스타일] 예: 수채화, 사진, 만화, 3D 애니메이션
 [핵심 요소] 예: 거대한 무지개 다리, 서로 다른 꽃들이 엮인 화관, 하얀 비둘기 떼
 [배경] 예: 반짝이는 푸른 바다, 맑은 하늘, 아침 햇살이 비추는 섬
 [색감/분위기] 예: 파스텔 톤, 따뜻한 금빛 햇살, 희망찬, 평화로운
 
-위 4가지 요소를 참고해 하나의 문단으로 이어진 최종 프롬프트를 이곳에 작성해보세요.`
-      },
-      externalLink: {
-        url: "https://gemini.google.com/app?hl=ko",
-        label: "🎨 Gemini에서 앨범 커버 이미지 생성하기",
-        openInNewTab: true
-      },
-      editableContent: false
-    },
-    /*
-     * 보류 기능: 영상 생성과 뮤직비디오 편집은 현재 학습 분량에서 제외합니다.
-     * 필요할 때 이 블록을 복원하고 최종 제출 단계의 id를 다시 조정하세요.
-    {
-      id: "step-6",
-      title: "🎬 뮤직비디오 영상 생성(선택 사항)",
-      description: "📹 프롬프트를 복사하고 뮤직비디오 영상을 생성해보세요",
-      content: "🎥 같은 프롬프트를 활용하여 뮤직비디오용 영상을 생성해보세요! AI를 사용하여 매력적이고 인상적인 영상을 만들어보세요. 🌈",
-      useKeywordTemplate: true,
-      templateContent: 
-      `
-    상황: 중학교 수업에서 세계 영토 분쟁을 주제로 평화 캠페인 영상 제작
-    사례: ( *분석한 사례를 입력해주세요* )
-    요청 사항:
-    1) 학습자가 분석한 아래 내용을 가사에 반영할 것.
-    2) 특정 국가, 민족, 종교를 비난하지 내용의 요소를 포함하지 말 것.
-    3) 평화, 공존, 협력의 메시지가 드러나도록 제작할 것.
-
-    분석 내용:
-    - 지리적 위치: [keyword1]
-    - 갈등 배경: [keyword2]
-    - 현재 상황: [keyword3]
-    - 해결 노력: [keyword4]
-
-    기타 추가 사항:
-    * 여기에 원하는 요청 사항을 입력해주세요. *
-    `,
-      externalLink: {
-        url: "https://kling.ai/app",
-        label: "🎬 Kling에서 뮤직비디오 영상 생성하기",
-        openInNewTab: true
-      },
-      editableContent: false
-    },
-    {
-      id: "step-7",
-      title: "✂️ 뮤직비디오 편집",
-      description: "🎞️ 제작한 콘텐츠들을 하나의 뮤직비디오로 편집하세요",
-      content: "지금까지 생성한 노래와 이미지, 영상 등을 합쳐서 완성된 뮤직비디오를 만들어보세요! \n거의 다 완성되었어요! 💪",
-      useKeywordTemplate: false,
-      externalLink: {
-        url: "https://www.capcut.com/my-edit?start_tab=video",
-        label: "✂️ CapCut에서 뮤직비디오 편집하기",
-        openInNewTab: true
-      },
-      editableContent: false
-    },
-    */
-    {
-      id: "step-6",
-      title: "🏆 최종 결과물 제출",
-      description: "완성된 캠페인 노래와 앨범 커버를 제출하고 다른 작품을 확인해보세요",
-      content: "완성한 캠페인 노래와 앨범 커버를 Padlet에 업로드하세요. 게시물에는 선택한 영토 분쟁 사례, 작품에 담은 평화의 메시지, AI를 활용한 과정에서 직접 수정한 부분을 함께 적어보세요. 다른 학습자의 작품을 감상하고 인상 깊었던 표현에 피드백을 남겨보세요.",
-      useKeywordTemplate: false,
-      contentLabel: "제출 전 확인",
-      // externalLink: {
-      //   url: "https://padlet.com/ghdwns00610/_-f575dgwgyfccfr0v",
-      //   label: "🎊 Padlet에 뮤직비디오 제출하기",
-      //   openInNewTab: true
-      // },
-      showEmbeddedPadlet: true,
-      padletUrl: "https://padlet.com/ghdwns00610/_-f575dgwgyfccfr0v",
-      editableContent: false
-    }
-  ]
-};
+위 4가지 요소를 참고해 하나의 문단으로 이어진 최종 프롬프트를 이곳에 작성해보세요.`},externalLink:{url:"https://gemini.google.com/app?hl=ko",label:"🎨 Gemini에서 앨범 커버 이미지 생성하기",openInNewTab:!0},editableContent:!1},{id:"step-6",title:"🏆 최종 결과물 제출",description:"완성된 캠페인 노래와 앨범 커버를 제출하고 다른 작품을 확인해보세요",content:"완성한 캠페인 노래와 앨범 커버를 Padlet에 업로드하세요. 게시물에는 선택한 영토 분쟁 사례, 작품에 담은 평화의 메시지, AI를 활용한 과정에서 직접 수정한 부분을 함께 적어보세요. 다른 학습자의 작품을 감상하고 인상 깊었던 표현에 피드백을 남겨보세요.",useKeywordTemplate:!1,contentLabel:"제출 전 확인",showEmbeddedPadlet:!0,padletUrl:"https://padlet.com/ghdwns00610/_-f575dgwgyfccfr0v",editableContent:!1}]},a=Object.freeze(Object.defineProperty({__proto__:null,MODULE_1_DATA:u,MODULE_1_KEYWORD_CONFIG:p},Symbol.toStringTag,{value:"Module"})),d=e=>({id:e.id,topic:e.topic,title:e.title,description:e.description,stepCount:e.steps.length}),c=async e=>{switch(e){case"0":const{MODULE_0_DATA:r}=await t(()=>import("./module6-cd707913.js"),[]);return r;case"1":const{MODULE_1_DATA:i}=await t(()=>Promise.resolve().then(()=>a),void 0);return i;case"2":const{MODULE_2_DATA:s}=await t(()=>import("./module2-51d9acdc.js"),[]);return s;case"3":const{MODULE_3_DATA:n}=await t(()=>import("./module3-0d1079c2.js"),[]);return n;case"4":const{MODULE_4_DATA:o}=await t(()=>import("./module4-fe1f11c2.js"),[]);return o;case"5":const{MODULE_5_DATA:l}=await t(()=>import("./module5-c7b04bac.js"),[]);return l;default:throw new Error(`Module ${e} not found`)}},_=async()=>(await Promise.all([t(()=>Promise.resolve().then(()=>a),void 0),t(()=>import("./module2-51d9acdc.js"),[]),t(()=>import("./module3-0d1079c2.js"),[]),t(()=>import("./module4-fe1f11c2.js"),[]),t(()=>import("./module5-c7b04bac.js"),[])])).map((i,s)=>{const n=Object.values(i).find(o=>o&&typeof o.id=="string"&&Array.isArray(o.steps));if(n)return n;throw new Error(`Unable to extract ModuleData from module namespace ${s}`)}).map(d),D=_,b=async e=>{const r=await c(e);return d(r)};export{p as MODULE_1_KEYWORD_CONFIG,D as loadAllModules,_ as loadLearningModules,c as loadModule,b as loadModuleInfo};

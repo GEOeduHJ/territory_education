@@ -6,20 +6,21 @@ import ModulePage from './components/ModulePage';
 // 404 Not Found 컴포넌트
 const NotFoundPage: React.FC = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <div className="text-center">
-        <div className="text-6xl font-bold text-gray-400 mb-4">404</div>
-        <h1 className="text-2xl font-bold text-gray-900 mb-2">
+    <div className="site-shell status-state">
+      <div className="status-state__inner" role="alert">
+        <span className="status-state__label">페이지 오류</span>
+        <div className="not-found-code" aria-hidden="true">404</div>
+        <h1>
           페이지를 찾을 수 없습니다
         </h1>
-        <p className="text-gray-600 mb-6">
-          여기를 수정하세요 - 요청하신 페이지가 존재하지 않습니다.
+        <p>
+          요청하신 페이지가 존재하지 않습니다.
         </p>
         <a
           href="/"
-          className="bg-territory-primary text-white px-6 py-2 rounded-lg hover:bg-territory-secondary transition-colors inline-block"
+          className="button button--primary"
         >
-          홈으로 돌아가기
+          학습 홈으로 돌아가기
         </a>
       </div>
     </div>

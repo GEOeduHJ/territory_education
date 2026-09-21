@@ -14,7 +14,14 @@ export default {
         }
       },
       fontFamily: {
-        sans: ["Inter", "sans-serif"]
+        sans: [
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "SF Pro Text",
+          "Apple SD Gothic Neo",
+          "Noto Sans KR",
+          "sans-serif"
+        ]
       }
     }
   },

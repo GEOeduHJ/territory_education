@@ -1,0 +1,8 @@
+# Local tooling and research-analysis artifacts
+/.agents/
+/.sheet_work/
+/outputs/
+/scripts/
+*.DS_Store
+/학생_성찰일지_*.md
+/학생_성찰일지_*.tsv

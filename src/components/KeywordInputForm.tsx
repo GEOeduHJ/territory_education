@@ -17,6 +17,7 @@ export const KeywordInputForm: React.FC<KeywordInputFormProps> = ({
   );
   const [validation, setValidation] = useState<ValidationState>({ isValid: true });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const errorSummaryRef = React.useRef<HTMLDivElement>(null);
 
   // 초기 키워드가 변경되면 상태 업데이트
   useEffect(() => {
@@ -53,6 +54,7 @@ export const KeywordInputForm: React.FC<KeywordInputFormProps> = ({
       const validationResult = KeywordController.validateKeywords(sanitizedKeywords);
       setValidation(validationResult);
       if (!validationResult.isValid) {
+        window.requestAnimationFrame(() => errorSummaryRef.current?.focus());
         setIsSubmitting(false);
         return;
       }
@@ -73,113 +75,77 @@ export const KeywordInputForm: React.FC<KeywordInputFormProps> = ({
 
   const isFormDisabled = isSubmitting || isLoading;
 
+  const fields: Array<{ id: keyof KeywordData; label: string; placeholder: string }> = [
+    { id: 'keyword1', label: '지리적 위치', placeholder: '예: 히말라야 산맥, 남중국해, 나일강 일대 등' },
+    { id: 'keyword2', label: '갈등 배경', placeholder: '예: 역사적 영유권 문제, 자원 경쟁, 인프라 개발 갈등 등' },
+    { id: 'keyword3', label: '현재 상황', placeholder: '예: 민간인 이동, 어업 활동의 제한, 경제적 영향 등' },
+    { id: 'keyword4', label: '해결 노력', placeholder: '예: 대화와 협상, 공동 관리 협약, 국제중재 참여 등' }
+  ];
+
   return (
-    <div className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-lg">
-      <div className="mb-6">
-        <h3 className="text-xl font-semibold text-gray-800 mb-2">🎤 캠페인 노래 만들기를 위해 조사한 내용을 정리해보세요!</h3>
-        <p className="text-gray-600 text-sm">각 항목에 적절한 내용을 입력해 이후 다음 단계에서 AI를 활용할 수 있도록 준비하세요.</p>
+    <section className="keyword-form" aria-labelledby="keyword-form-title">
+      <div className="keyword-form__intro">
+        <p className="content-eyebrow">나의 탐구 기록</p>
+        <h3 id="keyword-form-title">조사한 내용을 정리해보세요.</h3>
+        <p>네 가지 단서를 정리하면 다음 단계에서 나만의 캠페인 콘텐츠를 만들 수 있습니다.</p>
       </div>
 
-      <form onSubmit={handleSubmit} className="space-y-6">
-        <div>
-          <label htmlFor="keyword1" className="block text-sm font-medium text-gray-700 mb-2">📍 지리적 위치 <span className="text-red-500">*</span></label>
-          <input
-            id="keyword1"
-            type="text"
-            value={keywords.keyword1}
-            onChange={(e) => handleInputChange('keyword1', e.target.value)}
-            disabled={isFormDisabled}
-            className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors ${validation.keyword1Error ? 'border-red-500 bg-red-50' : 'border-gray-300'} ${isFormDisabled ? 'bg-gray-100 cursor-not-allowed' : ''}`}
-            placeholder="예: 히말라야 산맥, 남중국해, 나일강 일대 등"
-            maxLength={50}
-            aria-describedby={validation.keyword1Error ? 'keyword1-error' : undefined}
-          />
-          {validation.keyword1Error && <p id="keyword1-error" className="mt-1 text-sm text-red-600" role="alert">{validation.keyword1Error}</p>}
-        </div>
-
-        <div>
-          <label htmlFor="keyword2" className="block text-sm font-medium text-gray-700 mb-2">📖 갈등 배경 <span className="text-red-500">*</span></label>
-          <input
-            id="keyword2"
-            type="text"
-            value={keywords.keyword2}
-            onChange={(e) => handleInputChange('keyword2', e.target.value)}
-            disabled={isFormDisabled}
-            className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors ${validation.keyword2Error ? 'border-red-500 bg-red-50' : 'border-gray-300'} ${isFormDisabled ? 'bg-gray-100 cursor-not-allowed' : ''}`}
-            placeholder="예: 역사적 영유권 문제, 자원 경쟁, 인프라 개발 갈등 등"
-            maxLength={50}
-            aria-describedby={validation.keyword2Error ? 'keyword2-error' : undefined}
-          />
-          {validation.keyword2Error && <p id="keyword2-error" className="mt-1 text-sm text-red-600" role="alert">{validation.keyword2Error}</p>}
-        </div>
-
-        <div>
-          <label htmlFor="keyword3" className="block text-sm font-medium text-gray-700 mb-2">🔎 현재 상황 <span className="text-red-500">*</span></label>
-          <input
-            id="keyword3"
-            type="text"
-            value={keywords.keyword3}
-            onChange={(e) => handleInputChange('keyword3', e.target.value)}
-            disabled={isFormDisabled}
-            className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors ${validation.keyword3Error ? 'border-red-500 bg-red-50' : 'border-gray-300'} ${isFormDisabled ? 'bg-gray-100 cursor-not-allowed' : ''}`}
-            placeholder="예: 민간인 이동, 어업 활동의 제한, 경제적 영향 등"
-            maxLength={50}
-            aria-describedby={validation.keyword3Error ? 'keyword3-error' : undefined}
-          />
-          {validation.keyword3Error && <p id="keyword3-error" className="mt-1 text-sm text-red-600" role="alert">{validation.keyword3Error}</p>}
-        </div>
-
-        <div>
-          <label htmlFor="keyword4" className="block text-sm font-medium text-gray-700 mb-2">🕊️ 해결 노력 <span className="text-red-500">*</span></label>
-          <input
-            id="keyword4"
-            type="text"
-            value={keywords.keyword4}
-            onChange={(e) => handleInputChange('keyword4', e.target.value)}
-            disabled={isFormDisabled}
-            className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors ${validation.keyword4Error ? 'border-red-500 bg-red-50' : 'border-gray-300'} ${isFormDisabled ? 'bg-gray-100 cursor-not-allowed' : ''}`}
-            placeholder="예: 대화·협상, 공동 관리 협약, 국제중재 참여 등"
-            maxLength={50}
-            aria-describedby={validation.keyword4Error ? 'keyword4-error' : undefined}
-          />
-          {validation.keyword4Error && <p id="keyword4-error" className="mt-1 text-sm text-red-600" role="alert">{validation.keyword4Error}</p>}
-        </div>
-
-        {validation.generalError && (
-          <div className="p-4 bg-red-50 border border-red-200 rounded-lg" role="alert">
-            <p className="text-sm text-red-600">{validation.generalError}</p>
+      <form onSubmit={handleSubmit} className="keyword-form__fields">
+        {!validation.isValid && (
+          <div
+            ref={errorSummaryRef}
+            className="form-alert form-alert--error form-error-summary"
+            role="alert"
+            tabIndex={-1}
+            aria-labelledby="keyword-error-summary-title"
+          >
+            <h4 id="keyword-error-summary-title">입력 내용을 확인해주세요.</h4>
+            <p>각 항목 아래의 안내를 확인한 뒤 다시 제출하세요.</p>
           </div>
         )}
 
-        <div className="flex gap-4 pt-4">
-          <button
-            type="submit"
-            disabled={isFormDisabled}
-            className={`flex-1 py-3 px-6 rounded-lg font-medium transition-all ${isFormDisabled ? 'bg-gray-300 text-gray-500 cursor-not-allowed' : 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-4 focus:ring-blue-200'}`}
-          >
-            {isSubmitting ? (
-              <span className="flex items-center justify-center">
-                <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                </svg>
-                ⏳ 적용 중...
-              </span>
-            ) : (
-              '✨ 키워드 적용하기'
-            )}
-          </button>
+        {fields.map(({ id, label, placeholder }) => {
+          const errorId = `${id}-error`;
+          const error = validation[`${id}Error` as keyof ValidationState];
 
-          <button
-            type="button"
-            onClick={handleReset}
-            disabled={isFormDisabled}
-            className={`px-6 py-3 rounded-lg font-medium border transition-all ${isFormDisabled ? 'border-gray-300 text-gray-400 cursor-not-allowed' : 'border-gray-300 text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-gray-200'}`}
-          >
-            🔄 초기화
+          return (
+            <div className="form-field" key={id}>
+              <label htmlFor={id} className="form-label">
+                {label} <span className="form-required" aria-hidden="true">*</span>
+              </label>
+              <input
+                id={id}
+                type="text"
+                value={keywords[id]}
+                onChange={(e) => handleInputChange(id, e.target.value)}
+                disabled={isFormDisabled}
+                className={`form-input ${error ? 'form-input--error' : ''} ${isFormDisabled ? 'form-input--disabled' : ''}`}
+                placeholder={placeholder}
+                maxLength={50}
+                aria-describedby={error ? errorId : undefined}
+                aria-invalid={Boolean(error)}
+              />
+              {error && <p id={errorId} className="form-error" role="alert">{error}</p>}
+            </div>
+          );
+        })}
+
+        {validation.generalError && (
+          <div className="form-alert form-alert--error" role="alert">
+            <p>{validation.generalError}</p>
+          </div>
+        )}
+
+        <div className="form-actions">
+          <button type="submit" disabled={isFormDisabled} className="button button--primary form-button">
+            {isSubmitting && <span className="button-progress" aria-hidden="true" />}
+            {isSubmitting ? '적용 중' : '키워드 적용하기'}
+          </button>
+          <button type="button" onClick={handleReset} disabled={isFormDisabled} className="button button--secondary form-button">
+            초기화
           </button>
         </div>
       </form>
-    </div>
+    </section>
   );
 };

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="900" viewBox="0 0 900 900">
+  <rect width="900" height="900" rx="48" fill="#eef6f6"/>
+  <path d="M250 252h400l62 472H188z" fill="#fffdf8" stroke="#173f52" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M298 278c0-124 50-188 152-188s152 64 152 188" fill="none" stroke="#173f52" stroke-width="16" stroke-linecap="round"/>
+  <path d="M340 280c0-82 30-128 110-128s110 46 110 128" fill="none" stroke="#d6e8e6" stroke-width="8" stroke-linecap="round"/>
+  <rect x="300" y="386" width="300" height="190" rx="18" fill="none" stroke="#0f766e" stroke-width="4" stroke-dasharray="12 12"/>
+  <text x="450" y="482" text-anchor="middle" fill="#5d727d" font-family="Arial, sans-serif" font-size="25" font-weight="700" letter-spacing="3">DESIGN AREA</text>
+  <text x="450" y="522" text-anchor="middle" fill="#8aa0a8" font-family="Arial, sans-serif" font-size="18">place your learning message here</text>
+</svg>
