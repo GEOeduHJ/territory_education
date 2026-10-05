@@ -21,7 +21,7 @@ const LearningRoutePreview: React.FC<LearningRoutePreviewProps> = ({ modules, on
       <div className="learning-route-preview__header">
         <div>
           <p className="learning-route-preview__eyebrow">학습 경로</p>
-          <h2>다섯 주제, 하나의 탐구 여정</h2>
+          <h2>다섯 모듈, 하나의 탐구 여정</h2>
         </div>
         <span className="learning-route-preview__count">{modules.length} modules</span>
       </div>

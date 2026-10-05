@@ -12,16 +12,22 @@ export const MODULE_4_DATA: ModuleData = {
       title: "🌿 DMZ의 가치 살펴보기",
       description: "분단의 역사로 탄생한 DMZ의 생태적·문화적 가치를 살펴봅시다",
       content: "DMZ는 어떤 곳일까요? 분단의 역사로 인해 탄생한 DMZ 속 다양한 문화 및 자연 유산을 확인해봅시다! \n📺 아래 영상들을 시청하고 DMZ가 왜 보전되어야 하는지 생각해보세요.",
-      externalLinks: [
+      embeddedResources: [
         {
-          url: "https://www.youtube.com/watch?v=8jK9K41tCvA",
-          label: "▶ DMZ의 탄생 배경과 생태적 가치",
-          openInNewTab: true
+          id: 'dmz-origins-video',
+          title: 'DMZ의 탄생 배경과 생태적 가치',
+          url: 'https://www.youtube.com/watch?v=8jK9K41tCvA',
+          embedUrl: 'https://www.youtube-nocookie.com/embed/8jK9K41tCvA?rel=0',
+          aspectRatio: '16 / 9',
+          allow: 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
         },
         {
-          url: "https://www.youtube.com/watch?v=qqPTMvKhNFM",
-          label: "▶ DMZ 미래의 유산",
-          openInNewTab: true
+          id: 'dmz-future-heritage-video',
+          title: 'DMZ 미래의 유산',
+          url: 'https://www.youtube.com/watch?v=qqPTMvKhNFM',
+          embedUrl: 'https://www.youtube-nocookie.com/embed/qqPTMvKhNFM?rel=0',
+          aspectRatio: '16 / 9',
+          allow: 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
         }
       ],
       editableContent: false
@@ -31,11 +37,14 @@ export const MODULE_4_DATA: ModuleData = {
       title: "🏛️ DMZ 속 잊혀진 삶을 찾아서",
       description: "통일부 DMZ 메타버스에서 사라진 마을을 견학하며 과거의 삶을 상상해봅시다",
       content: "DMZ는 6.25 전쟁 발발 이전에는 사람들의 삶의 터전이었습니다. \n아래 DMZ 메타버스에 접속하여 '사라진 마을'을 견학하고, 70여 년 전 이곳에 살았던 사람들의 삶을 돌아보세요.\n\n<🔎 견학 중 탐구 내용>\n1️⃣ OO지역의 마을은 원래 어떤 곳이었나요?\n2️⃣ 이곳의 실향민들이 고향으로 돌아간다면, 무엇을 하고 싶어할까요?\n3️⃣ 만약 전쟁이 없었다면 이곳은 지금 어떤 모습일까요?",
-      externalLinks: [
+      embeddedResources: [
         {
-          url: "https://universe.go.kr/main",
-          label: "🕊️ 통일부 DMZ 메타버스 (사라진 마을 견학)",
-          openInNewTab: true
+          id: 'dmz-universe-village',
+          title: 'DMZ Universe · 사라진 마을',
+          description: '메타버스 화면이 표시되지 않으면 원본 사이트를 새 창에서 열어주세요.',
+          url: 'https://universe.go.kr/main',
+          embedUrl: 'https://universe.go.kr/main',
+          aspectRatio: '16 / 9'
         }
       ],
       editableContent: false
@@ -45,11 +54,14 @@ export const MODULE_4_DATA: ModuleData = {
       title: "🔍 DMZ 속 분단의 현장 둘러보기",
       description: "판문점의 내부를 가상으로 둘러보며 분단의 현장을 체험해봅시다",
       content: "DMZ에는 1953년 전쟁을 '잠시 멈추자'고 합의한 장소가 있습니다. 분단의 현장이자 쉽게 가보기 힘든 '판문점'의 내부를 자유롭게 돌아다니며 다음 질문을 탐구해보세요.\n\n<🔎 견학 중 탐구 내용>\n1️⃣ 군사분계선은 현실에서는 목숨을 걸어야 넘을 수 있는 경계선입니다. \n판문점의 여러 군데에 그어진 군사분계선을 따라 돌아다녀봅시다.\n\n2️⃣ '군정회의실'에서 정전협정이 이루어진 '테이블'을 찾아봅시다. \n테이블의 중앙에 놓인 마이크 앞에 서서, 남북 대표 간 어떤 대화가 오갔을지 상상해봅시다.\n(예: 이산가족 상봉, DMZ 숲 관리 및 산불 끄기 협력, 대북/대남 확성기 운영 조정 등)\n\n3️⃣ 판문점에 있는 여러 건축물 중 가장 기억에 남는 곳 앞에서 인증샷을 남겨봅시다.",
-      externalLinks: [
+      embeddedResources: [
         {
-          url: "https://universe.go.kr/main",
-          label: "🕊️ 통일부 DMZ 메타버스 (판문점 견학)",
-          openInNewTab: true
+          id: 'dmz-universe-panmunjeom',
+          title: 'DMZ Universe · 판문점',
+          description: '메타버스 화면이 표시되지 않으면 원본 사이트를 새 창에서 열어주세요.',
+          url: 'https://universe.go.kr/main',
+          embedUrl: 'https://universe.go.kr/main',
+          aspectRatio: '16 / 9'
         }
       ],
       editableContent: false

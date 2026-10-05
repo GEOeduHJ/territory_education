@@ -1,6 +1,7 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { LearningTheme, ModuleStep } from '../types';
 import { cleanUiText } from '../utils/uiText';
+import { loadDokdoTakeaways, resolveDokdoTakeaways, saveDokdoTakeaways } from '../utils/dokdoTakeaways';
 
 interface GoodsDesignWorkspaceProps {
   step: ModuleStep;
@@ -40,20 +41,26 @@ const MOCKUP_ASSETS: MockupAsset[] = [
 ];
 
 const DEFAULT_THEMES: LearningTheme[] = [
-  { id: 'location', title: '위치와 지형', summary: '', content: '', points: [] },
-  { id: 'records', title: '이름과 기록', summary: '', content: '', points: [] },
-  { id: 'value', title: '생태와 가치', summary: '', content: '', points: [] },
-  { id: 'people', title: '사람과 관리', summary: '', content: '', points: [] },
-  { id: 'future', title: '알리기와 표현', summary: '', content: '', points: [] }
+  { id: 'location', title: '독도의 위치와 영역', summary: '', contentParagraphs: [] },
+  { id: 'landform', title: '독도의 지형', summary: '', contentParagraphs: [] },
+  { id: 'ecology', title: '독도의 생물과 해양 자원', summary: '', contentParagraphs: [] },
+  { id: 'people', title: '독도 주민의 생활', summary: '', contentParagraphs: [] },
+  { id: 'history', title: '독도의 역사와 명칭', summary: '', contentParagraphs: [] },
+  { id: 'conflict', title: '독도의 분쟁과 갈등', summary: '', contentParagraphs: [] }
 ];
 
 const GoodsDesignWorkspace: React.FC<GoodsDesignWorkspaceProps> = ({ step, onExternalLinkClick }) => {
   const themes = step.learningThemes?.length ? step.learningThemes : DEFAULT_THEMES;
   const [productType, setProductType] = useState(MOCKUP_ASSETS[0].label);
   const [themeId, setThemeId] = useState(themes[0].id);
+  const interestNotes = useMemo(() => resolveDokdoTakeaways(loadDokdoTakeaways(), themes), [themes]);
   const [learningNote, setLearningNote] = useState('');
   const [visualDirection, setVisualDirection] = useState('');
   const [copySuccess, setCopySuccess] = useState('');
+
+  useEffect(() => {
+    saveDokdoTakeaways(interestNotes);
+  }, [interestNotes]);
 
   const selectedTheme = themes.find((theme) => theme.id === themeId) || themes[0];
   const prompt = useMemo(() => {
@@ -74,7 +81,7 @@ ${direction}
 [제작 조건]
 - 첨부한 빈 ${productType} 목업의 제품 형태와 비율은 유지하고, 디자인 영역 안에만 그래픽을 배치해주세요.
 - 학습 내용에서 핵심 시각 요소를 1~2개 골라 과장 없이 표현해주세요. 독도의 지형, 바위, 생태, 기록 중 학습 내용과 직접 연결되는 요소를 우선합니다.
-- 학생이 입력한 메시지가 읽히도록 글자 수와 대비를 조절하고, 실제 상품처럼 깔끔한 평면 디자인으로 완성해주세요.
+- 이미지에는 읽을 수 있는 문구·문자·숫자·로고를 넣지 말고, 시각 요소만으로 학습 내용을 표현해주세요.
 - 목업 이미지, 손, 사람, 추가 제품을 새로 만들지 말고 완성된 ${productType} 한 개만 보여주세요.`;
   }, [learningNote, productType, selectedTheme.title, visualDirection]);
 
@@ -94,7 +101,7 @@ ${direction}
       <div className="panel-heading">
         <p className="content-eyebrow">AI와 함께 시각화하기</p>
         <h2>{cleanUiText(step.title)}</h2>
-        <p>빈 목업을 내려받고, 1단계에서 배운 내용을 입력하면 Gemini에서 바로 사용할 수 있는 디자인 프롬프트가 만들어집니다.</p>
+        <p>1단계에서 추가한 관심 내용을 참고하되, 프롬프트에는 필요한 내용을 직접 작성해보세요. 선택한 문장은 자동으로 입력되지 않습니다.</p>
       </div>
 
       <section className="mockup-panel" aria-labelledby="mockup-panel-title">
@@ -123,11 +130,33 @@ ${direction}
         </div>
       </section>
 
+      <section className="learning-interest-reference" aria-labelledby="learning-interest-reference-title">
+        <div className="learning-interest-reference__heading">
+          <div>
+            <p className="content-eyebrow">1단계에서 고른 문장</p>
+            <h3 id="learning-interest-reference-title">내가 관심있어한 내용</h3>
+          </div>
+          <p>프롬프트에 자동으로 들어가지 않아요. 참고해서 디자인에 담을 내용을 직접 작성해보세요.</p>
+        </div>
+        {interestNotes.length > 0 ? (
+          <ul className="learning-interest-reference__list">
+            {interestNotes.map((item) => (
+              <li key={item.id}>
+                <strong>{item.themeTitle}</strong>
+                <span>{item.text}</span>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className="learning-interest-reference__empty">아직 추가한 내용이 없습니다. 1단계에서 관심 내용을 추가하면 여기에 표시됩니다.</p>
+        )}
+      </section>
+
       <section className="prompt-builder" aria-labelledby="goods-prompt-title">
         <div className="workspace-section-heading">
           <div>
-            <p className="content-eyebrow">02 · 학습 내용 입력</p>
-            <h3 id="goods-prompt-title">배운 내용을 디자인 언어로 바꿔보세요.</h3>
+            <p className="content-eyebrow">02 · 디자인 프롬프트 구성</p>
+            <h3 id="goods-prompt-title">배운 내용을 나만의 디자인 언어로 작성해보세요.</h3>
           </div>
           <span className="workspace-section-heading__note">입력 내용은 프롬프트에 반영됩니다.</span>
         </div>
@@ -148,7 +177,7 @@ ${direction}
           </div>
 
           <div className="form-field goods-prompt-form__full">
-            <label htmlFor="goods-learning-note" className="form-label">학습 내용과 담고 싶은 메시지</label>
+            <label htmlFor="goods-learning-note" className="form-label">디자인에 표현할 학습 내용</label>
             <textarea
               id="goods-learning-note"
               className="form-textarea"

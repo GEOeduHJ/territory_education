@@ -29,12 +29,7 @@ export const MODULE_1_DATA: ModuleData = {
       id: "step-1",
       title: "🗺️ 분쟁 지역 자료 조사",
       description: "세계 각지의 영토 분쟁 지역을 탐색하고 자료를 조사하세요 🔎 ",
-      content: "지도에서 분쟁 지역을 탐색하고 해당 분쟁과 관련된 자료를 확인해보세요! 마커를 클릭하면 자료를 열람할 수 있습니다. 👆\n관심 있는 지역의 자료를 읽고 정리하면서 AI 챗봇과 함께 다음 단계를 준비하세요.",
-      externalLink: {
-        url: "https://gemini.google.com/gem/1H87D2QncaI9DQX_uz0DYgnCQs2wyXzJp?usp=sharing",
-        label: "🤖 AI와 함께 분쟁 지역 탐색하기 (Gemini Gems)",
-        openInNewTab: true
-      },
+      content: "지도에서 분쟁 지역을 탐색하고 해당 분쟁과 관련된 자료를 확인해보세요! 마커를 클릭하면 자료를 열람할 수 있습니다. 👆\n관심 있는 지역의 자료를 읽고 핵심 내용을 정리하며 다음 단계의 키워드를 준비하세요.",
       showMap: true,
       regionResources: [
         

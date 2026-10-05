@@ -14,16 +14,16 @@ export const MODULE_5_DATA: ModuleData = {
       content: "🔍 최신 AI 뉴스 영상을 통해 영토 분쟁과 관련된 다양한 이슈들을 학습해보세요! \n국제적인 관점에서 바라본 영토 문제의 현황과 해결 방안에 대해 알아보겠습니다.",
       externalLinks: [
         {
-        url: "https://www.notion.so/2e6939539a8780d487b9fcc5c5185134?source=copy_link",
-        label: "📥 활동지 다운로드 (notion)",
-        openInNewTab: true
-      },
-      {
-        url: "https://www.capcut.com/sv2/ZSHoRKUe93DPB-5btsf/",
-        label: "📺 AI 뉴스 영상 시청하기",
-        openInNewTab: true
-      }
-    ],
+          url: 'https://www.notion.so/2e6939539a8780d487b9fcc5c5185134?source=copy_link',
+          label: '활동지 (Notion) 원본 열기',
+          openInNewTab: true
+        },
+        {
+          url: 'https://www.capcut.com/sv2/ZSHoRKUe93DPB-5btsf/',
+          label: 'AI 뉴스 영상 (CapCut) 원본 열기',
+          openInNewTab: true
+        }
+      ],
       editableContent: false
     },
     {
@@ -80,11 +80,13 @@ export const MODULE_5_DATA: ModuleData = {
       title: "🏛️ 국제회의 준비",
       description: "📝 챗봇을 활용하여 입장문 작성 및 질의응답을 구상해보세요",
       content: "대화를 나눈 후, 지금 나는 어떤 입장(찬성/반대)에 가까운가요? ⭕❌\n국제회의 준비 코치봇과 함께 효과적인 입장문을 작성하고, 예상 질문에 대한 답변을 준비해보세요! \n논리적이고 설득력 있는 발표를 위한 전략을 수립하겠습니다. 🎯",
-      externalLink: {
-        url: "https://share.crack.wrtn.ai/2scw5q",
-        label: "🤖 국제회의 준비 코치봇과 상담하기",
-        openInNewTab: true
-      },
+      externalLinks: [
+        {
+          url: 'https://share.crack.wrtn.ai/2scw5q',
+          label: '국제회의 준비 코치봇 원본 열기',
+          openInNewTab: true
+        }
+      ],
       editableContent: false
     },
     {
@@ -120,11 +122,14 @@ export const MODULE_5_DATA: ModuleData = {
       title: "🗳️ 국제회의 의사결정",
       description: "안건에 대한 최종 판결을 내리고 투표로 결과를 집계합니다",
       content: "이제 안건에 대해 최종 결정을 내릴 시간입니다. \n'난민들의 출도 허용'에 대해 [찬성] 또는 [반대]로 최종 선택을 한 뒤 투표해 주세요.\n\n아래 링크를 열어 투표 결과 집계 페이지를 확인하거나, 교사가 제공한 실시간 투표 도구를 사용하세요.\n\n⁉️ 토론 후 성찰 질문:\n- 제주의 경계는 어떻게 결정되었나요?\n이 결과로 인해 피해받는 사람들을 위해, 어떤 후속 조치가 이루어져야 할까요?\n\n- 지금 내 생각은 처음과 비교했을 때 어떤 점에서 달라졌나요?\n앞으로도 세계 여러 지역의 영토, 경계 문제를 바라볼 때 어떤 태도가 필요할까요?",
-      externalLinks: [
+      embeddedResources: [
         {
-          url: "https://toolkit.i-scream.co.kr/",
-          label: "📊 투표 점수판 툴킷 (예시)",
-          openInNewTab: true
+          id: 'class-voting-toolkit',
+          title: '투표 도구',
+          description: '로그인 화면이 나타나거나 표시되지 않으면 원본 사이트를 새 창에서 열어주세요.',
+          url: 'https://toolkit.i-scream.co.kr/',
+          embedUrl: 'https://toolkit.i-scream.co.kr/',
+          aspectRatio: '4 / 3'
         }
       ],
       editableContent: false

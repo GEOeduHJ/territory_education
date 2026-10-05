@@ -72,6 +72,16 @@ export interface ModuleStep {
     openInNewTab: boolean;
     showIframe?: boolean;
   }>;
+  // 단계 안에 표시하는 외부 영상·지도·자료. 원본 링크는 iframe 대체 경로로 제공한다.
+  embeddedResources?: Array<{
+    id: string;
+    title: string;
+    description?: string;
+    url: string;
+    embedUrl: string;
+    aspectRatio?: string;
+    allow?: string;
+  }>;
   editableContent?: boolean;
   // 단계의 실제 내용을 설명하는 섹션 제목 (예: 탐구 활동 안내, 제출 전 확인)
   contentLabel?: string;
@@ -119,6 +129,8 @@ export interface ModuleStep {
   dropdownResources?: DropdownResource[];
   // 홈페이지 내부에서 바로 학습하는 테마형 콘텐츠 (Module 3 step-1용)
   learningThemes?: LearningTheme[];
+  // 테마별 학습 내용을 짧은 선택형 문항으로 점검하는 단계
+  useLearningQuiz?: boolean;
   // 테마별 전시(드롭다운) 기능
   themedExhibits?: Array<{
     id: string;
@@ -149,9 +161,23 @@ export interface LearningTheme {
   id: string;
   title: string;
   summary: string;
-  content: string;
-  points: string[];
-  sourceLabel?: string;
+  contentParagraphs: LearningThemeContentPart[][];
+  inquiryPrompt?: string;
+  checkQuestion?: string;
+  checkOptions?: LearningThemeCheckOption[];
+}
+
+export interface LearningThemeContentPart {
+  id?: string;
+  text: string;
+  revealable?: boolean;
+}
+
+export interface LearningThemeCheckOption {
+  id: string;
+  label: string;
+  feedback: string;
+  isCorrect: boolean;
 }
 
 // 모듈 데이터 인터페이스

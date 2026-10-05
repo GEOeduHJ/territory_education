@@ -8,8 +8,10 @@ import ResourceDropdown from './ResourceDropdown';
 import ThemedExhibitDropdown from './ThemedExhibitDropdown';
 import { PromptInputBox } from './PromptInputBox';
 import LearningThemeCards from './LearningThemeCards';
+import LearningThemeQuiz from './LearningThemeQuiz';
 import GoodsDesignWorkspace from './GoodsDesignWorkspace';
 import ProductSheetWorkspace from './ProductSheetWorkspace';
+import InlineEmbeddedResources from './InlineEmbeddedResources';
 import StepHeader from './StepHeader';
 import { cleanUiText } from '../utils/uiText';
 
@@ -44,6 +46,9 @@ const StepContent: React.FC<StepContentProps> = ({
 
   // Module 3의 드롭다운 자료 표시 단계인지 확인
   const isResourceDropdownStep = step.showResourceDropdown && moduleId === "3";
+
+  // Module 3의 학습 점검 퀴즈 단계인지 확인
+  const isLearningQuizStep = step.useLearningQuiz && moduleId === "3";
 
   // Embedded iframe preview for external links (all modules)
 
@@ -187,7 +192,7 @@ const StepContent: React.FC<StepContentProps> = ({
     );
   }
 
-  // 드롭다운 자료 렌더링 (Module 3, Step 1 - 독도 자율 학습)
+  // 드롭다운 자료 렌더링 (Module 3, Step 1 - 독도 주제 학습)
   if (isResourceDropdownStep && step.dropdownResources) {
     return (
       <div 
@@ -213,7 +218,7 @@ const StepContent: React.FC<StepContentProps> = ({
             <LearningThemeCards themes={step.learningThemes} />
           )}
 
-          {/* AI Chatbot Links */}
+          {/* 외부 보조 자료 링크가 제공되는 단계에만 표시 */}
           {step.externalLinks && step.externalLinks.length > 0 && (
             <div className="mb-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl">
@@ -232,6 +237,32 @@ const StepContent: React.FC<StepContentProps> = ({
 
           {/* Resource Dropdown (opens in new tab) */}
           <ResourceDropdown resources={step.dropdownResources} />
+        </div>
+      </div>
+    );
+  }
+
+  // 학습 점검 퀴즈 렌더링 (Module 3, Step 2)
+  if (isLearningQuizStep && step.learningThemes) {
+    return (
+      <div
+        className="step-surface"
+        role="tabpanel"
+        id={`tabpanel-${step.id}`}
+        aria-labelledby={`tab-${step.id}`}
+      >
+        <div className="max-w-6xl mx-auto">
+          <StepHeader step={step} eyebrow="학습 점검" />
+
+          <div className="mb-8">
+            <div className="prose max-w-none">
+              <p className="text-gray-700 whitespace-pre-wrap">
+                {cleanUiText(step.content)}
+              </p>
+            </div>
+          </div>
+
+          <LearningThemeQuiz themes={step.learningThemes} />
         </div>
       </div>
     );
@@ -273,7 +304,7 @@ const StepContent: React.FC<StepContentProps> = ({
     );
   }
 
-  // 굿즈 목업·프롬프트 작업 공간 렌더링 (Module 3, Step 2)
+  // 굿즈 목업·프롬프트 작업 공간 렌더링 (Module 3, Step 3)
   if (isGoodsDesignWorkspace) {
     return (
       <div
@@ -290,7 +321,7 @@ const StepContent: React.FC<StepContentProps> = ({
     );
   }
 
-  // 상품 설명서 작업 공간 렌더링 (Module 3, Step 3)
+  // 상품 설명서 작업 공간 렌더링 (Module 3, Step 4)
   if (isProductSheetWorkspace) {
     return (
       <div
@@ -304,7 +335,7 @@ const StepContent: React.FC<StepContentProps> = ({
     );
   }
 
-  // 고정 템플릿 콘텐츠 렌더링 (Module 3, Step 2)
+  // 고정 템플릿 콘텐츠 렌더링 (Module 3)
   if (isFixedTemplateStep) {
     return (
       <div 
@@ -451,6 +482,13 @@ const StepContent: React.FC<StepContentProps> = ({
             </div>
           )}
 
+          {step.embeddedResources && (
+            <InlineEmbeddedResources
+              resources={step.embeddedResources}
+              onExternalLinkClick={onExternalLinkClick}
+            />
+          )}
+
             {/* 활동 자료 영역 (시나리오 iframe 분기에서도 표시) */}
             {(step.externalLink || step.externalLinks) && (
               <div className="resource-block mb-6">
@@ -576,6 +614,13 @@ const StepContent: React.FC<StepContentProps> = ({
             </div>
             </div>
           </div>
+        )}
+
+        {step.embeddedResources && (
+          <InlineEmbeddedResources
+            resources={step.embeddedResources}
+            onExternalLinkClick={onExternalLinkClick}
+          />
         )}
 
         {/* Prompt Input Box (학생이 가이드를 참고해 직접 프롬프트를 작성하는 입력 칸) */}

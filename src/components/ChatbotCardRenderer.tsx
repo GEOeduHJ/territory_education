@@ -68,7 +68,9 @@ export const ChatbotCardRenderer: React.FC<ChatbotCardRendererProps> = ({
                       disabled={!chatbot.isActive}
                       className={`button button--primary chatbot-card__button ${!chatbot.isActive ? 'button--disabled' : ''}`}
                     >
-                      {chatbot.isActive ? '대화 시작하기' : '준비 중'}
+                      {chatbot.isActive
+                        ? '새 창에서 대화하기'
+                        : '준비 중'}
                     </button>
                   </div>
                 </article>

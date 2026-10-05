@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { formatDokdoTakeaways, loadDokdoTakeaways } from '../utils/dokdoTakeaways';
 
 interface ProductSheetValues {
   productName: string;
@@ -127,7 +128,10 @@ const readAndResizeImage = (file: File): Promise<string> => new Promise((resolve
 });
 
 const ProductSheetWorkspace: React.FC = () => {
-  const [values, setValues] = useState<ProductSheetValues>(INITIAL_VALUES);
+  const [values, setValues] = useState<ProductSheetValues>(() => ({
+    ...INITIAL_VALUES,
+    learningMessage: formatDokdoTakeaways(loadDokdoTakeaways())
+  }));
   const [productImage, setProductImage] = useState<string | null>(null);
   const [productImageName, setProductImageName] = useState('');
   const [imageStatus, setImageStatus] = useState('');
@@ -222,7 +226,7 @@ const ProductSheetWorkspace: React.FC = () => {
       <div className="panel-heading product-sheet-workspace__intro">
         <p className="content-eyebrow">OBJECT 01 · PRODUCT BRIEF</p>
         <h2>배운 내용을 하나의 상품 이야기로 완성하세요.</h2>
-        <p>명품 브랜드의 제품 소개서처럼 상품 이미지와 학습에서 얻은 메시지를 한 장의 브리프로 정리합니다.</p>
+        <p>1단계에서 선택한 핵심 표현이 메시지 칸에 미리 담깁니다. 상품 이미지와 함께 한 장의 브리프로 정리해보세요.</p>
       </div>
 
       <section className="product-sheet-form" aria-labelledby="product-sheet-form-title">
