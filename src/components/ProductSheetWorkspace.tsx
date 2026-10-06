@@ -3,18 +3,27 @@ import { formatDokdoTakeaways, loadDokdoTakeaways } from '../utils/dokdoTakeaway
 
 interface ProductSheetValues {
   productName: string;
+  price: string;
   oneLine: string;
   learningMessage: string;
 }
 
 const INITIAL_VALUES: ProductSheetValues = {
   productName: '',
+  price: '',
   oneLine: '',
   learningMessage: ''
 };
 
 const SVG_FONT_FAMILY = 'Apple SD Gothic Neo, Noto Sans KR, Arial, sans-serif';
 const MAX_IMAGE_SIZE = 8 * 1024 * 1024;
+
+const formatWon = (price: string) => {
+  if (!price.trim()) return '';
+  const amount = Number(price);
+  if (!Number.isSafeInteger(amount) || amount < 0) return '';
+  return `${new Intl.NumberFormat('ko-KR').format(amount)}원`;
+};
 
 const escapeXml = (value: string) => value
   .replace(/&/g, '&amp;')
@@ -50,6 +59,7 @@ const svgTextLines = (
 
 const buildProductSheetSvg = (values: ProductSheetValues, productImage: string | null) => {
   const productName = values.productName.trim() || '독도 굿즈 이름';
+  const price = formatWon(values.price) || '판매 가격을 입력해주세요.';
   const oneLine = values.oneLine.trim() || '상품을 한 문장으로 소개해보세요.';
   const learningMessage = values.learningMessage.trim() || '학습 내용에서 발견한 독도의 의미를 적어보세요.';
   const imageMarkup = productImage
@@ -91,11 +101,14 @@ const buildProductSheetSvg = (values: ProductSheetValues, productImage: string |
   <text x="797" y="528" font-family="${SVG_FONT_FAMILY}" font-size="14" font-weight="700" letter-spacing="2" fill="#d9c18a">PRODUCT PORTRAIT</text>
   <text x="96" y="620" font-family="${SVG_FONT_FAMILY}" font-size="16" font-weight="800" letter-spacing="3" fill="#0f766e">THE STORY BEHIND THE OBJECT</text>
   <line x1="96" y1="648" x2="1304" y2="648" stroke="#d9cdbb" stroke-width="2" />
-  <text x="96" y="708" font-family="${SVG_FONT_FAMILY}" font-size="14" font-weight="800" letter-spacing="2" fill="#0f766e">01 / THE IDEA</text>
-  ${svgTextLines(learningMessage, 96, 748, 52, 28, 40, '#213746', 600)}
-  <line x1="96" y1="934" x2="1304" y2="934" stroke="#d9cdbb" stroke-width="2" />
-  <text x="96" y="984" font-family="${SVG_FONT_FAMILY}" font-size="15" font-weight="700" letter-spacing="2" fill="#667b85">AI 활용 영토교육 학습 모듈</text>
-  <text x="1304" y="984" text-anchor="end" font-family="${SVG_FONT_FAMILY}" font-size="15" fill="#667b85">STUDENT EDITION · DOKDO</text>
+  <text x="96" y="704" font-family="${SVG_FONT_FAMILY}" font-size="14" font-weight="800" letter-spacing="2" fill="#0f766e">판매 가격</text>
+  <text x="1304" y="708" text-anchor="end" font-family="${SVG_FONT_FAMILY}" font-size="30" font-weight="700" fill="#102d40">${escapeXml(price)}</text>
+  <line x1="96" y1="738" x2="1304" y2="738" stroke="#d9cdbb" stroke-width="2" />
+  <text x="96" y="786" font-family="${SVG_FONT_FAMILY}" font-size="14" font-weight="800" letter-spacing="2" fill="#0f766e">01 / THE IDEA</text>
+  ${svgTextLines(learningMessage, 96, 826, 52, 28, 40, '#213746', 600)}
+  <line x1="96" y1="976" x2="1304" y2="976" stroke="#d9cdbb" stroke-width="2" />
+  <text x="96" y="1026" font-family="${SVG_FONT_FAMILY}" font-size="15" font-weight="700" letter-spacing="2" fill="#667b85">AI 활용 영토교육 학습 모듈</text>
+  <text x="1304" y="1026" text-anchor="end" font-family="${SVG_FONT_FAMILY}" font-size="15" fill="#667b85">STUDENT EDITION · DOKDO</text>
 </svg>`;
 };
 
@@ -138,7 +151,7 @@ const ProductSheetWorkspace: React.FC = () => {
   const [isDragging, setIsDragging] = useState(false);
   const [downloadState, setDownloadState] = useState('');
 
-  const canDownload = Boolean(values.productName.trim() && values.oneLine.trim() && values.learningMessage.trim());
+  const canDownload = Boolean(values.productName.trim() && formatWon(values.price) && values.oneLine.trim() && values.learningMessage.trim());
   const valueOrPlaceholder = (value: string, placeholder: string) => value.trim() || placeholder;
 
   const updateValue = (field: keyof ProductSheetValues, value: string) => {
@@ -226,16 +239,16 @@ const ProductSheetWorkspace: React.FC = () => {
       <div className="panel-heading product-sheet-workspace__intro">
         <p className="content-eyebrow">OBJECT 01 · PRODUCT BRIEF</p>
         <h2>배운 내용을 하나의 상품 이야기로 완성하세요.</h2>
-        <p>1단계에서 선택한 핵심 표현이 메시지 칸에 미리 담깁니다. 상품 이미지와 함께 한 장의 브리프로 정리해보세요.</p>
+        <p>1단계에서 선택한 핵심 표현이 메시지 칸에 미리 담깁니다. 상품 이미지와 함께 한 장의 상품 소개서로 정리해보세요.</p>
       </div>
 
       <section className="product-sheet-form" aria-labelledby="product-sheet-form-title">
         <div className="workspace-section-heading">
           <div>
             <p className="content-eyebrow">01 · 상품 정보</p>
-            <h3 id="product-sheet-form-title">상품의 핵심을 정리해보세요.</h3>
+            <h3 id="product-sheet-form-title">상품의 핵심 정보를 정리해보세요.</h3>
           </div>
-          <span className="workspace-section-heading__note">필수 항목 3개 · 이미지는 선택</span>
+          <span className="workspace-section-heading__note">필수 항목 4개 · 이미지는 선택</span>
         </div>
 
         <div className="product-sheet-fields">
@@ -243,13 +256,17 @@ const ProductSheetWorkspace: React.FC = () => {
             <label htmlFor="sheet-product-name" className="form-label">상품명 <span className="form-required" aria-hidden="true">*</span></label>
             <input id="sheet-product-name" className="form-input" value={values.productName} onChange={(event) => updateValue('productName', event.target.value)} placeholder="예: 바다를 품은 독도 에코백" />
           </div>
+          <div className="form-field">
+            <label htmlFor="sheet-price" className="form-label">판매 가격 (원) <span className="form-required" aria-hidden="true">*</span></label>
+            <input id="sheet-price" className="form-input" type="number" min="0" step="1" inputMode="numeric" value={values.price} onChange={(event) => updateValue('price', event.target.value)} placeholder="예: 12000" />
+          </div>
           <div className="form-field product-sheet-fields__full">
             <label htmlFor="sheet-one-line" className="form-label">한 줄 소개 <span className="form-required" aria-hidden="true">*</span></label>
             <textarea id="sheet-one-line" className="form-textarea" rows={3} value={values.oneLine} onChange={(event) => updateValue('oneLine', event.target.value)} placeholder="이 상품이 무엇을 전하는지 한 문장으로 적어보세요." />
           </div>
           <div className="form-field product-sheet-fields__full">
-            <label htmlFor="sheet-learning-message" className="form-label">학습에서 얻은 메시지 <span className="form-required" aria-hidden="true">*</span></label>
-            <textarea id="sheet-learning-message" className="form-textarea" rows={4} value={values.learningMessage} onChange={(event) => updateValue('learningMessage', event.target.value)} placeholder="독도의 위치, 기록, 생태, 사람과 관리 중 어떤 내용을 담았나요?" />
+            <label htmlFor="sheet-learning-message" className="form-label">소개하고 싶은 독도의 가치 <span className="form-required" aria-hidden="true">*</span></label>
+            <textarea id="sheet-learning-message" className="form-textarea" rows={4} value={values.learningMessage} onChange={(event) => updateValue('learningMessage', event.target.value)} placeholder="독도의 위치, 자연, 역사 등 다양한 학습 주제 중 어떤 내용을 담았나요?" />
           </div>
         </div>
       </section>
@@ -308,7 +325,7 @@ const ProductSheetWorkspace: React.FC = () => {
           <div className="product-sheet-preview__paper">
             <div className="product-sheet-preview__hero">
               <div className="product-sheet-preview__hero-copy">
-                <span className="product-sheet-preview__eyebrow">DOKDO GOODS / OBJECT 01</span>
+                <span className="product-sheet-preview__eyebrow">DOKDO GOODS</span>
                 <strong>{valueOrPlaceholder(values.productName, '독도 굿즈 이름')}</strong>
                 <p>{valueOrPlaceholder(values.oneLine, '상품을 한 문장으로 소개해보세요.')}</p>
                 <span className="product-sheet-preview__signature">LEARN / DESIGN / SHARE</span>
@@ -323,13 +340,17 @@ const ProductSheetWorkspace: React.FC = () => {
                 <span>THE STORY BEHIND THE OBJECT</span>
                 <span>STUDENT EDITION · DOKDO</span>
               </div>
+              <div className="product-sheet-preview__price">
+                <span>판매 가격</span>
+                <strong>{valueOrPlaceholder(formatWon(values.price), '금액을 입력하면 여기에 표시됩니다.')}</strong>
+              </div>
               <div className="product-sheet-preview__manifest-grid">
-                <article><span>01 / THE IDEA</span><p>{valueOrPlaceholder(values.learningMessage, '학습 내용에서 발견한 독도의 의미를 적어보세요.')}</p></article>
+                <article><span>THE IDEA</span><p>{valueOrPlaceholder(values.learningMessage, '굿즈를 통해 소개하고 싶은 독도의 가치를 적어보세요.')}</p></article>
               </div>
             </div>
           </div>
         </div>
-        {!canDownload && <p className="workspace-hint">상품명, 한 줄 소개, 학습 메시지를 입력하면 PNG로 내려받을 수 있습니다. 대표 이미지는 선택 항목입니다.</p>}
+        {!canDownload && <p className="workspace-hint">상품명, 판매 가격, 한 줄 소개, 소개하고 싶은 독도의 가치를 입력하면 PNG로 내려받을 수 있습니다. 대표 이미지는 선택 항목입니다.</p>}
         {downloadState && <p className="form-alert form-alert--success" role="status">{downloadState}</p>}
       </section>
     </div>

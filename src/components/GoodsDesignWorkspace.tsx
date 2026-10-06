@@ -55,6 +55,7 @@ const GoodsDesignWorkspace: React.FC<GoodsDesignWorkspaceProps> = ({ step, onExt
   const [themeId, setThemeId] = useState(themes[0].id);
   const interestNotes = useMemo(() => resolveDokdoTakeaways(loadDokdoTakeaways(), themes), [themes]);
   const [learningNote, setLearningNote] = useState('');
+  const [messageDesignPlan, setMessageDesignPlan] = useState('');
   const [visualDirection, setVisualDirection] = useState('');
   const [copySuccess, setCopySuccess] = useState('');
 
@@ -64,26 +65,30 @@ const GoodsDesignWorkspace: React.FC<GoodsDesignWorkspaceProps> = ({ step, onExt
 
   const selectedTheme = themes.find((theme) => theme.id === themeId) || themes[0];
   const prompt = useMemo(() => {
-    const note = learningNote.trim() || '[학습한 내용을 입력하세요]';
-    const direction = visualDirection.trim() || '[원하는 색감·스타일·배치 방향을 입력하세요]';
+    const note = learningNote.trim() || '[1단계에서 학습한 내용을 입력하세요]';
+    const designPlan = messageDesignPlan.trim() || '[학습 내용을 어떤 시각 요소와 구성으로 전달할지 입력하세요]';
+    const direction = visualDirection.trim() || '[원하는 이미지의 분위기·색감·질감을 입력하세요]';
 
     return `독도 영토교육 학습 결과를 바탕으로 ${productType} 굿즈 디자인을 제작해주세요.
 
 [연결한 학습 주제]
 ${selectedTheme.title}
 
-[학습 내용]
+[디자인에 표현할 학습 내용]
 ${note}
 
-[시각 방향]
+[메시지 디자인 방안]
+${designPlan}
+
+[디자인 스타일]
 ${direction}
 
 [제작 조건]
 - 첨부한 빈 ${productType} 목업의 제품 형태와 비율은 유지하고, 디자인 영역 안에만 그래픽을 배치해주세요.
-- 학습 내용에서 핵심 시각 요소를 1~2개 골라 과장 없이 표현해주세요. 독도의 지형, 바위, 생태, 기록 중 학습 내용과 직접 연결되는 요소를 우선합니다.
+- 메시지 디자인 방안에 따라 학습 내용을 정확하고 과장 없이 시각화해주세요. 독도와 직접 연결되는 요소를 우선합니다.
 - 이미지에는 읽을 수 있는 문구·문자·숫자·로고를 넣지 말고, 시각 요소만으로 학습 내용을 표현해주세요.
 - 목업 이미지, 손, 사람, 추가 제품을 새로 만들지 말고 완성된 ${productType} 한 개만 보여주세요.`;
-  }, [learningNote, productType, selectedTheme.title, visualDirection]);
+  }, [learningNote, messageDesignPlan, productType, selectedTheme.title, visualDirection]);
 
   const handleCopy = async () => {
     if (!learningNote.trim()) return;
@@ -178,9 +183,11 @@ ${direction}
 
           <div className="form-field goods-prompt-form__full">
             <label htmlFor="goods-learning-note" className="form-label">디자인에 표현할 학습 내용</label>
+            <p className="goods-prompt-form__hint" id="goods-learning-note-hint">1단계에서 배운 내용 중 굿즈에 담고 싶은 핵심을 적어보세요.</p>
             <textarea
               id="goods-learning-note"
               className="form-textarea"
+              aria-describedby="goods-learning-note-hint"
               value={learningNote}
               onChange={(event) => setLearningNote(event.target.value)}
               placeholder="예: 동도와 서도, 89개의 바위섬으로 이루어진 독도의 모습을 알리고 싶다."
@@ -189,10 +196,26 @@ ${direction}
           </div>
 
           <div className="form-field goods-prompt-form__full">
-            <label htmlFor="goods-visual-direction" className="form-label">원하는 시각 방향 <span className="form-label__optional">선택</span></label>
+            <label htmlFor="goods-message-design-plan" className="form-label">메시지 디자인 방안</label>
+            <p className="goods-prompt-form__hint" id="goods-message-design-plan-hint">학습 내용을 어떤 그림·상징·배치로 전달할지 구상해보세요.</p>
+            <textarea
+              id="goods-message-design-plan"
+              className="form-textarea"
+              aria-describedby="goods-message-design-plan-hint"
+              value={messageDesignPlan}
+              onChange={(event) => setMessageDesignPlan(event.target.value)}
+              placeholder="예: 동도와 서도의 실루엣을 중심에 두고, 두 섬 사이의 가까운 거리를 이어지는 선으로 표현한다."
+              rows={4}
+            />
+          </div>
+
+          <div className="form-field goods-prompt-form__full">
+            <label htmlFor="goods-visual-direction" className="form-label">디자인 스타일 <span className="form-label__optional">선택</span></label>
+            <p className="goods-prompt-form__hint" id="goods-visual-direction-hint">이미지의 전체적인 분위기, 색감, 질감 등을 적어보세요.</p>
             <input
               id="goods-visual-direction"
               className="form-input"
+              aria-describedby="goods-visual-direction-hint"
               value={visualDirection}
               onChange={(event) => setVisualDirection(event.target.value)}
               placeholder="예: 바다색과 따뜻한 주황색, 단순한 지도 그래픽, 초등학생도 이해하기 쉬운 분위기"
