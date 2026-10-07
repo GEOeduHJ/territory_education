@@ -14,6 +14,8 @@ import ProductSheetWorkspace from './ProductSheetWorkspace';
 import BoundaryCharacteristics from './BoundaryCharacteristics';
 import Module5ImageCarousel from './Module5ImageCarousel';
 import InlineEmbeddedResources from './InlineEmbeddedResources';
+import StepRevealableStatements from './StepRevealableStatements';
+import GuidedPromptBuilder from './GuidedPromptBuilder';
 import StepHeader from './StepHeader';
 import { cleanUiText } from '../utils/uiText';
 
@@ -697,6 +699,22 @@ const StepContent: React.FC<StepContentProps> = ({
         {step.embeddedResources && (
           <InlineEmbeddedResources
             resources={step.embeddedResources}
+            onExternalLinkClick={onExternalLinkClick}
+          />
+        )}
+
+        {step.revealableStatements && step.revealableStatements.length > 0 && (
+          <StepRevealableStatements
+            id={`${step.id}-revealable-statements`}
+            title="영상에서 핵심 내용 확인하기"
+            description="문장에 가려진 핵심 표현을 눌러 내용을 확인해보세요."
+            statements={step.revealableStatements}
+          />
+        )}
+
+        {step.guidedPrompt && (
+          <GuidedPromptBuilder
+            config={step.guidedPrompt}
             onExternalLinkClick={onExternalLinkClick}
           />
         )}

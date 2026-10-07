@@ -159,16 +159,16 @@ export const MODULE_0_DATA: ModuleData = {
     },
     {
       id: "step-4",
-      title: "🔎 모듈 4: DMZ 탐험과 미래 디자인",
-      description: "DMZ의 가치 탐색부터 메타버스 견학, 전시 관람, 미래 디자인까지 요약합니다",
+      title: "🔎 모듈 4: DMZ의 가치와 미래 디자인",
+      description: "DMZ의 역사·생태 가치를 배우고, 메타버스와 온라인 전시에서 얻은 아이디어를 미래 디자인으로 연결합니다",
       content: "모듈 4의 5단계를 컨테이너별로 정리했습니다.",
       hideDefaultContentContainer: true,
       detailContainers: [
         {
           id: "m4-step1",
           title: "🌿 DMZ의 가치 살펴보기",
-          description: "영상으로 역사·생태·문화 이해",
-          content: "- DMZ 탄생 배경과 생태적 가치 영상 시청\n- 보전 필요성에 대한 생각 정리",
+          description: "영상 시청과 핵심 표현 확인",
+          content: "- 정전협정과 DMZ의 형성 배경 확인\n- 생물 서식지·평화의 길·문화예술 가치 살펴보기",
           targetModuleId: "4",
           targetStepId: "step-1"
         },
@@ -182,25 +182,25 @@ export const MODULE_0_DATA: ModuleData = {
         },
         {
           id: "m4-step3",
-          title: "🔍 DMZ 속 분단의 현장 둘러보기",
-          description: "분단 현장 가상 체험",
-          content: "- 군사분계선, 군정회의실 테이블, 인상 깊은 건축물 탐색 및 기록",
+          title: "🖼️ DMZ 온라인 전시회 방문하기",
+          description: "테마별 전시 관람 후 아이디어 메모",
+          content: "- Google Arts & Culture 전시를 테마별로 탐색\n- 미래 DMZ 아이디어(건축·예술·행사) 메모",
           targetModuleId: "4",
           targetStepId: "step-3"
         },
         {
           id: "m4-step4",
-          title: "🖼️ DMZ 온라인 전시회 방문하기",
-          description: "테마별 전시 관람 후 아이디어 메모",
-          content: "- Google Arts & Culture 전시를 테마별로 탐색\n- 미래 DMZ 아이디어(건축·예술·행사) 메모",
+          title: "✍️ 미래 DMZ 디자인 프롬프트 만들기",
+          description: "아이디어를 입력해 Gemini용 프롬프트 작성",
+          content: "- 디자인 분야와 보호할 가치·장소·참여자 구상\n- 장면·색감·결과 형식을 정해 전체 프롬프트 복사",
           targetModuleId: "4",
           targetStepId: "step-4"
         },
         {
           id: "m4-step5",
           title: "🎯 DMZ 미래 디자인하기",
-          description: "AI 활용 창작 제출",
-          content: "- 건축/미술/행사 중 하나를 선택해 AI로 제작\n- Padlet 시나리오 보드에 공유",
+          description: "완성한 미래 DMZ 디자인 공유",
+          content: "- 건축·미술·행사 중 하나를 선택해 작품 완성\n- Padlet 시나리오 보드에서 서로의 결과물 살펴보기",
           targetModuleId: "4",
           targetStepId: "step-5"
         }

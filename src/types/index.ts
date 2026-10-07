@@ -45,6 +45,32 @@ export interface ValidationState {
   isValid: boolean;
 }
 
+export interface GuidedPromptField {
+  id: string;
+  label: string;
+  placeholder: string;
+  hint?: string;
+  multiline?: boolean;
+  fullWidth?: boolean;
+  particle?: 'object' | 'euro' | 'copula';
+}
+
+export interface GuidedPromptGroup {
+  id: string;
+  title: string;
+  fields: GuidedPromptField[];
+}
+
+export interface GuidedPromptConfig {
+  id: string;
+  title: string;
+  description: string;
+  groups: GuidedPromptGroup[];
+  template: string;
+  geminiUrl: string;
+  geminiLabel: string;
+}
+
 // 모듈 스텝 인터페이스
 export interface ModuleStep {
   id: string;
@@ -82,6 +108,8 @@ export interface ModuleStep {
     aspectRatio?: string;
     allow?: string;
   }>;
+  // 영상·자료 뒤에 이어지는 문장형 핵심 표현 확인 활동
+  revealableStatements?: LearningThemeContentPart[][];
   editableContent?: boolean;
   // 단계의 실제 내용을 설명하는 섹션 제목 (예: 탐구 활동 안내, 제출 전 확인)
   contentLabel?: string;
@@ -95,6 +123,8 @@ export interface ModuleStep {
     label?: string;
     placeholder?: string;
   };
+  // 학생 입력값을 문장형 프롬프트로 조합하는 작성기
+  guidedPrompt?: GuidedPromptConfig;
   // 새로운 키워드 기능 속성들
   isKeywordInput?: boolean;
   useKeywordTemplate?: boolean;
