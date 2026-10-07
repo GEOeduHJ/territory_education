@@ -209,48 +209,48 @@ export const MODULE_0_DATA: ModuleData = {
     },
     {
       id: "step-5",
-      title: "🌐 모듈 5: 제주 예멘 난민과 국제회의",
-      description: "다양한 페르소나와 대화하며 입장문을 만들고 국제회의를 진행하는 흐름을 정리합니다",
+      title: "🌐 모듈 5: 경계와 다양한 관점",
+      description: "경계 개념과 제주 사례를 살펴보고, 여러 인물의 관점을 비교한 뒤 생각을 정리합니다",
       content: "모듈 5의 5단계를 컨테이너별로 정리했습니다.",
       hideDefaultContentContainer: true,
       detailContainers: [
         {
           id: "m5-step1",
-          title: "📺 AI 뉴스 영상 학습",
-          description: "영상 시청 + 활동지",
-          content: "- AI 뉴스 영상을 시청하며 제주 예멘 난민 사례 이해\n- 활동지로 핵심 포인트 정리",
+          title: "📺 경계 개념 학습 및 사례 살펴보기",
+          description: "경계 개념과 여러 나라 사례",
+          content: "- 경계 개념과 사례 이미지 살펴보기\n- AI 뉴스 영상으로 관련 이슈 확인",
           targetModuleId: "5",
           targetStepId: "step-1"
         },
         {
           id: "m5-step2",
-          title: "🤖 챗봇과 대화 - 페르소나별 시뮬레이션",
-          description: "이해관계자별 입장 분석",
-          content: "- 제주도민, 육지부 주민/지자체, UNHCR 등과 대화\n- 주장·근거를 정리해 입장 대비",
+          title: "🗺️ 제주 사례로 경계 이해하기",
+          description: "6컷 만화로 사례 탐구",
+          content: "- 제주 예멘 난민 사례의 흐름 살펴보기\n- 장면별 핵심 표현을 확인하며 여러 입장 파악",
           targetModuleId: "5",
           targetStepId: "step-2"
         },
         {
           id: "m5-step3",
-          title: "🏛️ 국제회의 준비",
-          description: "코치봇과 입장문·Q&A 작성",
-          content: "- 찬반 입장 정리 후 발표용 입장문 작성\n- 예상 질문과 답변 준비",
+          title: "💬 챗봇 대화 준비하기",
+          description: "챗봇 접속부터 대화 완료까지 사용 안내",
+          content: "- 크랙 앱 또는 QR 코드로 인물별 챗봇 찾기\n- 프로필과 플레이 가이드 확인 후 대화하기\n- 최소 두 문장으로 대화하고 비밀 아이템 획득",
           targetModuleId: "5",
           targetStepId: "step-3"
         },
         {
           id: "m5-step4",
-          title: "🗣️ 국제회의 참여",
-          description: "토론 및 Padlet 공유",
-          content: "- AI 없이 토론 진행, 입장문을 Padlet에 공유\n- 다른 참가자 글에 댓글·반응 남기기",
+          title: "🤖 챗봇과 대화 - 페르소나별 시뮬레이션",
+          description: "인물별 관점과 근거 비교",
+          content: "- 제주도민, 육지부 주민·지자체, UNHCR 관점 살펴보기\n- 인물의 주장과 근거 비교",
           targetModuleId: "5",
           targetStepId: "step-4"
         },
         {
           id: "m5-step5",
-          title: "🗳️ 국제회의 의사결정",
-          description: "투표 및 성찰",
-          content: "- 찬/반 투표로 최종 결론 도출\n- 경계와 난민 문제에 대한 성찰 질문 답변",
+          title: "📝 생각 정리와 성찰하기",
+          description: "Padlet에 생각 공유 및 사례 성찰",
+          content: "- 서로 다른 인물이 중요하게 여긴 점을 Padlet에 공유\n- 경계가 사람들의 생활에 미치는 영향 돌아보기",
           targetModuleId: "5",
           targetStepId: "step-5"
         }

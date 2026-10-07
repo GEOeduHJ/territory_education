@@ -7,7 +7,7 @@ const moduleOutcomes: Record<string, string> = {
   '2': '공간 데이터·미래 제안',
   '3': '굿즈·상품 설명서',
   '4': 'DMZ 미래 디자인',
-  '5': '국제회의·해결 방안'
+  '5': '경계 사례 분석·관점 성찰'
 };
 
 const ModuleCard: React.FC<ModuleCardProps> = ({ module, onClick }) => {

@@ -14,9 +14,10 @@ const t={id:"0",topic:"모듈 소개",title:"📘 모듈 한눈에 보기",descr
 - 보전 필요성에 대한 생각 정리`,targetModuleId:"4",targetStepId:"step-1"},{id:"m4-step2",title:"🏛️ DMZ 속 잊혀진 삶을 찾아서",description:"메타버스 견학으로 과거 삶 탐구",content:`- 통일부 DMZ 메타버스 접속
 - 실향민 시선에서의 질문 3가지 탐구`,targetModuleId:"4",targetStepId:"step-2"},{id:"m4-step3",title:"🔍 DMZ 속 분단의 현장 둘러보기",description:"분단 현장 가상 체험",content:"- 군사분계선, 군정회의실 테이블, 인상 깊은 건축물 탐색 및 기록",targetModuleId:"4",targetStepId:"step-3"},{id:"m4-step4",title:"🖼️ DMZ 온라인 전시회 방문하기",description:"테마별 전시 관람 후 아이디어 메모",content:`- Google Arts & Culture 전시를 테마별로 탐색
 - 미래 DMZ 아이디어(건축·예술·행사) 메모`,targetModuleId:"4",targetStepId:"step-4"},{id:"m4-step5",title:"🎯 DMZ 미래 디자인하기",description:"AI 활용 창작 제출",content:`- 건축/미술/행사 중 하나를 선택해 AI로 제작
-- Padlet 시나리오 보드에 공유`,targetModuleId:"4",targetStepId:"step-5"}],editableContent:!1},{id:"step-5",title:"🌐 모듈 5: 제주 예멘 난민과 국제회의",description:"다양한 페르소나와 대화하며 입장문을 만들고 국제회의를 진행하는 흐름을 정리합니다",content:"모듈 5의 5단계를 컨테이너별로 정리했습니다.",hideDefaultContentContainer:!0,detailContainers:[{id:"m5-step1",title:"📺 AI 뉴스 영상 학습",description:"영상 시청 + 활동지",content:`- AI 뉴스 영상을 시청하며 제주 예멘 난민 사례 이해
-- 활동지로 핵심 포인트 정리`,targetModuleId:"5",targetStepId:"step-1"},{id:"m5-step2",title:"🤖 챗봇과 대화 - 페르소나별 시뮬레이션",description:"이해관계자별 입장 분석",content:`- 제주도민, 육지부 주민/지자체, UNHCR 등과 대화
-- 주장·근거를 정리해 입장 대비`,targetModuleId:"5",targetStepId:"step-2"},{id:"m5-step3",title:"🏛️ 국제회의 준비",description:"코치봇과 입장문·Q&A 작성",content:`- 찬반 입장 정리 후 발표용 입장문 작성
-- 예상 질문과 답변 준비`,targetModuleId:"5",targetStepId:"step-3"},{id:"m5-step4",title:"🗣️ 국제회의 참여",description:"토론 및 Padlet 공유",content:`- AI 없이 토론 진행, 입장문을 Padlet에 공유
-- 다른 참가자 글에 댓글·반응 남기기`,targetModuleId:"5",targetStepId:"step-4"},{id:"m5-step5",title:"🗳️ 국제회의 의사결정",description:"투표 및 성찰",content:`- 찬/반 투표로 최종 결론 도출
-- 경계와 난민 문제에 대한 성찰 질문 답변`,targetModuleId:"5",targetStepId:"step-5"}],editableContent:!1}]};export{t as MODULE_0_DATA};
+- Padlet 시나리오 보드에 공유`,targetModuleId:"4",targetStepId:"step-5"}],editableContent:!1},{id:"step-5",title:"🌐 모듈 5: 경계와 다양한 관점",description:"경계 개념과 제주 사례를 살펴보고, 여러 인물의 관점을 비교한 뒤 생각을 정리합니다",content:"모듈 5의 5단계를 컨테이너별로 정리했습니다.",hideDefaultContentContainer:!0,detailContainers:[{id:"m5-step1",title:"📺 경계 개념 학습 및 사례 살펴보기",description:"경계 개념과 여러 나라 사례",content:`- 경계 개념과 사례 이미지 살펴보기
+- AI 뉴스 영상으로 관련 이슈 확인`,targetModuleId:"5",targetStepId:"step-1"},{id:"m5-step2",title:"🗺️ 제주 사례로 경계 이해하기",description:"6컷 만화로 사례 탐구",content:`- 제주 예멘 난민 사례의 흐름 살펴보기
+- 장면별 핵심 표현을 확인하며 여러 입장 파악`,targetModuleId:"5",targetStepId:"step-2"},{id:"m5-step3",title:"💬 챗봇 대화 준비하기",description:"챗봇 접속부터 대화 완료까지 사용 안내",content:`- 크랙 앱 또는 QR 코드로 인물별 챗봇 찾기
+- 프로필과 플레이 가이드 확인 후 대화하기
+- 최소 두 문장으로 대화하고 비밀 아이템 획득`,targetModuleId:"5",targetStepId:"step-3"},{id:"m5-step4",title:"🤖 챗봇과 대화 - 페르소나별 시뮬레이션",description:"인물별 관점과 근거 비교",content:`- 제주도민, 육지부 주민·지자체, UNHCR 관점 살펴보기
+- 인물의 주장과 근거 비교`,targetModuleId:"5",targetStepId:"step-4"},{id:"m5-step5",title:"📝 생각 정리와 성찰하기",description:"Padlet에 생각 공유 및 사례 성찰",content:`- 서로 다른 인물이 중요하게 여긴 점을 Padlet에 공유
+- 경계가 사람들의 생활에 미치는 영향 돌아보기`,targetModuleId:"5",targetStepId:"step-5"}],editableContent:!1}]};export{t as MODULE_0_DATA};

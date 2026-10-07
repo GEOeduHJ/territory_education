@@ -11,6 +11,8 @@ import LearningThemeCards from './LearningThemeCards';
 import LearningThemeQuiz from './LearningThemeQuiz';
 import GoodsDesignWorkspace from './GoodsDesignWorkspace';
 import ProductSheetWorkspace from './ProductSheetWorkspace';
+import BoundaryCharacteristics from './BoundaryCharacteristics';
+import Module5ImageCarousel from './Module5ImageCarousel';
 import InlineEmbeddedResources from './InlineEmbeddedResources';
 import StepHeader from './StepHeader';
 import { cleanUiText } from '../utils/uiText';
@@ -40,6 +42,9 @@ const StepContent: React.FC<StepContentProps> = ({
 
   // Module 5의 챗봇 카드 사용 단계인지 확인
   const isChatbotCardStep = step.useChatbotCards && moduleId === "5";
+
+  // Module 5의 첫 단계 사례 이미지 갤러리
+  const isModule5CaseStudyStep = moduleId === "5" && step.id === "step-1" && !!step.caseStudies?.length;
 
   // Module 1의 지도 표시 단계인지 확인
   const isMapStep = step.showMap && moduleId === "1";
@@ -123,6 +128,72 @@ const StepContent: React.FC<StepContentProps> = ({
     setSelectedThemeId(step.themedExhibits && step.themedExhibits.length > 0 ? step.themedExhibits[0].id : null);
   }, [step.id]);
  
+
+  // 모듈 5, Step 1: 경계 사례와 AI 뉴스 영상
+  if (isModule5CaseStudyStep) {
+    return (
+      <div
+        className="step-surface"
+        role="tabpanel"
+        id={`tabpanel-${step.id}`}
+        aria-labelledby={`tab-${step.id}`}
+      >
+        <div className="max-w-6xl mx-auto">
+          <StepHeader step={step} eyebrow="경계 사례 탐구" />
+
+          <section className="module5-case-study-gallery" aria-labelledby="module5-case-study-title">
+            <div className="module5-case-study-gallery__heading">
+              <h3 id="module5-case-study-title">{cleanUiText(step.contentLabel || '여러 나라의 경계 사례 살펴보기')}</h3>
+              <p>{cleanUiText(step.content)}</p>
+            </div>
+
+            <div className="module5-case-study-grid">
+              {step.caseStudies!.map((study) => (
+                <figure className="module5-case-study-card" key={study.id}>
+                  <div className="module5-case-study-card__media">
+                    <img
+                      src={study.imageSrc}
+                      alt={cleanUiText(study.imageAlt)}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  <figcaption>{cleanUiText(study.caption)}</figcaption>
+                </figure>
+              ))}
+            </div>
+          </section>
+
+          {step.boundaryStatements && step.boundaryStatements.length > 0 && (
+            <BoundaryCharacteristics statements={step.boundaryStatements} />
+          )}
+
+          {step.externalLinks && step.externalLinks.length > 0 && (
+            <section className="resource-block module5-case-study-video" aria-labelledby="module5-case-study-video-title">
+              <h3 id="module5-case-study-video-title" className="text-lg font-medium text-gray-900 mb-3">
+                {cleanUiText(step.resourceLabel || 'AI 뉴스 영상')}
+              </h3>
+              {step.resourceDescription && (
+                <p className="text-gray-600 mb-4">{cleanUiText(step.resourceDescription)}</p>
+              )}
+              <div className="space-y-3">
+                {step.externalLinks.map((link, index) => (
+                  <button
+                    key={`${link.url}-${index}`}
+                    type="button"
+                    onClick={() => onExternalLinkClick(link.url)}
+                    className="external-link-button"
+                  >
+                    <span>{cleanUiText(link.label)}</span>
+                  </button>
+                ))}
+              </div>
+            </section>
+          )}
+        </div>
+      </div>
+    );
+  }
 
   // 지도 렌더링 (Module 1, Step 0 - 분쟁 지역 자료 조사)
   if (isMapStep && step.regionResources) {
@@ -353,7 +424,7 @@ const StepContent: React.FC<StepContentProps> = ({
     );
   }
 
-  // 챗봇 카드 콘텐츠 렌더링 (Module 5, Step 2)
+  // 챗봇 카드 콘텐츠 렌더링 (Module 5, 페르소나 대화 단계)
   if (isChatbotCardStep) {
     return (
       <div 
@@ -380,7 +451,7 @@ const StepContent: React.FC<StepContentProps> = ({
         aria-labelledby={`tab-${step.id}`}
       >
         <div className="max-w-6xl mx-auto">
-          <StepHeader step={step} eyebrow="결과물 공유" />
+          <StepHeader step={step} eyebrow={moduleId === "5" ? "생각 공유와 성찰" : "결과물 공유"} />
 
           {/* Step Content */}
           {hasDetailContainers && renderDetailContainers()}
@@ -402,12 +473,12 @@ const StepContent: React.FC<StepContentProps> = ({
           {step.externalLink && (
             <div className="resource-block mb-6">
               <h3 className="text-lg font-medium text-gray-900 mb-3">
-                결과물 업로드
+                {moduleId === "5" ? "성찰 내용 공유하기" : "결과물 업로드"}
               </h3>
               <p className="text-gray-600 mb-4">
                 {moduleId === "1" && "완성된 캠페인 노래와 앨범 커버를 업로드하고 다른 학습자들의 작품도 감상해보세요."}
                 {moduleId === "3" && "완성된 굿즈 디자인과 상품 기획서를 업로드하고 다른 학습자들의 창의적인 작품도 감상해보세요."}
-                {moduleId === "5" && "준비한 국제회의 자료를 업로드하고 다른 학습자들의 발표 자료도 확인해보세요."}
+                {moduleId === "5" && "정리한 생각을 Padlet에 공유하고 다른 학습자가 남긴 관점도 살펴보세요."}
                 {moduleId && !["1", "3", "5"].includes(moduleId) && "완성된 작품을 업로드하고 다른 학습자들의 작품도 감상해보세요."}
                 {!moduleId && "완성된 작품을 업로드하고 다른 학습자들의 작품도 감상해보세요."}
               </p>
@@ -424,12 +495,12 @@ const StepContent: React.FC<StepContentProps> = ({
           <div className="embed-block">
             <div className="bg-gray-50 px-6 py-4 border-b border-gray-200">
               <h3 className="text-lg font-medium text-gray-900">
-                서로의 결과물 살펴보기
+                {moduleId === "5" ? "서로의 생각 살펴보기" : "서로의 결과물 살펴보기"}
               </h3>
               <p className="text-sm text-gray-600 mt-1">
                 {moduleId === "1" && "다른 학습자들이 제작한 캠페인 노래와 앨범 커버를 확인하고 영감을 얻어보세요."}
                 {moduleId === "3" && "다른 학습자들이 디자인한 독도 굿즈를 확인하고 새로운 아이디어를 얻어보세요."}
-                {moduleId === "5" && "다른 학습자들이 준비한 국제회의 자료를 확인하고 참고해보세요."}
+                {moduleId === "5" && "서로 다른 생각과 근거를 읽으며 경계 사례를 여러 관점에서 돌아보세요."}
                 {moduleId && !["1", "3", "5"].includes(moduleId) && "다른 학습자들의 작품을 확인하고 영감을 얻어보세요."}
                 {!moduleId && "다른 학습자들의 작품을 확인하고 영감을 얻어보세요."}
               </p>
@@ -440,7 +511,7 @@ const StepContent: React.FC<StepContentProps> = ({
                 title={
                   moduleId === "1" ? "캠페인 노래와 앨범 커버 작품 갤러리" :
                   moduleId === "3" ? "독도 굿즈 디자인 갤러리" :
-                  moduleId === "5" ? "국제회의 준비 자료 갤러리" :
+                  moduleId === "5" ? "경계 사례 생각 나누기 Padlet" :
                   "학습 작품 갤러리"
                 }
                 className="w-full h-full border-0"
@@ -614,6 +685,13 @@ const StepContent: React.FC<StepContentProps> = ({
             </div>
             </div>
           </div>
+        )}
+
+        {moduleId === '5' && step.imageCarousel && (
+          <Module5ImageCarousel
+            key={step.id}
+            carousel={step.imageCarousel}
+          />
         )}
 
         {step.embeddedResources && (

@@ -11,21 +11,13 @@ export const MODULE_4_DATA: ModuleData = {
       id: "step-1",
       title: "🌿 DMZ의 가치 살펴보기",
       description: "분단의 역사로 탄생한 DMZ의 생태적·문화적 가치를 살펴봅시다",
-      content: "DMZ는 어떤 곳일까요? 분단의 역사로 인해 탄생한 DMZ 속 다양한 문화 및 자연 유산을 확인해봅시다! \n📺 아래 영상들을 시청하고 DMZ가 왜 보전되어야 하는지 생각해보세요.",
+      content: "DMZ는 어떤 곳일까요? 분단의 역사로 인해 탄생한 DMZ 속 다양한 문화 및 자연 유산을 확인해봅시다! \n📺 아래 영상을 시청하고 DMZ가 왜 보전되어야 하는지 생각해보세요.",
       embeddedResources: [
         {
-          id: 'dmz-origins-video',
-          title: 'DMZ의 탄생 배경과 생태적 가치',
-          url: 'https://www.youtube.com/watch?v=8jK9K41tCvA',
-          embedUrl: 'https://www.youtube-nocookie.com/embed/8jK9K41tCvA?rel=0',
-          aspectRatio: '16 / 9',
-          allow: 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
-        },
-        {
-          id: 'dmz-future-heritage-video',
-          title: 'DMZ 미래의 유산',
-          url: 'https://www.youtube.com/watch?v=qqPTMvKhNFM',
-          embedUrl: 'https://www.youtube-nocookie.com/embed/qqPTMvKhNFM?rel=0',
+          id: 'dmz-step1-video',
+          title: 'DMZ 학습 영상',
+          url: 'https://youtu.be/9Qf4xOjg2OM?si=cm6o-fnBWyCwP2xl',
+          embedUrl: 'https://www.youtube-nocookie.com/embed/9Qf4xOjg2OM?rel=0',
           aspectRatio: '16 / 9',
           allow: 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
         }
@@ -36,7 +28,7 @@ export const MODULE_4_DATA: ModuleData = {
       id: "step-2",
       title: "🏛️ DMZ 속 잊혀진 삶을 찾아서",
       description: "통일부 DMZ 메타버스에서 사라진 마을을 견학하며 과거의 삶을 상상해봅시다",
-      content: "DMZ는 6.25 전쟁 발발 이전에는 사람들의 삶의 터전이었습니다. \n아래 DMZ 메타버스에 접속하여 '사라진 마을'을 견학하고, 70여 년 전 이곳에 살았던 사람들의 삶을 돌아보세요.\n\n<🔎 견학 중 탐구 내용>\n1️⃣ OO지역의 마을은 원래 어떤 곳이었나요?\n2️⃣ 이곳의 실향민들이 고향으로 돌아간다면, 무엇을 하고 싶어할까요?\n3️⃣ 만약 전쟁이 없었다면 이곳은 지금 어떤 모습일까요?",
+      content: "DMZ는 6.25 전쟁 발발 이전에는 사람들의 삶의 터전이었습니다. \n아래 DMZ 메타버스에 접속하여 '사라진 마을'을 중 1곳을 선택해 견학하고, 70여 년 전 이곳에 살았던 사람들의 삶을 돌아보세요.",
       embeddedResources: [
         {
           id: 'dmz-universe-village',

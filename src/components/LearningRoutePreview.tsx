@@ -12,7 +12,7 @@ const moduleOutcomes: Record<string, string> = {
   '2': '해양 공간 데이터와 미래 제안',
   '3': '독도 굿즈와 상품 설명서',
   '4': 'DMZ의 미래 디자인',
-  '5': '국제회의 입장과 해결 방안'
+  '5': '경계 사례 분석과 관점 성찰'
 };
 
 const LearningRoutePreview: React.FC<LearningRoutePreviewProps> = ({ modules, onModuleClick }) => {

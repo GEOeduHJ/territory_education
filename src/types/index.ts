@@ -107,6 +107,36 @@ export interface ModuleStep {
   useProductSheetWorkspace?: boolean;
   // 챗봇 카드 기능 (Module 5용)
   useChatbotCards?: boolean;
+  // 모듈 5의 경계 사례 탐구 단계에 제시하는 사례 이미지
+  caseStudies?: Array<{
+    id: string;
+    imageSrc: string;
+    imageAlt: string;
+    caption: string;
+  }>;
+  // 모듈 5에서 이미지 자료를 한 장씩 넘겨 보는 수동 캐러셀
+  imageCarousel?: {
+    title: string;
+    description?: string;
+    placeholderCount?: number;
+    aspectRatio?: string;
+    slides: Array<{
+      id: string;
+      src?: string;
+      alt?: string;
+      caption?: string;
+      explanation?: LearningThemeContentPart[][];
+    }>;
+  };
+  // 경계 특성 정리에서 문장 안의 핵심 표현을 클릭해 확인하는 빈칸
+  boundaryStatements?: Array<{
+    id: string;
+    marker: string;
+    before: string;
+    answer: string;
+    connector?: string;
+    after: string;
+  }>;
   chatbotCards?: Array<{
     id: string;
     name: string;
