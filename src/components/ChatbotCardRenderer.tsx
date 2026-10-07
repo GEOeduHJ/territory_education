@@ -17,14 +17,8 @@ export const ChatbotCardRenderer: React.FC<ChatbotCardRendererProps> = ({
   return (
     <div className="content-column content-column--wide">
       <section className="chatbot-panel mb-6" aria-labelledby="chatbot-panel-title">
-        <div className="panel-heading">
-          <p className="content-eyebrow">관점 넓히기</p>
-          <h2 id="chatbot-panel-title">{cleanUiText(step.title)}</h2>
-          <p>{cleanUiText(step.description)}</p>
-        </div>
-
         <div className="activity-section">
-          <h3>활동 안내</h3>
+          <h3 id="chatbot-panel-title">활동 안내</h3>
           <div className="content-block content-block--accent">
             <p className="rich-text">{cleanUiText(step.content)}</p>
           </div>

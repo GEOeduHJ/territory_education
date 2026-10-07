@@ -45,15 +45,9 @@ export const TemplateRenderer: React.FC<TemplateRendererProps> = ({ step, onExte
       )}
 
       <section className="template-panel mb-6" aria-labelledby="template-panel-title">
-        <div className="panel-heading">
-          <p className="content-eyebrow">AI와 함께 만들기</p>
-          <h2 id="template-panel-title">{cleanUiText(step.title)}</h2>
-          <p>{cleanUiText(step.description)}</p>
-        </div>
-
         <div className="template-section">
           <div className="template-section__heading">
-            <h3>{mode === 'dynamic' ? '생성된 프롬프트' : '프롬프트 템플릿'}</h3>
+            <h3 id="template-panel-title">{mode === 'dynamic' ? '생성된 프롬프트' : '프롬프트 템플릿'}</h3>
             <button type="button" onClick={copyToClipboard} className="button button--secondary template-copy-button">
               복사하기 <span aria-hidden="true">→</span>
             </button>

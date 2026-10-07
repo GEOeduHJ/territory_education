@@ -1,6 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { LearningTheme, ModuleStep } from '../types';
-import { cleanUiText } from '../utils/uiText';
 import { loadDokdoTakeaways, resolveDokdoTakeaways, saveDokdoTakeaways } from '../utils/dokdoTakeaways';
 
 interface GoodsDesignWorkspaceProps {
@@ -103,11 +102,9 @@ ${direction}
 
   return (
     <div className="content-column content-column--wide goods-workspace">
-      <div className="panel-heading">
-        <p className="content-eyebrow">AI와 함께 시각화하기</p>
-        <h2>{cleanUiText(step.title)}</h2>
-        <p>1단계에서 추가한 관심 내용을 참고하되, 프롬프트에는 필요한 내용을 직접 작성해보세요. 선택한 문장은 자동으로 입력되지 않습니다.</p>
-      </div>
+      <p className="goods-workspace__intro-note">
+        1단계에서 추가한 관심 내용을 참고하되, 프롬프트에는 필요한 내용을 직접 작성해보세요. 선택한 문장은 자동으로 입력되지 않습니다.
+      </p>
 
       <section className="mockup-panel" aria-labelledby="mockup-panel-title">
         <div className="workspace-section-heading">

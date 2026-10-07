@@ -159,14 +159,14 @@ export const MODULE_0_DATA: ModuleData = {
     },
     {
       id: "step-4",
-      title: "🔎 모듈 4: DMZ의 가치와 미래 디자인",
+      title: "🔎 모듈 4: DMZ의 가치를 발견하고, 가능성을 디자인하다",
       description: "DMZ의 역사·생태 가치를 배우고, 메타버스와 온라인 전시에서 얻은 아이디어를 미래 디자인으로 연결합니다",
       content: "모듈 4의 5단계를 컨테이너별로 정리했습니다.",
       hideDefaultContentContainer: true,
       detailContainers: [
         {
           id: "m4-step1",
-          title: "🌿 DMZ의 가치 살펴보기",
+          title: "DMZ의 가치 살펴보기",
           description: "영상 시청과 핵심 표현 확인",
           content: "- 정전협정과 DMZ의 형성 배경 확인\n- 생물 서식지·평화의 길·문화예술 가치 살펴보기",
           targetModuleId: "4",
@@ -174,7 +174,7 @@ export const MODULE_0_DATA: ModuleData = {
         },
         {
           id: "m4-step2",
-          title: "🏛️ DMZ 속 잊혀진 삶을 찾아서",
+          title: "메타버스로 DMZ 속 삶의 흔적 찾기",
           description: "메타버스 견학으로 과거 삶 탐구",
           content: "- 통일부 DMZ 메타버스 접속\n- 실향민 시선에서의 질문 3가지 탐구",
           targetModuleId: "4",
@@ -182,7 +182,7 @@ export const MODULE_0_DATA: ModuleData = {
         },
         {
           id: "m4-step3",
-          title: "🖼️ DMZ 온라인 전시회 방문하기",
+          title: "온라인 전시로 DMZ 탐색하기",
           description: "테마별 전시 관람 후 아이디어 메모",
           content: "- Google Arts & Culture 전시를 테마별로 탐색\n- 미래 DMZ 아이디어(건축·예술·행사) 메모",
           targetModuleId: "4",
@@ -190,7 +190,7 @@ export const MODULE_0_DATA: ModuleData = {
         },
         {
           id: "m4-step4",
-          title: "✍️ 미래 DMZ 디자인 프롬프트 만들기",
+          title: "DMZ 활용 방안 디자인하기",
           description: "아이디어를 입력해 Gemini용 프롬프트 작성",
           content: "- 디자인 분야와 보호할 가치·장소·참여자 구상\n- 장면·색감·결과 형식을 정해 전체 프롬프트 복사",
           targetModuleId: "4",
@@ -198,7 +198,7 @@ export const MODULE_0_DATA: ModuleData = {
         },
         {
           id: "m4-step5",
-          title: "🎯 DMZ 미래 디자인하기",
+          title: "공유와 성찰",
           description: "완성한 미래 DMZ 디자인 공유",
           content: "- 건축·미술·행사 중 하나를 선택해 작품 완성\n- Padlet 시나리오 보드에서 서로의 결과물 살펴보기",
           targetModuleId: "4",

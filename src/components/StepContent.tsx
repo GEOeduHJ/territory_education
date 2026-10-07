@@ -79,6 +79,23 @@ const StepContent: React.FC<StepContentProps> = ({
   };
   const contentLabel = cleanUiText(getDefaultContentLabel());
 
+  const renderDefaultContent = (bottomSpacing = 'mb-8', headingId?: string) => {
+    if (!shouldShowDefaultContent) return null;
+
+    return (
+      <div className={`prose prose-lg max-w-none ${bottomSpacing}`}>
+        <div className="content-block step-content-block">
+          <h3 id={headingId} className="text-lg font-medium text-gray-900 mb-3">
+            {contentLabel}
+          </h3>
+          <div className="text-gray-700 whitespace-pre-line leading-relaxed">
+            {cleanUiText(step.content)}
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   const handleDetailNavigate = (targetModuleId?: string, targetStepId?: string) => {
     if (!targetModuleId || !onNavigateToStep) return;
     onNavigateToStep(targetModuleId, targetStepId);
@@ -140,14 +157,11 @@ const StepContent: React.FC<StepContentProps> = ({
         id={`tabpanel-${step.id}`}
         aria-labelledby={`tab-${step.id}`}
       >
-        <div className="max-w-6xl mx-auto">
+        <div className="step-content-inner">
           <StepHeader step={step} eyebrow="경계 사례 탐구" />
 
           <section className="module5-case-study-gallery" aria-labelledby="module5-case-study-title">
-            <div className="module5-case-study-gallery__heading">
-              <h3 id="module5-case-study-title">{cleanUiText(step.contentLabel || '여러 나라의 경계 사례 살펴보기')}</h3>
-              <p>{cleanUiText(step.content)}</p>
-            </div>
+            {renderDefaultContent('mb-6', 'module5-case-study-title')}
 
             <div className="module5-case-study-grid">
               {step.caseStudies!.map((study) => (
@@ -206,17 +220,10 @@ const StepContent: React.FC<StepContentProps> = ({
         id={`tabpanel-${step.id}`}
         aria-labelledby={`tab-${step.id}`}
       >
-        <div className="max-w-7xl mx-auto">
+        <div className="step-content-inner">
           <StepHeader step={step} eyebrow="자료 탐구" />
 
-          {/* Content */}
-          <div className="mb-8">
-            <div className="prose max-w-none">
-              <p className="text-gray-700 whitespace-pre-wrap">
-                {cleanUiText(step.content)}
-              </p>
-            </div>
-          </div>
+          {renderDefaultContent()}
 
           {/* Dispute Map */}
           <DisputeMap regions={step.regionResources} />
@@ -274,17 +281,10 @@ const StepContent: React.FC<StepContentProps> = ({
         id={`tabpanel-${step.id}`}
         aria-labelledby={`tab-${step.id}`}
       >
-        <div className="max-w-6xl mx-auto">
+        <div className="step-content-inner">
           <StepHeader step={step} eyebrow="주제 학습" />
 
-          {/* Content */}
-          <div className="mb-8">
-            <div className="prose max-w-none">
-              <p className="text-gray-700 whitespace-pre-wrap">
-                {cleanUiText(step.content)}
-              </p>
-            </div>
-          </div>
+          {renderDefaultContent()}
 
           {/* Homepage-internal theme learning */}
           {step.learningThemes && step.learningThemes.length > 0 && (
@@ -324,16 +324,10 @@ const StepContent: React.FC<StepContentProps> = ({
         id={`tabpanel-${step.id}`}
         aria-labelledby={`tab-${step.id}`}
       >
-        <div className="max-w-6xl mx-auto">
+        <div className="step-content-inner">
           <StepHeader step={step} eyebrow="학습 점검" />
 
-          <div className="mb-8">
-            <div className="prose max-w-none">
-              <p className="text-gray-700 whitespace-pre-wrap">
-                {cleanUiText(step.content)}
-              </p>
-            </div>
-          </div>
+          {renderDefaultContent()}
 
           <LearningThemeQuiz themes={step.learningThemes} />
         </div>
@@ -350,10 +344,13 @@ const StepContent: React.FC<StepContentProps> = ({
         id={`tabpanel-${step.id}`}
         aria-labelledby={`tab-${step.id}`}
       >
-        <KeywordInputForm
-          onSubmit={onKeywordSubmit!}
-          initialKeywords={keywords}
-        />
+        <div className="step-content-inner">
+          <StepHeader step={step} />
+          <KeywordInputForm
+            onSubmit={onKeywordSubmit!}
+            initialKeywords={keywords}
+          />
+        </div>
       </div>
     );
   }
@@ -367,12 +364,15 @@ const StepContent: React.FC<StepContentProps> = ({
         id={`tabpanel-${step.id}`}
         aria-labelledby={`tab-${step.id}`}
       >
-        <TemplateRenderer
-          step={step}
-          keywords={keywords}
-          onExternalLinkClick={onExternalLinkClick}
-          mode="dynamic"
-        />
+        <div className="step-content-inner">
+          <StepHeader step={step} eyebrow="AI와 함께 만들기" />
+          <TemplateRenderer
+            step={step}
+            keywords={keywords}
+            onExternalLinkClick={onExternalLinkClick}
+            mode="dynamic"
+          />
+        </div>
       </div>
     );
   }
@@ -386,10 +386,13 @@ const StepContent: React.FC<StepContentProps> = ({
         id={`tabpanel-${step.id}`}
         aria-labelledby={`tab-${step.id}`}
       >
-        <GoodsDesignWorkspace
-          step={step}
-          onExternalLinkClick={onExternalLinkClick}
-        />
+        <div className="step-content-inner">
+          <StepHeader step={step} eyebrow="AI와 함께 시각화하기" />
+          <GoodsDesignWorkspace
+            step={step}
+            onExternalLinkClick={onExternalLinkClick}
+          />
+        </div>
       </div>
     );
   }
@@ -403,7 +406,10 @@ const StepContent: React.FC<StepContentProps> = ({
         id={`tabpanel-${step.id}`}
         aria-labelledby={`tab-${step.id}`}
       >
-        <ProductSheetWorkspace />
+        <div className="step-content-inner">
+          <StepHeader step={step} eyebrow="상품 소개서 만들기" />
+          <ProductSheetWorkspace />
+        </div>
       </div>
     );
   }
@@ -417,11 +423,14 @@ const StepContent: React.FC<StepContentProps> = ({
         id={`tabpanel-${step.id}`}
         aria-labelledby={`tab-${step.id}`}
       >
-        <TemplateRenderer
-          step={step}
-          onExternalLinkClick={onExternalLinkClick}
-          mode="fixed"
-        />
+        <div className="step-content-inner">
+          <StepHeader step={step} eyebrow="AI와 함께 만들기" />
+          <TemplateRenderer
+            step={step}
+            onExternalLinkClick={onExternalLinkClick}
+            mode="fixed"
+          />
+        </div>
       </div>
     );
   }
@@ -435,10 +444,13 @@ const StepContent: React.FC<StepContentProps> = ({
         id={`tabpanel-${step.id}`}
         aria-labelledby={`tab-${step.id}`}
       >
-        <ChatbotCardRenderer
-          step={step}
-          onExternalLinkClick={onExternalLinkClick}
-        />
+        <div className="step-content-inner">
+          <StepHeader step={step} eyebrow="관점 넓히기" />
+          <ChatbotCardRenderer
+            step={step}
+            onExternalLinkClick={onExternalLinkClick}
+          />
+        </div>
       </div>
     );
   }
@@ -452,24 +464,13 @@ const StepContent: React.FC<StepContentProps> = ({
         id={`tabpanel-${step.id}`}
         aria-labelledby={`tab-${step.id}`}
       >
-        <div className="max-w-6xl mx-auto">
+        <div className="step-content-inner">
           <StepHeader step={step} eyebrow={moduleId === "5" ? "생각 공유와 성찰" : "결과물 공유"} />
 
           {/* Step Content */}
           {hasDetailContainers && renderDetailContainers()}
 
-          {shouldShowDefaultContent && (
-            <div className="mb-6">
-              <div className="content-block">
-                <h3 className="text-lg font-medium text-gray-900 mb-3">
-                  {contentLabel}
-                </h3>
-                <div className="text-gray-700 whitespace-pre-line leading-relaxed">
-                  {cleanUiText(step.content)}
-                </div>
-              </div>
-            </div>
-          )}
+          {renderDefaultContent()}
 
           {/* External Link Section */}
           {step.externalLink && (
@@ -536,24 +537,13 @@ const StepContent: React.FC<StepContentProps> = ({
         id={`tabpanel-${step.id}`}
         aria-labelledby={`tab-${step.id}`}
       >
-        <div className="max-w-4xl mx-auto">
+        <div className="step-content-inner">
           <StepHeader step={step} eyebrow="AI 시나리오" />
 
           {/* Content */}
           {hasDetailContainers && renderDetailContainers()}
 
-          {shouldShowDefaultContent && (
-            <div className="prose prose-lg max-w-none mb-6">
-              <div className="content-block">
-                <h3 className="text-lg font-medium text-gray-900 mb-3">
-                  {contentLabel}
-                </h3>
-                <div className="text-gray-700 whitespace-pre-line leading-relaxed">
-                  {cleanUiText(step.content)}
-                </div>
-              </div>
-            </div>
-          )}
+          {renderDefaultContent()}
 
           {step.embeddedResources && (
             <InlineEmbeddedResources
@@ -670,24 +660,13 @@ const StepContent: React.FC<StepContentProps> = ({
       id={`tabpanel-${step.id}`}
       aria-labelledby={`tab-${step.id}`}
     >
-      <div className="max-w-4xl mx-auto">
+      <div className="step-content-inner">
         <StepHeader step={step} />
 
         {/* Step Content */}
         {hasDetailContainers && renderDetailContainers()}
 
-        {shouldShowDefaultContent && (
-          <div className="prose prose-lg max-w-none mb-8">
-            <div className="content-block">
-              <h3 className="text-lg font-medium text-gray-900 mb-3">
-                {contentLabel}
-              </h3>
-            <div className="text-gray-700 whitespace-pre-line leading-relaxed">
-              {cleanUiText(step.content)}
-            </div>
-            </div>
-          </div>
-        )}
+        {renderDefaultContent()}
 
         {moduleId === '5' && step.imageCarousel && (
           <Module5ImageCarousel
