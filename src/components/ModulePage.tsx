@@ -235,6 +235,7 @@ const ModulePage: React.FC = () => {
             step={activeStep}
             onExternalLinkClick={handleExternalLinkClick}
             moduleId={moduleId}
+            isFinalStep={activeStepIndex === moduleData.steps.length - 1}
             keywords={keywords || undefined}
             onKeywordSubmit={isModule1 ? handleKeywordSubmit : undefined}
             onNavigateToStep={handleNavigateToStep}

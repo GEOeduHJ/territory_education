@@ -276,6 +276,7 @@ export interface StepContentProps {
   step: ModuleStep;
   onExternalLinkClick: (url: string) => void;
   moduleId?: string;
+  isFinalStep?: boolean;
   keywords?: KeywordData;
   onKeywordSubmit?: (keywords: KeywordData) => void;
   onNavigateToStep?: (targetModuleId: string, targetStepId?: string) => void;

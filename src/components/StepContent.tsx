@@ -17,12 +17,14 @@ import InlineEmbeddedResources from './InlineEmbeddedResources';
 import StepRevealableStatements from './StepRevealableStatements';
 import GuidedPromptBuilder from './GuidedPromptBuilder';
 import StepHeader from './StepHeader';
+import PadletQrUpload from './PadletQrUpload';
 import { cleanUiText } from '../utils/uiText';
 
 const StepContent: React.FC<StepContentProps> = ({ 
   step, 
   onExternalLinkClick, 
   moduleId,
+  isFinalStep,
   keywords,
   onKeywordSubmit,
   onNavigateToStep
@@ -78,6 +80,11 @@ const StepContent: React.FC<StepContentProps> = ({
     return '이 단계에서 할 일';
   };
   const contentLabel = cleanUiText(getDefaultContentLabel());
+  const renderPadletQrUpload = () => (
+    isFinalStep && moduleId && ['1', '2', '3', '4', '5'].includes(moduleId)
+      ? <PadletQrUpload moduleId={moduleId} />
+      : null
+  );
 
   const renderDefaultContent = (bottomSpacing = 'mb-8', headingId?: string) => {
     if (!shouldShowDefaultContent) return null;
@@ -523,6 +530,7 @@ const StepContent: React.FC<StepContentProps> = ({
               />
             </div>
           </div>
+          {renderPadletQrUpload()}
         </div>
       </div>
     );
@@ -642,6 +650,7 @@ const StepContent: React.FC<StepContentProps> = ({
                 <p>이 단계에서 만든 시나리오를 연결하면 결과가 이곳에 표시됩니다.</p>
               </div>
             )}
+          {renderPadletQrUpload()}
         </div>
       </div>
     );
@@ -785,6 +794,8 @@ const StepContent: React.FC<StepContentProps> = ({
             </div>
           </div>
         )}
+
+        {renderPadletQrUpload()}
       </div>
     </div>
   );
