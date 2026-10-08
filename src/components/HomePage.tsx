@@ -66,10 +66,10 @@ const HomePage: React.FC = () => {
       <header className="site-header">
         <div className="site-header__inner">
           <a className="brand-lockup" href="/" aria-label="영토교육 홈">
-            <span className="brand-mark" aria-hidden="true">지</span>
+            <span className="brand-mark" aria-hidden="true">🗺️</span>
             <span className="brand-copy">
               <strong>영토교육</strong>
-              <span>지리교육 학습 플랫폼</span>
+              <span>학습 플랫폼</span>
             </span>
           </a>
 
