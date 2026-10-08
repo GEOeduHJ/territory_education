@@ -18,6 +18,7 @@ import StepRevealableStatements from './StepRevealableStatements';
 import GuidedPromptBuilder from './GuidedPromptBuilder';
 import StepHeader from './StepHeader';
 import PadletQrUpload from './PadletQrUpload';
+import BoundaryDecisionComposer from './BoundaryDecisionComposer';
 import { cleanUiText } from '../utils/uiText';
 
 const StepContent: React.FC<StepContentProps> = ({ 
@@ -165,7 +166,7 @@ const StepContent: React.FC<StepContentProps> = ({
         aria-labelledby={`tab-${step.id}`}
       >
         <div className="step-content-inner">
-          <StepHeader step={step} eyebrow="경계 사례 탐구" />
+          <StepHeader step={step} />
 
           <section className="module5-case-study-gallery" aria-labelledby="module5-case-study-title">
             {renderDefaultContent('mb-6', 'module5-case-study-title')}
@@ -228,7 +229,7 @@ const StepContent: React.FC<StepContentProps> = ({
         aria-labelledby={`tab-${step.id}`}
       >
         <div className="step-content-inner">
-          <StepHeader step={step} eyebrow="자료 탐구" />
+          <StepHeader step={step} />
 
           {renderDefaultContent()}
 
@@ -289,7 +290,7 @@ const StepContent: React.FC<StepContentProps> = ({
         aria-labelledby={`tab-${step.id}`}
       >
         <div className="step-content-inner">
-          <StepHeader step={step} eyebrow="주제 학습" />
+          <StepHeader step={step} />
 
           {renderDefaultContent()}
 
@@ -332,7 +333,7 @@ const StepContent: React.FC<StepContentProps> = ({
         aria-labelledby={`tab-${step.id}`}
       >
         <div className="step-content-inner">
-          <StepHeader step={step} eyebrow="학습 점검" />
+          <StepHeader step={step} />
 
           {renderDefaultContent()}
 
@@ -372,7 +373,7 @@ const StepContent: React.FC<StepContentProps> = ({
         aria-labelledby={`tab-${step.id}`}
       >
         <div className="step-content-inner">
-          <StepHeader step={step} eyebrow="AI와 함께 만들기" />
+          <StepHeader step={step} />
           <TemplateRenderer
             step={step}
             keywords={keywords}
@@ -394,7 +395,7 @@ const StepContent: React.FC<StepContentProps> = ({
         aria-labelledby={`tab-${step.id}`}
       >
         <div className="step-content-inner">
-          <StepHeader step={step} eyebrow="AI와 함께 시각화하기" />
+          <StepHeader step={step} />
           <GoodsDesignWorkspace
             step={step}
             onExternalLinkClick={onExternalLinkClick}
@@ -414,7 +415,7 @@ const StepContent: React.FC<StepContentProps> = ({
         aria-labelledby={`tab-${step.id}`}
       >
         <div className="step-content-inner">
-          <StepHeader step={step} eyebrow="상품 소개서 만들기" />
+          <StepHeader step={step} />
           <ProductSheetWorkspace />
         </div>
       </div>
@@ -431,7 +432,7 @@ const StepContent: React.FC<StepContentProps> = ({
         aria-labelledby={`tab-${step.id}`}
       >
         <div className="step-content-inner">
-          <StepHeader step={step} eyebrow="AI와 함께 만들기" />
+          <StepHeader step={step} />
           <TemplateRenderer
             step={step}
             onExternalLinkClick={onExternalLinkClick}
@@ -452,7 +453,7 @@ const StepContent: React.FC<StepContentProps> = ({
         aria-labelledby={`tab-${step.id}`}
       >
         <div className="step-content-inner">
-          <StepHeader step={step} eyebrow="관점 넓히기" />
+          <StepHeader step={step} />
           <ChatbotCardRenderer
             step={step}
             onExternalLinkClick={onExternalLinkClick}
@@ -472,18 +473,20 @@ const StepContent: React.FC<StepContentProps> = ({
         aria-labelledby={`tab-${step.id}`}
       >
         <div className="step-content-inner">
-          <StepHeader step={step} eyebrow={moduleId === "5" ? "생각 공유와 성찰" : "결과물 공유"} />
+          <StepHeader step={step} />
 
           {/* Step Content */}
           {hasDetailContainers && renderDetailContainers()}
 
           {renderDefaultContent()}
 
+          {moduleId === '5' && step.id === 'step-5' && <BoundaryDecisionComposer />}
+
           {/* External Link Section */}
           {step.externalLink && (
             <div className="resource-block mb-6">
               <h3 className="text-lg font-medium text-gray-900 mb-3">
-                {moduleId === "5" ? "성찰 내용 공유하기" : "결과물 업로드"}
+                {moduleId === "5" ? "경계 결정문 공유하기" : "결과물 업로드"}
               </h3>
               <p className="text-gray-600 mb-4">
                 {moduleId === "1" && "완성된 캠페인 노래와 앨범 커버를 업로드하고 다른 학습자들의 작품도 감상해보세요."}
@@ -546,7 +549,7 @@ const StepContent: React.FC<StepContentProps> = ({
         aria-labelledby={`tab-${step.id}`}
       >
         <div className="step-content-inner">
-          <StepHeader step={step} eyebrow="AI 시나리오" />
+          <StepHeader step={step} />
 
           {/* Content */}
           {hasDetailContainers && renderDetailContainers()}
@@ -603,7 +606,7 @@ const StepContent: React.FC<StepContentProps> = ({
             {/* Themed exhibits selector (if provided) */}
             {step.themedExhibits && step.themedExhibits.length > 0 && (
               <div className="exhibit-block mt-6">
-                <h3 className="text-lg font-medium text-gray-900 mb-3">전시 테마별 작품 선택</h3>
+                <h3 className="text-lg font-medium text-gray-900 mb-3">전시회 테마 선택하기</h3>
                 <p className="text-sm text-gray-600 mb-3">테마를 선택하면 해당 테마의 전시 작품 목록이 드롭다운으로 표시됩니다.</p>
                 <div className="flex gap-3 items-center">
                   <select
@@ -629,16 +632,16 @@ const StepContent: React.FC<StepContentProps> = ({
               <div className="embed-block">
                 <div className="bg-gray-50 px-6 py-4 border-b border-gray-200">
                   <h3 className="text-lg font-medium text-gray-900">
-                    AI 시나리오 결과
+                    DMZ 활용 방안 디자인 결과
                   </h3>
                   <p className="text-sm text-gray-600 mt-1">
-                    생성한 시나리오를 확인하고 다음 활동에 활용해보세요.
+                    설계한 활용 방안을 함께 둘러보고 평가해보세요.
                   </p>
                 </div>
                 <div className="relative" style={{ height: '520px' }}>
                   <iframe
                     src={step.scenarioIframeUrl}
-                    title="AI 시나리오 결과"
+                    title="DMZ 활용 방안 디자인 결과"
                     className="w-full h-full border-0"
                     loading="lazy"
                   />
@@ -718,7 +721,7 @@ const StepContent: React.FC<StepContentProps> = ({
         {/* Themed exhibits selector (if provided) */}
         {step.themedExhibits && step.themedExhibits.length > 0 && (
           <div className="exhibit-block mb-6">
-            <h3 className="text-lg font-medium text-gray-900 mb-3">전시 테마별 작품 선택</h3>
+            <h3 className="text-lg font-medium text-gray-900 mb-3">전시회 테마 선택하기</h3>
             <p className="text-sm text-gray-600 mb-3">테마를 선택하면 해당 테마의 전시 작품 목록이 드롭다운으로 표시됩니다.</p>
             <div className="flex gap-3 items-center">
               <select

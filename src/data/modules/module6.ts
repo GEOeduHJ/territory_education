@@ -240,7 +240,7 @@ export const MODULE_0_DATA: ModuleData = {
         },
         {
           id: "m5-step4",
-          title: "🤖 챗봇과 대화 - 페르소나별 시뮬레이션",
+          title: "챗봇과 대화 나누기",
           description: "인물별 관점과 근거 비교",
           content: "- 제주도민, 육지부 주민·지자체, UNHCR 관점 살펴보기\n- 인물의 주장과 근거 비교",
           targetModuleId: "5",

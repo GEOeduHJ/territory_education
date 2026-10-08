@@ -5,7 +5,7 @@ export const MODULE_5_DATA: ModuleData = {
   id: "5",
   topic: "경계",
   title: "🌐 세계시민의 눈으로 경계 속 관계를 잇고 해법을 찾다",
-  description: "경계 개념과 경계가 사람들의 이동과 생활에 미치는 영향을 살펴보고, 제주 예멘 난민 사례와 페르소나 챗봇을 통해 다양한 관점을 비교하는 모듈",
+  description: "경계의 개념과 경계가 사람들의 이동과 삶에 미치는 영향을 이해하고, 제주 예멘 난민 사례를 바탕으로 AI 페르소나 챗봇과 대화하며 다양한 관점을 비교·조정하는 모듈",
   steps: [
     {
       id: "step-1",
@@ -201,7 +201,7 @@ export const MODULE_5_DATA: ModuleData = {
       id: "step-3",
       title: "챗봇 대화 준비하기",
       description: "크랙 앱 또는 QR 코드로 인물별 챗봇을 찾아 프로필에 접속하고, 안내를 따라 대화를 준비합니다.",
-      content: "다섯 장면을 순서대로 확인하고 안내된 규칙에 따라 인물별 챗봇과 대화를 나눠보세요.",
+      content: "안내된 순서에 따라 인물별 챗봇과의 대화를 준비하세요.",
       contentLabel: "챗봇 대화 준비",
       imageCarousel: {
         title: "챗봇 대화 사용 안내",
@@ -244,7 +244,7 @@ export const MODULE_5_DATA: ModuleData = {
     },
     {
       id: "step-4",
-      title: "🤖 챗봇과 대화 - 페르소나별 시뮬레이션",
+      title: "챗봇과 대화 나누기",
       description: "제공된 페르소나 챗봇과 대화하며 다양한 입장을 분석해봅시다",
       content: "페르소나 챗봇과 대화하며 여러 입장을 분석해보세요. 먼저 배정받은 사람과 대화하여 '나의 입장'을 정리하고, 다음에는 반대 입장과 대화하여 상대의 주장과 근거를 이해하세요.\n\n대화 가이드:\n1) 나의 입장 분석: 내가 배정받은 사람과 먼저 대화해봅시다. 이 사람은 누구이며, 어떤 입장(주장, 근거)인가요?\n2) 반대 입장 분석: 다음은 나와 반대되는 입장의 사람과 대화해봅시다. 이 사람은 누구이며, 어떤 입장(주장, 근거)인가요?",
       useChatbotCards: true,
@@ -286,15 +286,10 @@ export const MODULE_5_DATA: ModuleData = {
     },
     {
       id: "step-5",
-      title: "생각 정리와 성찰하기",
-      description: "사례와 챗봇 대화에서 만난 여러 관점을 돌아보고 경계에 대한 생각을 Padlet에 공유합니다.",
-      content: "만화와 챗봇 대화에서 확인한 서로 다른 관점을 떠올리며 질문에 답하고, 정리한 생각을 Padlet에 공유해보세요.\n\n성찰 질문\n- 제주 사례에서 각 인물은 무엇을 중요하게 생각했나요?\n- 경계를 넘는 규칙은 사람들의 생활에 어떤 영향을 주었나요?\n- 경계 문제를 다룰 때 여러 관점을 살펴보는 일은 왜 중요할까요?",
-      contentLabel: "성찰하기",
-      externalLink: {
-        url: "https://padlet.com/jde1211/global_forum",
-        label: "생각 정리 Padlet 열기",
-        openInNewTab: true
-      },
+      title: "의사결정과 성찰",
+      description: "여러 인물의 목소리를 들은 경험을 바탕으로 경계에 대한 의사결정을 내리고, 자신의 의견을 공유해봅시다.",
+      content: " 아래의 양식에 맞추어 난민 신청자의 출도에 대한 결정을 내리고, 그 결정에 따르는 책임과 대책을 생각해 봅시다.",
+      contentLabel: "경계 결정문 작성하고 공유하기",
       showEmbeddedPadlet: true,
       padletUrl: "https://padlet.com/jde1211/global_forum",
       editableContent: false

@@ -889,6 +889,100 @@
   vertical-align: baseline;
 }
 
+.boundary-decision-composer {
+  margin: 0 0 36px;
+  padding: clamp(20px, 3vw, 32px);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-panel);
+  background: var(--surface);
+  box-shadow: var(--shadow-soft);
+}
+
+.boundary-decision-composer__heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.boundary-decision-composer__heading h3 {
+  margin: 0;
+  color: var(--ink-strong);
+  font-size: 1.2rem;
+  font-weight: 750;
+  letter-spacing: -0.03em;
+}
+
+.boundary-decision-composer__heading .button {
+  min-height: 44px;
+  margin-left: auto;
+}
+
+.boundary-decision-composer__field {
+  padding: 20px 0;
+  border-top: 1px solid var(--line);
+}
+
+.boundary-decision-composer__sentence {
+  margin: 0 0 10px;
+  color: var(--ink);
+  font-size: 1rem;
+  line-height: 1.75;
+  word-break: keep-all;
+}
+
+.boundary-decision-composer__label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--ink-strong);
+  font-size: 0.88rem;
+  font-weight: 650;
+}
+
+.boundary-decision-composer__blank {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 8px;
+  margin-bottom: 10px;
+  color: var(--accent);
+  font-size: 1.15rem;
+  font-weight: 750;
+}
+
+.boundary-decision-composer__blank > span {
+  padding-top: 8px;
+}
+
+.boundary-decision-composer__control {
+  min-width: 0;
+  font-weight: 400;
+}
+
+.boundary-decision-composer__blank .form-textarea {
+  min-height: 76px;
+  padding: 12px 14px;
+  resize: vertical;
+}
+
+.boundary-decision-composer__closing {
+  margin: 4px 0 0;
+  padding: 18px;
+  border-radius: 14px;
+  background: var(--surface-muted);
+  color: var(--ink-strong);
+  font-size: 0.98rem;
+  font-weight: 600;
+  line-height: 1.75;
+  word-break: keep-all;
+}
+
+.boundary-decision-composer .form-alert {
+  margin-bottom: 0;
+}
+
 .step-reveal-statements {
   margin: 30px 0 36px;
   overflow: hidden;
@@ -1847,14 +1941,6 @@ input:focus-visible {
 .step-heading {
   max-width: 760px;
   margin: 0 0 34px;
-}
-
-.step-heading__eyebrow {
-  margin: 0 0 12px;
-  color: var(--accent);
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
 }
 
 .step-heading h2 {
