@@ -64,9 +64,9 @@ const GoodsDesignWorkspace: React.FC<GoodsDesignWorkspaceProps> = ({ step, onExt
 
   const selectedTheme = themes.find((theme) => theme.id === themeId) || themes[0];
   const prompt = useMemo(() => {
-    const note = learningNote.trim() || '[1단계에서 학습한 내용을 입력하세요]';
-    const designPlan = messageDesignPlan.trim() || '[학습 내용을 어떤 시각 요소와 구성으로 전달할지 입력하세요]';
-    const direction = visualDirection.trim() || '[원하는 이미지의 분위기·색감·질감을 입력하세요]';
+    const note = learningNote.trim() || '[1단계에서 학습한 내용을 입력해 보세요.]';
+    const designPlan = messageDesignPlan.trim() || '[학습 내용을 어떤 시각 요소와 구성으로 전달할지 입력해 보세요.]';
+    const direction = visualDirection.trim() || '[원하는 이미지의 분위기·색감·질감을 입력해 보세요.]';
 
     return `독도 영토교육 학습 결과를 바탕으로 ${productType} 굿즈 디자인을 제작해주세요.
 
@@ -96,21 +96,21 @@ ${direction}
       setCopySuccess('프롬프트가 복사되었습니다.');
       window.setTimeout(() => setCopySuccess(''), 2200);
     } catch {
-      setCopySuccess('복사하지 못했습니다. 프롬프트를 직접 선택해 복사해주세요.');
+      setCopySuccess('복사하지 못했습니다. 프롬프트를 직접 선택해 복사해 보세요.');
     }
   };
 
   return (
     <div className="content-column content-column--wide goods-workspace">
       <p className="goods-workspace__intro-note">
-        1단계에서 추가한 관심 내용을 참고하되, 프롬프트에는 필요한 내용을 직접 작성해보세요. 선택한 문장은 자동으로 입력되지 않습니다.
+        1단계에서 추가한 관심 내용을 참고해 프롬프트에 필요한 내용을 직접 작성해 보세요. 선택한 문장은 자동 입력되지 않으니 관심 내용 목록을 함께 살펴보세요.
       </p>
 
       <section className="mockup-panel" aria-labelledby="mockup-panel-title">
         <div className="workspace-section-heading">
           <div>
             <p className="content-eyebrow">01 · 목업 선택</p>
-            <h3 id="mockup-panel-title">빈 디자인 틀을 내려받으세요.</h3>
+            <h3 id="mockup-panel-title">빈 디자인 틀을 내려받아 보세요.</h3>
           </div>
           <span className="workspace-section-heading__note">JPG 사진형 목업 · 실제 소재감</span>
         </div>
@@ -138,7 +138,7 @@ ${direction}
             <p className="content-eyebrow">1단계에서 고른 문장</p>
             <h3 id="learning-interest-reference-title">내가 관심있어한 내용</h3>
           </div>
-          <p>프롬프트에 자동으로 들어가지 않아요. 참고해서 디자인에 담을 내용을 직접 작성해보세요.</p>
+          <p>선택한 문장은 프롬프트에 자동 입력되지 않으니, 목록을 참고해 디자인에 담을 내용을 직접 작성해 보세요.</p>
         </div>
         {interestNotes.length > 0 ? (
           <ul className="learning-interest-reference__list">
@@ -150,7 +150,7 @@ ${direction}
             ))}
           </ul>
         ) : (
-          <p className="learning-interest-reference__empty">아직 추가한 내용이 없습니다. 1단계에서 관심 내용을 추가하면 여기에 표시됩니다.</p>
+          <p className="learning-interest-reference__empty">아직 추가한 내용이 없습니다. 1단계에서 관심 내용을 추가해 보세요.</p>
         )}
       </section>
 
@@ -158,9 +158,9 @@ ${direction}
         <div className="workspace-section-heading">
           <div>
             <p className="content-eyebrow">02 · 디자인 프롬프트 구성</p>
-            <h3 id="goods-prompt-title">배운 내용을 나만의 디자인 언어로 작성해보세요.</h3>
+            <h3 id="goods-prompt-title">배운 내용을 나만의 디자인 언어로 작성해 보세요.</h3>
           </div>
-          <span className="workspace-section-heading__note">입력 내용은 프롬프트에 반영됩니다.</span>
+          <span className="workspace-section-heading__note">입력 내용이 프롬프트에 반영되는지 확인해 보세요.</span>
         </div>
 
         <div className="goods-prompt-form">
@@ -180,7 +180,7 @@ ${direction}
 
           <div className="form-field goods-prompt-form__full">
             <label htmlFor="goods-learning-note" className="form-label">디자인에 표현할 학습 내용</label>
-            <p className="goods-prompt-form__hint" id="goods-learning-note-hint">1단계에서 배운 내용 중 굿즈에 담고 싶은 핵심을 적어보세요.</p>
+            <p className="goods-prompt-form__hint" id="goods-learning-note-hint">1단계에서 배운 내용 중 굿즈에 담고 싶은 핵심을 적어 보세요.</p>
             <textarea
               id="goods-learning-note"
               className="form-textarea"
@@ -194,7 +194,7 @@ ${direction}
 
           <div className="form-field goods-prompt-form__full">
             <label htmlFor="goods-message-design-plan" className="form-label">메시지 디자인 방안</label>
-            <p className="goods-prompt-form__hint" id="goods-message-design-plan-hint">학습 내용을 어떤 그림·상징·배치로 전달할지 구상해보세요.</p>
+            <p className="goods-prompt-form__hint" id="goods-message-design-plan-hint">학습 내용을 어떤 그림·상징·배치로 전달할지 구상해 보세요.</p>
             <textarea
               id="goods-message-design-plan"
               className="form-textarea"
@@ -208,7 +208,7 @@ ${direction}
 
           <div className="form-field goods-prompt-form__full">
             <label htmlFor="goods-visual-direction" className="form-label">디자인 스타일 <span className="form-label__optional">선택</span></label>
-            <p className="goods-prompt-form__hint" id="goods-visual-direction-hint">이미지의 전체적인 분위기, 색감, 질감 등을 적어보세요.</p>
+            <p className="goods-prompt-form__hint" id="goods-visual-direction-hint">이미지의 전체적인 분위기, 색감, 질감 등을 적어 보세요.</p>
             <input
               id="goods-visual-direction"
               className="form-input"

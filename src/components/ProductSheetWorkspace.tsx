@@ -33,7 +33,7 @@ const escapeXml = (value: string) => value
   .replace(/'/g, '&apos;');
 
 const wrapText = (value: string, maxCharacters: number) => {
-  const characters = Array.from(value.trim() || '내용을 입력해주세요.');
+  const characters = Array.from(value.trim() || '내용을 입력해 보세요.');
   const lines: string[] = [];
   for (let index = 0; index < characters.length; index += maxCharacters) {
     lines.push(characters.slice(index, index + maxCharacters).join(''));
@@ -59,14 +59,14 @@ const svgTextLines = (
 
 const buildProductSheetSvg = (values: ProductSheetValues, productImage: string | null) => {
   const productName = values.productName.trim() || '독도 굿즈 이름';
-  const price = formatWon(values.price) || '판매 가격을 입력해주세요.';
-  const oneLine = values.oneLine.trim() || '상품을 한 문장으로 소개해보세요.';
-  const learningMessage = values.learningMessage.trim() || '학습 내용에서 발견한 독도의 의미를 적어보세요.';
+  const price = formatWon(values.price) || '판매 가격을 입력해 보세요.';
+  const oneLine = values.oneLine.trim() || '상품을 한 문장으로 소개해 보세요.';
+  const learningMessage = values.learningMessage.trim() || '학습 내용에서 발견한 독도의 의미를 적어 보세요.';
   const imageMarkup = productImage
     ? `<image href="${escapeXml(productImage)}" x="797" y="118" width="506" height="356" preserveAspectRatio="xMidYMid meet" clip-path="url(#product-image-clip)" />`
     : `<rect x="797" y="118" width="506" height="356" rx="18" fill="#ebe5da" stroke="#c7b99e" stroke-width="2" stroke-dasharray="8 8" />
        <text x="1050" y="282" text-anchor="middle" font-family="${SVG_FONT_FAMILY}" font-size="18" font-weight="700" letter-spacing="3" fill="#7e7569">PRODUCT IMAGE</text>
-       <text x="1050" y="316" text-anchor="middle" font-family="${SVG_FONT_FAMILY}" font-size="18" fill="#7e7569">이미지를 추가하면 여기에 표시됩니다</text>`;
+       <text x="1050" y="316" text-anchor="middle" font-family="${SVG_FONT_FAMILY}" font-size="18" fill="#7e7569">대표 이미지를 추가해 보세요.</text>`;
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1100" viewBox="0 0 1400 1100">
   <defs>
@@ -162,11 +162,11 @@ const ProductSheetWorkspace: React.FC = () => {
   const handleImageFile = async (file?: File) => {
     if (!file) return;
     if (!file.type.startsWith('image/')) {
-      setImageStatus('PNG, JPG, JPEG, WEBP 이미지 파일만 추가할 수 있습니다.');
+      setImageStatus('PNG, JPG, JPEG, WEBP 이미지 파일을 추가해 보세요.');
       return;
     }
     if (file.size > MAX_IMAGE_SIZE) {
-      setImageStatus('이미지 용량은 8MB 이하로 선택해주세요.');
+    setImageStatus('8MB 이하의 이미지 파일을 선택해 보세요.');
       return;
     }
 
@@ -221,7 +221,7 @@ const ProductSheetWorkspace: React.FC = () => {
         downloadLink.click();
         setDownloadState('상품 설명서를 PNG 이미지로 내려받았습니다.');
       } catch {
-        setDownloadState('이미지를 만들지 못했습니다. 다시 시도해주세요.');
+        setDownloadState('이미지를 만들지 못했습니다. 다시 시도해 보세요.');
       } finally {
         URL.revokeObjectURL(svgUrl);
       }
@@ -229,7 +229,7 @@ const ProductSheetWorkspace: React.FC = () => {
 
     image.onerror = () => {
       URL.revokeObjectURL(svgUrl);
-      setDownloadState('이미지를 만들지 못했습니다. 다시 시도해주세요.');
+      setDownloadState('이미지를 만들지 못했습니다. 다시 시도해 보세요.');
     };
     image.src = svgUrl;
   };
@@ -238,15 +238,15 @@ const ProductSheetWorkspace: React.FC = () => {
     <div className="content-column content-column--wide product-sheet-workspace">
       <div className="panel-heading product-sheet-workspace__intro">
         <p className="content-eyebrow">OBJECT 01 · PRODUCT BRIEF</p>
-        <h2>배운 내용을 하나의 상품 이야기로 완성하세요.</h2>
-        <p>1단계에서 선택한 핵심 표현이 메시지 칸에 미리 담깁니다. 상품 이미지와 함께 한 장의 상품 소개서로 정리해보세요.</p>
+        <h2>배운 내용을 하나의 상품 이야기로 완성해 보세요.</h2>
+        <p>1단계에서 선택한 핵심 표현이 메시지 칸에 표시되는지 확인해 보세요. 상품 이미지와 함께 한 장의 상품 소개서로 정리해 보세요.</p>
       </div>
 
       <section className="product-sheet-form" aria-labelledby="product-sheet-form-title">
         <div className="workspace-section-heading">
           <div>
             <p className="content-eyebrow">01 · 상품 정보</p>
-            <h3 id="product-sheet-form-title">상품의 핵심 정보를 정리해보세요.</h3>
+            <h3 id="product-sheet-form-title">상품의 핵심 정보를 정리해 보세요.</h3>
           </div>
           <span className="workspace-section-heading__note">필수 항목 4개 · 이미지는 선택</span>
         </div>
@@ -262,11 +262,11 @@ const ProductSheetWorkspace: React.FC = () => {
           </div>
           <div className="form-field product-sheet-fields__full">
             <label htmlFor="sheet-one-line" className="form-label">한 줄 소개 <span className="form-required" aria-hidden="true">*</span></label>
-            <textarea id="sheet-one-line" className="form-textarea" rows={3} value={values.oneLine} onChange={(event) => updateValue('oneLine', event.target.value)} placeholder="이 상품이 무엇을 전하는지 한 문장으로 적어보세요." />
+            <textarea id="sheet-one-line" className="form-textarea" rows={3} value={values.oneLine} onChange={(event) => updateValue('oneLine', event.target.value)} placeholder="이 상품이 무엇을 전하는지 한 문장으로 적어 보세요." />
           </div>
           <div className="form-field product-sheet-fields__full">
             <label htmlFor="sheet-learning-message" className="form-label">소개하고 싶은 독도의 가치 <span className="form-required" aria-hidden="true">*</span></label>
-            <textarea id="sheet-learning-message" className="form-textarea" rows={4} value={values.learningMessage} onChange={(event) => updateValue('learningMessage', event.target.value)} placeholder="독도의 위치, 자연, 역사 등 다양한 학습 주제 중 어떤 내용을 담았나요?" />
+            <textarea id="sheet-learning-message" className="form-textarea" rows={4} value={values.learningMessage} onChange={(event) => updateValue('learningMessage', event.target.value)} placeholder="독도의 위치, 자연, 역사 등 어떤 학습 내용을 담았는지 적어 보세요." />
           </div>
         </div>
       </section>
@@ -275,7 +275,7 @@ const ProductSheetWorkspace: React.FC = () => {
         <div className="workspace-section-heading">
           <div>
             <p className="content-eyebrow">02 · 대표 이미지</p>
-            <h3 id="product-image-upload-title">직접 만든 상품 이미지를 넣어보세요.</h3>
+            <h3 id="product-image-upload-title">직접 만든 상품 이미지를 넣어 보세요.</h3>
           </div>
           <span className="workspace-section-heading__note">PNG · JPG · WEBP / 최대 8MB</span>
         </div>
@@ -289,8 +289,8 @@ const ProductSheetWorkspace: React.FC = () => {
           <label htmlFor="product-sheet-image" className="image-upload__label">
             <span className="image-upload__mark" aria-hidden="true">＋</span>
             <span className="image-upload__copy">
-              <strong>{productImage ? '다른 이미지로 교체하기' : '상품 이미지를 끌어 놓거나 선택하세요.'}</strong>
-              <small>AI로 만든 굿즈 이미지, 직접 촬영한 사진 모두 사용할 수 있습니다.</small>
+              <strong>{productImage ? '다른 이미지로 교체해 보세요.' : '상품 이미지를 끌어 놓거나 선택해 보세요.'}</strong>
+              <small>AI로 만든 굿즈 이미지나 직접 촬영한 사진을 넣어 보세요.</small>
             </span>
             <span className="image-upload__action">파일 선택</span>
           </label>
@@ -302,7 +302,7 @@ const ProductSheetWorkspace: React.FC = () => {
             <img src={productImage} alt="상품 설명서에 삽입할 선택 이미지" />
             <div>
               <strong>{productImageName}</strong>
-              <span>설명서 오른쪽 상단 제품 이미지 영역에 반영됩니다.</span>
+              <span>설명서 오른쪽 상단 제품 이미지 영역에서 확인해 보세요.</span>
             </div>
             <button type="button" className="button button--text" onClick={clearProductImage}>이미지 제거</button>
           </div>
@@ -314,7 +314,7 @@ const ProductSheetWorkspace: React.FC = () => {
         <div className="workspace-section-heading">
           <div>
             <p className="content-eyebrow">03 · PRODUCT BRIEF 미리보기</p>
-            <h3 id="product-sheet-output-title">브랜드 제품 소개서처럼 확인하세요.</h3>
+            <h3 id="product-sheet-output-title">브랜드 제품 소개서처럼 확인해 보세요.</h3>
           </div>
           <button type="button" className="button button--primary" onClick={handleDownload} disabled={!canDownload}>
             PNG로 내려받기 <span aria-hidden="true">↓</span>
@@ -327,11 +327,11 @@ const ProductSheetWorkspace: React.FC = () => {
               <div className="product-sheet-preview__hero-copy">
                 <span className="product-sheet-preview__eyebrow">DOKDO GOODS</span>
                 <strong>{valueOrPlaceholder(values.productName, '독도 굿즈 이름')}</strong>
-                <p>{valueOrPlaceholder(values.oneLine, '상품을 한 문장으로 소개해보세요.')}</p>
+                <p>{valueOrPlaceholder(values.oneLine, '상품을 한 문장으로 소개해 보세요.')}</p>
                 <span className="product-sheet-preview__signature">LEARN / DESIGN / SHARE</span>
               </div>
               <div className="product-sheet-preview__image-frame">
-                {productImage ? <img src={productImage} alt="상품 설명서에 삽입된 대표 상품 이미지" /> : <span>이미지를 추가하면<br />여기에 표시됩니다</span>}
+                {productImage ? <img src={productImage} alt="상품 설명서에 삽입된 대표 상품 이미지" /> : <span>대표 이미지를 추가해<br />보세요.</span>}
                 <small>PRODUCT PORTRAIT</small>
               </div>
             </div>
@@ -342,15 +342,15 @@ const ProductSheetWorkspace: React.FC = () => {
               </div>
               <div className="product-sheet-preview__price">
                 <span>판매 가격</span>
-                <strong>{valueOrPlaceholder(formatWon(values.price), '금액을 입력하면 여기에 표시됩니다.')}</strong>
+                <strong>{valueOrPlaceholder(formatWon(values.price), '금액을 입력해 보세요.')}</strong>
               </div>
               <div className="product-sheet-preview__manifest-grid">
-                <article><span>THE IDEA</span><p>{valueOrPlaceholder(values.learningMessage, '굿즈를 통해 소개하고 싶은 독도의 가치를 적어보세요.')}</p></article>
+                <article><span>THE IDEA</span><p>{valueOrPlaceholder(values.learningMessage, '굿즈를 통해 소개하고 싶은 독도의 가치를 적어 보세요.')}</p></article>
               </div>
             </div>
           </div>
         </div>
-        {!canDownload && <p className="workspace-hint">상품명, 판매 가격, 한 줄 소개, 소개하고 싶은 독도의 가치를 입력하면 PNG로 내려받을 수 있습니다. 대표 이미지는 선택 항목입니다.</p>}
+        {!canDownload && <p className="workspace-hint">상품명, 판매 가격, 한 줄 소개, 소개하고 싶은 독도의 가치를 입력해 PNG로 내려받아 보세요. 필요하면 대표 이미지도 추가해 보세요.</p>}
         {downloadState && <p className="form-alert form-alert--success" role="status">{downloadState}</p>}
       </section>
     </div>

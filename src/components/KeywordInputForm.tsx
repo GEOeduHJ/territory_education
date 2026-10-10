@@ -62,7 +62,7 @@ export const KeywordInputForm: React.FC<KeywordInputFormProps> = ({
       await onSubmit(sanitizedKeywords);
     } catch (error) {
       console.error('키워드 제출 실패:', error);
-      setValidation(prev => ({ ...prev, generalError: '키워드 저장에 실패했습니다. 다시 시도해주세요.' }));
+      setValidation(prev => ({ ...prev, generalError: '키워드 저장에 실패했습니다. 다시 시도해 보세요.' }));
     } finally {
       setIsSubmitting(false);
     }
@@ -86,8 +86,8 @@ export const KeywordInputForm: React.FC<KeywordInputFormProps> = ({
     <section className="keyword-form" aria-labelledby="keyword-form-title">
       <div className="keyword-form__intro">
         <p className="content-eyebrow">나의 탐구 기록</p>
-        <h3 id="keyword-form-title">조사한 내용을 정리해보세요.</h3>
-        <p>네 가지 단서를 정리하면 다음 단계에서 나만의 캠페인 콘텐츠를 만들 수 있습니다.</p>
+        <h3 id="keyword-form-title">조사한 내용을 정리해 보세요.</h3>
+        <p>네 가지 단서를 정리해 다음 단계에서 나만의 캠페인 콘텐츠를 만들어 보세요.</p>
       </div>
 
       <form onSubmit={handleSubmit} className="keyword-form__fields">
@@ -99,8 +99,8 @@ export const KeywordInputForm: React.FC<KeywordInputFormProps> = ({
             tabIndex={-1}
             aria-labelledby="keyword-error-summary-title"
           >
-            <h4 id="keyword-error-summary-title">입력 내용을 확인해주세요.</h4>
-            <p>각 항목 아래의 안내를 확인한 뒤 다시 제출하세요.</p>
+            <h4 id="keyword-error-summary-title">입력 내용을 확인해 보세요.</h4>
+            <p>각 항목 아래의 안내를 확인한 뒤 다시 제출해 보세요.</p>
           </div>
         )}
 

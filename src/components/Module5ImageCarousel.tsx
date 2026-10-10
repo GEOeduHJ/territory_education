@@ -101,7 +101,7 @@ const Module5ImageCarousel: React.FC<Module5ImageCarouselProps> = ({ carousel })
                 </svg>
               </span>
               <strong>이미지 업로드 대기</strong>
-              <span>이미지가 등록되면 이 컷에서 확인할 수 있어요.</span>
+              <span>이미지가 등록되면 이 컷에서 확인해 보세요.</span>
             </div>
           )}
         </figure>
@@ -138,7 +138,7 @@ const Module5ImageCarousel: React.FC<Module5ImageCarouselProps> = ({ carousel })
                 {currentIndex + 1}컷 설명
               </h4>
             </div>
-            <p>가려진 핵심 표현을 눌러 내용을 확인하세요.</p>
+            <p>가려진 핵심 표현을 눌러 내용을 확인해 보세요.</p>
           </header>
           <ul className="module5-image-carousel__explanation-list">
             {activeSlide.explanation.map((paragraph, paragraphIndex) => (

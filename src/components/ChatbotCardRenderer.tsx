@@ -77,7 +77,7 @@ export const ChatbotCardRenderer: React.FC<ChatbotCardRendererProps> = ({
       <aside className="callout callout--tip">
         <div>
           <h4>대화 팁</h4>
-          <p>각 페르소나와 자유롭게 대화하며 다양한 관점에서 경계 쟁점을 분석해보세요.</p>
+          <p>각 페르소나와 자유롭게 대화하며 다양한 관점에서 경계 쟁점을 분석해 보세요.</p>
         </div>
       </aside>
     </div>

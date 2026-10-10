@@ -10,8 +10,8 @@ export const MODULE_4_DATA: ModuleData = {
     {
       id: "step-1",
       title: "DMZ의 가치 살펴보기",
-      description: "분단의 역사로 탄생한 DMZ의 생태적·문화적·역사적·평화적 가치를 살펴봅시다",
-      content: "영상 자료를 바탕으로 DMZ가 어떤 가치를 지닌 공간인지 이해해봅시다. \n그리고 DMZ가 지닌 다양한 가치를 왜 지켜야 하는지 함께 논의해봅시다.",
+      description: "분단의 역사로 탄생한 DMZ의 생태적·문화적·역사적·평화적 가치를 살펴보세요.",
+      content: "영상 자료를 바탕으로 DMZ가 어떤 가치를 지닌 공간인지 확인해 보세요.\n그리고 DMZ의 다양한 가치를 왜 지켜야 하는지 함께 논의해 보세요.",
       embeddedResources: [
         {
           id: 'dmz-step1-video',
@@ -64,13 +64,13 @@ export const MODULE_4_DATA: ModuleData = {
     {
       id: "step-2",
       title: "DMZ 메타버스 둘러보기",
-      description: "통일부 DMZ 메타버스에서 사라진 마을을 견학하며 과거의 삶을 상상해봅시다",
-      content: "DMZ는 6.25 전쟁 발발 이전에는 사람들의 삶의 터전이었습니다. \n아래 DMZ 메타버스에 접속하여 '사라진 마을'을 중 1곳을 선택해 견학하고, 70여 년 전 이곳에 살았던 사람들의 삶을 돌아보세요.",
+      description: "통일부 DMZ 메타버스에서 사라진 마을을 살펴보며 과거의 삶을 상상해 보세요.",
+      content: "DMZ가 6·25 전쟁 발발 이전에는 사람들의 삶의 터전이었다는 점을 확인해 보세요.\n아래 DMZ 메타버스에 접속해 '사라진 마을' 중 한 곳을 골라 둘러보고, 70여 년 전 이곳에 살았던 사람들의 삶을 돌아보세요.",
       embeddedResources: [
         {
           id: 'dmz-universe-village',
           title: 'DMZ Universe · 사라진 마을',
-          description: '메타버스 화면이 표시되지 않으면 원본 사이트를 새 창에서 열어주세요.',
+          description: '메타버스 화면이 표시되지 않으면 원본 사이트를 새 창에서 열어 보세요.',
           url: 'https://universe.go.kr/main',
           embedUrl: 'https://universe.go.kr/main',
           aspectRatio: '16 / 9'
@@ -81,8 +81,8 @@ export const MODULE_4_DATA: ModuleData = {
     {
       id: "step-3",
       title: "온라인 전시로 DMZ 탐색하기",
-      description: "구글 Arts & Culture에서 열린 DMZ 관련 전시회를 탐방하고 아이디어를 메모해봅시다",
-      content: "최근에는 DMZ가 지닌 다양한 가치를 주제로 여러 전시회가 열리고 있습니다. \n역사(테마 1), 생태(테마 2), 예술(테마 3)을 주제로 한 전시회 중 2개를 선택하여 자유롭게 탐방해보세요. \n전시에서 살펴본 자료와 작품을 통해 DMZ를 어떤 가능성을 지닌 공간으로 활용할 수 있을지 떠오른 아이디어를 간단히 메모해보세요.",
+      description: "구글 Arts & Culture에서 DMZ 관련 전시회를 살펴보고 아이디어를 메모해 보세요.",
+      content: "최근 열린 DMZ 관련 전시회 가운데 역사(테마 1), 생태(테마 2), 예술(테마 3)을 주제로 한 전시 두 개를 골라 자유롭게 살펴보세요.\n전시 자료와 작품을 참고해 DMZ를 어떤 공간으로 활용할 수 있을지 아이디어를 간단히 메모해 보세요.",
       themedExhibits: [
         {
           id: 'theme-1',
@@ -123,13 +123,13 @@ export const MODULE_4_DATA: ModuleData = {
     {
       id: "step-4",
       title: "DMZ 활용 방안 디자인하기",
-      description: "온라인 전시에서 얻은 아이디어를 바탕으로 DMZ의 가치를 살릴 수 있는 건축물, 예술 작품, 또는 공연·행사를 디자인해 봅시다. ",
-      content: "아래 칸에 모둠의 구상만 입력하면 전체 프롬프트가 자동으로 정리됩니다. 복사한 뒤 Gemini 링크를 열어 붙여넣으세요.",
+      description: "온라인 전시에서 얻은 아이디어를 바탕으로 DMZ의 가치를 살릴 수 있는 건축물, 예술 작품 또는 공연·행사를 디자인해 보세요.",
+      content: "아래 칸에 모둠의 구상만 입력해 보세요. 전체 프롬프트가 자동으로 정리되는 모습을 확인해 보세요. 프롬프트를 복사한 뒤 Gemini 링크를 열어 붙여넣어 보세요.",
       contentLabel: "프롬프트 작성 안내",
       guidedPrompt: {
         id: "module4-dmz-design-prompt",
         title: "DMZ 미래 디자인 프롬프트",
-        description: "전시에서 얻은 아이디어를 구체적인 공간·작품·프로그램으로 발전시켜보세요.",
+        description: "전시에서 얻은 아이디어를 구체적인 공간·작품·프로그램으로 발전시켜 보세요.",
         groups: [
           {
             id: "direction",
@@ -181,8 +181,8 @@ export const MODULE_4_DATA: ModuleData = {
     {
       id: "step-5",
       title: "공유와 성찰",
-      description: "설계한 DMZ의 활용 방안을 발표하고, 다른 작품을 감상해봅시다. ",
-      content: "최종 결과물의 이미지를 제시하고, 우리 모둠이 제안하는 활용 방안과 그 의미를 설명해 봅시다. \n그리고 다른 모둠의 작품을 두 개 이상 살펴보고, 작품과 설명에 나타난 내용을 근거로 평가해 봅시다.",
+      description: "설계한 DMZ 활용 방안을 발표하고 다른 작품도 감상해 보세요.",
+      content: "최종 결과물의 이미지를 제시하고, 우리 모둠이 제안하는 활용 방안과 그 의미를 설명해 보세요.\n다른 모둠의 작품을 두 개 이상 살펴보고, 작품과 설명에 나타난 내용을 근거로 평가해 보세요.",
       showScenarioIframe: true,
       scenarioIframeUrl: "https://padlet.com/jde0609/dmz_future_design",
       

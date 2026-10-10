@@ -10,7 +10,7 @@ export const MODULE_5_DATA: ModuleData = {
     {
       id: "step-1",
       title: "경계 개념 학습 및 사례 살펴보기",
-      description: "비자, 국경 정책, 국민투표와 감염병 대응 사례를 비교하며 경계가 사람들의 이동과 국가 간 관계에 미치는 영향을 살펴봅니다.",
+      description: "비자, 국경 정책, 국민투표와 감염병 대응 사례를 비교하며 경계가 사람들의 이동과 국가 간 관계에 미치는 영향을 살펴보세요.",
       content: "각 사례의 이미지와 설명을 살펴보며 경계가 사람들의 이동과 일상에 어떤 영향을 주는지 생각해 보세요.",
       contentLabel: "여러 나라의 경계 사례 살펴보기",
       caseStudies: [
@@ -77,8 +77,8 @@ export const MODULE_5_DATA: ModuleData = {
     {
       id: "step-2",
       title: "제주 사례로 경계 이해하기",
-      description: "제주 예멘 난민 사례를 만화의 흐름에 따라 살펴보며 경계를 둘러싼 상황과 여러 입장을 생각해봅니다.",
-      content: "제주 예멘 난민 사례를 6컷 만화로 살펴보세요. 각 장면에서 경계와 관련된 규칙이 누구에게 어떤 영향을 주는지 생각해봅시다.",
+      description: "제주 예멘 난민 사례를 만화의 흐름에 따라 살펴보며 경계를 둘러싼 상황과 여러 입장을 생각해 보세요.",
+      content: "제주 예멘 난민 사례를 6컷 만화로 살펴보세요. 각 장면에서 경계와 관련된 규칙이 누구에게 어떤 영향을 주는지 생각해 보세요.",
       contentLabel: "사례 살펴보기",
       imageCarousel: {
         title: "제주 경계 사례 만화",
@@ -200,43 +200,43 @@ export const MODULE_5_DATA: ModuleData = {
     {
       id: "step-3",
       title: "챗봇 대화 준비하기",
-      description: "크랙 앱 또는 QR 코드로 인물별 챗봇을 찾아 프로필에 접속하고, 안내를 따라 대화를 준비합니다.",
-      content: "안내된 순서에 따라 인물별 챗봇과의 대화를 준비하세요.",
+      description: "크랙 앱 또는 QR 코드로 인물별 챗봇을 찾아 프로필에 접속하고, 안내를 따라 대화를 준비해 보세요.",
+      content: "안내된 순서에 따라 인물별 챗봇과의 대화를 준비해 보세요.",
       contentLabel: "챗봇 대화 준비",
       imageCarousel: {
         title: "챗봇 대화 사용 안내",
-        description: "화살표를 눌러 챗봇 접속부터 대화 마무리까지 5단계 안내를 순서대로 확인하세요.",
+        description: "화살표를 눌러 챗봇 접속부터 대화 마무리까지 5단계 안내를 순서대로 확인해 보세요.",
         placeholderCount: 5,
         slides: [
           {
             id: "chatbot-guide-crack-app-search",
             src: "/images/module5-chatbot-guide-revised/01-crack-app-search.webp",
             alt: "크랙 앱 또는 QR 코드로 각 인물의 챗봇을 검색하고 프로필에 접속하는 화면",
-            caption: "“크랙” 앱에 접속하여(또는 QR 코드를 찍어서) 각 인물의 챗봇을 검색하고, 챗봇 프로필에 접속한다."
+            caption: "“크랙” 앱에 접속하거나 QR 코드를 찍어 각 인물의 챗봇을 검색하고, 챗봇 프로필에 접속해 보세요."
           },
           {
             id: "chatbot-guide-profile-entry",
             src: "/images/module5-chatbot-guide-revised/02-profile-entry.webp",
             alt: "챗봇 캐릭터 프로필과 인물의 기본 입장, 플레이 또는 새로하기 버튼을 보여주는 화면",
-            caption: "캐릭터 프로필에서 인물의 기본적인 입장을 확인한다. [‘플레이’ 또는 ‘새로하기’] 버튼을 누르면 채팅방으로 입장한다."
+            caption: "캐릭터 프로필에서 인물의 기본 입장을 확인해 보세요. [‘플레이’ 또는 ‘새로하기’] 버튼을 눌러 채팅방에 들어가 보세요."
           },
           {
             id: "chatbot-guide-play-guide",
             src: "/images/module5-chatbot-guide-revised/03-play-guide.webp",
             alt: "챗봇 플레이 가이드와 추가 기능 사용 금지 안내가 표시된 화면",
-            caption: "대화를 나누기 전, 플레이 가이드를 숙지한다.\n(※ 마음대로 추가기능을 사용하거나, 설정을 변경하지 마세요!)"
+            caption: "대화를 나누기 전에 플레이 가이드를 읽어 보세요.\n(※ 추가 기능을 임의로 사용하거나 설정을 변경하지 않도록 유의해 보세요.)"
           },
           {
             id: "chatbot-guide-compose-message",
             src: "/images/module5-chatbot-guide-revised/04-write-message.webp",
             alt: "챗봇 메시지를 직접 입력해 질문과 답변을 이어가는 대화 화면",
-            caption: "이후 대화 내용을 직접 입력한 후, 전송버튼을 눌러 대화를 시작한다. 단, 한 번의 메시지에 최소 두 문장 이상을 작성한다."
+            caption: "대화 내용을 직접 입력하고 전송 버튼을 눌러 대화를 시작해 보세요. 한 번의 메시지에 두 문장 이상 작성해 보세요."
           },
           {
             id: "chatbot-guide-secret-item-ending",
             src: "/images/module5-chatbot-guide-revised/05-secret-item-ending.webp",
             alt: "캐릭터와의 대화가 끝난 뒤 비밀 아이템이 표시된 엔딩 장면",
-            caption: "캐릭터와 질문 및 답변을 최소 열 번 이상 주고받아,\n캐릭터가 보여주는 엔딩 장면 속의 ‘비밀 아이템’을 획득한다."
+            caption: "캐릭터와 질문과 답변을 열 번 이상 주고받아, 엔딩 장면 속 ‘비밀 아이템’을 획득해 보세요."
           }
         ]
       },
@@ -245,15 +245,15 @@ export const MODULE_5_DATA: ModuleData = {
     {
       id: "step-4",
       title: "챗봇과 대화 나누기",
-      description: "제공된 페르소나 챗봇과 대화하며 다양한 입장을 분석해봅시다",
-      content: "페르소나 챗봇과 대화하며 여러 입장을 분석해보세요. 먼저 배정받은 사람과 대화하여 '나의 입장'을 정리하고, 다음에는 반대 입장과 대화하여 상대의 주장과 근거를 이해하세요.\n\n대화 가이드:\n1) 나의 입장 분석: 내가 배정받은 사람과 먼저 대화해봅시다. 이 사람은 누구이며, 어떤 입장(주장, 근거)인가요?\n2) 반대 입장 분석: 다음은 나와 반대되는 입장의 사람과 대화해봅시다. 이 사람은 누구이며, 어떤 입장(주장, 근거)인가요?",
+      description: "제공된 페르소나 챗봇과 대화하며 다양한 입장을 분석해 보세요.",
+      content: "페르소나 챗봇과 대화하며 여러 입장을 분석해 보세요. 먼저 배정받은 인물과 대화해 '나의 입장'을 정리해 보세요. 다음에는 반대 입장의 인물과 대화하며 상대의 주장과 근거를 이해해 보세요.\n\n대화 가이드:\n1) 나의 입장 분석: 배정받은 인물과 먼저 대화해 보세요. 이 인물은 누구이며, 어떤 입장(주장과 근거)을 가지고 있나요?\n2) 반대 입장 분석: 나와 반대되는 입장의 인물과 대화해 보세요. 이 인물은 누구이며, 어떤 입장(주장과 근거)을 가지고 있나요?",
       useChatbotCards: true,
       chatbotCards: [
         {
           id: "persona-jeju",
           name: "제주도민",
           profileImage: "https://via.placeholder.com/150/0ea5e9/ffffff?text=제주도민",
-          description: "제주 지역 주민의 관점에서 지역 경제·생활·생태를 고려한 입장을 제시합니다.",
+          description: "지역 경제·생활·생태를 고려하는 제주 지역 주민의 관점과 입장을 살펴보세요.",
           url: "https://share.crack.wrtn.ai/p1a1rx",
           isActive: true
         },
@@ -261,7 +261,7 @@ export const MODULE_5_DATA: ModuleData = {
           id: "persona-mainland-resident",
           name: "육지부 주민",
           profileImage: "https://via.placeholder.com/150/10b981/ffffff?text=육지부+주민",
-          description: "육지 지역 일반 주민의 입장에서 사회적 영향과 안전 우려를 중심으로 의견을 제시합니다.",
+          description: "사회적 영향과 안전 우려를 중심으로 한 육지 지역 주민의 관점을 살펴보세요.",
           url: "https://share.crack.wrtn.ai/jxt0b34",
           isActive: true
         },
@@ -269,7 +269,7 @@ export const MODULE_5_DATA: ModuleData = {
           id: "persona-local-official",
           name: "육지부 지자체 대표",
           profileImage: "https://via.placeholder.com/150/f97316/ffffff?text=지자체+대표",
-          description: "지자체의 입장에서 행정적·경제적 고려와 지역 주민의 복지를 중심으로 입장을 설명합니다.",
+          description: "행정적·경제적 고려와 지역 주민의 복지를 중심으로 한 지자체의 입장을 살펴보세요.",
           url: "https://share.crack.wrtn.ai/5nbswb",
           isActive: true
         },
@@ -277,7 +277,7 @@ export const MODULE_5_DATA: ModuleData = {
           id: "persona-unhcr",
           name: "유엔난민기구 대변인",
           profileImage: "https://via.placeholder.com/150/7c3aed/ffffff?text=UNHCR",
-          description: "국제기구 관점에서 인도주의적 원칙과 국제법적 고려를 바탕으로 입장을 제시합니다.",
+          description: "인도주의적 원칙과 국제법적 고려를 바탕으로 한 국제기구의 관점을 살펴보세요.",
           url: "https://share.crack.wrtn.ai/bl1783",
           isActive: true
         }
@@ -287,8 +287,8 @@ export const MODULE_5_DATA: ModuleData = {
     {
       id: "step-5",
       title: "의사결정과 성찰",
-      description: "여러 인물의 목소리를 들은 경험을 바탕으로 경계에 대한 의사결정을 내리고, 자신의 의견을 공유해봅시다.",
-      content: " 아래의 양식에 맞추어 난민 신청자의 출도에 대한 결정을 내리고, 그 결정에 따르는 책임과 대책을 생각해 봅시다.",
+      description: "여러 인물의 목소리를 들은 경험을 바탕으로 경계에 대한 의사결정을 내리고, 자신의 의견을 공유해 보세요.",
+      content: "아래 양식에 맞추어 난민 신청자의 출도에 대한 결정을 내리고, 그 결정에 따르는 책임과 대책을 생각해 보세요.",
       contentLabel: "경계 결정문 작성하고 공유하기",
       showEmbeddedPadlet: true,
       padletUrl: "https://padlet.com/jde1211/global_forum",

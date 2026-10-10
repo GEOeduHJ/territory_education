@@ -19,7 +19,7 @@ const ThemedExhibitDropdown: React.FC<ThemedExhibitDropdownProps> = ({ resources
     <section className="exhibit-panel" aria-labelledby="exhibit-panel-title">
       <div className="exhibit-panel__header">
         <p className="content-eyebrow">전시회 살펴보기</p>
-        <p>아래에서 선택한 전시회를 새 창에서 열어 자세히 살펴보세요.</p>
+        <p>아래에서 전시회를 선택해 새 창에서 자세히 살펴보세요.</p>
       </div>
 
       <div className="resource-panel__controls">

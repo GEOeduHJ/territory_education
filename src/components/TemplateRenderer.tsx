@@ -38,8 +38,8 @@ export const TemplateRenderer: React.FC<TemplateRendererProps> = ({ step, onExte
       {mode === 'dynamic' && !hasAllKeywords && (
         <aside className="callout callout--warning" role="status">
           <div>
-            <h3>키워드를 먼저 입력해주세요.</h3>
-            <p>1단계에서 키워드를 입력하면 개인화된 콘텐츠를 확인할 수 있습니다.</p>
+            <h3>키워드를 먼저 입력해 보세요.</h3>
+            <p>1단계에서 키워드를 입력한 뒤 개인화된 콘텐츠를 확인해 보세요.</p>
           </div>
         </aside>
       )}
@@ -114,7 +114,7 @@ export const TemplateRenderer: React.FC<TemplateRendererProps> = ({ step, onExte
         <aside className="callout callout--neutral">
           <div>
             <h4>키워드를 수정할까요?</h4>
-            <p>1단계로 돌아가 조사 내용을 다시 정리할 수 있습니다.</p>
+            <p>필요하면 1단계로 돌아가 조사 내용을 다시 정리해 보세요.</p>
           </div>
           <button
             type="button"
@@ -128,7 +128,7 @@ export const TemplateRenderer: React.FC<TemplateRendererProps> = ({ step, onExte
         <aside className="callout callout--tip">
           <div>
             <h4>사용 팁</h4>
-            <p>프롬프트를 복사한 후 외부 사이트에 붙여넣어 사용하세요. 독도 관련 이미지를 함께 업로드하면 더 좋은 결과를 얻을 수 있습니다.</p>
+            <p>프롬프트를 복사해 외부 사이트에 붙여넣어 사용해 보세요. 독도 관련 이미지도 함께 업로드해 결과를 더 구체적으로 만들어 보세요.</p>
           </div>
         </aside>
       )}

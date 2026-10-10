@@ -20,7 +20,7 @@ const ResourceDropdown: React.FC<ResourceDropdownProps> = ({ resources }) => {
       <div className="resource-panel__header">
         <p className="content-eyebrow">자료 살펴보기</p>
         <h3 id="resource-panel-title">학년별 학습 자료</h3>
-        <p>학년에 맞는 독도 학습 자료를 선택하고 새 창에서 확인하세요.</p>
+        <p>학년에 맞는 독도 학습 자료를 선택해 새 창에서 확인해 보세요.</p>
       </div>
 
       <div className="resource-panel__controls">
@@ -48,7 +48,7 @@ const ResourceDropdown: React.FC<ResourceDropdownProps> = ({ resources }) => {
       </div>
 
       <div className="callout callout--info">
-        <p>드롭다운에서 자료를 선택한 뒤 버튼을 누르면 새 창에서 확인할 수 있습니다.</p>
+        <p>드롭다운에서 자료를 선택한 뒤 버튼을 눌러 새 창에서 확인해 보세요.</p>
       </div>
     </section>
   );

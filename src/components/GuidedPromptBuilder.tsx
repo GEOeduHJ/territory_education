@@ -58,9 +58,9 @@ const GuidedPromptBuilder: React.FC<GuidedPromptBuilderProps> = ({ config, onExt
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(prompt);
-      setCopyStatus({ message: '전체 프롬프트를 복사했습니다. Gemini에 붙여넣어 사용하세요.', isError: false });
+      setCopyStatus({ message: '전체 프롬프트를 복사했습니다. Gemini에 붙여넣어 사용해 보세요.', isError: false });
     } catch {
-      setCopyStatus({ message: '복사하지 못했습니다. 아래 프롬프트를 선택해 직접 복사해주세요.', isError: true });
+      setCopyStatus({ message: '복사하지 못했습니다. 아래 프롬프트를 선택해 직접 복사해 보세요.', isError: true });
     }
   };
 
@@ -73,7 +73,7 @@ const GuidedPromptBuilder: React.FC<GuidedPromptBuilderProps> = ({ config, onExt
       </div>
 
       <p className="guided-prompt-builder__note">
-        구상한 내용을 각 칸에 입력하면 프롬프트가 완성됩니다. 비워둔 칸은 밑줄로 표시되고, 조사(을/를·으로/로)는 입력한 말에 맞춰 자동으로 정리됩니다.
+        구상한 내용을 각 칸에 입력해 프롬프트를 완성해 보세요. 비워 둔 칸이 밑줄로 표시되는지 확인해 보세요. 조사(을/를·으로/로)가 입력한 말에 맞춰 정리되는지도 확인해 보세요.
       </p>
 
       <div className="guided-prompt-builder__groups">
@@ -143,7 +143,7 @@ const GuidedPromptBuilder: React.FC<GuidedPromptBuilderProps> = ({ config, onExt
             {copyStatus.message}
           </p>
         )}
-        <p className="guided-prompt-builder__paste-hint">프롬프트를 복사한 다음 Gemini에 붙여넣어 이미지 생성을 요청하세요.</p>
+        <p className="guided-prompt-builder__paste-hint">프롬프트를 복사한 다음 Gemini에 붙여넣어 이미지 생성을 요청해 보세요.</p>
         <button
           type="button"
           className="button button--primary generated-prompt__gemini"

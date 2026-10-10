@@ -207,7 +207,7 @@ export const MODULE_3_DATA: ModuleData = {
       id: 'step-1',
       title: '독도 주제 학습',
       description: '여섯 주제를 열어 독도의 위치·지형·생태·기록과 역사·국제 관계·동해 표기를 살펴보세요.',
-      content: '요약문에서 ‘클릭해서 내용 확인’을 눌러 중요한 사실을 확인하세요. 다시 참고하고 싶은 내용은 최대 3개까지 관심 내용으로 추가해둘 수 있습니다.',
+      content: '요약문에서 ‘클릭해서 내용 확인’을 눌러 중요한 사실을 확인해 보세요. 다시 참고하고 싶은 내용은 최대 3개까지 관심 내용으로 추가해 보세요.',
       learningThemes: DOKDO_LEARNING_THEMES,
       showResourceDropdown: true,
       dropdownResources: [
@@ -237,8 +237,8 @@ export const MODULE_3_DATA: ModuleData = {
     {
       id: 'step-2',
       title: '독도 굿즈 디자인 생성',
-      description: '1단계에서 추가한 관심 내용을 참고해 나만의 굿즈 디자인 프롬프트를 작성해보세요.',
-      content: '선택한 관심 내용은 자동으로 입력되지 않습니다. 별도 목록을 참고해 디자인에 담을 학습 내용을 직접 적어보세요.',
+      description: '1단계에서 추가한 관심 내용을 참고해 나만의 굿즈 디자인 프롬프트를 작성해 보세요.',
+      content: '선택한 관심 내용은 자동 입력되지 않으니, 별도 목록을 참고해 디자인에 담을 학습 내용을 직접 적어 보세요.',
       learningThemes: DOKDO_LEARNING_THEMES,
       useGoodsDesignWorkspace: true,
       editableContent: false
@@ -246,8 +246,8 @@ export const MODULE_3_DATA: ModuleData = {
     {
       id: 'step-3',
       title: '상품 설명서 제작',
-      description: '굿즈의 의미와 사용 방법을 정리해 상품 설명서 이미지로 완성해보세요.',
-      content: '1단계에서 골라둔 핵심 내용은 메시지 입력칸에 미리 표시됩니다. 굿즈 이미지와 함께 상품 설명서에 담을 내용을 다듬어보세요.',
+      description: '굿즈의 의미와 사용 방법을 정리해 상품 설명서 이미지로 완성해 보세요.',
+      content: '1단계에서 골라둔 핵심 내용이 메시지 입력칸에 표시되는지 확인해 보세요. 굿즈 이미지와 함께 상품 설명서에 담을 내용을 다듬어 보세요.',
       useProductSheetWorkspace: true,
       editableContent: false
     },
@@ -255,7 +255,7 @@ export const MODULE_3_DATA: ModuleData = {
       id: 'step-4',
       title: '최종 작품 제출',
       description: '완성된 독도 굿즈와 상품 설명서를 공유하고 서로의 아이디어를 살펴보세요.',
-      content: '독도 굿즈 디자인과 상품 설명서가 완성되었습니다. Padlet에 결과물을 업로드하고, 다른 학습자들이 어떤 독도의 가치와 메시지를 선택했는지 비교해보세요.',
+      content: '완성한 독도 굿즈 디자인과 상품 설명서를 Padlet에 업로드해 보세요. 다른 학습자들이 어떤 독도의 가치와 메시지를 선택했는지 비교해 보세요.',
       showEmbeddedPadlet: true,
       padletUrl: 'https://padlet.com/ghdwns00610/padlet-tzs4uog4dr84u5gi',
       editableContent: false

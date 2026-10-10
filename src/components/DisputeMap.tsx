@@ -36,7 +36,7 @@ const DisputeMap: React.FC<DisputeMapProps> = ({ regions }) => {
         <p className="content-eyebrow">공간에서 확인하기</p>
         <h3 id="map-panel-title">세계 영토 분쟁 지역 지도</h3>
         <p>
-          마커를 클릭하면 해당 지역의 자료를 확인할 수 있습니다. 카슈미르, 남중국해, 센카쿠/댜오위다오, 남쿠릴/북방영토, 나일강 연안국은 사례 분석용 대화문도 볼 수 있어요.
+          마커를 눌러 해당 지역의 자료를 살펴보세요. 카슈미르, 남중국해, 센카쿠/댜오위다오, 남쿠릴/북방영토, 나일강 연안국의 사례 분석용 대화문도 확인해 보세요.
         </p>
       </div>
       
@@ -91,7 +91,7 @@ const DisputeMap: React.FC<DisputeMapProps> = ({ regions }) => {
       
       <div className="map-panel__footer">
         <p>
-          지도를 드래그하여 이동하고, 마우스 휠로 확대하거나 축소할 수 있습니다.
+          지도를 드래그해 이동하고, 마우스 휠로 확대하거나 축소해 보세요.
         </p>
       </div>
 

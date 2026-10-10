@@ -29,7 +29,7 @@ const BoundaryCharacteristics: React.FC<BoundaryCharacteristicsProps> = ({ state
     <section className="module5-boundary-review" aria-labelledby="module5-boundary-review-title">
       <header className="module5-boundary-review__heading">
         <h3 id="module5-boundary-review-title">경계 특성 정리하기</h3>
-        <p>사례에서 드러나는 경계의 특성을 떠올리며, 가려진 표현을 눌러 확인해 보세요.</p>
+        <p>사례에서 드러나는 경계의 특성을 떠올리며 가려진 표현을 눌러 확인해 보세요.</p>
       </header>
 
       <ol className="module5-boundary-review__list">

@@ -36,7 +36,7 @@ const InlineEmbeddedResources: React.FC<InlineEmbeddedResourcesProps> = ({
             />
           </div>
           <footer className="inline-embedded-resource__footer">
-            <p>화면이 표시되지 않으면 원본 자료를 새 창에서 열어주세요.</p>
+            <p>화면이 표시되지 않으면 원본 자료를 새 창에서 열어 보세요.</p>
             <button
               type="button"
               className="button button--secondary"

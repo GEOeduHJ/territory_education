@@ -25,7 +25,7 @@ const fields: DecisionField[] = [
     label: '우선적으로 고려한 가치와 기준',
     before: '그 이유는 경계를 둘러싼 다양한 가치와 기준 속에서도',
     after: '라는 점을 우선적으로 고려하였기 때문입니다.',
-    placeholder: '우선 고려한 가치나 기준을 입력하세요.',
+    placeholder: '우선 고려한 가치나 기준을 입력해 보세요.',
     multiline: true,
   },
   {
@@ -33,7 +33,7 @@ const fields: DecisionField[] = [
     label: '결정으로 예상되는 문제',
     before: '그러나 이러한 결정으로 인해',
     after: '과 같은 문제가 발생할 수 있습니다.',
-    placeholder: '결정에 따라 생길 수 있는 문제를 입력하세요.',
+    placeholder: '결정에 따라 생길 수 있는 문제를 입력해 보세요.',
     multiline: true,
   },
   {
@@ -41,7 +41,7 @@ const fields: DecisionField[] = [
     label: '우려를 줄이기 위한 방안',
     before: '이러한 우려를 극복하기 위해서',
     after: '과 같은 방안이 필요합니다.',
-    placeholder: '필요한 대응 방안을 입력하세요.',
+    placeholder: '필요한 대응 방안을 입력해 보세요.',
     multiline: true,
   },
 ];
@@ -60,7 +60,7 @@ const createDecisionText = (answers: DecisionAnswers) => [
   `그 이유는 경계를 둘러싼 다양한 가치와 기준 속에서도 ${formatAnswer(answers.priority)}라는 점을 우선적으로 고려하였기 때문입니다.`,
   `그러나 이러한 결정으로 인해 ${formatAnswer(answers.concern)}과 같은 문제가 발생할 수 있습니다.`,
   `이러한 우려를 극복하기 위해서 ${formatAnswer(answers.response)}과 같은 방안이 필요합니다.`,
-  '앞으로도 여러 국가의 경계가 공정하고 정의롭게 작동할 수 있도록 많은 관심과 목소리를 내어주시길 바랍니다.',
+  '앞으로도 여러 국가의 경계가 공정하고 정의롭게 작동하도록 관심을 갖고 필요한 목소리를 내어 보세요.',
 ].join('\n\n');
 
 const copyWithFallback = (text: string) => {
@@ -106,7 +106,7 @@ const BoundaryDecisionComposer: React.FC = () => {
         copyWithFallback(decisionText);
         setCopyStatus({ message: '경계 결정문을 복사했습니다.', isError: false });
       } catch {
-        setCopyStatus({ message: '복사하지 못했습니다. 다시 시도해주세요.', isError: true });
+        setCopyStatus({ message: '복사하지 못했습니다. 다시 시도해 보세요.', isError: true });
       }
     }
   };
@@ -159,7 +159,7 @@ const BoundaryDecisionComposer: React.FC = () => {
       </div>
 
       <p className="boundary-decision-composer__closing">
-        앞으로도 여러 국가의 경계가 공정하고 정의롭게 작동할 수 있도록 많은 관심과 목소리를 내어주시길 바랍니다.
+        앞으로도 여러 국가의 경계가 공정하고 정의롭게 작동하도록 관심을 갖고 필요한 목소리를 내어 보세요.
       </p>
 
       {copyStatus && (

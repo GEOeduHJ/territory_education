@@ -33,13 +33,13 @@ const loadSavedImage = (moduleId: string): StoredQrImage | null => {
 
 const readAndResizeImage = (file: File): Promise<string> => new Promise((resolve, reject) => {
   const reader = new FileReader();
-  reader.onerror = () => reject(new Error('파일을 읽지 못했습니다. 다시 선택해주세요.'));
+  reader.onerror = () => reject(new Error('파일을 읽지 못했습니다. 다시 선택해 보세요.'));
   reader.onload = () => {
     const image = new Image();
-    image.onerror = () => reject(new Error('이미지를 열지 못했습니다. PNG, JPG 또는 WEBP 파일인지 확인해주세요.'));
+    image.onerror = () => reject(new Error('이미지를 열지 못했습니다. PNG, JPG 또는 WEBP 파일인지 확인해 보세요.'));
     image.onload = () => {
       if (!image.naturalWidth || !image.naturalHeight) {
-        reject(new Error('이미지 크기를 확인할 수 없습니다. 다른 파일을 선택해주세요.'));
+        reject(new Error('이미지 크기를 확인할 수 없습니다. 다른 파일을 선택해 보세요.'));
         return;
       }
 
@@ -54,7 +54,7 @@ const readAndResizeImage = (file: File): Promise<string> => new Promise((resolve
 
       const context = canvas.getContext('2d');
       if (!context) {
-        reject(new Error('이미지를 준비하지 못했습니다. 다시 시도해주세요.'));
+        reject(new Error('이미지를 준비하지 못했습니다. 다시 시도해 보세요.'));
         return;
       }
 
@@ -79,11 +79,11 @@ const PadletQrUpload: React.FC<PadletQrUploadProps> = ({ moduleId }) => {
     if (!file) return;
 
     if (!ACCEPTED_IMAGE_TYPES.has(file.type)) {
-      setStatus('PNG, JPG, JPEG, WEBP 이미지 파일을 선택해주세요.');
+      setStatus('PNG, JPG, JPEG, WEBP 이미지 파일을 선택해 보세요.');
       return;
     }
     if (file.size > MAX_FILE_SIZE) {
-      setStatus('이미지 용량은 8MB 이하로 선택해주세요.');
+      setStatus('8MB 이하의 이미지 파일을 선택해 보세요.');
       return;
     }
 
@@ -136,7 +136,7 @@ const PadletQrUpload: React.FC<PadletQrUploadProps> = ({ moduleId }) => {
         <p className="padlet-qr__eyebrow">교사용 준비 · PADLET</p>
         <h3 id={`padlet-qr-title-${moduleId}`}>학생용 Padlet QR 코드</h3>
         <p>
-          개인 Padlet의 QR 이미지를 올리면 학생들이 이 화면에서 바로 스캔할 수 있습니다.
+          개인 Padlet의 QR 이미지를 올려 학생들이 이 화면에서 스캔할 수 있도록 준비해 보세요.
           이미지는 현재 브라우저에만 저장되며 사이트에 업로드되지 않습니다.
         </p>
       </header>
@@ -153,7 +153,7 @@ const PadletQrUpload: React.FC<PadletQrUploadProps> = ({ moduleId }) => {
         <label htmlFor={inputId} className="padlet-qr__upload-label">
           <span className="padlet-qr__upload-mark" aria-hidden="true">＋</span>
           <span className="padlet-qr__upload-copy">
-            <strong>{qrImage ? '다른 QR 이미지로 바꾸려면 끌어 놓거나 선택하세요.' : 'Padlet QR 이미지를 끌어 놓거나 선택하세요.'}</strong>
+            <strong>{qrImage ? '다른 QR 이미지로 바꾸려면 끌어 놓거나 파일을 선택해 보세요.' : 'Padlet QR 이미지를 끌어 놓거나 파일을 선택해 보세요.'}</strong>
             <small id={`padlet-qr-hint-${moduleId}`}>PNG · JPG · WEBP / 최대 8MB</small>
           </span>
           <span className="padlet-qr__upload-action">파일 선택</span>

@@ -489,11 +489,11 @@ const StepContent: React.FC<StepContentProps> = ({
                 {moduleId === "5" ? "경계 결정문 공유하기" : "결과물 업로드"}
               </h3>
               <p className="text-gray-600 mb-4">
-                {moduleId === "1" && "완성된 캠페인 노래와 앨범 커버를 업로드하고 다른 학습자들의 작품도 감상해보세요."}
-                {moduleId === "3" && "완성된 굿즈 디자인과 상품 기획서를 업로드하고 다른 학습자들의 창의적인 작품도 감상해보세요."}
+                {moduleId === "1" && "완성한 캠페인 노래와 앨범 커버를 업로드하고 다른 학습자들의 작품도 감상해 보세요."}
+                {moduleId === "3" && "완성한 굿즈 디자인과 상품 기획서를 업로드하고 다른 학습자들의 창의적인 작품도 감상해 보세요."}
                 {moduleId === "5" && "정리한 생각을 Padlet에 공유하고 다른 학습자가 남긴 관점도 살펴보세요."}
-                {moduleId && !["1", "3", "5"].includes(moduleId) && "완성된 작품을 업로드하고 다른 학습자들의 작품도 감상해보세요."}
-                {!moduleId && "완성된 작품을 업로드하고 다른 학습자들의 작품도 감상해보세요."}
+                {moduleId && !["1", "3", "5"].includes(moduleId) && "완성한 작품을 업로드하고 다른 학습자들의 작품도 감상해 보세요."}
+                {!moduleId && "완성한 작품을 업로드하고 다른 학습자들의 작품도 감상해 보세요."}
               </p>
               <button
                 onClick={() => onExternalLinkClick(step.externalLink!.url)}
@@ -511,11 +511,11 @@ const StepContent: React.FC<StepContentProps> = ({
                 {moduleId === "5" ? "서로의 생각 살펴보기" : "서로의 결과물 살펴보기"}
               </h3>
               <p className="text-sm text-gray-600 mt-1">
-                {moduleId === "1" && "다른 학습자들이 제작한 캠페인 노래와 앨범 커버를 확인하고 영감을 얻어보세요."}
-                {moduleId === "3" && "다른 학습자들이 디자인한 독도 굿즈를 확인하고 새로운 아이디어를 얻어보세요."}
+                {moduleId === "1" && "다른 학습자들이 제작한 캠페인 노래와 앨범 커버를 확인하고 영감을 얻어 보세요."}
+                {moduleId === "3" && "다른 학습자들이 디자인한 독도 굿즈를 확인하고 새로운 아이디어를 얻어 보세요."}
                 {moduleId === "5" && "서로 다른 생각과 근거를 읽으며 경계 사례를 여러 관점에서 돌아보세요."}
-                {moduleId && !["1", "3", "5"].includes(moduleId) && "다른 학습자들의 작품을 확인하고 영감을 얻어보세요."}
-                {!moduleId && "다른 학습자들의 작품을 확인하고 영감을 얻어보세요."}
+                {moduleId && !["1", "3", "5"].includes(moduleId) && "다른 학습자들의 작품을 확인하고 영감을 얻어 보세요."}
+                {!moduleId && "다른 학습자들의 작품을 확인하고 영감을 얻어 보세요."}
               </p>
             </div>
             <div className="relative" style={{ height: '600px' }}>
@@ -607,7 +607,7 @@ const StepContent: React.FC<StepContentProps> = ({
             {step.themedExhibits && step.themedExhibits.length > 0 && (
               <div className="exhibit-block mt-6">
                 <h3 className="text-lg font-medium text-gray-900 mb-3">전시회 테마 선택하기</h3>
-                <p className="text-sm text-gray-600 mb-3">테마를 선택하면 해당 테마의 전시 작품 목록이 드롭다운으로 표시됩니다.</p>
+                <p className="text-sm text-gray-600 mb-3">테마를 선택해 해당 테마의 전시 작품 목록을 확인해 보세요.</p>
                 <div className="flex gap-3 items-center">
                   <select
                     className="p-3 border border-gray-300 rounded-lg bg-white text-gray-900 font-medium focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -635,7 +635,7 @@ const StepContent: React.FC<StepContentProps> = ({
                     DMZ 활용 방안 디자인 결과
                   </h3>
                   <p className="text-sm text-gray-600 mt-1">
-                    설계한 활용 방안을 함께 둘러보고 평가해보세요.
+                    설계한 활용 방안을 함께 둘러보고 평가해 보세요.
                   </p>
                 </div>
                 <div className="relative" style={{ height: '520px' }}>
@@ -650,7 +650,7 @@ const StepContent: React.FC<StepContentProps> = ({
             ) : (
               <div className="scenario-placeholder" role="note">
                 <span className="scenario-placeholder__label">AI 시나리오 연결 대기</span>
-                <p>이 단계에서 만든 시나리오를 연결하면 결과가 이곳에 표시됩니다.</p>
+                <p>이 단계에서 만든 시나리오를 연결해 결과를 확인해 보세요.</p>
               </div>
             )}
           {renderPadletQrUpload()}
@@ -698,7 +698,7 @@ const StepContent: React.FC<StepContentProps> = ({
           <StepRevealableStatements
             id={`${step.id}-revealable-statements`}
             title="영상에서 핵심 내용 확인하기"
-            description="문장에 가려진 핵심 표현을 눌러 내용을 확인해보세요."
+            description="문장에 가려진 핵심 표현을 눌러 내용을 확인해 보세요."
             statements={step.revealableStatements}
           />
         )}
@@ -722,7 +722,7 @@ const StepContent: React.FC<StepContentProps> = ({
         {step.themedExhibits && step.themedExhibits.length > 0 && (
           <div className="exhibit-block mb-6">
             <h3 className="text-lg font-medium text-gray-900 mb-3">전시회 테마 선택하기</h3>
-            <p className="text-sm text-gray-600 mb-3">테마를 선택하면 해당 테마의 전시 작품 목록이 드롭다운으로 표시됩니다.</p>
+            <p className="text-sm text-gray-600 mb-3">테마를 선택해 해당 테마의 전시 작품 목록을 확인해 보세요.</p>
             <div className="flex gap-3 items-center">
               <select
                 className="p-3 border border-gray-300 rounded-lg bg-white text-gray-900 font-medium focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -793,7 +793,7 @@ const StepContent: React.FC<StepContentProps> = ({
             <span className="callout__mark" aria-hidden="true">!</span>
             <div>
               <h4>수정 가능한 콘텐츠</h4>
-              <p>이 콘텐츠는 수정할 수 있습니다. 필요에 따라 내용을 업데이트하세요.</p>
+              <p>필요에 따라 콘텐츠를 직접 수정해 보세요.</p>
             </div>
           </div>
         )}

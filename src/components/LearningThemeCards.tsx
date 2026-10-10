@@ -57,7 +57,7 @@ const LearningThemeCards: React.FC<LearningThemeCardsProps> = ({ themes }) => {
         <div className="theme-learning__intro-heading">
           <div>
             <h3 id="theme-learning-title">주제를 열어 독도의 내용을 살펴보세요.</h3>
-            <p>가림막의 ‘클릭해서 내용 확인’을 눌러 중요한 사실을 확인하세요. 관심 있는 내용은 최대 3개까지 추가해둘 수 있습니다.</p>
+            <p>가림막의 ‘클릭해서 내용 확인’을 눌러 중요한 사실을 확인해 보세요. 다시 참고하고 싶은 내용은 최대 3개까지 관심 내용으로 추가해 보세요.</p>
           </div>
           <span className="theme-learning__evidence-count" aria-live="polite">
             {takeaways.length}/{MAX_TAKEAWAYS} 관심 내용
@@ -139,7 +139,7 @@ const LearningThemeCards: React.FC<LearningThemeCardsProps> = ({ themes }) => {
       <div className={`theme-learning__takeaways ${takeaways.length ? 'theme-learning__takeaways--filled' : ''}`} aria-live="polite">
         <div className="theme-learning__takeaways-heading">
           <strong>관심 내용</strong>
-          <span>{takeaways.length === MAX_TAKEAWAYS ? '최대 3개까지 추가했습니다.' : '확인한 내용 중 다시 참고하고 싶은 문장을 선택하세요.'}</span>
+          <span>{takeaways.length === MAX_TAKEAWAYS ? '최대 3개까지 추가했습니다.' : '확인한 내용 중 다시 참고하고 싶은 문장을 선택해 보세요.'}</span>
         </div>
         {takeaways.length > 0 && (
           <ol>
