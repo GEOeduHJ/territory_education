@@ -19,6 +19,9 @@ import GuidedPromptBuilder from './GuidedPromptBuilder';
 import StepHeader from './StepHeader';
 import PadletQrUpload from './PadletQrUpload';
 import BoundaryDecisionComposer from './BoundaryDecisionComposer';
+import MarineConceptTable from './MarineConceptTable';
+import MarineAreaCases from './MarineAreaCases';
+import FillInBlankActivity from './FillInBlankActivity';
 import { cleanUiText } from '../utils/uiText';
 
 const StepContent: React.FC<StepContentProps> = ({ 
@@ -59,6 +62,9 @@ const StepContent: React.FC<StepContentProps> = ({
 
   // Module 3의 학습 점검 퀴즈 단계인지 확인
   const isLearningQuizStep = step.useLearningQuiz && moduleId === "3";
+
+  // Module 2의 해양영토 개념 단계는 빈칸 활동을 지도보다 먼저 표시
+  const isModule2ConceptStep = moduleId === "2" && step.id === "step-2";
 
   // Embedded iframe preview for external links (all modules)
 
@@ -302,7 +308,7 @@ const StepContent: React.FC<StepContentProps> = ({
           {/* 외부 보조 자료 링크가 제공되는 단계에만 표시 */}
           {step.externalLinks && step.externalLinks.length > 0 && (
             <div className="mb-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {step.externalLinks.map((link, index) => (
                   <button
                     key={index}
@@ -541,6 +547,11 @@ const StepContent: React.FC<StepContentProps> = ({
 
   // 시나리오 생성용 빈 iframe 렌더링 (Module 2, Step 5 용)
   if (step.showScenarioIframe) {
+    const scenarioTitle = moduleId === '2' ? '분석 보고서 공유하기' : 'DMZ 활용 방안 디자인 결과';
+    const scenarioDescription = moduleId === '2'
+      ? '해양공간 분석 보고서를 공유하고, 다른 모둠의 분석 내용도 살펴보세요.'
+      : '설계한 활용 방안을 함께 둘러보고 평가해 보세요.';
+
     return (
       <div 
         className="step-surface"
@@ -632,16 +643,16 @@ const StepContent: React.FC<StepContentProps> = ({
               <div className="embed-block">
                 <div className="bg-gray-50 px-6 py-4 border-b border-gray-200">
                   <h3 className="text-lg font-medium text-gray-900">
-                    DMZ 활용 방안 디자인 결과
+                    {scenarioTitle}
                   </h3>
                   <p className="text-sm text-gray-600 mt-1">
-                    설계한 활용 방안을 함께 둘러보고 평가해 보세요.
+                    {scenarioDescription}
                   </p>
                 </div>
                 <div className="relative" style={{ height: '520px' }}>
                   <iframe
                     src={step.scenarioIframeUrl}
-                    title="DMZ 활용 방안 디자인 결과"
+                    title={scenarioTitle}
                     className="w-full h-full border-0"
                     loading="lazy"
                   />
@@ -680,6 +691,10 @@ const StepContent: React.FC<StepContentProps> = ({
 
         {renderDefaultContent()}
 
+        {step.marineConcepts && step.marineConcepts.length > 0 && (
+          <MarineConceptTable concepts={step.marineConcepts} />
+        )}
+
         {moduleId === '5' && step.imageCarousel && (
           <Module5ImageCarousel
             key={step.id}
@@ -687,11 +702,19 @@ const StepContent: React.FC<StepContentProps> = ({
           />
         )}
 
+        {isModule2ConceptStep && step.fillInBlankActivity && (
+          <FillInBlankActivity activity={step.fillInBlankActivity} />
+        )}
+
         {step.embeddedResources && (
           <InlineEmbeddedResources
             resources={step.embeddedResources}
             onExternalLinkClick={onExternalLinkClick}
           />
+        )}
+
+        {!isModule2ConceptStep && step.fillInBlankActivity && (
+          <FillInBlankActivity activity={step.fillInBlankActivity} />
         )}
 
         {step.revealableStatements && step.revealableStatements.length > 0 && (
@@ -785,7 +808,12 @@ const StepContent: React.FC<StepContentProps> = ({
           </div>
         )}
 
-        
+        {step.marineAreaCases && step.marineAreaCases.length > 0 && (
+          <MarineAreaCases
+            id={`${step.id}-marine-area-cases`}
+            cases={step.marineAreaCases}
+          />
+        )}
 
         {/* Editable Content Notice */}
         {step.editableContent && (

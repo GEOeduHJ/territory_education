@@ -36,7 +36,63 @@ export const MODULE_2_DATA: ModuleData = {
       id: "step-2",
       title: "🌊 해양영토의 개념",
       description: "해양영토를 구성하는 기본 개념들을 탐구해 보세요.",
-      content: "🗺️ 구글마이맵스에 접속해 해양영토를 구성하는 기본 개념들을 탐구해 보세요!\n\n📌 주목할 개념\n• 영해 (Territorial Sea)\n• 통상기선 (Normal Baseline)\n• 직선기선 (Straight Baseline)\n• 배타적 경제수역 (Exclusive Economic Zone, EEZ)\n• 어업협정 (Fishery Agreement)\n\n💡 아래 지도를 살펴보며 우리나라의 해양영토가 어떻게 구성되어 있는지 알아보세요!",
+      content: "문장 속 빈칸에 알맞은 해양영토 개념을 입력하고, 정답 보기 버튼으로 확인해 보세요.",
+      contentLabel: "해양영토 개념 확인하기",
+      fillInBlankActivity: {
+        id: 'module2-maritime-concepts-check',
+        title: '해양영토의 핵심 개념을 빈칸으로 확인해 보세요.',
+        description: '각 설명에 알맞은 개념을 입력한 뒤 정답을 확인해 보세요. 정답을 열어도 입력한 내용은 유지됩니다.',
+        sentences: [
+          {
+            id: 'concept-baseline',
+            segments: [
+              { type: 'text', text: '영해와 배타적 경제수역 등의 범위를 정할 때 기준이 되는 선을 ' },
+              { type: 'blank', id: 'baseline', number: '①', answer: '기선' },
+              { type: 'text', text: '이라고 한다. 기선에는 통상기선과 직선기선 등이 있다.' }
+            ]
+          },
+          {
+            id: 'concept-territorial-sea',
+            segments: [
+              { type: 'text', text: '국가의 주권이 미치는 바다로, 원칙적으로 기선에서 12해리(약 22.2km)까지의 수역을 ' },
+              { type: 'blank', id: 'territorial-sea', number: '②', answer: '영해' },
+              { type: 'text', text: '라고 한다.' }
+            ]
+          },
+          {
+            id: 'concept-normal-baseline',
+            segments: [
+              { type: 'text', text: '썰물 때 바닷물이 가장 낮아졌을 때의 해안선인 저조선을 기준으로 하는 기선을 ' },
+              { type: 'blank', id: 'normal-baseline', number: '③', answer: '통상기선' },
+              { type: 'text', text: '이라고 한다.' }
+            ]
+          },
+          {
+            id: 'concept-straight-baseline',
+            segments: [
+              { type: 'text', text: '해안선이 복잡하거나 섬이 많은 곳에서 적절한 기점들을 직선으로 연결한 기선을 ' },
+              { type: 'blank', id: 'straight-baseline', number: '④', answer: '직선기선' },
+              { type: 'text', text: '이라고 한다.' }
+            ]
+          },
+          {
+            id: 'concept-exclusive-economic-zone',
+            segments: [
+              { type: 'text', text: '영해 바깥에서 기선으로부터 최대 200해리(약 370.4km)까지 설정할 수 있고, 연안국이 해양 자원을 탐사·개발·보전·관리할 권리를 갖는 수역을 ' },
+              { type: 'blank', id: 'exclusive-economic-zone', number: '⑤', answer: '배타적 경제수역' },
+              { type: 'text', text: '이라고 한다.' }
+            ]
+          },
+          {
+            id: 'concept-fishery-agreement',
+            segments: [
+              { type: 'text', text: '국가 간 어업 활동을 조정하고 수산자원을 관리하기 위해 조업 구역과 조건 등을 정하는 약속을 ' },
+              { type: 'blank', id: 'fishery-agreement', number: '⑥', answer: '어업협정' },
+              { type: 'text', text: '이라고 한다.' }
+            ]
+          }
+        ]
+      },
       embeddedResources: [
         {
           id: 'maritime-territory-map',
@@ -51,45 +107,10 @@ export const MODULE_2_DATA: ModuleData = {
     },
     {
       id: "step-3",
-      title: "📡 해양 공간의 데이터 관리(선택 사항)",
-      description: "해양에서 발생하는 인간 활동 데이터를 수집·분석하는 시스템을 살펴보세요.",
-      content: "🔎 세계어업활동관측 시스템(Global Fishing Watch)과 유럽해양관측및데이터넷(EMODnet)을 통해 해양에서의 인간 활동 데이터를 관찰하고 분석해 보세요.\n\n💬\n기술이 발전하면서 바다에서 다양한 해양 자원을 활용한 산업도 이루어지고 있다는 점을 확인해 보세요. 지속 가능한 바다 관리를 위해 인간 활동 데이터를 체계적으로 수집·분석·지도화해야 하는 이유를 생각해 보고, 아래 링크에서 실제 데이터를 탐색해 보세요.",
-      embeddedResources: [
-        {
-          id: 'global-fishing-watch',
-          title: 'Global Fishing Watch',
-          description: '어업 활동과 선박 이동 데이터를 지도에서 살펴보세요.',
-          url: 'https://globalfishingwatch.org/map/',
-          embedUrl: 'https://globalfishingwatch.org/platform/map',
-          aspectRatio: '4 / 3'
-        }
-      ],
-      externalLinks: [
-        {
-          url: 'https://emodnet.ec.europa.eu/en/human-activities',
-          label: 'EMODnet Human Activities 원본 사이트 열기',
-          openInNewTab: true
-        }
-      ],
-      editableContent: false
-    },
-    {
-      id: "step-4",
       title: "🧭 해양 공간의 계획과 분석",
-      description: "해양공간관리계획의 목적과 방법을 영상으로 살펴보고, 해양공간지도로 탐구해 보세요.",
-      content: "1️⃣ [영상 시청] '바다라고 다 같은 바다가 아니다?' 영상을 시청하고 '해양공간관리계획'의 시행 목적과 방법을 확인해 보세요.\n\n2️⃣ [탐구 활동] '해양공간지도'에 접속해 탐구 지역 주변 해역이 어떻게 활용되는지 조사해 보세요.\n\n📝 활동지: 아래 첨부된 활동지를 이용해 탐구 결과를 정리해 보세요.\n(활동지가 프로젝트에 업로드되어 있다면 링크를 열어 확인해 보세요.)",
-      externalLinks: [
-        {
-          url: 'https://www.vadahub.go.kr/imap/index.do',
-          label: '해양공간지도 (VADA Hub) 원본 열기',
-          openInNewTab: true
-        },
-        {
-          url: 'https://www.notion.so/2b2939539a87806e9e64cac3578bec0f#2e6939539a878004a69ff51f02b78823',
-          label: '활동지 (Notion) 원본 열기',
-          openInNewTab: true
-        }
-      ],
+      description: "해양공간관리계획의 목적과 필요성을 영상으로 살펴보고, 핵심 내용을 문장으로 정리해 보세요.",
+      content: "영상을 시청하며 해양공간관리계획의 목적과 필요성을 살펴보세요. 영상 아래 문장의 빈칸을 채워 학습 내용을 확인해 보세요.",
+      contentLabel: "영상 시청 안내",
       embeddedResources: [
         {
           id: 'ocean-planning-video',
@@ -99,17 +120,89 @@ export const MODULE_2_DATA: ModuleData = {
           embedUrl: 'https://www.youtube-nocookie.com/embed/mQhqHQs4g7s?rel=0',
           aspectRatio: '16 / 9',
           allow: 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+        }
+      ],
+      fillInBlankActivity: {
+        id: 'module2-spatial-planning-check',
+        title: '영상 내용을 빈칸으로 확인해 보세요.',
+        description: '각 괄호에 알맞은 말을 입력한 뒤 정답을 확인해 보세요. 정답을 열어도 입력한 내용은 유지됩니다.',
+        sentences: [
+          {
+            id: 'planning-conflict',
+            segments: [
+              { type: 'text', text: '바다는 넓지만 한정된 공간이므로, 자원 개발과 생태계 보호 등 여러 활동 사이에 ' },
+              { type: 'blank', id: 'conflict', number: '①', answer: '갈등' },
+              { type: 'text', text: '이 발생할 수 있다.' }
+            ]
+          },
+          {
+            id: 'planning-definition',
+            segments: [
+              { type: 'text', text: '바다에서 이루어지는 활동과 해역의 특성, 이용 수요 등을 종합적으로 고려하여 바다의 쓰임새를 미리 정하고 관리하는 계획을 ' },
+              { type: 'blank', id: 'plan-name', number: '②', answer: '해양공간관리계획' },
+              { type: 'text', text: '이라고 한다.' }
+            ]
+          },
+          {
+            id: 'planning-zones',
+            segments: [
+              { type: 'text', text: '우리나라는 2019년부터 이 계획을 시행해서, 바다를 용도에 따라 총 ' },
+              { type: 'blank', id: 'zone-count', number: '③', answer: '9' },
+              { type: 'text', text: '개의 해양용도구역으로 나누어 체계적으로 관리하고 있다.' }
+            ]
+          },
+          {
+            id: 'planning-evidence',
+            segments: [
+              { type: 'text', text: '해양공간관리계획을 세우고 보완하려면, 개발 활동이 바다에 미치는 ' },
+              { type: 'blank', id: 'impact', number: '④', answer: '영향' },
+              { type: 'text', text: '과 바다가 지닌 ' },
+              { type: 'blank', id: 'value', number: '⑤', answer: '가치' },
+              { type: 'text', text: '를 지속적으로 연구하여 반영해야 한다.' }
+            ]
+          }
+        ]
+      },
+      editableContent: false
+    },
+    {
+      id: "step-4",
+      title: "‘해양공간관리계획’ 분석하기",
+      description: "해양공간지도를 열어 세 해역의 사례를 살펴보세요.",
+      content: "",
+      hideDefaultContentContainer: true,
+      resourceLabel: "해양공간지도",
+      resourceDescription: "해양공간지도를 활용해 탐구 해역의 용도구역과 지역 특성을 살펴보고, 이 해역의 지속 가능한 이용·개발·보전을 위해서는 어떠한 노력과 마음가짐이 필요할지 생각해 보세요.",
+      externalLinks: [
+        {
+          url: "https://www.vadahub.go.kr/imap/index.do",
+          label: "해양공간지도 열기",
+          openInNewTab: true
+        }
+      ],
+      marineAreaCases: [
+        {
+          id: "mukhojin-dong",
+          imageSrc: "/images/module2-marine-areas/mukhojin-dong.webp",
+          imageAlt: "동해시 묵호진동 주변 해역의 해양공간지도",
+          caption: "동해시 묵호진동 주변 해역",
+          explorationFocus: "항만·어업·군사·안전"
         },
         {
-          id: 'marine-spatial-planning-reference',
-          title: '해양공간관리계획 안내',
-          description: '해양공간관리계획의 제도와 목적을 확인해 보세요.',
-          url: 'https://msp.go.kr/service/system.do',
-          embedUrl: 'https://msp.go.kr/service/system.do',
-          aspectRatio: '4 / 3'
+          id: "hongdo",
+          imageSrc: "/images/module2-marine-areas/hongdo.webp",
+          imageAlt: "신안군 홍도 주변 해역의 해양공간지도",
+          caption: "신안군 홍도 주변 해역",
+          explorationFocus: "어업·생태·관광"
         },
+        {
+          id: "baengnyeong-daecheong",
+          imageSrc: "/images/module2-marine-areas/baengnyeong-daecheong.webp",
+          imageAlt: "백령도와 대청도 주변 해역의 해양공간지도",
+          caption: "백령도와 대청도 주변 해역",
+          explorationFocus: "군사·어업·연구·생태"
+        }
       ],
-      // 활동지 파일은 아직 워크스페이스에서 발견되지 않음 — 필요 시 public/resources에 업로드해주세요
       editableContent: false
     },
     {

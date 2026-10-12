@@ -524,6 +524,71 @@
   margin-top: 0;
 }
 
+.marine-area-cases {
+  margin: 28px 0 36px;
+}
+
+.marine-area-cases__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.marine-area-case-card {
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--surface);
+}
+
+.marine-area-case-card__media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--surface-muted);
+}
+
+.marine-area-case-card__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.marine-area-case-card figcaption {
+  display: grid;
+  gap: 10px;
+  padding: 14px 16px 16px;
+  color: var(--ink-strong);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.marine-area-case-card__detail {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: 8px;
+  align-items: start;
+}
+
+.marine-area-case-card__detail > span:first-child {
+  color: var(--ink-muted);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.marine-area-case-card__detail > span:last-child {
+  min-width: 0;
+  color: var(--ink-strong);
+  font-weight: 650;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
 .module5-image-carousel {
   margin: 0 0 32px;
   overflow: hidden;
@@ -1062,6 +1127,15 @@
 }
 
 @media (max-width: 680px) {
+  .marine-area-cases__grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .marine-area-case-card figcaption {
+    padding: 12px 15px 14px;
+  }
+
   .module5-case-study-grid {
     grid-template-columns: 1fr;
     gap: 14px;
@@ -1938,8 +2012,16 @@ input:focus-visible {
   margin-inline: auto;
 }
 
+.step-surface .step-content-inner > * {
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
 .step-heading {
-  max-width: 760px;
+  width: 100%;
+  max-width: none;
   margin: 0 0 34px;
 }
 
@@ -1955,7 +2037,8 @@ input:focus-visible {
 }
 
 .step-heading > p:last-child {
-  max-width: 680px;
+  width: 100%;
+  max-width: none;
   margin: 16px 0 0;
   color: var(--ink-muted);
   font-size: 0.98rem;
@@ -1990,7 +2073,8 @@ input:focus-visible {
   }
 
   .step-content-block {
-    max-width: 960px;
+    width: 100%;
+    max-width: none;
   }
 
   .detail-card {
@@ -4072,6 +4156,335 @@ input:focus-visible {
 }
 
 /* Direct learning and creation workspaces for the Dokdo module. */
+.marine-concept-table {
+  margin: 26px 0 32px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-panel);
+  background: var(--surface);
+  box-shadow: var(--shadow-soft);
+}
+
+.marine-concept-table__heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding: clamp(22px, 3.5vw, 34px);
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(120deg, var(--surface), var(--surface-muted));
+}
+
+.marine-concept-table__heading h3 {
+  margin: 0;
+  color: var(--ink-strong);
+  font-size: clamp(1.35rem, 2.5vw, 1.8rem);
+  letter-spacing: -0.045em;
+  line-height: 1.25;
+}
+
+.marine-concept-table__heading p:last-child {
+  margin: 8px 0 0;
+  color: var(--ink-muted);
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+
+.marine-concept-table__count {
+  flex: 0 0 auto;
+  padding: 8px 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--accent-strong);
+  font-size: 0.78rem;
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+.marine-concept-table__scroll-region {
+  overflow-x: auto;
+}
+
+.marine-concept-table__table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: fixed;
+}
+
+.marine-concept-table__table th,
+.marine-concept-table__table td {
+  padding: 17px 20px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.marine-concept-table__table th {
+  background: var(--surface-muted);
+  color: var(--ink-muted);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.marine-concept-table__table th:first-child,
+.marine-concept-table__table td:first-child {
+  width: 30%;
+  border-right: 1px solid var(--line);
+}
+
+.marine-concept-table__table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.marine-concept-table__table tbody tr:hover td {
+  background-color: color-mix(in srgb, var(--accent-soft) 38%, var(--surface));
+}
+
+.marine-concept-table__reveal {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 48px;
+  padding: 8px 10px;
+  border: 1px solid var(--line-strong);
+  border-radius: 12px;
+  background: var(--surface-muted);
+  color: var(--accent-strong);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 750;
+  line-height: 1.45;
+  text-align: left;
+  transition: border-color 160ms ease, background-color 160ms ease, color 160ms ease, box-shadow 160ms ease;
+  touch-action: manipulation;
+}
+
+.marine-concept-table__reveal:hover,
+.marine-concept-table__reveal:focus-visible {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  box-shadow: 0 3px 10px rgba(15, 118, 110, 0.12);
+}
+
+.marine-concept-table__reveal:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--accent) 28%, transparent);
+  outline-offset: 2px;
+}
+
+.marine-concept-table__reveal--revealed {
+  border-color: transparent;
+  background: transparent;
+  color: var(--ink-strong);
+}
+
+.marine-concept-table__number {
+  flex: 0 0 auto;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.marine-concept-table__explanation-cell {
+  color: var(--ink);
+  font-size: 0.94rem;
+  line-height: 1.75;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+.fill-in-blank {
+  margin: 28px 0 32px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-panel);
+  background: var(--surface);
+  box-shadow: var(--shadow-soft);
+}
+
+.fill-in-blank__heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding: clamp(22px, 3.5vw, 34px);
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(120deg, var(--surface), var(--surface-muted));
+}
+
+.fill-in-blank__heading h3 {
+  margin: 0;
+  color: var(--ink-strong);
+  font-size: clamp(1.35rem, 2.5vw, 1.8rem);
+  letter-spacing: -0.045em;
+  line-height: 1.25;
+}
+
+.fill-in-blank__heading p:last-child {
+  margin: 8px 0 0;
+  color: var(--ink-muted);
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+
+.fill-in-blank__count {
+  flex: 0 0 auto;
+  padding: 8px 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--accent-strong);
+  font-size: 0.78rem;
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+.fill-in-blank__sentences {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 8px clamp(20px, 3.5vw, 34px);
+  list-style: none;
+}
+
+.fill-in-blank__sentence {
+  margin: 0;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.fill-in-blank__sentence:last-child {
+  border-bottom: 0;
+}
+
+.fill-in-blank__sentence p {
+  margin: 0;
+  color: var(--ink);
+  font-size: 1rem;
+  line-height: 2;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+.fill-in-blank__slot {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0 3px;
+  color: var(--ink-muted);
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.fill-in-blank__number {
+  color: var(--accent-strong);
+  font-size: 0.88em;
+  font-weight: 800;
+}
+
+.fill-in-blank__input {
+  box-sizing: border-box;
+  min-width: 5em;
+  max-width: min(68vw, 16em);
+  min-height: 44px;
+  padding: 7px 10px;
+  border: 1px solid var(--line-strong);
+  border-bottom: 2px solid var(--accent);
+  border-radius: 9px;
+  background: var(--surface-muted);
+  color: var(--ink-strong);
+  font: inherit;
+  font-size: 0.9em;
+  line-height: 1.35;
+  text-align: center;
+  transition: border-color 160ms ease, background-color 160ms ease, box-shadow 160ms ease;
+}
+
+.fill-in-blank__input::placeholder {
+  color: var(--ink-muted);
+  font-size: 0.82em;
+  opacity: 1;
+}
+
+.fill-in-blank__input:focus-visible {
+  border-color: var(--accent-strong);
+  outline: 3px solid color-mix(in srgb, var(--accent) 24%, transparent);
+  outline-offset: 2px;
+  background: var(--surface);
+}
+
+.fill-in-blank__revealed-answer {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 4px 10px;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #ffffff;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.fill-in-blank__sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+.fill-in-blank__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px clamp(20px, 3.5vw, 34px);
+  border-top: 1px solid var(--line);
+  background: var(--surface-muted);
+}
+
+.fill-in-blank__footer p {
+  margin: 0;
+  color: var(--ink-muted);
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+.fill-in-blank__toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 132px;
+  min-height: 48px;
+  padding: 10px 18px;
+  border: 1px solid var(--accent-strong);
+  border-radius: 999px;
+  background: var(--accent-strong);
+  color: #ffffff;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.92rem;
+  font-weight: 750;
+  transition: background-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+  touch-action: manipulation;
+}
+
+.fill-in-blank__toggle:hover {
+  background: var(--surface-strong);
+  box-shadow: var(--shadow-soft);
+  transform: translateY(-1px);
+}
+
+.fill-in-blank__toggle:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--accent) 28%, transparent);
+  outline-offset: 3px;
+}
+
 .theme-learning,
 .theme-quiz,
 .mockup-panel,
@@ -5152,6 +5565,98 @@ input:focus-visible {
 }
 
 @media (max-width: 760px) {
+  .marine-concept-table__heading {
+    display: grid;
+    gap: 14px;
+  }
+
+  .marine-concept-table__count {
+    justify-self: start;
+  }
+
+  .fill-in-blank__heading {
+    display: grid;
+    gap: 14px;
+  }
+
+  .fill-in-blank__count {
+    justify-self: start;
+  }
+
+  .fill-in-blank__footer {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .fill-in-blank__toggle {
+    width: 100%;
+  }
+
+  .marine-concept-table__scroll-region {
+    overflow: visible;
+  }
+
+  .marine-concept-table__table,
+  .marine-concept-table__table tbody,
+  .marine-concept-table__table tr,
+  .marine-concept-table__table td {
+    display: block;
+    width: 100%;
+  }
+
+  .marine-concept-table__table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+
+  .marine-concept-table__table tbody {
+    display: grid;
+    gap: 12px;
+    padding: 14px;
+  }
+
+  .marine-concept-table__table tbody tr {
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--surface);
+  }
+
+  .marine-concept-table__table th:first-child,
+  .marine-concept-table__table td:first-child {
+    width: 100%;
+    border-right: 0;
+  }
+
+  .marine-concept-table__table td {
+    padding: 12px 14px;
+    border-bottom: 0;
+  }
+
+  .marine-concept-table__table td::before {
+    display: block;
+    margin-bottom: 7px;
+    color: var(--ink-muted);
+    content: attr(data-label);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+  }
+
+  .marine-concept-table__table .marine-concept-table__term-cell {
+    padding-bottom: 8px;
+    background: var(--surface-muted);
+  }
+
+  .marine-concept-table__table .marine-concept-table__explanation-cell {
+    padding-top: 10px;
+  }
+
   .theme-learning,
   .theme-quiz,
   .mockup-panel,

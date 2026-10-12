@@ -71,6 +71,20 @@ export interface GuidedPromptConfig {
   geminiLabel: string;
 }
 
+export type FillInBlankSegment =
+  | { type: 'text'; text: string }
+  | { type: 'blank'; id: string; number: string; answer: string };
+
+export interface FillInBlankActivity {
+  id: string;
+  title: string;
+  description: string;
+  sentences: Array<{
+    id: string;
+    segments: FillInBlankSegment[];
+  }>;
+}
+
 // 모듈 스텝 인터페이스
 export interface ModuleStep {
   id: string;
@@ -110,6 +124,21 @@ export interface ModuleStep {
   }>;
   // 영상·자료 뒤에 이어지는 문장형 핵심 표현 확인 활동
   revealableStatements?: LearningThemeContentPart[][];
+  // 모듈 2 해양영토 개념 학습 표
+  marineConcepts?: Array<{
+    id: string;
+    term: string;
+    explanation: string;
+  }>;
+  // 모듈 2 해양공간관리계획 분석 단계의 해역 사례 이미지
+  marineAreaCases?: Array<{
+    id: string;
+    imageSrc: string;
+    imageAlt: string;
+    caption: string;
+    explorationFocus: string;
+  }>;
+  fillInBlankActivity?: FillInBlankActivity;
   editableContent?: boolean;
   // 단계의 실제 내용을 설명하는 섹션 제목 (예: 탐구 활동 안내, 제출 전 확인)
   contentLabel?: string;
