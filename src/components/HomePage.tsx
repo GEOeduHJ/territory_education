@@ -5,6 +5,44 @@ import LearningRoutePreview from './LearningRoutePreview';
 import { ModuleInfo } from '../types';
 import { contentLoader } from '../services/linkService';
 
+const worksheetDownloads = [
+  {
+    moduleNumber: '01',
+    title: '세계 분쟁',
+    file: 'module1-world-conflicts.hwpx',
+    downloadName: '모듈1_세계분쟁_학생활동지.hwpx',
+    fileSize: '157 KB',
+  },
+  {
+    moduleNumber: '02',
+    title: '해양 영토',
+    file: 'module2-marine-territory.hwpx',
+    downloadName: '모듈2_해양영토_학생활동지.hwpx',
+    fileSize: '12 MB',
+  },
+  {
+    moduleNumber: '03',
+    title: '독도',
+    file: 'module3-dokdo.hwpx',
+    downloadName: '모듈3_독도_학생활동지.hwpx',
+    fileSize: '85 KB',
+  },
+  {
+    moduleNumber: '04',
+    title: 'DMZ',
+    file: 'module4-dmz.hwpx',
+    downloadName: '모듈4_DMZ_학생활동지.hwpx',
+    fileSize: '4.8 MB',
+  },
+  {
+    moduleNumber: '05',
+    title: '경계',
+    file: 'module5-boundaries.hwpx',
+    downloadName: '모듈5_경계_학생활동지.hwpx',
+    fileSize: '52 MB',
+  },
+];
+
 const HomePage: React.FC = () => {
   const [modules, setModules] = useState<ModuleInfo[]>([]);
   const [loading, setLoading] = useState(true);
@@ -132,6 +170,40 @@ const HomePage: React.FC = () => {
                 />
               ))}
             </div>
+
+            <section className="worksheets-section" aria-labelledby="worksheets-title">
+              <div className="worksheets-section__heading">
+                <p className="section-kicker">수업 자료</p>
+                <h2 id="worksheets-title">학생 활동지 다운로드</h2>
+                <p>모듈별 학생 활동지를 내려받아 수업에 활용해 보세요.</p>
+              </div>
+
+              <div className="worksheet-download-grid">
+                {worksheetDownloads.map((worksheet) => (
+                  <article className="worksheet-download-card" key={worksheet.moduleNumber}>
+                    <div className="worksheet-download-card__meta">
+                      <span>모듈 {worksheet.moduleNumber}</span>
+                      <span>HWPX · {worksheet.fileSize}</span>
+                    </div>
+                    <h3>{worksheet.title}</h3>
+                    <p>학생 활동지</p>
+                    <a
+                      className="worksheet-download-card__link"
+                      href={`/worksheets/${worksheet.file}`}
+                      download={worksheet.downloadName}
+                      aria-label={`모듈 ${worksheet.moduleNumber} ${worksheet.title} 학생 활동지 다운로드`}
+                    >
+                      <span>학습지 다운로드</span>
+                      <span aria-hidden="true">↓</span>
+                    </a>
+                  </article>
+                ))}
+              </div>
+
+              <p className="worksheets-section__note">
+                모듈 5 활동지는 이미지 픽셀을 손실 없이 변환해 화질을 유지하면서 용량을 줄였습니다.
+              </p>
+            </section>
           </div>
         </section>
       </main>
