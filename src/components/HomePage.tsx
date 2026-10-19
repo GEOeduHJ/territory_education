@@ -47,6 +47,7 @@ const HomePage: React.FC = () => {
   const [modules, setModules] = useState<ModuleInfo[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [worksheetRotationStep, setWorksheetRotationStep] = useState(0);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -68,6 +69,15 @@ const HomePage: React.FC = () => {
   const handleModuleClick = (moduleId: string) => {
     navigate(`/module/${moduleId}`);
   };
+
+  const rotateWorksheets = (direction: number) => {
+    setWorksheetRotationStep((currentStep) => currentStep + direction);
+  };
+
+  const activeWorksheetIndex = (
+    (worksheetRotationStep % worksheetDownloads.length) + worksheetDownloads.length
+  ) % worksheetDownloads.length;
+  const activeWorksheet = worksheetDownloads[activeWorksheetIndex];
 
   if (loading) {
     return (
@@ -178,31 +188,93 @@ const HomePage: React.FC = () => {
                 <p>모듈별 학생 활동지를 내려받아 수업에 활용해 보세요.</p>
               </div>
 
-              <div className="worksheet-download-grid">
-                {worksheetDownloads.map((worksheet) => (
-                  <article className="worksheet-download-card" key={worksheet.moduleNumber}>
-                    <div className="worksheet-download-card__meta">
-                      <span>모듈 {worksheet.moduleNumber}</span>
-                      <span>HWPX · {worksheet.fileSize}</span>
-                    </div>
-                    <h3>{worksheet.title}</h3>
-                    <p>학생 활동지</p>
-                    <a
-                      className="worksheet-download-card__link"
-                      href={`/worksheets/${worksheet.file}`}
-                      download={worksheet.downloadName}
-                      aria-label={`모듈 ${worksheet.moduleNumber} ${worksheet.title} 학생 활동지 다운로드`}
-                    >
-                      <span>학습지 다운로드</span>
-                      <span aria-hidden="true">↓</span>
-                    </a>
-                  </article>
-                ))}
+              <div className="worksheet-carousel">
+                <div className="worksheet-carousel__caption">
+                  <p className="worksheet-carousel__instruction">
+                    좌우 화살표로 활동지를 살펴보고, 가운데 카드에서 다운로드해 보세요.
+                  </p>
+                  <p className="worksheet-carousel__position" aria-live="polite" aria-atomic="true">
+                    <strong>{activeWorksheet.moduleNumber}</strong>
+                    <span> / {String(worksheetDownloads.length).padStart(2, '0')} · {activeWorksheet.title}</span>
+                  </p>
+                </div>
+
+                <div
+                  className="worksheet-carousel__viewport"
+                  role="region"
+                  aria-roledescription="carousel"
+                  aria-label="학생 활동지 다운로드"
+                >
+                  <button
+                    type="button"
+                    className="worksheet-carousel__arrow worksheet-carousel__arrow--previous"
+                    onClick={() => rotateWorksheets(-1)}
+                    aria-label="이전 학습지 보기"
+                  >
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                      <path d="m15 18-6-6 6-6" />
+                    </svg>
+                  </button>
+                  <div
+                    className="worksheet-carousel__scene"
+                    style={{ transform: `rotateY(${worksheetRotationStep * -72}deg)` }}
+                  >
+                    {worksheetDownloads.map((worksheet, index) => {
+                      const relativeIndex = (index - activeWorksheetIndex + worksheetDownloads.length)
+                        % worksheetDownloads.length;
+                      const isActive = relativeIndex === 0;
+                      const isNeighbor = relativeIndex === 1 || relativeIndex === worksheetDownloads.length - 1;
+
+                      return (
+                        <article
+                          className={`worksheet-download-card ${isActive ? 'worksheet-download-card--active' : ''} ${isNeighbor ? 'worksheet-download-card--neighbor' : ''}`}
+                          key={worksheet.moduleNumber}
+                          style={{ transform: `translate(-50%, -50%) rotateY(${index * 72}deg) translateZ(var(--carousel-depth))` }}
+                          role="group"
+                          aria-roledescription="슬라이드"
+                          aria-label={`모듈 ${worksheet.moduleNumber}: ${worksheet.title}`}
+                          aria-current={isActive ? 'true' : undefined}
+                          aria-hidden={!isActive}
+                        >
+                          <div className="worksheet-download-card__meta">
+                            <span>모듈 {worksheet.moduleNumber}</span>
+                            <span>HWPX · {worksheet.fileSize}</span>
+                          </div>
+                          <h3>{worksheet.title}</h3>
+                          <p>학생 활동지</p>
+                          {isActive ? (
+                            <a
+                              className="worksheet-download-card__link"
+                              href={`/worksheets/${worksheet.file}`}
+                              download={worksheet.downloadName}
+                              aria-label={`모듈 ${worksheet.moduleNumber} ${worksheet.title} 학생 활동지 다운로드`}
+                            >
+                              <span>학습지 다운로드</span>
+                              <span aria-hidden="true">↓</span>
+                            </a>
+                          ) : isNeighbor ? (
+                            <div className="worksheet-download-card__preview-hint">
+                              <span aria-hidden="true">↻</span>
+                              가운데로 이동해 다운로드
+                            </div>
+                          ) : null}
+                        </article>
+                      );
+                    })}
+                  </div>
+                  <button
+                    type="button"
+                    className="worksheet-carousel__arrow worksheet-carousel__arrow--next"
+                    onClick={() => rotateWorksheets(1)}
+                    aria-label="다음 학습지 보기"
+                  >
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                      <path d="m9 18 6-6-6-6" />
+                    </svg>
+                  </button>
+                </div>
               </div>
 
-              <p className="worksheets-section__note">
-                모듈 5 활동지는 이미지 픽셀을 손실 없이 변환해 화질을 유지하면서 용량을 줄였습니다.
-              </p>
             </section>
           </div>
         </section>
