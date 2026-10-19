@@ -65,7 +65,10 @@ const GuidedPromptBuilder: React.FC<GuidedPromptBuilderProps> = ({ config, onExt
   };
 
   return (
-    <section className="guided-prompt-builder" aria-labelledby={`${config.id}-title`}>
+    <section
+      className={`guided-prompt-builder${config.compactPreview ? ' guided-prompt-builder--compact-preview' : ''}`}
+      aria-labelledby={`${config.id}-title`}
+    >
       <div className="guided-prompt-builder__heading">
         <p className="content-eyebrow">AI 디자인 프롬프트</p>
         <h2 id={`${config.id}-title`}>{config.title}</h2>
@@ -73,7 +76,7 @@ const GuidedPromptBuilder: React.FC<GuidedPromptBuilderProps> = ({ config, onExt
       </div>
 
       <p className="guided-prompt-builder__note">
-        구상한 내용을 각 칸에 입력해 프롬프트를 완성해 보세요. 비워 둔 칸이 밑줄로 표시되는지 확인해 보세요. 조사(을/를·으로/로)가 입력한 말에 맞춰 정리되는지도 확인해 보세요.
+        구상한 내용을 각 칸에 입력해 프롬프트를 완성해 보세요. 비워 둔 칸이 밑줄로 표시되는지 확인해 보세요.
       </p>
 
       <div className="guided-prompt-builder__groups">

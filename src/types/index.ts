@@ -65,6 +65,7 @@ export interface GuidedPromptConfig {
   id: string;
   title: string;
   description: string;
+  compactPreview?: boolean;
   groups: GuidedPromptGroup[];
   template: string;
   geminiUrl: string;

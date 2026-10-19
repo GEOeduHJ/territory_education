@@ -5714,6 +5714,14 @@ input:focus-visible {
   resize: none;
 }
 
+.guided-prompt-builder--compact-preview .generated-prompt {
+  padding-block: clamp(15px, 2vw, 22px);
+}
+
+.guided-prompt-builder--compact-preview .guided-prompt-builder__preview {
+  min-height: 320px;
+}
+
 .guided-prompt-builder__paste-hint {
   margin: 16px 0 0;
   color: rgba(243, 251, 250, 0.8);
