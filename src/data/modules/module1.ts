@@ -29,7 +29,7 @@ export const MODULE_1_DATA: ModuleData = {
       id: "step-1",
       title: "🗺️ 분쟁 지역 자료 조사",
       description: "세계 각지의 영토 분쟁 지역을 탐색하고 자료를 조사해 보세요. 🔎",
-      content: "지도에서 분쟁 지역을 탐색하고 관련 자료를 확인해 보세요! 마커를 눌러 자료를 열어 보세요. 👆\n관심 있는 지역의 자료를 읽고 핵심 내용을 정리해 다음 단계의 키워드를 준비해 보세요.",
+      content: "지도에서 분쟁 지역을 살펴보고, 마커를 눌러 아래에 임베딩된 사례 영상을 선택해 보세요. 좌우 화살표를 눌러 다섯 영상을 넘겨 보세요.\n관심 있는 지역의 자료를 읽고 핵심 내용을 정리해 다음 단계의 키워드를 준비해 보세요.",
       showMap: true,
       regionResources: [
         
@@ -37,7 +37,7 @@ export const MODULE_1_DATA: ModuleData = {
     "id": "region-1",
     "name": "남중국해",
     "coordinates": [12, 115.0],
-    "pdfUrl": "https://youtu.be/QmIDYcYFuzk",
+    "videoUrl": "https://youtu.be/Sg0559CbpkE?si=0DeiIggb7dpad6Yn",
     "description": "중국·대만·베트남·필리핀·말레이시아·브루나이 간 도서 주권 및 해양 관할권 분쟁",
     "dialogue": `[사례] 남중국해 분쟁
 
@@ -69,7 +69,7 @@ export const MODULE_1_DATA: ModuleData = {
     "id": "region-2",
     "name": "센카쿠/댜오위다오",
     "coordinates": [25.78, 123.5],
-    "pdfUrl": "https://youtu.be/StSkJFXdFcY",
+    "videoUrl": "https://youtu.be/WrC4ms5Rdkk?si=yljER_L46yvQMpyP",
     "description": "일본·중국·대만 간 동중국해 도서 영유권 분쟁",
     "dialogue": `[사례] 센카쿠/댜오위다오 열도 분쟁
 
@@ -101,7 +101,7 @@ export const MODULE_1_DATA: ModuleData = {
     "id": "region-3",
     "name": "남쿠릴/북방영토",
     "coordinates": [44.5, 146.5],
-    "pdfUrl": "https://youtu.be/BVjvTI_gAu4",
+    "videoUrl": "https://youtu.be/Ga42KGo0StY?si=qEpnZfxr5I9YZ3nj",
     "description": "러시아와 일본 간 4개 섬(이투루프·쿠나시르·시코탄·하보마이) 영유권 분쟁",
     "dialogue": `[사례] 남쿠릴 열도/북방 영토 분쟁
 
@@ -131,14 +131,14 @@ export const MODULE_1_DATA: ModuleData = {
   //   "id": "region-4",
   //   "name": "중국-인도 국경",
   //   "coordinates": [28.5, 94.8],
-  //   "pdfUrl": "https://youtu.be/yUAss_21D3A",
+  //   "videoUrl": "https://youtu.be/yUAss_21D3A",
   //   "description": "중국과 인도 간 악사이친·라다크·아루나찰프라데시 국경선 분쟁"
   // },
   {
     "id": "region-5",
     "name": "카슈미르",
     "coordinates": [34.0, 76.5],
-    "pdfUrl": "https://youtu.be/sJiWSypT7rQ",
+    "videoUrl": "https://youtu.be/uyMNNPiLuiE?si=GfYGO6A869DiN8Ti",
     "description": "인도·파키스탄(중국 연계) 간 카슈미르 영토 주권 및 자치권 분쟁",
     "dialogue": `[사례] 카슈미르 분쟁
 
@@ -166,14 +166,14 @@ export const MODULE_1_DATA: ModuleData = {
   //   "id": "region-6",
   //   "name": "이스라엘-팔레스타인",
   //   "coordinates": [31.5, 35.0],
-  //   "pdfUrl": "https://youtu.be/28BPywj9Tbk",
+  //   "videoUrl": "https://youtu.be/28BPywj9Tbk",
   //   "description": "이스라엘과 팔레스타인 간 영토·국경·정착촌·예루살렘 지위 분쟁"
   // },
   {
     "id": "region-7",
     "name": "나일강 연안국",
     "coordinates": [12.0, 33.0],
-    "pdfUrl": "https://youtu.be/btKYe_wUjJA",
+    "videoUrl": "https://youtu.be/7VPklJKKzOo?si=TYmrm04pAjB89qb8",
     "description": "이집트·수단·에티오피아 등 나일강 유역 국가 간 물 배분 및 댐 건설 분쟁",
     "dialogue": `[사례] 나일강 분쟁
 
@@ -205,7 +205,7 @@ export const MODULE_1_DATA: ModuleData = {
   //   "id": "region-8",
   //   "name": "이집트-수단(할라이브)",
   //   "coordinates": [22.2, 36.6],
-  //   "pdfUrl": "https://youtu.be/33Cn13jnh1Y",
+  //   "videoUrl": "https://youtu.be/33Cn13jnh1Y",
   //   "description": "이집트와 수단 간 홍해 연안 할라이브 삼각지대 영유권 분쟁"
   // }
       ],

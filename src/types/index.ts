@@ -234,7 +234,7 @@ export interface RegionResource {
   id: string;
   name: string;
   coordinates: [number, number]; // [latitude, longitude]
-  pdfUrl: string;
+  videoUrl: string;
   description: string;
   // 학습지 부록에 수록된 사례 분석용 대화문 (5개 사례에만 존재)
   dialogue?: string;
