@@ -22,7 +22,7 @@ export const MODULE_1_KEYWORD_CONFIG: ModuleKeywordConfig = {
 export const MODULE_1_DATA: ModuleData = {
   id: "1",
   topic: "세계분쟁",
-  title: "영토 분쟁을 이해하고, 평화의 노래로 표현하다",
+  title: "영토의 불협화음을 넘어, 평화의 하모니를 부르다",
   description: "세계의 영토 분쟁을 자료로 탐구하고, 생성형 AI로 평화의 메시지를 담은 캠페인 노래와 앨범 커버를 제작하는 모듈",
   steps: [
     {

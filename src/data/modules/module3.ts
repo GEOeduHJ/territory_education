@@ -200,7 +200,7 @@ export const DOKDO_LEARNING_THEMES: LearningTheme[] = [
 export const MODULE_3_DATA: ModuleData = {
   id: '3',
   topic: '독도',
-  title: '독도를 배우고, AI로 배움의 가치를 디자인하다',
+  title: '외로운 섬의 기억을 넘어, AI로 배움의 가치를 디자인하다',
   description: '독도의 위치와 영역, 지형과 생태, 기록과 역사, 국제 관계와 동해 표기를 배우고 생성형 AI로 굿즈와 상품 설명서를 만드는 모듈',
   steps: [
     {
